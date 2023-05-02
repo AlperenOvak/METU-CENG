@@ -12,12 +12,16 @@
 */
 float length(float vec[], int size)
 {
-    
+    int i;
     float result = 0.0;
+    for(i=0;i<size;i++){
+        result+=vec[i]*vec[i];
+    }
+    result=sqrt(result);
     
     /* WRITE YOUR CODE HERE */
     
-    return result
+    return result;
 }
 
 
@@ -32,8 +36,10 @@ float length(float vec[], int size)
 float dot(float vec1[], float vec2[], int size)
 {
     float result = 0.0;
-    
-    /* WRITE YOUR CODE HERE */
+    int i;
+    for(i=0;i<size;i++){
+        result+=vec1[i]*vec2[i];
+    }
     
     return result;
 }
@@ -51,7 +57,32 @@ float dot(float vec1[], float vec2[], int size)
 */
 void translateVertices(float vertices[], int vertexCount, float commands[], int commandCount)
 {
-    /* WRITE YOUR CODE HERE */
+    int i;
+    float x_p=0,y_p=0;
+    for(i=0;i<commandCount*2;i+=2){
+        x_p+=commands[i];
+        y_p+=commands[i+1];
+        
+    }
+    /*for(i=0;i<vertexCount*2;i++){
+        printf("v[%d]=%f ",i,vertices[i]);
+    }
+    for(i=0;i<commandCount*2;i++){
+        printf("c[%d]=%f ",i,commands[i]);
+    }
+    printf("\n%f %f\n",x_p,y_p);*/
+    for(i=0;i<vertexCount*2;i++){
+        if(i%2==0){
+            vertices[i]+=x_p;
+        }else{
+            vertices[i]+=y_p;
+        }
+        if(i==vertexCount*2-1){
+            printf("%.2f",vertices[i]);
+        }else{
+            printf("%.2f ",vertices[i]);
+        }
+    }
 }
 
 /*
@@ -72,7 +103,57 @@ void visualizeObjects(int A[], int vertexCountA,
                       int B[], int vertexCountB,
                       int rowSize, int columnSize)
 {
-  /* WRITE YOUR CODE HERE */
+  int i,j,k,l,cross;
+  for(i=0;i<rowSize;i++){
+      for(j=0;j<columnSize;j++){
+          cross=0;
+          for(k=0;k<vertexCountA*2;k+=2){
+              if(j==A[k+1] && i==A[k]){
+                  cross++;
+                  
+              }
+          }
+          for(l=0;l<vertexCountB*2;l+=2){
+              if(j==B[l+1] && i==B[l]){
+                  cross+=2;
+                  
+              }
+          }
+          
+          
+          if(j==columnSize-1){
+            if(cross==3){
+                printf("x");
+            }else if(cross==2){
+                printf("b");
+            }else if(cross==1){
+                printf("a");
+            }else{
+                printf("-");
+            } 
+            if(i==rowSize-1){
+                j++;
+            }else{
+                printf("\n");
+            }
+            
+          }else{
+            if(cross==3){
+                printf("x  ");
+            }else if(cross==2){
+                printf("b  ");
+            }else if(cross==1){
+                printf("a  ");
+            }else{
+                printf("-  ");
+            }    
+          }
+          
+          
+      }
+      
+      
+  }
 }
 
 
