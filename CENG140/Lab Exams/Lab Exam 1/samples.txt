@@ -1,0 +1,56 @@
+Hello CENG
+Input:
+242 2 90 80.1234
+Output:
+I got 50.13 from the first and 80.12 from the second lab exam of CENG242.
+There will be 2 lab exams in total.
+If I get two zero grades in the forthcoming lab exams, I'm going to get NA.
+
+Input:
+140 3 50.13 80.123
+Output:
+I got 50.13 from the first and 80.12 from the second lab exam of CENG140.
+There will be 3 lab exams in total.
+If I get two zero grades in the forthcoming lab exams, I'm going to get NA.
+
+==================================================================================
+==================================================================================
+
+Square Checker
+Input:
+16
+Output:
+Square of 16
+
+Input:
+18
+Output:
+Not a square
+
+==================================================================================
+==================================================================================
+
+ZigZag Checker
+Input:
+7 11 2 10 3 9 5 7
+Output:
+Narrowing zigzag
+
+Input:
+8 20 3 21 15 19 1 100 4
+Output:
+Zigzag but not narrowing
+
+==================================================================================
+==================================================================================
+
+Letter grades
+Input:
+3 60.1 70.2 50.3 40.1 50.2 60.3
+Output:
+Average: 55.20. Letter grades: FD CC CB
+
+Input:
+10 10.11 20.22 30.33 40.44 50.55 45.54 79.79 29.29 23.23 66.66 22.23 60.51 91.5
+Output:
+Average: 43.88. Letter grades: FF BA AA
