@@ -1,2 +1,4 @@
 # METU-CENG
-A lifespan of an METU student.
+A lifespan of an METU (CENG + BA) student.
+
+
