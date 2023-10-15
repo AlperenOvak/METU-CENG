@@ -18,12 +18,12 @@ class Matrix{
         int get_dimension() const;
         //Getter Funciton for ith and jth member of matrix
         //Check if i and j are within matrix boundry
-        void get_number(int i,int j) const;
+        int get_number(int i,int j) const;
         //Setter functiom
         //Check if i and j are within matrix boundry
-        void set_number(int i,int j,int value);
+        void set_number(int i,int j,int value)const;
 
-        Matrix& operator=(const Matrix& rhs)const;
+        Matrix& operator=(const Matrix& rhs);
 
         Matrix operator+(const Matrix& rhs) const;
 

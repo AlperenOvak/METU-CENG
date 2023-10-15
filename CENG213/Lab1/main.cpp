@@ -1,7 +1,7 @@
 #include <iostream>
-#include "matrix.hpp"
+#include "matrix.cpp"
 
-usşng namespace std;
+using namespace std;
 
 int main(){
     //You can test your implementation here.
@@ -10,8 +10,8 @@ int main(){
     Matrix matrix1(4);
     Matrix matrix2(4);
 
-    Matrix resultAddition = matrix1 + mstrix2;
-    Matrix resultSubtraction = matrix1 - mstrix2;
+    Matrix resultAddition = matrix1 + matrix2;
+    Matrix resultSubtraction = matrix1 - matrix2;
     bool isEqual = (matrix1 == matrix2);
 
     std::cout << isEqual << std::endl;

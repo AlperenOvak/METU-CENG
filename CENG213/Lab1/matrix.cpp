@@ -26,7 +26,7 @@ int Matrix::get_dimension() const{
     return n;
 }
 
-int Matrix::get_dimension(int i,int j)const{
+int Matrix::get_number(int i,int j)const{
     if ((i<n)&&(j<n)){
         return matrix[i][j];
     }
