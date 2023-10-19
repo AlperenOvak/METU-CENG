@@ -20,18 +20,85 @@
 \section*{Student Information } 
 %Write your full name and id number between the colon and newline
 %Put one empty space character after colon and before newline
-Full Name :  \\
-Id Number :  \\
+Full Name :  Alperen OVAK\\
+Id Number :  2580801\\
 
 % Write your answers below the section tags
 \section*{Answer 1}
+\hspace{5mm} a)\\
+\begin{table}[H]
+\small
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$p$ & $q$ & $\neg q$ & $p\rightarrow q$ & $ p\wedge \neg q$ & $ p\rightarrow q \oplus p\wedge \neg q $\\
+\hline
+T & T & F & T & F & T \\
+T & F & T & F & T & T \\
+F & T & F & T & F & T \\
+F & F & T & T & F & T \\
+\hline
+\end{tabular}
+\end{table}
 
+\hspace{5mm} b)\\
+
+\hspace{5mm} c)\\
+\begin{itemize}
+    \item F
+    \item F
+    \item F
+    \item T
+    \item T
+\end{itemize}
 
 \section*{Answer 2}
+
+\hspace{5mm} \\
+\hspace{5mm} a) $ \exists x (P(Can,x) \wedge T(x,L)) $\\
+\hspace{5mm} b) $ \forall x (T(x,L) \rightarrow \exists y(N(y,Turkish) \wedge P(y,x))) $\\
+\hspace{5mm} c) $ \forall x \exists y \exists z (T(x,S) \wedge R(x,y) \wedge R(x,z) \wedge (y=z))$\\
+\hspace{5mm} d) \\
+\hspace{5mm} e) $\forall z \exists x \exists y ((x \not=y) \wedge N(x,Turkish) \wedge P(x,G) \wedge P(y,G) \wedge (P(z,G) \leftrightarrow (z \not=x  \lor z=y )))$\\
+\hspace{5mm} f) $ \exists x \exists y \exists z (T(x,y) \wedge T(x,z) \wedge (y \not=z))$\\
 
 
 \section*{Answer 3}
 
+\begin{table}[H]
+	\centering
+
+	\begin{tabular}{*6{l}}
+		$1$ & & & $ p \rightarrow q $ & \textit{premise} & \\
+
+		$2$ & & & $(r \wedge s) \rightarrow p $ &\textit{premise} &\\
+
+		$3$ & & & $(r \wedge \neg q) $ &\textit{premise} &\\
+
+		$4$ & & & $ r $ &\textit{$\wedge e,3$} &\\
+
+		$5$ & & & $ \neg q $ &\textit{$\wedge e,3$} &\\ \cline{2-6}
+
+		$6$ &\multicolumn{1}{|c}{}& & $r \wedge s$ & {\textit{assumption}} & \multicolumn{1}{c|}{}\\
+
+		$7$ &\multicolumn{1}{|c}{} & & $p $ & $\rightarrow$e $2,5$ & \multicolumn{1}{c|}{}\\
+
+		$8$ &\multicolumn{1}{|c}{} & & $q $ & $\rightarrow$e $1,6$ & \multicolumn{1}{c|}{}\\
+
+		$9$ &\multicolumn{1}{|c}{}& & $ \bot$ & {$\neg$e $5,8$}&\multicolumn{1}{c|}{}\\\cline{2-6}
+
+		$10$ & & & $\neg(r\wedge s)$ & {$\neg$i $6-9$}& \\ \cline{2-6}
+
+		$11$ &\multicolumn{1}{|c}{}& &$s$ & {\textit{assumption}} &\multicolumn{1}{c|}{}\\
+
+		$12$ &\multicolumn{1}{|c}{}& & $r\wedge s$ & $\wedge$i $4,11$ & \multicolumn{1}{c|}{}\\
+
+		$13$ &\multicolumn{1}{|c}{} & & $\bot$ & $\rightarrow$i $2-6$ & \multicolumn{1}{c|}{}\\ \cline{2-6}
+
+		$14$ & & & $\forall y P(y) \rightarrow Q(a)$ & $\rightarrow$i $2-6$ & \\
+
+	\end{tabular}
+\end{table}
 
 \section*{Answer 4}
 
