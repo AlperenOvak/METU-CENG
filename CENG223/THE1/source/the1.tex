@@ -123,7 +123,7 @@ c)\\
 
 \begin{itemize}
 \centering
-    \item $\exists x(S(x) \wedge P(x))$
+    \item $\exists x(S(x) \rightarrow P(x))$
     \item $\forall x(P(x)) $
     \item $\exists yS(y)$
 \end{itemize}
@@ -132,19 +132,19 @@ c)\\
 	\centering
 
 	\begin{tabular}{*6{l}}
-        $ $ & & & $ \exists x(S(x) \wedge P(x)),\forall x(P(x)) \vdash \exists yS(y)   $ & &\\
+        $ $ & & & $ \exists x(P(x) \rightarrow S(x)),\forall x(P(x)) \vdash \exists yS(y)   $ & &\\
         \hline
         \hline
 
-		$1$ & & & $ \exists x(S(x) \wedge P(x))$ &\textit{premise} &\\
+		$1$ & & & $ \exists x(P(x) \rightarrow S(x))$ &\textit{premise} &\\
 
 		$2$ & & & $ \forall x(P(x)) $ &\textit{premise} &\\ \cline{2-6}
 
-		$3$ &\multicolumn{1}{|c}{}& & $ S(c) \wedge P(c)$ & {\textit{assumption}} & \multicolumn{1}{c|}{}\\
+		$3$ &\multicolumn{1}{|c}{}& & $ P(c) \rightarrow S(c)$ & {\textit{assumption}} & \multicolumn{1}{c|}{}\\
 
 		$4$ &\multicolumn{1}{|c}{} & & $P(c)$ & $\forall$e $2$ & \multicolumn{1}{c|}{}\\
 
-		$5$ &\multicolumn{1}{|c}{} & & $S(c) $ & $\wedge$e $3,4$ & \multicolumn{1}{c|}{}\\
+		$5$ &\multicolumn{1}{|c}{} & & $S(c) $ & $\rightarrow$e $3,4$ & \multicolumn{1}{c|}{}\\
 
 		$6$ &\multicolumn{1}{|c}{}& & $ \exists yS(y)$ & {$\exists$i $5$}&\multicolumn{1}{c|}{}\\\cline{2-6}
 
