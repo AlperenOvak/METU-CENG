@@ -46,35 +46,41 @@ b)\\
 \begin{equation*}
 \begin{split}
  p \rightarrow ((q \vee \neg p) \rightarrow r) &
- \equiv \neg p \vee ((q \vee \neg p) \rightarrow r)\ \ \ \qquad \quad \ table\ 7, Equivalence \ 1\\
+ \equiv \neg p \vee ((q \vee \neg p) \rightarrow r)\ \ \ \qquad \quad\quad \ table\ 7, Equivalence \ 1\\
  &
- \equiv \neg p \vee (\neg(q \vee \neg p) \vee r)\ \ \ \quad \quad \quad table\ 7, Equivalence\ 1\\
+ \equiv \neg p \vee (\neg(q \vee \neg p) \vee r)\ \ \ \quad \quad \quad\quad table\ 7, Equivalence\ 1\\
  &
- \equiv \neg p \vee ((\neg q \vee \neg \neg p) \vee r) \quad \quad \quad \ table\ 6, De\ Morgan's\ Second\ Law\\ &
- \equiv \neg p \vee ((\neg q \vee  p) \vee r) \quad \quad \quad \ table\ 6, Idempotent\ Law\\ &
- \equiv \neg(q \vee r) \rightarrow \neg p \ \ \ \quad \qquad \quad \ table\ 7, Equivalence\ 3\\ &
- \equiv (\neg q \wedge \neg r) \rightarrow \neg p \ \qquad \qquad \ table\ 6, De\ Morgan's\ Second\ Law\\
+ \equiv \neg p \vee ((\neg q \vee \neg \neg p) \vee r) \quad \quad\quad \quad \ table\ 6, De\ Morgan's\ Second\ Law\\ &
+ \equiv \neg p \vee ((\neg q \vee  p) \vee r) \quad \quad \quad \quad\quad\ table\ 6, Double\  Negation\ Law\\ &
+ \equiv (\neg p \vee (\neg q \vee  p)) \vee r \quad \quad \quad \quad\quad\ table\ 6, Associative\ Law\\ &
+ \equiv ((\neg p \vee \neg q) \wedge(\neg p  \vee  p)) \vee r \quad  \quad \ table\ 6, Distributive \ Law\\ &
+ \equiv ((\neg p \vee \neg q) \wedge(T)) \vee r \quad \quad \quad \quad \ table\ 6, Negation \ First \ Law\\ &
+ \equiv (\neg p \vee \neg q)  \vee r \quad \quad \quad\quad\quad\quad\quad\ \ table\ 6, Identity\ First\ Law\\ &
+ \equiv \neg( p \wedge  q)  \vee r \quad \quad \quad \quad\quad\quad\quad\quad\ table\ 6, De\ Morgan's\ Second\ Law\\ &
+ \equiv ( p \wedge  q)  \rightarrow r \quad \quad \quad \quad\quad\quad\quad\quad \ \ table\ 7, Equivalence\ 3\\
 \end{split}
 \end{equation*}
 
 c)\\
-\begin{itemize}
+
+
+\begin{enumerate}
 \centering
     \item F
     \item F
     \item F
     \item T
     \item T
-\end{itemize}
+\end{enumerate}
 
 \section*{Answer 2}
 
 \hspace{5mm} \\
 \hspace{5mm} a) $ \exists x (P(Can,x) \wedge T(x,L)) $\\
-\hspace{5mm} b) $ \forall x (T(x,L) \rightarrow \exists y(N(y,Turkish) \wedge P(y,x))) $\\
+\hspace{5mm} b) $ \forall x (T(x,S) \rightarrow \exists y(N(y,Turkish) \wedge P(y,x))) $\\
 \hspace{5mm} c) $ \forall x \exists y \exists z (T(x,S) \wedge R(x,y) \wedge T(y,S) \wedge R(x,z) \wedge T(z,S) \wedge (y=z))$\\
-\hspace{5mm} d) $ \exists y \exists z (W(M,y) \wedge \neg (P(z,y) \wedge N(z,English))$\\
-\hspace{5mm} e) $\forall z \exists x \exists y ((x \not=y) \wedge N(x,Turkish) \wedge P(x,G) \wedge P(y,G) \wedge (P(z,G) \leftrightarrow (z \not=x  \lor z=y )))$\\
+\hspace{5mm} d) $ \forall y \exists z (W(M,y) \rightarrow \neg (P(z,y) \wedge N(z,English)))$\\
+\hspace{5mm} e) $ \exists x \exists y ((x \not=y) \wedge N(x,Turkish) \wedge N(y,Turkish) \wedge P(x,G) \wedge P(y,G) \wedge \forall z(P(z,G) \rightarrow (z =x  \lor z=y )))$\\
 \hspace{5mm} f) $ \exists x \exists y \exists z (T(x,y) \wedge T(x,z) \wedge (y \not=z))$\\
 
 
@@ -88,67 +94,72 @@ c)\\
         \hline
         \hline
 
-		$1$ & & & $ p \rightarrow q $ & \textit{premise} & \\
+		$1.$ & & & $ p \rightarrow q $ & \textit{premise} & \\
 
-		$2$ & & & $(r \wedge s) \rightarrow p $ &\textit{premise} &\\
+		$2.$ & & & $(r \wedge s) \rightarrow p $ &\textit{premise} &\\
 
-		$3$ & & & $(r \wedge \neg q) $ &\textit{premise} &\\
+		$3.$ & & & $(r \wedge \neg q) $ &\textit{premise} &\\
 
-		$4$ & & & $ r $ &\textit{$\wedge e,3$} &\\
+		$4.$ & & & $ r $ &\textit{$\wedge e,3$} &\\
 
-		$5$ & & & $ \neg q $ &\textit{$\wedge e,3$} &\\ \cline{2-6}
+		$5.$ & & & $ \neg q $ &\textit{$\wedge e,3$} &\\ \cline{2-6}
 
-		$6$ &\multicolumn{1}{|c}{}& & $r \wedge s$ & {\textit{assumption}} & \multicolumn{1}{c|}{}\\
+		$6.$ &\multicolumn{1}{|c}{}& & $r \wedge s$ & {\textit{assumption}} & \multicolumn{1}{c|}{}\\
 
-		$7$ &\multicolumn{1}{|c}{} & & $p $ & $\rightarrow$e $2,5$ & \multicolumn{1}{c|}{}\\
+		$7.$ &\multicolumn{1}{|c}{} & & $p $ & $\rightarrow$e $2,5$ & \multicolumn{1}{c|}{}\\
 
-		$8$ &\multicolumn{1}{|c}{} & & $q $ & $\rightarrow$e $1,6$ & \multicolumn{1}{c|}{}\\
+		$8.$ &\multicolumn{1}{|c}{} & & $q $ & $\rightarrow$e $1,6$ & \multicolumn{1}{c|}{}\\
 
-		$9$ &\multicolumn{1}{|c}{}& & $ \bot$ & {$\neg$e $5,8$}&\multicolumn{1}{c|}{}\\\cline{2-6}
+		$9.$ &\multicolumn{1}{|c}{}& & $ \bot$ & {$\neg$e $5,8$}&\multicolumn{1}{c|}{}\\\cline{2-6}
 
-		$10$ & & & $\neg(r\wedge s)$ & {$\neg$i $6-9$}& \\ \cline{2-6}
+		$10.$ & & & $\neg(r\wedge s)$ & {$\neg$i $6-9$}& \\ \cline{2-6}
 
-		$11$ &\multicolumn{1}{|c}{}& &$s$ & {\textit{assumption}} &\multicolumn{1}{c|}{}\\
+		$11.$ &\multicolumn{1}{|c}{}& &$s$ & {\textit{assumption}} &\multicolumn{1}{c|}{}\\
 
-		$12$ &\multicolumn{1}{|c}{}& & $r\wedge s$ & $\wedge$i $4,11$ & \multicolumn{1}{c|}{}\\
+		$12.$ &\multicolumn{1}{|c}{}& & $r\wedge s$ & $\wedge$i $4,11$ & \multicolumn{1}{c|}{}\\
 
-		$13$ &\multicolumn{1}{|c}{} & & $\bot$ & {$\neg$e $10,12$} & \multicolumn{1}{c|}{}\\ \cline{2-6}
+		$13.$ &\multicolumn{1}{|c}{} & & $\bot$ & {$\neg$e $10,12$} & \multicolumn{1}{c|}{}\\ \cline{2-6}
 
-		$14$ & & & $\neg s$ & {$\neg$i $11-13$} & \\
+		$14.$ & & & $\neg s$ & {$\neg$i $11-13$} & \\
 
 	\end{tabular}
 \end{table}
 
 \section*{Answer 4}
 
+\hspace{5mm} a)
+
 \begin{itemize}
-\centering
-    \item $\exists x(S(x) \rightarrow P(x))$
-    \item $\forall x(P(x)) $
-    \item $\exists yS(y)$
+
+    \item $(First \ premise)$ $\exists x(P(x) \rightarrow S(x))$
+    \item $(Second \ premise)$ $\forall x(P(x)) $
+    \item $(Claim)$ $\exists yS(y)$
 \end{itemize}
+
+b)
 
 \begin{table}[H]
 	\centering
 
 	\begin{tabular}{*6{l}}
         $ $ & & & $ \exists x(P(x) \rightarrow S(x)),\forall x(P(x)) \vdash \exists yS(y)   $ & &\\
+
         \hline
         \hline
+		$$ & & &  & &\\
+		$1.$ & & & $ \exists x(P(x) \rightarrow S(x))$ &\textit{premise} &\\
 
-		$1$ & & & $ \exists x(P(x) \rightarrow S(x))$ &\textit{premise} &\\
+		$2.$ & & & $ \forall x(P(x)) $ &\textit{premise} &\\ \cline{2-6}
 
-		$2$ & & & $ \forall x(P(x)) $ &\textit{premise} &\\ \cline{2-6}
+		$3.$ &\multicolumn{1}{|c}{}& & $ P(c) \rightarrow S(c)$ & {\textit{assumption}} & \multicolumn{1}{c|}{}\\
 
-		$3$ &\multicolumn{1}{|c}{}& & $ P(c) \rightarrow S(c)$ & {\textit{assumption}} & \multicolumn{1}{c|}{}\\
+		$4.$ &\multicolumn{1}{|c}{} & & $P(c)$ & $\forall$e $2$ & \multicolumn{1}{c|}{}\\
 
-		$4$ &\multicolumn{1}{|c}{} & & $P(c)$ & $\forall$e $2$ & \multicolumn{1}{c|}{}\\
+		$5.$ &\multicolumn{1}{|c}{} & & $S(c) $ & $\rightarrow$e $3,4$ & \multicolumn{1}{c|}{}\\
 
-		$5$ &\multicolumn{1}{|c}{} & & $S(c) $ & $\rightarrow$e $3,4$ & \multicolumn{1}{c|}{}\\
+		$6.$ &\multicolumn{1}{|c}{}& & $ \exists yS(y)$ & {$\exists$i $5$}&\multicolumn{1}{c|}{}\\\cline{2-6}
 
-		$6$ &\multicolumn{1}{|c}{}& & $ \exists yS(y)$ & {$\exists$i $5$}&\multicolumn{1}{c|}{}\\\cline{2-6}
-
-		$7$ & & & $\exists yS(y)$ & {$\exists$e $3-6$}& \\
+		$7.$ & & & $\exists yS(y)$ & {$\exists$e $3-6$}& \\
 
 
 	\end{tabular}
