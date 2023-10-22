@@ -58,10 +58,10 @@ INPUT C:\Users\OVAK\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmex
 INPUT C:\Users\OVAK\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
 INPUT C:\Users\OVAK\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
 INPUT C:\Users\OVAK\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
-INPUT C:\Users\OVAK\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
 OUTPUT the1.pdf
 INPUT C:\Users\OVAK\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\OVAK\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti12.tfm
+INPUT C:\Users\OVAK\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
 INPUT the1.aux
 INPUT C:\Users\OVAK\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
 INPUT C:\Users\OVAK\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
