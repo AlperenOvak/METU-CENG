@@ -31,6 +31,8 @@ public: // DO NOT CHANGE THIS PART.
     void insertAtIndex(const T &data, int index);
     void moveToIndex(int currentIndex, int newIndex);
     void mergeNodes(int sourceIndex, int destIndex);
+    void swapWithRight(Node<T> *node);
+    void swapWithLeft(Node<T> *node);
 
     void removeNode(Node<T> *node);
     void removeNode(const T &data);
@@ -49,40 +51,56 @@ private: // DO NOT CHANGE THIS PART.
 template<class T>
 LinkedList<T>::LinkedList()
 {
-    head = new Node<T>;
-    size = 0;
+    head=NULL;
+    size=0;
 }
 
 template<class T>
 LinkedList<T>::LinkedList(const LinkedList<T> &rhs)
 {   
     /* TODO */
+    Node<T>* other=rhs.head;
+    for(int i=0;i<size;i++){
+        Node<T>*  
+    }
+    head = rhs.head;
+    size = rhs.size;
 }
 
 template<class T>
 LinkedList<T>::~LinkedList()
 {   
+    Node<T> *next_node=NULL;
     for(int i=0;i<size;i++){
-        /*start from the tail*/
+        next_node=head->next;
+        delete[] head;
+        head=next_node;
     }
 }
+
 
 template<class T>
 LinkedList<T> &LinkedList<T>::operator=(const LinkedList<T> &rhs)
 {
     /* TODO */
+    LinkedList<T> new_linked = new LinkedList<T>;
+    new_linked.size = rhs.size;
+    //for(int)
+    head = rhs.head;
+    return *new_linked;
 }
 
 template<class T>
 int LinkedList<T>::getSize() const
 {
-    return size-1;
+    return size;
 }
 
 template<class T>
 bool LinkedList<T>::isEmpty() const
 {
-    if(size==1){
+    /* TODO */
+    if(size==0){
         return 1;
     }
     return 0;
@@ -92,35 +110,54 @@ template<class T>
 bool LinkedList<T>::containsNode(Node<T> *node) const
 {
     /* TODO */
+    return 0;
 }
 
 template<class T>
 Node<T> *LinkedList<T>::getFirstNode() const
 {
-    /* TODO */
+    if (isEmpty()) {
+        return NULL;
+    }
+    return head;
 }
 
 template<class T>
 Node<T> *LinkedList<T>::getLastNode() const
 {
-    /* TODO */
+    if (isEmpty()) {
+        return NULL;
+    }
+    Node<T>* current = head->next;
+    while (current->next != NULL) {
+        current = current->next;
+    }
+    return current;
 }
 
 template<class T>
 Node<T> *LinkedList<T>::getNode(const T &data) const
 {
     /* TODO */
+    return head;
 }
 
 template<class T>
 Node<T> *LinkedList<T>::getNodeAtIndex(int index) const
 {
     /* TODO */
+    return head;
 }
 
 template<class T>
 void LinkedList<T>::append(const T &data)
 {   
+    Node<T>* newNode = new Node<T>(data);
+    Node<T>* lastNode = getLastNode();
+    lastNode->next = newNode;
+    newNode->prev = lastNode;
+    newNode->data=data;
+    size++;   
     /* TODO */
 }
 
@@ -146,6 +183,7 @@ template<class T>
 int LinkedList<T>::getIndex(Node<T> *node) const
 {
     /* TODO */
+    return 0;
 }
 
 template<class T>
