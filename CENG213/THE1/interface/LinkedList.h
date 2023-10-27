@@ -59,23 +59,14 @@ template<class T>
 LinkedList<T>::LinkedList(const LinkedList<T> &rhs) 
 {   
     /* TODO */
-    T a;
-    head=new Node<T>(a);
+    head=new Node<T>(T());
     size=0;
-    
-    Node<T>* current = rhs.head->next; 
-    Node<T>* lastNode = head->next;
-    while(current != NULL){
-        Node<T>* newNode = new Node<T>(current->data);
-
-        if(lastNode==NULL){
-            head->next=newNode;
-            newNode->prev = head;
-        }
-        lastNode->next=newNode;
-        newNode->prev=lastNode;
-        lastNode=newNode;
+    Node<T>* current = rhs.head->next;
+    while (current != NULL) {
+        append(current->data);
+        current = current->next;
     }
+   
 }
 
 template<class T>
@@ -83,7 +74,7 @@ LinkedList<T>::~LinkedList() //DONE
 {   
     /* TODO */
     removeAllNodes();
-    delete head;
+    delete head->next;
     size = 0;
 }
 
@@ -91,16 +82,7 @@ template<class T>
 LinkedList<T> &LinkedList<T>::operator=(const LinkedList<T> &rhs)
 {
     /* TODO */
-    /*removeAllNodes();
-    if(rhs.head->next == NULL){
-        return *this;
-    }
-    Node<T>* current = rhs.head->next;
-    while(current->next != NULL){
-        append(current->data);
-        current = current -> next;
-    }
-    return *this;*/
+
     if(this != &rhs){
         while(head->next){
             removeNodeAtIndex(0);

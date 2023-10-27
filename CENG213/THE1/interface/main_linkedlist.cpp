@@ -4,6 +4,7 @@
 
 int main() {
     LinkedList<int> myList;
+    LinkedList<int> myList2;
     Node<int> *a;
 
     // Append elements to the linked list
@@ -22,24 +23,49 @@ int main() {
    
 
     // Prepend an element to the linked list
-    /*myList.prepend(0);
+    myList.prepend(0);
 
     // Print the linked list after prepending
     std::cout << "Linked List after prepending: "<< std::endl;
     myList.print();
 
-    /*myList.removeAllNodes();
+    myList.removeAllNodes();
     std::cout << "Linked List after removeAllNodes: "<< std::endl;
     myList.print();
     myList.removeAllNodes();
     std::cout << "Linked List after removeALL: "<< std::endl;
     myList.print();
     a=myList.getFirstNode();
+    myList.append(5);
     myList.append(3);
+    myList.append(5);
     myList.append(4);
     myList.append(5);
+    myList.append(5);
     std::cout << "contains?"<< myList.containsNode(a) << std::endl;
+    myList.print();
+    /*myList.removeNode(5);
+    std::cout << "remove5s"<< myList.containsNode(a) << std::endl;
     myList.print();*/
+
+    myList.removeNodeAtIndex(0);
+    std::cout << "remove0"<<  std::endl;
+    myList.print();
+
+    myList2=myList;
+    std::cout << "=op"<<  std::endl;
+    myList.print();
+
+    LinkedList<int> copiedList(myList);
+
+    // Print the original list
+    std::cout << "Original List: ";
+    myList.print();
+
+    // Print the copied list
+    std::cout << "Copied List: ";
+    copiedList.print();
+    
 
     /*std::cout << "get index 1 = "<< myList.getNodeAtIndex(3) << std::endl;
 
