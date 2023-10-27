@@ -16,13 +16,13 @@ int main() {
     myList.append(3);
     myList.append(4);
     myList.append(5);
-    std::cout << myList.getFirstNode()->data;
+    //std::cout << myList.getFirstNode()->data;
     std::cout << "Linked List: " << std::endl;
     myList.print();
    
 
     // Prepend an element to the linked list
-    myList.prepend(0);
+    /*myList.prepend(0);
 
     // Print the linked list after prepending
     std::cout << "Linked List after prepending: "<< std::endl;
@@ -30,16 +30,18 @@ int main() {
 
     /*myList.removeAllNodes();
     std::cout << "Linked List after removeAllNodes: "<< std::endl;
-    myList.print();*/
+    myList.print();
     myList.removeAllNodes();
+    std::cout << "Linked List after removeALL: "<< std::endl;
+    myList.print();
     a=myList.getFirstNode();
     myList.append(3);
     myList.append(4);
     myList.append(5);
     std::cout << "contains?"<< myList.containsNode(a) << std::endl;
-    myList.print();
+    myList.print();*/
 
-    std::cout << "get index 1 = "<< myList.getNodeAtIndex(3) << std::endl;
+    /*std::cout << "get index 1 = "<< myList.getNodeAtIndex(3) << std::endl;
 
 
     myList.insertAfterNode(31,myList.getNodeAtIndex(2));
@@ -63,12 +65,12 @@ int main() {
     myList.removeNode(myList.getNodeAtIndex(3));
     std::cout << "Linked List after removeNode*: " << std::endl;
     myList.print();
-
+*/
     /*myList.removeNode(3);
     std::cout << "Linked List after removeNode: " << std::endl;
     myList.print();*/
 
-    myList.getNodeAtIndex(1);
+    /*myList.getNodeAtIndex(1);
     std::cout << "Linked List after getNodeAtIndex: " << std::endl;
     myList.print();
     /*
