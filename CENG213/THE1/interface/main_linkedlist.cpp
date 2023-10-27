@@ -53,7 +53,24 @@ int main() {
     std::cout << "Linked List after insertion: " << std::endl;
     myList.print();
 
-    std::cout << "getIndex= "<< myList.getIndex(myList.getNodeAtIndex(4)) << std::endl;
+    std::cout << "getIndex= "<< myList.getIndex(myList.getNodeAtIndex(3)) << std::endl;
+
+
+    myList.moveToIndex(0,15);
+    std::cout << "Linked List after moveToIndex: " << std::endl;
+    myList.print();
+
+    myList.removeNode(myList.getNodeAtIndex(3));
+    std::cout << "Linked List after removeNode*: " << std::endl;
+    myList.print();
+
+    /*myList.removeNode(3);
+    std::cout << "Linked List after removeNode: " << std::endl;
+    myList.print();*/
+
+    myList.getNodeAtIndex(1);
+    std::cout << "Linked List after getNodeAtIndex: " << std::endl;
+    myList.print();
     /*
 
     
