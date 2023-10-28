@@ -27,6 +27,9 @@ public:
     Block &operator+(const Block &rhs){
     	
         /* TODO */
+        content += rhs.content;
+        size += rhs.size;
+        return *this;
     }
     std::string getContent() const{
     	return content;

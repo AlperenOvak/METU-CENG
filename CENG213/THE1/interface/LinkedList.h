@@ -66,7 +66,6 @@ LinkedList<T>::LinkedList(const LinkedList<T> &rhs)
         append(current->data);
         current = current->next;
     }
-   
 }
 
 template<class T>
@@ -74,7 +73,7 @@ LinkedList<T>::~LinkedList() //DONE
 {   
     /* TODO */
     removeAllNodes();
-    delete head->next;
+    delete head;
     size = 0;
 }
 
@@ -82,7 +81,7 @@ template<class T>
 LinkedList<T> &LinkedList<T>::operator=(const LinkedList<T> &rhs)
 {
     /* TODO */
-
+    
     if(this != &rhs){
         while(head->next){
             removeNodeAtIndex(0);
@@ -359,17 +358,7 @@ template<class T>
 void LinkedList<T>::removeAllNodes()
 {   
     /* TODO */
-    /*Node<T>* current = head->next;
-    if((!isEmpty())){
-        Node<T>* nextNode = current->next ;
-        while(current->next != NULL){
-            delete current;
-            current=nextNode;
-            nextNode=current->next;
-        }
-    }
-    head->next = NULL;
-    size = 0;*/
+    
     while(head->next){
         removeNodeAtIndex(0);
     }
