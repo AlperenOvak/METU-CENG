@@ -58,7 +58,7 @@ LinkedList<T>::LinkedList()                                               //DONE
 template<class T>
 LinkedList<T>::LinkedList(const LinkedList<T> &rhs) 
 {   
-    /* TODO */
+    
     head=new Node<T>(T());
     size=0;
     Node<T>* current = rhs.head->next;
@@ -66,6 +66,7 @@ LinkedList<T>::LinkedList(const LinkedList<T> &rhs)
         append(current->data);
         current = current->next;
     }
+    size=rhs.size;
 }
 
 template<class T>
@@ -92,13 +93,22 @@ LinkedList<T> &LinkedList<T>::operator=(const LinkedList<T> &rhs)
             current=current->next;
         }
     }
+    size=rhs.size;
     return *this;
 }
 
 template<class T>
 int LinkedList<T>::getSize() const                                        //DONE
 {
+    
     return size;
+    /*int sz=0;
+    Node<T>* current = head->next;
+    while(current){
+        current=current->next;
+        sz++;
+    }
+    return sz;*/
 }
 
 template<class T>
@@ -303,6 +313,23 @@ void LinkedList<T>::mergeNodes(int sourceIndex, int destIndex)
     removeNode(getNodeAtIndex(sourceIndex));
 }
 
+
+template<class T>
+void LinkedList<T>::removeNode(const T &data)    //DONE
+{   
+    /* TODO */
+    Node<T>* current = head->next;
+    while (current != NULL) {
+        if (current->data == data) {
+            Node<T>* nextNode = current->next;
+            removeNode(current);
+            current = nextNode;
+        } else {
+            current = current->next;
+        }
+    }
+}
+
 template<class T>
 void LinkedList<T>::removeNode(Node<T> *node)  //Removing last node gives error
 {   
@@ -324,22 +351,6 @@ void LinkedList<T>::removeNode(Node<T> *node)  //Removing last node gives error
 }
 
 template<class T>
-void LinkedList<T>::removeNode(const T &data)    //DONE
-{   
-    /* TODO */
-    Node<T>* current = head->next;
-    while (current != NULL) {
-        if (current->data == data) {
-            Node<T>* nextNode = current->next;
-            removeNode(current);
-            current = nextNode;
-        } else {
-            current = current->next;
-        }
-    }
-}
-
-template<class T>
 void LinkedList<T>::removeNodeAtIndex(int index)   //NOT WORKING
 {
     /* TODO */
@@ -358,10 +369,10 @@ template<class T>
 void LinkedList<T>::removeAllNodes()
 {   
     /* TODO */
-    
     while(head->next){
         removeNodeAtIndex(0);
     }
+    size=0;
 }
 
 template<class T>
