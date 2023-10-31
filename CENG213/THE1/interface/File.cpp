@@ -2,17 +2,19 @@
 
 Block File::getBlock(int index) const
 {
-	/* TODO */
-	if (index < 0 || index >= blocks.getSize()) {
-        return Block("");
+    /* Get a block at the specified index from the file. */
+
+    if (index < 0 || index >= blocks.getSize()) {
+        return Block(""); // Return an empty block if the index is out of bounds.
     }
-    return blocks.getNodeAtIndex(index)->data;
+    return blocks.getNodeAtIndex(index)->data; // Return the block at the given index.
 }
 
 size_t File::fileSize() const
 {
-	/* TODO */
-	size_t size = 0;
+    /* Calculate and return the total size of the file by summing the sizes of all blocks. */
+
+    size_t size = 0;
     for (int i = 0; i < numBlocks(); i++) {
         size += blocks.getNodeAtIndex(i)->data.getSize();
     }
@@ -21,73 +23,75 @@ size_t File::fileSize() const
 
 int File::numBlocks() const
 {
-	/* TODO */
-	//std::cout<<blocks.getSize()<<std::endl;
-	return blocks.getSize();
+    /* Get the number of blocks in the file. */
+    return blocks.getSize();
 }
 
 bool File::isEmpty() const
 {
-	/* TODO */
-	return blocks.isEmpty();
+    /* Check if the file is empty (contains no blocks). */
+    return blocks.isEmpty();
 }
 
 bool File::operator==(const File &rhs) const
 {
-	/* TODO */
-	if (numBlocks() != rhs.numBlocks()) {
-        return false;
+    /* Compare this file to another file for equality. */
+
+    if (numBlocks() != rhs.numBlocks()) {
+        return false; // If the number of blocks is different, the files are not equal.
     }
     for (int i = 0; i < numBlocks(); i++) {
         if (!(getBlock(i) == rhs.getBlock(i))) {
-            return false;
+            return false; // If any block in the files is not equal, the files are not equal.
         }
     }
-    return true;
+    return true; // If all blocks match, the files are equal.
 }
 
 void File::newBlock(const Block &block)
 {
-	/* TODO */
-	blocks.append(block);
+    /* Add a new block to the file. */
+    blocks.append(block);
 }
 
 void File::removeBlock(int index)
 {
-	/* TODO */
-	if (index >= 0 && index < blocks.getSize()) {
+    /* Remove a block at the specified index from the file. */
+
+    if (index >= 0 && index < blocks.getSize()) {
         Node<Block>* nodeToRemove = blocks.getNodeAtIndex(index);
         if (nodeToRemove != NULL) {
-            blocks.removeNode(nodeToRemove);
+            blocks.removeNode(nodeToRemove); // Remove the block at the given index.
         }
     }
 }
 
 void File::mergeBlocks(int sourceIndex, int destIndex)
 {
-	/* TODO */
-	if (sourceIndex < 0 || sourceIndex >= blocks.getSize() ||
+    /* Merge the content of a block at the source index into a block at the destination index. */
+
+    if (sourceIndex < 0 || sourceIndex >= blocks.getSize() ||
         destIndex < 0 || destIndex >= blocks.getSize()) {
-        return; // Index out of bounds, do nothing.
+        return; // If source or destination index is out of bounds, do nothing.
     }
 
     Block& sourceBlock = blocks.getNodeAtIndex(sourceIndex)->data;
     Block& destBlock = blocks.getNodeAtIndex(destIndex)->data;
 
-    destBlock = destBlock + sourceBlock;
+    destBlock = destBlock + sourceBlock; // Merge the content of source block into the destination block.
 
-    removeBlock(sourceIndex);
+    removeBlock(sourceIndex); // Remove the source block.
 }
 
-void File::printContents() const{
-	if(isEmpty()){
-		std::cout << "File is empty" << std::endl;
-	}
-	else{
-		for(int i = 0; i < blocks.getSize(); i++){
-			Node<Block> *block = blocks.getNodeAtIndex(i);
-			std::cout << block->data.getContent();
-		}
-		std::cout << std::endl << fileSize() << std::endl;
-	}
+void File::printContents() const
+{
+    if (isEmpty()) {
+        std::cout << "File is empty" << std::endl; // Print a message if the file is empty.
+    } else {
+        for (int i = 0; i < blocks.getSize(); i++) {
+            Node<Block> *block = blocks.getNodeAtIndex(i);
+            std::cout << block->data.getContent(); // Print the content of each block in the file.
+        }
+        std::cout << std::endl << fileSize() << std::endl; // Print the total file size.
+    }
 }

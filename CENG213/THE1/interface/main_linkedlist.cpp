@@ -44,13 +44,25 @@ int main() {
     myList.append(5);
     std::cout << "contains?"<< myList.containsNode(a) << std::endl;
     myList.print();
-    /*myList.removeNode(5);
-    std::cout << "remove5s"<< myList.containsNode(a) << std::endl;
-    myList.print();*/
 
-    myList.removeNodeAtIndex(0);
+    a=myList.getLastNode();
+    myList.removeNode(a);
+    std::cout << "delete lst?"<< myList.containsNode(a) << std::endl;
+    myList.print();
+
+    myList.removeAllNodes();
+    std::cout << "remove all"<<  std::endl;
+    myList.print();
+
+    myList.removeNodeAtIndex(5);
     std::cout << "remove0"<<  std::endl;
     myList.print();
+
+    /*myList.removeNode(5);
+    std::cout << "remove5s"<< myList.containsNode(a) << std::endl;
+    myList.print();
+
+    
 
     myList2=myList;
     std::cout << "=op"<<  std::endl;
@@ -64,7 +76,7 @@ int main() {
 
     // Print the copied list
     std::cout << "Copied List: ";
-    copiedList.print();
+    copiedList.print();*/
     
 
     /*std::cout << "get index 1 = "<< myList.getNodeAtIndex(3) << std::endl;
