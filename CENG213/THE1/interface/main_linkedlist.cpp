@@ -40,8 +40,8 @@ int main() {
     myList.append(3);
     myList.append(5);
     myList.append(4);
-    myList.append(5);
-    myList.append(5);
+    myList.append(6);
+    myList.append(7);
     std::cout << "contains?"<< myList.containsNode(a) << std::endl;
     myList.print();
     /*myList.removeNode(5);
@@ -59,12 +59,25 @@ int main() {
     LinkedList<int> copiedList(myList);
 
     // Print the original list
-    std::cout << "Original List: ";
+    std::cout << "Original List: " << std::endl;
     myList.print();
 
     // Print the copied list
-    std::cout << "Copied List: ";
+    std::cout << "Copied List: "<< std::endl;
     copiedList.print();
+
+    myList.moveToIndex(3,3);
+    std::cout << "Linked List after moveToIndex: " << std::endl;
+    myList.print();
+
+
+    //myList.append(6);
+    
+
+    myList.removeNode(7);
+    std::cout << "remove7s"<< myList.containsNode(a) << std::endl;
+    myList.print();
+    
     
 
     /*std::cout << "get index 1 = "<< myList.getNodeAtIndex(3) << std::endl;

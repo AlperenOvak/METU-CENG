@@ -84,16 +84,14 @@ LinkedList<T> &LinkedList<T>::operator=(const LinkedList<T> &rhs)
     /* TODO */
     
     if(this != &rhs){
-        while(head->next){
-            removeNodeAtIndex(0);
-        }
+        removeAllNodes();
         Node<T>* current = rhs.head->next;
         while(current){
             append(current->data);
             current=current->next;
         }
     }
-    size=rhs.size;
+    //size=rhs.size;
     return *this;
 }
 
@@ -273,26 +271,43 @@ template<class T>
 void LinkedList<T>::moveToIndex(int currentIndex, int newIndex)           //DONE
 {
     /* TODO */
-    if(currentIndex >= 0 && currentIndex<size){
+    if(currentIndex >= 0 && currentIndex<size && newIndex >= 0){
         Node<T> * current = getNodeAtIndex(currentIndex);
         Node<T> * newNode;
         if(newIndex<size){
             newNode = getNodeAtIndex(newIndex);
         }else{
             newNode = getLastNode();
+            newIndex=size-1;
         }
-        if(current == head->next){
-            head->next=current->next;
-            current->next->prev = NULL;
-        }else{
-            current->prev->next=current->next;
-            current->next->prev = current->prev;
-        }
-        current->prev=newNode;
-        current->next=newNode->next;
-        newNode->next=current;
-        if(newNode->next != NULL){
-            newNode->next->prev=current;
+        if(newIndex != currentIndex){
+
+            if(current == head->next){
+                head->next=current->next;
+                current->next->prev = NULL;
+            }else{
+                current->prev->next=current->next;
+                if(current->next !=NULL){
+                    current->next->prev = current->prev;
+                }
+            }
+            if(currentIndex<newIndex){
+                current->prev=newNode;
+                current->next=newNode->next;
+                newNode->next=current;
+                if(newNode->next != NULL){
+                    newNode->next->prev=current;
+                }
+            }else if(currentIndex>newIndex){
+                current->prev=newNode->prev;
+                current->next=newNode;
+                if(newNode == head->next){
+                    head->next=current;
+                }else{
+                    newNode->prev->next=current;
+                }
+                newNode->prev=current;
+            }
         }
     }
 }
