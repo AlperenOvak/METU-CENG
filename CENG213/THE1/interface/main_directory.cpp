@@ -18,12 +18,13 @@ int main()
     File file1 = File();
     file1.newBlock(block1);
     file1.newBlock(block2);
-/*	
+	
     File file2;
     file2.newBlock(block3);
 
     // Create a directory and add files to it
     Directory directory;
+    std::cout << "is empty?: " << directory.isEmpty() << std::endl;
     directory.newFile(file1);
     directory.newFile(file2);
 
@@ -35,13 +36,13 @@ int main()
     directory.newFile(file3);
     std::cout << "Added a new file. Number of files in the directory: " << directory.numFiles() << std::endl;
 
-    directory.removeFile(1);
+    directory.removeFile(2);
     std::cout << "Removed the second file. Number of files in the directory: " << directory.numFiles() << std::endl;
 
     // Test removeBiggestFile function
-    directory.removeBiggestFile();
-    std::cout << "Removed the biggest file. Number of files in the directory: " << directory.numFiles() << std::endl;
-	*/
+    File bigF = directory.getFile(0);
+    Block firstB = bigF.getBlock(0);
+    std::cout << "content " << firstB.getContent() << std::endl;
     return 0;
 }
 

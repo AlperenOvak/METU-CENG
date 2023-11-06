@@ -44,13 +44,25 @@ int main() {
     myList.append(7);
     std::cout << "contains?"<< myList.containsNode(a) << std::endl;
     myList.print();
-    /*myList.removeNode(5);
-    std::cout << "remove5s"<< myList.containsNode(a) << std::endl;
-    myList.print();*/
 
-    myList.removeNodeAtIndex(0);
+    a=myList.getLastNode();
+    myList.removeNode(a);
+    std::cout << "delete lst?"<< myList.containsNode(a) << std::endl;
+    myList.print();
+
+    myList.removeAllNodes();
+    std::cout << "remove all"<<  std::endl;
+    myList.print();
+
+    myList.removeNodeAtIndex(5);
     std::cout << "remove0"<<  std::endl;
     myList.print();
+
+    /*myList.removeNode(5);
+    std::cout << "remove5s"<< myList.containsNode(a) << std::endl;
+    myList.print();
+
+    
 
     myList2=myList;
     std::cout << "=op"<<  std::endl;
