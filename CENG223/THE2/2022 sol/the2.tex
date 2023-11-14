@@ -1,0 +1,211 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+%misc libraries goes here
+\usepackage{fitch}
+
+\begin{document}
+
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name :  Alperen OVAK\\
+Id Number :  2580801\\
+
+% Write your answers below the section tags
+\section*{Answer 1}
+
+\paragraph{(a)}
+Let \(x_1, x_2, \ldots, x_m\) be \(m\) points in \(\mathbb{C}\), and let \(\lambda_1, \lambda_2, \ldots, \lambda_m\) be non-negative coefficients summing up to 1 (\(\sum_{i=1}^{m} \lambda_i = 1\)). Consider the linear combination
+\[
+\sum_{i=1}^{m} \lambda_i x_i.
+\]
+Since \(\mathbb{C}\) is convex, any convex combination of points in \(\mathbb{C}\) is also in \(\mathbb{C}\). Therefore,
+\[
+\sum_{i=1}^{m} \lambda_i x_i \in \mathbb{C}.
+\]
+
+\paragraph{(b)}
+counterexample to illustrate that the composition of convex functions is not always convex: \\
+
+Let \( f: \mathbb{R} \rightarrow \mathbb{R} \) be defined as \( f(x) = x^2 \), which is a convex function. \\
+
+Let \( g: \mathbb{R} \rightarrow \mathbb{R} \) be defined as \( g(x) = x^2-1 \), which is also convex. \\
+
+Then we have \( h = f \circ g \), where \( h(x) = f(g(x)) \) be defined as \( h(x) = x^4-2x^2+1 \). \\
+
+Since \( h(x) = x^4-2x^2+1 \) is not convex, we cannot say \( f \circ g \) is convex if \( g \) and \( f \) are convex functions.
+\paragraph{(c)}
+
+\textbf{Implication 1:}
+
+Assume \( f(·) \) is a convex function. We should show that \( S \) is a convex set, and \( g(t) = f(x + tv) \) is convex for all \( t \) such that \( x + tv \in S \).
+
+\begin{enumerate}
+    \item \textbf{Convexity of \( S \):} Since \( f(·) \) is defined on \( S \), and \( f(·) \) is convex, it implies that \( S \) must be a convex set. This is because the domain of a convex function is always convex.
+    
+    \item \textbf{Convexity of \( g(t) = f(x + tv) \):} Let \( y_1 = x + t_1v \) and \( y_2 = x + t_2v \) be two points in \( S \) where \( t_1, t_2 \) are such that \( x + t_1v, x + t_2v \in S \). \\
+    Now, consider \( z = \lambda y_1 + (1 - \lambda) y_2 \), where \( \lambda \) is a convex combination coefficient (\( 0 \leq \lambda \leq 1 \)). \( z = \lambda (x + t_1v) + (1 - \lambda)(x + t_2v) \) and \( z = x + (\lambda t_1 + (1 - \lambda)t_2)v \). \\
+    Since \( S \) is convex, \( x + (\lambda t_1 + (1 - \lambda)t_2)v \in S \), and by the convexity of \( f(·) \), \( g(t) = f(x + tv) \) is convex.
+\end{enumerate}
+
+Therefore, the first implication holds. \\
+
+\textbf{Implication 2:}
+
+Assume \( S \) is a convex set, and \( g(t) = f(x + tv) \) is convex for all \( t \) such that \( x + tv \in S \). We want to show that \( f(·) \) is a convex function.
+
+To show that \( f(·) \) is convex, we need to consider two arbitrary points \( x_1, x_2 \) in the domain of \( f(·) \) and show that \( f(\lambda x_1 + (1 - \lambda) x_2) \leq \lambda f(x_1) + (1 - \lambda) f(x_2) \) for all \( \lambda \) in \([0, 1]\).
+
+Consider \( x_1, x_2 \) in the domain of \( f(·) \). Let \( \lambda \) be a convex combination coefficient (\( 0 \leq \lambda \leq 1 \)). Now, consider \( z = \lambda x_1 + (1 - \lambda) x_2 \). Since \( S \) is convex, \( z \) is also in \( S \). Therefore, we can use the convexity of \( g(t) = f(x + tv) \) for \( t \) such that \( x + tv = z \).
+\[ g(t) = f(x + tv) = f(\lambda x_1 + (1 - \lambda) x_2) \]
+By the convexity of \( g(t) \):
+\[ f(\lambda x_1 + (1 - \lambda) x_2) \leq \lambda f(x_1) + (1 - \lambda) f(x_2) \]
+
+Therefore, the second implication holds.
+
+Since both implications hold, we can conclude that a function \( f(·) \) is convex if and only if \( S \) is a convex set, and the function \( g(t) = f(x + tv) \) is convex for all \( t \) such that \( x + tv \in S \).
+
+
+\section*{Answer 2}
+\paragraph{(a)}
+\subparagraph{(i) if X is uncountable} 
+The set of all \( U \subseteq X \) is not a \(\sigma\)-algebra on \(X\) \\ \\
+\par \hspace*{1em}Let's show a counterexample: \\
+\par \hspace*{1em}Let \( X = \mathbb{R} \) and \( U_1 = \mathbb{R} - \{1\} \). \\
+\par \hspace*{1em}Since \( X - U_1 = \{1\} \) satisfies the condition \( U_1 \) must be in this set where \( U \subseteq X \).\\
+\par \hspace*{1em}If this set is denoted by \( \Sigma \), then from property (2) \( X - U_1 = U_2 \) must be in this set.\\
+
+\par \hspace*{1em}However, since \( X - U_2 = \mathbb{R} - \{1\} \), which is infinite, \( U_2 \) cannot be in this set. This leads to a contradiction.\\
+
+\par \hspace*{1em}Therefore, if \( X \) is an uncountable infinite set, the set of all \( U \subseteq X \) such that \( X - U \) is either finite or is \(\emptyset\) is \textbf{not}  a \( \sigma \)-algebra on \( X \).\\
+
+\subparagraph{(ii) if X is countable infinite}
+The set of all \( U \subseteq X \) is not a \(\sigma\)-algebra on \(X\) \\ \\
+\par \hspace*{1em}Let's show a counterexample: \\
+\par \hspace*{1em}Let \( X = \mathbb{Z} \) and \( U_1 = \mathbb{Z} - \{1\} \). \\
+\par \hspace*{1em}Since \( X - U_1 = \{1\} \) satisfies the condition \( U_1 \) must be in this set where \( U \subseteq X \).\\
+\par \hspace*{1em}If this set is denoted by \( \Sigma \), then from property (2) \( X - U_1 = U_2 \) must be in this set.\\
+
+\par \hspace*{1em}However, since \( X - U_2 = \mathbb{Z} - \{1\} \), which is infinite, \( U_2 \) cannot be in this set. This leads to a contradiction.\\
+
+\par \hspace*{1em}Therefore, if \( X \) is an countable infinite set, the set of all \( U \subseteq X \) such that \( X - U \) is either finite or is \(\emptyset\) is \textbf{not}  a \( \sigma \)-algebra on \( X \).\\
+
+\subparagraph{(iii) if X is finite}
+\ \\
+\par \hspace*{1em}The set in question must contain the empty set \( \emptyset \). This property is satisfied because \( X - X = \emptyset \), and \( \emptyset \) itself is also part of the set. \\
+\par \hspace*{1em}Since every \(U\) is finite where all \( U \subseteq X \), \(X-U\) is also finite and this satisfies the condiciton. \\
+\par \hspace*{1em}Therefore, if this set is denoted by \( \Sigma \), then \( X-U \) must be in this set. \\
+\par \hspace*{1em}Since \( X - (X-U) = U\) is finite, this satisfies the condiciton. \\ \\
+
+\par \hspace*{1em}Since each \( U \) where \( U \subseteq X \) satisfies the condiciton, the set of all \( U \subseteq X \) is \( P(X) \). \\
+\par \hspace*{1em}Since \( \Sigma \subseteq P(X) \), Therefore, if \( X \) is an uncountable infinite set, the set of all \( U \subseteq X \) such that \( X - U \) is either finite or is \(\emptyset\) is a \( \sigma \)-algebra on \( X \).
+
+
+\paragraph{(b)}
+\subparagraph{(i) if X is uncountable}
+The set of all \( U \subseteq X \) is not a \(\sigma\)-algebra on \(X\) \\ \\
+\par \hspace*{1em}Let's show a counterexample: \\
+\par \hspace*{1em}Let \( X = \mathbb{R} \) and \( U_1 = \mathbb{R} - \{1\} \). \\
+\par \hspace*{1em}Since \( X - U_1 = \{1\} \) satisfies the condition \( U_1 \) must be in this set where \( U \subseteq X \).\\
+\par \hspace*{1em}If this set is denoted by \( \Sigma \), then from property (2) \( X - U_1 = U_2 \) must be in this set.\\
+
+\par \hspace*{1em}However, since \( X - U_2 = \mathbb{R} - \{1\} \), which is uncountable, \( U_2 \) cannot be in this set. This leads to a contradiction.\\
+
+\par \hspace*{1em}Therefore, if \( X \) is an uncountable infinite set, the set of all \( U \subseteq X \) such that \( X - U \) is either finite or is \(\emptyset\) is \textbf{not}  a \( \sigma \)-algebra on \( X \).\\
+
+\subparagraph{(ii) if X is countable infinite}
+\ \\
+\par \hspace*{1em}The set in question must contain \(X\). This property is satisfied because \( X - \emptyset = X \), and \( X \) itself is also part of the set. \\
+\par \hspace*{1em}Since every \(U\) is countable where \( U \subseteq X \), \(X-U\) is also uncountable and this satisfies the condiciton. \\
+\par \hspace*{1em}Therefore, if this set is denoted by \( \Sigma \), then \( X-U \) must be in this set. \\
+\par \hspace*{1em}Since \( X - (X-U) = U\) is countable, this satisfies the condiciton. \\ \\
+
+\par \hspace*{1em}Since each \( U \) where \( U \subseteq X \) satisfies the condiciton, the set of all \( U \subseteq X \) is \( P(X) \). \\
+\par \hspace*{1em}Since \( \Sigma \subseteq P(X) \), Therefore, if \( X \) is an countable infinite set, the set of all \( U \subseteq X \) such that \( X - U \) is either countable or is all of \(X\) is a \( \sigma \)-algebra on \( X \).
+\subparagraph{(iii) if X is finite}
+
+\paragraph{(c)}
+\subparagraph{(i) if X is uncountable}
+\subparagraph{(ii) if X is countable infinite}
+\subparagraph{(iii) if X is finite}
+
+
+\section*{Answer 3}
+
+\paragraph{(a)}
+Let's consider the congruence \(ax \equiv b \pmod{p}\). If there exists an integer solution \(x=x_0\), then \(ax_0 \equiv b \pmod{p}\). So \(ax_0 - b\) is divisible by \(p\). This implies there exists \(y \in \mathbb{Z}\) such that \(ax_0 - yp = b\).
+\\ \\
+Let \(d = \gcd(a, p)\) (by Bezout's identity, there exist integers \(x_1\) and \(y_1\) such that \(ax_1 + py_1 = d\)). This implies: 
+\\ \\
+\[\left(\frac{b}{d}\right)ax_1 + \left(\frac{b}{d}\right)py_1 = b \]
+\\ \\
+Then, we have:
+\[ ax + py = b \]
+where \(x, y\) are integers. Since \(d = \gcd(a, p)\) divides both \(p\) and \(a\), it divides \(b\) too. 
+\\ \\
+Therefore, \(\gcd(a, p) \mid b\) is a must.
+
+\paragraph{(b)}
+\paragraph{(c)}
+The Chinese Remainder Theorem (CRT) asks for a (common) solution \(x\) to a system of congruences
+
+\[ x \equiv \begin{cases} a_1 \pmod{p_1} \\ a_2 \pmod{p_2} \\ a_3 \pmod{p_3} \\ \vdots \\ a_k \pmod{p_k} \end{cases} \]
+
+with \(\gcd(p_i, p_j) = 1\) for \(i \neq j\). The theorem states that there are infinitely many solutions, and any two differ by a multiple of \(\operatorname{lcm}(p_1, p_2, p_3, \ldots, p_k)\).
+
+
+\section*{Answer 4}
+\paragraph{(a)}
+Let's denote this set by \(X^{\omega}\). Then we will show that a function \(g : \mathbb{Z}^+ \rightarrow X^{\omega}\) cannot be surjective
+to prove the uncountability of this set.
+\\ \\
+Let's denote this set by \(X^\omega\). We will show that a function \(g:\mathbb{Z}^+ \rightarrow X^\omega\) cannot be surjective to prove the uncountability of this set.
+
+For a function \(g\) defined as \(g(n) = (x_{n1}, x_{n2}, \ldots, x_{nn}, \ldots)\) where each \(x_{ij}\) belongs to the set \(X = \{a, b, \ldots, z\}\), consider the element \(y = (y_1, y_2, \ldots) \in X^\omega\) given by:
+
+\[
+y_n = 
+\begin{cases}
+    x_{nn} & \text{if } x_{nn} \neq a \\
+    b & \text{if } x_{nn} = a
+\end{cases}
+\]
+\\ \\
+In other words, \(y\) is constructed such that it differs from each \(g(n)\) by at least one coordinate. This means that \(y\) is not mapped to by \(g\), and therefore, \(g\) cannot be surjective.
+\\ \\
+This argument generalizes to any countable product of a set \(X\) with \(\lvert X \rvert > 1\). If \(X\) has \(\lvert X \rvert = k\) elements, then there are \(k^{\mathbb{N}}\) distinct sequences in the countable product \(X^\omega\), making it uncountable.
+
+
+
+\paragraph{(b)}
+Let \(Y = \bigcup_{i \in \mathbb{N}} Y_i\).
+
+The sets \(Y_i\) are countable; therefore, there exist surjective functions \(f_i: \mathbb{N} \rightarrow Y_i\).
+
+By Cantor's first diagonal argument, it is known that \(\mathbb{N} \times \mathbb{N}\) is countable.
+
+So let's define:
+
+\[ F: \mathbb{N} \times \mathbb{N} \rightarrow Y \]
+
+\[ (i, x) \mapsto f_i(x) \]
+
+Per the definition of the union, this mapping is surjective.
+
+So, \(Y\) is indeed countable.
+
+\end{document}
