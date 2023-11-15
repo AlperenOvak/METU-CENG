@@ -138,6 +138,30 @@ The set of all \( U \subseteq X \) is not a \(\sigma\)-algebra on \(X\) \\ \\
 \par \hspace*{1em}Since \( \Sigma \subseteq P(X) \), Therefore, if \( X \) is an countable infinite set, the set of all \( U \subseteq X \) such that \( X - U \) is either countable or is all of \(X\) is a \( \sigma \)-algebra on \( X \).
 \subparagraph{(iii) if X is finite}
 
+\par \hspace*{1em}$X$ is in $\Sigma$:
+
+\par \hspace*{1em}Since $X - X = \emptyset$ (the empty set) is finite, $X$ is in $\Sigma$.
+
+\par \hspace*{1em}$\Sigma$ is closed under complementation:
+
+\par \hspace*{1em}If $U$ is in $\Sigma$, then $X - U$ is finite or all of $X$. The complement of $U$ is $X - U$. If $X - U$ is finite, then $U$ is in $\Sigma$. If $X - U$ is all of $X$, then $U$ is also in $\Sigma$. Therefore, $\Sigma$ is closed under complementation.
+
+\par \hspace*{1em}$\Sigma$ is closed under finite unions:
+
+\par \hspace*{1em}Let $A_1, A_2, \ldots$ be sets in $\Sigma$. This means that for each $A_i$, $X - A_i$ is either finite or all of $X$.
+
+\par \hspace*{1em}Consider the union $A = A_1 \cup A_2 \cup \ldots$. The complement of $A$ is
+\[
+X - A = (X - A_1) \cap (X - A_2) \cap \ldots.
+\]
+
+\par \hspace*{1em}If for each $i$, $X - A_i$ is finite, then $X - A$ is also finite (finite union of finite sets is finite). If for each $i$, $X - A_i$ is all of $X$, then $X - A$ is also all of $X$.
+
+\par \hspace*{1em}Therefore, $\Sigma$ is closed under finite unions.
+
+\par \hspace*{1em}Since the set $\Sigma$ satisfies all three properties, it is a $\sigma$-algebra on the finite set $X$.
+
+
 \paragraph{(c)}
 \subparagraph{(i) if X is uncountable}
 \subparagraph{(ii) if X is countable infinite}
