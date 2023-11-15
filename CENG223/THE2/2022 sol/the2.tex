@@ -29,14 +29,38 @@ Id Number :  2580801\\
 \section*{Answer 1}
 
 \paragraph{(a)}
-Let \(x_1, x_2, \ldots, x_m\) be \(m\) points in \(\mathbb{C}\), and let \(\lambda_1, \lambda_2, \ldots, \lambda_m\) be non-negative coefficients summing up to 1 (\(\sum_{i=1}^{m} \lambda_i = 1\)). Consider the linear combination
+
+Given $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_m \in \mathbb{C}$ and $\lambda_1, \lambda_2, \ldots, \lambda_m$ such that $\sum_{i=1}^{m} \lambda_i = 1$ and $\sum_{i=1}^{m} \lambda_i \mathbf{x}_i \geq 0$ for all $i=1, \ldots, m$, we want to show that $\sum_{i=1}^{m} \lambda_i \mathbf{x}_i \in \mathbb{C}$.
+
+Now, since $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_m$ are in $\mathbb{C}$, by the definition of a convex set, for any $t \in [0,1]$, we have $ t \mathbf{x}_k + (1-t)\mathbf{x}_l \in \mathbb{C}$.
+
+Consider the convex combination:
+\begin{equation}
+    \begin{aligned}
+    &\sum_{i=1}^{m} \lambda_i \left(t\mathbf{x}_k + (1-t)\mathbf{x}_l\right) 
+    = \sum_{i=1}^{m} \lambda_i t \mathbf{x}_k + \sum_{i=1}^{m} \lambda_i (1-t) \mathbf{x}_l \\
+    \end{aligned}
+\end{equation}
+\begin{equation}
+    \begin{aligned}
+    &= t \sum_{i=1}^{m} \lambda_i \mathbf{x}_k + (1-t) \sum_{i=1}^{m} \lambda_i \mathbf{x}_j \\
+    \end{aligned}
+\end{equation}
+
+Now, due to the linearity of the sum, we can factor out $t$ and $(1-t)$:
+
 \[
-\sum_{i=1}^{m} \lambda_i x_i.
+= t \mathbf{x}_i \sum_{i=1}^{m} \lambda_i  + (1-t) \mathbf{x}_j \sum_{i=1}^{m} \lambda_i
 \]
-Since \(\mathbb{C}\) is convex, any convex combination of points in \(\mathbb{C}\) is also in \(\mathbb{C}\). Therefore,
+
+Since $\sum_{i=1}^{m} \lambda_i = 1$, we get:
+
 \[
-\sum_{i=1}^{m} \lambda_i x_i \in \mathbb{C}.
+= t \mathbf{x}_i + (1-t) \mathbf{x}_j
 \]
+
+This expression is a convex combination of points $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_m$, and by the convexity of $\mathbb{C}$, it is also in $\mathbb{C}$.
+
 
 \paragraph{(b)}
 counterexample to illustrate that the composition of convex functions is not always convex: \\
@@ -47,7 +71,19 @@ Let \( g: \mathbb{R} \rightarrow \mathbb{R} \) be defined as \( g(x) = x^2-1 \),
 
 Then we have \( h = f \circ g \), where \( h(x) = f(g(x)) \) be defined as \( h(x) = x^4-2x^2+1 \). \\
 
-Since \( h(x) = x^4-2x^2+1 \) is not convex, we cannot say \( f \circ g \) is convex if \( g \) and \( f \) are convex functions.
+Let's choose two points $\mathbf{x}_1 = -1$ and $\mathbf{x}_2 = 1$, and $\mathbf{t} = 0.3$ in the range $[0, 1]$. \\
+\[
+    h(0.3(-1) + (0.7)1) = h(0.4) = 0.7056
+\]
+\[
+    0.3h(-1) + (0.7)h(1) = 0
+\]
+\[
+    0.7056 > 0
+\]
+
+
+Therefore \( h(x) = x^4-2x^2+1 \) is not convex, so we cannot say \( f \circ g \) is convex if \( g \) and \( f \) are convex functions.
 \paragraph{(c)}
 
 \textbf{Implication 1:}
@@ -164,25 +200,109 @@ X - A = (X - A_1) \cap (X - A_2) \cap \ldots.
 
 \paragraph{(c)}
 \subparagraph{(i) if X is uncountable}
+The set of all \( U \subseteq X \) is not a \(\sigma\)-algebra on \(X\) \\ \\
+\par \hspace*{1em}Let's show a counterexample: \\
+\par \hspace*{1em}Let \( X = \mathbb{R} \) and \( U_1 = \{1\} \). \\
+\par \hspace*{1em}Since \( X - U_1 = \mathbb{R} - \{1\} \) satisfies the condition. \( U_1 \) must be in this set where \( U \subseteq X \).\\
+\par \hspace*{1em}If this set is denoted by \( \Sigma \), then from property (2) \( X - U_1 = U_2 \) must be in this set.\\
+
+\par \hspace*{1em}However, since \( X - U_2 = \{1\} \), which is finite, \( U_2 \) cannot be in this set. This leads to a contradiction.\\
+
+\par \hspace*{1em}Therefore, if \( X \) is an uncountable infinite set, the set of all \( U \subseteq X \) such that \( X - U \) is infinite or \(\emptyset\) or \(X\) is \textbf{not}  a \( \sigma \)-algebra on \( X \).\\
+
 \subparagraph{(ii) if X is countable infinite}
+The set of all \( U \subseteq X \) is not a \(\sigma\)-algebra on \(X\) \\ \\
+\par \hspace*{1em}Let's show a counterexample: \\
+\par \hspace*{1em}Let \( X = \mathbb{Z} \) and \( U_1 = \{1\} \). \\
+\par \hspace*{1em}Since \( X - U_1 = \mathbb{Z} - \{1\} \) satisfies the condition. \( U_1 \) must be in this set where \( U \subseteq X \).\\
+\par \hspace*{1em}If this set is denoted by \( \Sigma \), then from property (2) \( X - U_1 = U_2 \) must be in this set.\\
+
+\par \hspace*{1em}However, since \( X - U_2 = \{1\} \), which is finite, \( U_2 \) cannot be in this set. This leads to a contradiction.\\
+
+\par \hspace*{1em}Therefore, if \( X \) is an countable infinite set, the set of all \( U \subseteq X \) such that \( X - U \) is infinite or \(\emptyset\) or \(X\) is \textbf{not}  a \( \sigma \)-algebra on \( X \).\\
+
 \subparagraph{(iii) if X is finite}
+\par \hspace*{1em}
+\par \hspace*{1em}\textbf{1. $X$ is in $\Sigma$:}
+
+In this case, $X$ itself is in the set because $X-X=$ \(\emptyset\) is in the set. So, the first property is satisfied.
+
+\par \hspace*{1em}\textbf{2. $\Sigma$ is closed under complementation:}
+
+If $A$ is in $\Sigma$, then $X - A$ is infinite or $\emptyset$ or $X$. Let's consider each case:
+\begin{itemize}
+    \item If $A$ is finite where $A\neq X$ and  $A\neq \emptyset$ , then $X - A$ is also finite, which is not in the set.
+    \item If $A$ is $\emptyset$, then $X - A$ is $X$, which is in the set.
+    \item If $A$ is $X$, then $X - A$ is $\emptyset$, which is in the set.
+\end{itemize}
+So, the set is closed under complementation.
+
+\par \hspace*{1em}\textbf{3. $\Sigma$ is closed under countable unions:}
+
+Let $A_1, A_2, \ldots$ be sets in $\Sigma$. We want to show that their union,
+\[
+A = A_1 \cup A_2 \cup \ldots,
+\]
+is also in $\Sigma$.
+\begin{itemize}
+    \item Since we have only two elements in this set, which is $\emptyset$ and $X$, then $A = X \cup \emptyset = X$ is also in the set.    
+\end{itemize}
+Since all three properties are satisfied, the given set is a $\sigma$-algebra on the finite set $X$.
 
 
 \section*{Answer 3}
 
 \paragraph{(a)}
-Let's consider the congruence \(ax \equiv b \pmod{p}\). If there exists an integer solution \(x=x_0\), then \(ax_0 \equiv b \pmod{p}\). So \(ax_0 - b\) is divisible by \(p\). This implies there exists \(y \in \mathbb{Z}\) such that \(ax_0 - yp = b\).
-\\ \\
-Let \(d = \gcd(a, p)\) (by Bezout's identity, there exist integers \(x_1\) and \(y_1\) such that \(ax_1 + py_1 = d\)). This implies: 
-\\ \\
-\[\left(\frac{b}{d}\right)ax_1 + \left(\frac{b}{d}\right)py_1 = b \]
-\\ \\
-Then, we have:
-\[ ax + py = b \]
-where \(x, y\) are integers. Since \(d = \gcd(a, p)\) divides both \(p\) and \(a\), it divides \(b\) too. 
-\\ \\
-Therefore, \(\gcd(a, p) \mid b\) is a must.
+\textbf{Suppose $ax \equiv b \pmod{p}$ has a solution.}
 
+This implies that there exists an integer $x$ such that $ax - b = p \cdot q$ for some integer $q$.
+
+Take $d = \gcd(a, p)$. We have:
+
+\[
+a = a \cdot t + p \cdot r
+\]
+
+where $t$ and $r$ are integers.
+
+Since $d = \gcd(a, p)$, it follows that $d$ divides both $a$ and $p$. Therefore, we can express $a$ and $n$ as:
+
+\[
+a = d \cdot q_1 \quad \text{where} \quad q_1 \in \mathbb{Z}
+\]
+
+\[
+p = d \cdot q_2 \quad \text{where} \quad q_2 \in \mathbb{Z}
+\]
+
+Lastly, from the earlier expression $ax - b = p \cdot q$, we can substitute $a$ and $n$ using the above expressions:
+
+\[
+b = a \cdot x - p \cdot q = (d \cdot q_1) \cdot x - (d \cdot q_2) \cdot q = d \cdot (q_1 \cdot x - q_2 \cdot q)
+\]
+
+Let $c = q_1 \cdot x - q_2 \cdot q$, then $b = d \cdot c$.
+
+Thus, $d = \gcd(a, p)$ divides $b$, indicating that if there is a solution to $ax \equiv b \pmod{n}$, then $d = \gcd(a, p)$ divides $b$. \\
+
+\textbf{Suppose $d = \gcd(a, p)$ and $d \mid b$.}
+
+Then we have
+\[
+\begin{cases}
+    d = a \cdot t + p \cdot r, & \text{$t, r \in \mathbb{Z}$} \\
+    d \mid b
+\end{cases}
+\]
+
+From these equations, it follows that
+\[
+b = d \cdot c = (a \cdot t + p \cdot r) \cdot c = atc + prc \implies b - a \cdot (tc) = p \cdot (rc) \implies a \cdot (tc) = b \pmod{p}
+\]
+
+This implies that $ax \equiv b \pmod{p}$ has a solution, where $x = t \cdot c$. \\
+
+Therefore,the congruence $ax \equiv b \pmod{p}$ has a solution for $x$ if and only if $\gcd(a, p) \mid b$.
 \paragraph{(b)}
 \paragraph{(c)}
 The Chinese Remainder Theorem (CRT) asks for a (common) solution \(x\) to a system of congruences
