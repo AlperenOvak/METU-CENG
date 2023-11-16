@@ -30,36 +30,45 @@ Id Number :  2580801\\
 
 \paragraph{(a)}
 
-Given $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_m \in \mathbb{C}$ and $\lambda_1, \lambda_2, \ldots, \lambda_m$ such that $\sum_{i=1}^{m} \lambda_i = 1$ and $\sum_{i=1}^{m} \lambda_i \mathbf{x}_i \geq 0$ for all $i=1, \ldots, m$, we want to show that $\sum_{i=1}^{m} \lambda_i \mathbf{x}_i \in \mathbb{C}$.
+\subsection*{Base Case ($m = 3$):}
 
-Now, since $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_m$ are in $\mathbb{C}$, by the definition of a convex set, for any $t \in [0,1]$, we have $ t \mathbf{x}_k + (1-t)\mathbf{x}_l \in \mathbb{C}$.
+Assume $\mathbf{x_1, x_2, x_3}$ are three arbitrary points in the convex set $\mathcal{C}$. We want to show that any linear combination of these three points is also in $\mathcal{C}$.
 
-Consider the convex combination:
-\begin{equation}
-    \begin{aligned}
-    &\sum_{i=1}^{m} \lambda_i \left(t\mathbf{x}_k + (1-t)\mathbf{x}_l\right) 
-    = \sum_{i=1}^{m} \lambda_i t \mathbf{x}_k + \sum_{i=1}^{m} \lambda_i (1-t) \mathbf{x}_l \\
-    \end{aligned}
-\end{equation}
-\begin{equation}
-    \begin{aligned}
-    &= t \sum_{i=1}^{m} \lambda_i \mathbf{x}_k + (1-t) \sum_{i=1}^{m} \lambda_i \mathbf{x}_j \\
-    \end{aligned}
-\end{equation}
-
-Now, due to the linearity of the sum, we can factor out $t$ and $(1-t)$:
-
+Consider $\mathbf{x_1, x_2, x_3}$ and $\lambda_1, \lambda_2, \lambda_3$ such that $\mathbf{x_1} \geq 0$, $\mathbf{x_2} \geq 0$, $\mathbf{x_3} \geq 0$, $\lambda_1 \geq 0$, $\lambda_2 \geq 0$, $\lambda_3 \geq 0$, and $\mathbf{x_1} + \mathbf{x_2} + \mathbf{x_3} = 1$, $\lambda_1 + \lambda_2 + \lambda_3 = 1$. Now, consider the linear combination
 \[
-= t \mathbf{x}_i \sum_{i=1}^{m} \lambda_i  + (1-t) \mathbf{x}_j \sum_{i=1}^{m} \lambda_i
+\lambda_1 \mathbf{x_1} + \lambda_2 \mathbf{x_2} + \lambda_3 \mathbf{x_3}.
 \]
 
-Since $\sum_{i=1}^{m} \lambda_i = 1$, we get:
+Since $\lambda_1 \mathbf{x_1} + (1 - \lambda_1) \mathbf{x_2}$ is in $\mathcal{C}$ (as given in the premise), we can use the same reasoning for the pair $(\lambda_1 \mathbf{x_1} + (1 - \lambda_1) \mathbf{x_2})$ and $\mathbf{x_3}$. Therefore, the linear combination $\lambda_3(\lambda_1 \mathbf{x_1} + (1 - \lambda_1) \mathbf{x_2}) + (1 - \lambda_3) \mathbf{x_3}$ is also in $\mathcal{C}$.
 
+Now, let's express this in terms of $\lambda_i$'s:
 \[
-= t \mathbf{x}_i + (1-t) \mathbf{x}_j
+\begin{aligned}
+&\lambda_3(\lambda_1 \mathbf{x_1} + (1 - \lambda_1) \mathbf{x_2}) + (1 - \lambda_3) \mathbf{x_3} \\
+&= \lambda_3 \lambda_1 \mathbf{x_1} + \lambda_3 (1 - \lambda_1) \mathbf{x_2} + (1 - \lambda_3) \mathbf{x_3} \\
+\end{aligned}
 \]
 
-This expression is a convex combination of points $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_m$, and by the convexity of $\mathbb{C}$, it is also in $\mathbb{C}$.
+Now, observe that $\lambda_3 \lambda_1 + \lambda_3 (1 - \lambda_1) + (1 - \lambda_3) = 1$, which satisfies $\sum_{i=1}^{3} \lambda_i = 1$.
+
+Therefore, the base case $m = 3$ holds.
+\subsection*{Inductive Step:}
+
+Assume that the statement holds for $m = k$, where $k$ is some positive integer greater than $3$. That is, for any set of $k$ points $\mathbf{x_1, x_2, \ldots, x_k}$ in $\mathcal{C}$ and coefficients $\lambda_1, \lambda_2, \ldots, \lambda_k$ satisfying $\mathbf{x_i} \geq 0$, $\lambda_i \geq 0$, and $\sum_{i=1}^{k} \lambda_i = 1$, the linear combination $\sum_{i=1}^{k} \lambda_i \mathbf{x_i}$ is in $\mathcal{C}$.
+
+Now, we want to prove the statement for $m = k + 1$. Consider $\mathbf{x_1, x_2, \ldots, x_k, x_{k+1}}$ as $k + 1$ points in $\mathcal{C}$ and coefficients $\lambda_1, \lambda_2, \ldots, \lambda_k, \lambda_{k+1}$ such that $\mathbf{x_i} \geq 0$, $\lambda_i \geq 0$, and $\sum_{i=1}^{k+1} \lambda_i = 1$.
+
+By the inductive assumption, the linear combination $\sum_{i=1}^{k} \lambda_i \mathbf{x_i}$ is in $\mathcal{C}$. Now, consider the convex combination of this result with $\mathbf{x_{k+1}}$ using the coefficients $\lambda_{k+1}$:
+
+\[
+\lambda_{k+1} \left(\sum_{i=1}^{k} \lambda_i \mathbf{x_i}\right) + (\lambda_{k+1}-1) \mathbf{x_{k+1}}.
+\]
+
+Since $\mathcal{C}$ is convex, this convex combination is also in $\mathcal{C}$.
+
+Therefore, by mathematical induction, the statement holds for all $m > 3$.
+
+This completes the proof.
 
 
 \paragraph{(b)}
@@ -304,13 +313,94 @@ This implies that $ax \equiv b \pmod{p}$ has a solution, where $x = t \cdot c$. 
 
 Therefore,the congruence $ax \equiv b \pmod{p}$ has a solution for $x$ if and only if $\gcd(a, p) \mid b$.
 \paragraph{(b)}
+
+To prove that the pair of congruences has a solution for \(x\) under the given conditions, we will use Bézout's identity.
+
+Let \(d = \gcd(p_1, p_2) = 1\) (since \(\gcd(p_1, p_2) = 1\)).
+
+By Bézout's identity, there exist integers \(s\) and \(t\) such that \(sp_1 + tp_2 = 1\).
+
+Now, consider the system of congruences:
+
+\begin{enumerate}
+  \item \(a_1x \equiv b_1 \pmod{p_1}\)
+  \item \(a_2x \equiv b_2 \pmod{p_2}\)
+\end{enumerate}
+
+We want to find a solution \(x\) that satisfies both congruences.
+
+Let's define \(x_0 = t \cdot p_2\) (Note that \(x_0\) is a solution to the second congruence since \(a_2x_0 = a_2(t \cdot p_2) \equiv b_2 \pmod{p_2}\)).
+
+Now, let's consider the first congruence with this value of \(x_0\):
+
+\[a_1x_0 = a_1(t \cdot p_2) \equiv b_1 \pmod{p_1}\]
+
+Since \(sp_1 + tp_2 = 1\), we can multiply the entire congruence by \(s\) (which is congruent to 1 modulo \(p_1\)):
+
+\[a_1(t \cdot p_2) \cdot s \equiv b_1 \cdot s \pmod{p_1}\]
+
+This simplifies to:
+
+\[a_1(t \cdot p_2 \cdot s) \equiv b_1 \cdot s \pmod{p_1}\]
+
+Since \(t \cdot p_2 \cdot s\) is congruent to 1 modulo \(p_1\), we have:
+
+\[a_1 \cdot 1 \equiv b_1 \cdot s \pmod{p_1}\]
+
+This implies that \(a_1 \equiv b_1 \cdot s \pmod{p_1}\). Since \(s\) is an integer, \(b_1 \cdot s\) is divisible by \(\gcd(a_1, p_1)\).
+
+Therefore, \(a_1 \equiv b_1 \cdot s \pmod{p_1}\) implies that \(a_1x_0 \equiv b_1 \pmod{p_1}\), and \(x_0\) is a solution to the first congruence as well.
+
+So, \(x = x_0\) is a solution to the pair of congruences.
+
+
 \paragraph{(c)}
-The Chinese Remainder Theorem (CRT) asks for a (common) solution \(x\) to a system of congruences
 
-\[ x \equiv \begin{cases} a_1 \pmod{p_1} \\ a_2 \pmod{p_2} \\ a_3 \pmod{p_3} \\ \vdots \\ a_k \pmod{p_k} \end{cases} \]
+\textbf{Given:}
+We consider the system of congruences:
+\[
+a_jx \equiv b_j \pmod{p_j}
+\]
+where $(a_j, p_j) = 1$ for all $j$.
 
-with \(\gcd(p_i, p_j) = 1\) for \(i \neq j\). The theorem states that there are infinitely many solutions, and any two differ by a multiple of \(\operatorname{lcm}(p_1, p_2, p_3, \ldots, p_k)\).
+\textbf{Claim (1):}
+There always exists a solution for
+\[
+a_jx \equiv b_j \pmod{p_j}
+\]
+regardless of the choice of $b_j$.
 
+\textit{Proof:}
+Let $C_j$ be a solution for $a_jx \equiv b_j \pmod{p_j}$ for $j = 1,2,...,k$. Since $(a_j, p_j) = 1$, we have $[p_1, p_2, ..., p_k] = \Pi$, where $\Pi$ is the product of all $p_j$ since they are coprime. Consider $m_j$ such that $m_j\Pi \equiv 1 \pmod{p_j}$ [Equation (2)]. This gives a unique solution $x \equiv m'_j \pmod{p_j}$.
+
+Considering
+\[
+x_0 = c_1m_1m'_1 + c_2m_2m'_2 + ... + c_km_km'_k,
+\]
+where $c_j$ is a chosen solution for $a_jx \equiv b_j \pmod{p_j}$ [Equation (1)], we can show that $x_0$ is a common solution to the system.
+
+For $i \neq j$, $p_i$ divides $m_j = p_1p_2...p_kp_j$. Therefore,
+\[
+a_jx_0 \equiv \sum_{i=1}^{k} a_ic_im_im'_i \equiv a_jc_jm_jm'_j \equiv a_jc_j \pmod{p_j}
+\]
+
+Since $m_jm'_j \equiv 1 \pmod{p_j}$, we have $a_jx_0 \equiv a_jc_j \equiv b_j \pmod{p_j}$. Thus, $x_0$ is a common solution for $j = 1,2,...,k$.
+
+\textbf{Claim (2):}
+If $x$ is another solution to the system of congruences, then
+\[
+x \equiv x_0 \pmod{[p_1, p_2, ..., p_k]}
+\].
+
+\textit{Proof:}
+Let $x$ be another solution. This implies
+\[
+x_0 \equiv c_j \equiv x \pmod{p_j}
+\]
+for all $j = 1,2,...,k$. Thus, $x_0 - x$ is a common multiple of $p_1, p_2, ..., p_k$, and hence a multiple of $[p_1, p_2, ..., p_k] = \Pi$. Therefore,
+\[
+x \equiv x_0 \pmod{[\Pi]}
+\].
 
 \section*{Answer 4}
 \paragraph{(a)}
@@ -324,7 +414,7 @@ For a function \(g\) defined as \(g(n) = (x_{n1}, x_{n2}, \ldots, x_{nn}, \ldots
 \[
 y_n = 
 \begin{cases}
-    x_{nn} & \text{if } x_{nn} \neq a \\
+    a & \text{if } x_{nn} \neq a \\
     b & \text{if } x_{nn} = a
 \end{cases}
 \]
@@ -338,7 +428,7 @@ This argument generalizes to any countable product of a set \(X\) with \(\lvert 
 \paragraph{(b)}
 Let \(Y = \bigcup_{i \in \mathbb{N}} Y_i\).
 
-The sets \(Y_i\) are countable; therefore, there exist surjective functions \(f_i: \mathbb{N} \rightarrow Y_i\).
+The sets \(Y_i\) are infinitely countable; therefore, there exist surjective functions \(f_i: \mathbb{N} \rightarrow Y_i\).
 
 By Cantor's first diagonal argument, it is known that \(\mathbb{N} \times \mathbb{N}\) is countable.
 
