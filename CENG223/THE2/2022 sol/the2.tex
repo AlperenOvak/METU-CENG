@@ -76,7 +76,17 @@ counterexample to illustrate that the composition of convex functions is not alw
 
 Let \( f: \mathbb{R} \rightarrow \mathbb{R} \) be defined as \( f(x) = x^2 \), which is a convex function. \\
 
+\textbf{First derivative:}
+\[ f'(x) = 2x \]
+
+\textbf{Second derivative:}
+\[ f''(x) = 2 \]
+
+The second derivative is a constant, and it is always positive for all \( x \). Since \( f''(x) \geq 0 \) for all \( x \), we can conclude that \( f(x) = x^2 \) is a convex function. 
+
 Let \( g: \mathbb{R} \rightarrow \mathbb{R} \) be defined as \( g(x) = x^2-1 \), which is also convex. \\
+
+Proof is very similar to proof of \( x^2 \)\\
 
 Then we have \( h = f \circ g \), where \( h(x) = f(g(x)) \) be defined as \( h(x) = x^4-2x^2+1 \). \\
 
@@ -154,7 +164,20 @@ The set of all \( U \subseteq X \) is not a \(\sigma\)-algebra on \(X\) \\ \\
 \par \hspace*{1em}The set in question must contain the empty set \( \emptyset \). This property is satisfied because \( X - X = \emptyset \), and \( \emptyset \) itself is also part of the set. \\
 \par \hspace*{1em}Since every \(U\) is finite where all \( U \subseteq X \), \(X-U\) is also finite and this satisfies the condiciton. \\
 \par \hspace*{1em}Therefore, if this set is denoted by \( \Sigma \), then \( X-U \) must be in this set. \\
-\par \hspace*{1em}Since \( X - (X-U) = U\) is finite, this satisfies the condiciton. \\ \\
+\par \hspace*{1em}Since \( X - (X-U) = U\) is finite, this satisfies the condiciton. \\
+
+\par \hspace*{1em}$\Sigma$ is closed under finite unions:
+
+\par \hspace*{1em}Let $A_1, A_2, \ldots$ be sets in $\Sigma$. This means that for each $A_i$, $X - A_i$ is either finite or all of $X$.
+
+\par \hspace*{1em}Consider the union $A = A_1 \cup A_2 \cup \ldots$. The complement of $A$ is
+\[
+X - A = (X - A_1) \cup (X - A_2) \cup \ldots.
+\]
+
+\par \hspace*{1em}If for each $i$, $X - A_i$ is finite, then $X - A$ is also finite (finite union of finite sets is finite). If for each $i$, $X - A_i$ is all of $X$, then $X - A$ is also all of $X$. \\
+
+\par \hspace*{1em}Therefore, $\Sigma$ is closed under finite unions.
 
 \par \hspace*{1em}Since each \( U \) where \( U \subseteq X \) satisfies the condiciton, the set of all \( U \subseteq X \) is \( P(X) \). \\
 \par \hspace*{1em}Since \( \Sigma \subseteq P(X) \), Therefore, if \( X \) is an uncountable infinite set, the set of all \( U \subseteq X \) such that \( X - U \) is either finite or is \(\emptyset\) is a \( \sigma \)-algebra on \( X \).
@@ -197,7 +220,7 @@ The set of all \( U \subseteq X \) is not a \(\sigma\)-algebra on \(X\) \\ \\
 
 \par \hspace*{1em}Consider the union $A = A_1 \cup A_2 \cup \ldots$. The complement of $A$ is
 \[
-X - A = (X - A_1) \cap (X - A_2) \cap \ldots.
+X - A = (X - A_1) \cup (X - A_2) \cup \ldots.
 \]
 
 \par \hspace*{1em}If for each $i$, $X - A_i$ is finite, then $X - A$ is also finite (finite union of finite sets is finite). If for each $i$, $X - A_i$ is all of $X$, then $X - A$ is also all of $X$.
