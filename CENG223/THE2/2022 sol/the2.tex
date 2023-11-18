@@ -179,7 +179,7 @@ X - A = (X - A_1) \cup (X - A_2) \cup \ldots.
 
 \par \hspace*{1em}Therefore, $\Sigma$ is closed under finite unions.
 
-\par \hspace*{1em}Since each \( U \) where \( U \subseteq X \) satisfies the condiciton, the set of all \( U \subseteq X \) is \( P(X) \). \\
+\par \hspace*{1em}Since each \( U \) where \( U \subseteq X \) satisfies the condiciton, the set of all \( U \subseteq X \) is \( P(X) \). \\                                                                                           
 \par \hspace*{1em}Since \( \Sigma \subseteq P(X) \), Therefore, if \( X \) is an uncountable infinite set, the set of all \( U \subseteq X \) such that \( X - U \) is either finite or is \(\emptyset\) is a \( \sigma \)-algebra on \( X \).
 
 
@@ -449,20 +449,32 @@ This argument generalizes to any countable product of a set \(X\) with \(\lvert 
 
 
 \paragraph{(b)}
-Let \(Y = \bigcup_{i \in \mathbb{N}} Y_i\).
+Consider the countable sets \( S_0, S_1, S_2, \ldots \) where \( S = \bigcup_{i \in \mathbb{N}} S_i \). \\
 
-The sets \(Y_i\) are infinitely countable; therefore, there exist surjective functions \(f_i: \mathbb{N} \rightarrow Y_i\).
+Assume that none of these sets have any elements in common. Otherwise, we can consider the sets \( S'_0 = S_0, S'_1 = S_1 \backslash S_0, S'_2 = S_2 \backslash (S_0 \cup S_1), \ldots \). \\
+All of these are countable by Subset of Countable Set is Countable, and they have the same union \( S = \bigcup_{i \in \mathbb{N}} S'_i \).\\
 
-By Cantor's first diagonal argument, it is known that \(\mathbb{N} \times \mathbb{N}\) is countable.
+Now we write the elements of \( S'_0, S'_1, S'_2, \ldots \) in the form of a (possibly infinite) table:
 
-So let's define:
+\[
+\begin{array}{cccccc}
+a_{00} & a_{10} & a_{20} & \ldots \\
+a_{01} & a_{11} & a_{21} & \ldots \\
+a_{02} & a_{12} & a_{22} & \ldots \\
+\vdots & \vdots & \vdots & \ddots \\
+\end{array}
+\]
 
-\[ F: \mathbb{N} \times \mathbb{N} \rightarrow Y \]
+where \( a_{ij} \) is the \( j \)-th element of set \( S_i \).\\
 
-\[ (i, x) \mapsto f_i(x) \]
+This table clearly contains all the elements of \( S = \bigcup_{i \in \mathbb{N}} S_i \).\\
 
-Per the definition of the union, this mapping is surjective.
+Furthermore, we have that \( \phi: S \to \mathbb{N} \times \mathbb{N}, a_{ij} \mapsto (i, j) \) is an injection.
 
-So, \(Y\) is indeed countable.
+By the Cartesian Product of Countable Sets is Countable theorem, there exists an injection \( \psi: \mathbb{N} \times \mathbb{N} \to \mathbb{N} \).
+
+Then \( \psi \circ \phi: S \to \mathbb{N} \) is also an injection by the Composite of Injections is an Injection theorem.
+
+That is to say, \( S \) is countable.
 
 \end{document}
