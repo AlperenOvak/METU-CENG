@@ -33,7 +33,7 @@ public: // Do not change.
 
     Trie(); 
     ~Trie();
-    
+    void deleteTrieNode(TrieNode* node);
     Trie& insert(const string& username); 
     void remove(std::string username);
     T* search(std::string username); 
@@ -52,12 +52,39 @@ Trie<T>::Trie() : root(new TrieNode('\0')) {}
 
 template <class T>
 Trie<T>::~Trie() {
-    /* IMPLEMENT THIS */
+    deleteTrieNode(root);
+}
+
+template <class T>
+void Trie<T>::deleteTrieNode(TrieNode* node) {
+    if (node) {
+        for (int i = 0; i < TrieNode::ALPHABET_SIZE; i++) {
+            deleteTrieNode(node->children[i]);
+        }
+        delete node->data;  // Free associated data if it's dynamically allocated
+        delete node;
+    }
 }
 
 template <class T>
 Trie<T>& Trie<T>::insert(const string& key) {
     /* IMPLEMENT THIS */
+    TrieNode* current=root;
+    int i=0;
+    
+    while(key[i]){
+
+        int c=key[i];
+        if (!current->children[c]) {
+            current->children[c] = new TrieNode(key[i]);
+        }
+
+        current = current->children[c];
+        i++;
+    }
+    
+    current->isEndOfKey = true;
+    
     return *this;
 }
 
