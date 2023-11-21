@@ -45,10 +45,14 @@ int main(){
     c.insert("Alperen");
     c.insert("Alper");
     User* user = c.search("eray");
+    
     user->addMovie("titanic",movie1);
-    user->addMovie("recepivedik",movie2);
+    user->addMovie("edsadasray",movie2);
+    user->printMovies();
+    cout<<"\n ************************\n";
     c.print();
     c.remove("Berat");
+    user->removeMovie(movie2);
     if(c.search("eray")){
         cout<<"zort";
     }

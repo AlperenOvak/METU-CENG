@@ -38,8 +38,13 @@ public: // Do not change.
 
     BST& insert(const std::string key, const T& value);
     TreeNode* insertRecursive(TreeNode* node, const std::string& key, const T& value);
+
     bool search(std::string value) const;
+    TreeNode* finder(TreeNode* root,std::string key);
+
     void remove(std::string value);
+    TreeNode* deleteNode(TreeNode* node, std::string key);
+
     BST<T>* merge(BST<T>* bst);
     BST<T>* intersection(BST<T>* bst);
     std::vector<TreeNode> tree2vector(TreeNode* root);
@@ -107,15 +112,111 @@ private:// you may add your own utility member functions here.
     template <class T>
     bool BST<T>::search(std::string value) const {
      /* IMPLEMENT THIS */
+        TreeNode* temp = root;
+        while(temp){
+            if(temp->key==value){
+                return true;
+            }else if(temp->key > value){
+                if(temp->left){
+                    temp=temp->left;
+                }else{
+                    return false;
+                }
+            }else{
+                if(temp->right){
+                    temp=temp->right;
+                }else{
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
 
-     return false;
+    template <class T>
+    typename BST<T>::TreeNode* BST<T>::finder(TreeNode* node,std::string key) {
+     /* IMPLEMENT THIS */
+        if (node == NULL)
+            return NULL;
+        if (node->key > key){
+            return finder(node->left,key);
+        }else if (node->key < key){
+            return finder(node->right,key);
+        }else{
+            return node;
+        }
     }
     
     // Remove a node from BST for given key. If key not found, do not change anything.
     template <class T>
     void BST<T>::remove(std::string key) {
         /* IMPLEMENT THIS */
+        root= deleteNode(root,key);
     }
+
+    template <class T>
+    typename BST<T>::TreeNode* BST<T>::deleteNode(TreeNode* node, std::string key){
+    // Base case
+    if (node == NULL)
+        return node;
+ 
+    // Recursive calls for ancestors of
+    // node to be deleted
+    if (node->key > key) {
+        node->left = deleteNode(node->left, key);
+        return node;
+    }
+    else if (node->key < key) {
+        node->right = deleteNode(node->right, key);
+        return node;
+    }
+ 
+    // We reach here when root is the node
+    // to be deleted.
+ 
+    // If one of the children is empty
+    if (node->left == NULL) {
+        TreeNode* temp = node->right;
+        delete node;
+        return temp;
+    }
+    else if (node->right == NULL) {
+        TreeNode* temp = node->left;
+        delete node;
+        return temp;
+    }
+ 
+    // If both children exist
+    else {
+ 
+        TreeNode* succParent = node;
+ 
+        // Find successor
+        TreeNode* succ = node->right;
+        while (succ->left != NULL) {
+            succParent = succ;
+            succ = succ->left;
+        }
+ 
+        // Delete successor.  Since successor
+        // is always left child of its parent
+        // we can safely make successor's right
+        // right child as left of its parent.
+        // If there is no succ, then assign
+        // succ->right to succParent->right
+        if (succParent != node)
+            succParent->left = succ->right;
+        else
+            succParent->right = succ->right;
+ 
+        // Copy Successor Data to root
+        node->key = succ->key;
+ 
+        // Delete Successor and return root
+        delete succ;
+        return node;
+    }
+}
     
     // A helper function for converting a BST into vector.
     template <class T>
