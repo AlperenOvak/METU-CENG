@@ -1,3 +1,6 @@
+#ifndef BST_H
+#define BST_H
+
 #include <string>
 #include <vector>
 #include <iostream>
@@ -29,10 +32,12 @@ public: // Do not change.
 
     BST();
     ~BST();
+    void destroyTree(TreeNode* node); //remove it later
     TreeNode* getRoot() { return root; }
     bool isEmpty() { return root == NULL; }
 
     BST& insert(const std::string key, const T& value);
+    TreeNode* insertRecursive(TreeNode* node, const std::string& key, const T& value);
     bool search(std::string value) const;
     void remove(std::string value);
     BST<T>* merge(BST<T>* bst);
@@ -54,20 +59,56 @@ private:// you may add your own utility member functions here.
     template <class T>
     BST<T>::~BST() {
     /* IMPLEMENT THIS */
+        destroyTree(root);
+    }
 
+    template <class T>
+    void BST<T>::destroyTree(TreeNode* node) {
+        if (node != NULL) {
+            destroyTree(node->left);  // Recursively delete left subtree
+            destroyTree(node->right); // Recursively delete right subtree
+            delete node;              // Delete the current node
+        }
     }
 
     // Insert function for BST.    
     template <class T>
     BST<T>& BST<T>::insert(const string key, const T& value) {
-             /* IMPLEMENT THIS */
-    
+            /* IMPLEMENT THIS */
+            root=insertRecursive(root,key,value);
+            
+            return *this;
     }
+
+    template <class T>
+    typename BST<T>::TreeNode* BST<T>::insertRecursive(TreeNode* node, const std::string& key, const T& value) {
+        if (node == nullptr) {
+            // If the tree is empty or we reached a leaf, create a new node
+            return new TreeNode(key, value);
+        }
+
+        // Traverse the tree to find the appropriate position based on the key
+        if (key < node->key) {
+            // Go to the left subtree
+            node->left = insertRecursive(node->left, key, value);
+        } else if (key > node->key) {
+            // Go to the right subtree
+            node->right = insertRecursive(node->right, key, value);
+        } else {
+            // If the key already exists, update the value (or handle accordingly)
+            node->data = value;
+        }
+
+        return node;
+    }
+
     
     // Search function for BST.
     template <class T>
     bool BST<T>::search(std::string value) const {
      /* IMPLEMENT THIS */
+
+     return false;
     }
     
     // Remove a node from BST for given key. If key not found, do not change anything.
@@ -87,12 +128,14 @@ private:// you may add your own utility member functions here.
     template <class T>
     BST<T>* BST<T>::merge(BST<T>* bst) {
     /* IMPLEMENT THIS */
+        return this;
     }
         
     // Intersect two BST's and return new BST.
     template <class T>
     BST<T>* BST<T>::intersection(BST<T>* bst) {
     /* IMPLEMENT THIS */
+        return this;
     }
     
     /* DO NOT CHANGE */
@@ -113,4 +156,4 @@ private:// you may add your own utility member functions here.
     
     }
 
-
+#endif

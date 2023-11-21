@@ -1,3 +1,6 @@
+#ifndef TRIE_H
+#define TRIE_H
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -84,20 +87,59 @@ Trie<T>& Trie<T>::insert(const string& key) {
     }
     
     current->isEndOfKey = true;
-    
+    current->data = new T(key);
     return *this;
 }
 
 template <class T>
 T* Trie<T>::search(std::string username) {
     /* IMPLEMENT THIS */
-    return NULL;
+    TrieNode* current = root;
+    int level = 0;
+
+    // Traverse the trie based on the characters of the input key
+    while (level < (int)username.length()) {
+        int index = (username[level]);
+
+        // If the current node does not exist, the key is not present in the trie
+        if (current->children[index] == NULL) {
+            return NULL;
+        }
+
+        current = current->children[index];
+        ++level;
+    }
+
+    // If the key is found, return a pointer to the associated data
+    return (current != NULL && current->isEndOfKey) ? current->data : NULL;
 }
 
 template <class T>
 void Trie<T>::remove(std::string username) {
-    /* IMPLEMENT THIS */
+    if (root == NULL) {
+        // The trie is empty, nothing to remove
+        return;
+    }
 
+    TrieNode* current = root;
+    int level = 0;
+
+    while (level <  (int)username.length()) {
+        int index = username[level];
+
+        // If the current node does not exist, the key is not present in the trie
+        if (current->children[index] == NULL) {
+            return;
+        }
+        current->isEndOfKey = false;
+        current = current->children[index];
+        ++level;
+    }
+
+    // Mark the last node as not the end of the key
+    if (current != NULL) {
+        current->isEndOfKey = false;
+    }
 }
 
 template <class T>
@@ -157,3 +199,4 @@ void Trie<T>::printTrie(TrieNode* node, const std::string& currentKey) {
     }
 }
 
+#endif
