@@ -1,3 +1,5 @@
+#ifndef USER_INTERFACE_H
+#define USER_INTERFACE_H
 
 #include "trie.h"
 #include <string>
@@ -29,3 +31,5 @@ public:
 private:
     Trie<User> users;
 };
+
+#endif
