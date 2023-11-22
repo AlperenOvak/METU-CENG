@@ -48,6 +48,7 @@ public: // Do not change.
     BST<T>* merge(BST<T>* bst);
     BST<T>* intersection(BST<T>* bst);
     std::vector<TreeNode> tree2vector(TreeNode* root);
+    void tree2vector(TreeNode* node, std::vector<TreeNode>& result)
     void print();
     
 private:// you may add your own utility member functions here.
@@ -62,7 +63,7 @@ private:// you may add your own utility member functions here.
 
     // Destructor
     template <class T>
-    BST<T>::~BST() {
+    BST<T>::~BST() {    // write again !!!!!!!
     /* IMPLEMENT THIS */
         destroyTree(root);
     }
@@ -134,7 +135,7 @@ private:// you may add your own utility member functions here.
     }
 
     template <class T>
-    typename BST<T>::TreeNode* BST<T>::finder(TreeNode* node,std::string key) {
+    typename BST<T>::TreeNode* BST<T>::finder(TreeNode* node,std::string key) {   // no need??
      /* IMPLEMENT THIS */
         if (node == NULL)
             return NULL;
@@ -222,14 +223,29 @@ private:// you may add your own utility member functions here.
     template <class T>
     vector<typename BST<T>::TreeNode> BST<T>::tree2vector(TreeNode* root) {
         vector<TreeNode> result;
+        tree2vector(root, result);
         return result;
+    }
+
+    template <class T>
+    void BST<T>::tree2vector(TreeNode* node, std::vector<TreeNode>& result){
+        while(node){
+            tree2vector(node->left, result);
+            result.push_back(node);
+            tree2vector(node->right, result);
+        }
     }
     
     // Merge two BST's and return merged BST.
     template <class T>
     BST<T>* BST<T>::merge(BST<T>* bst) {
     /* IMPLEMENT THIS */
-        return this;
+        vector<TreeNode> LHS =tree2vector(root);
+        vector<TreeNode> RHS =tree2vector(bst->getRoot());
+        vector<TreeNode> result;
+
+
+        return result;
     }
         
     // Intersect two BST's and return new BST.

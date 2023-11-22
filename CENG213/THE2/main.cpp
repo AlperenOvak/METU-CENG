@@ -53,6 +53,7 @@ int main(){
     c.print();
     c.remove("Berat");
     user->removeMovie(movie2);
+    user->
     if(c.search("eray")){
         cout<<"zort";
     }
