@@ -64,7 +64,11 @@ int main(){
     BST<Movie> *resultEmpty = emptyBST1.merge(&emptyBST2);
     cout << "Merged Empty BSTs: ";
     resultEmpty->print();    // boş bastırmıyor??
+<<<<<<< HEAD
     cout << "\n ************************\n";
+=======
+    cout << "\n ************************\n";*/
+>>>>>>> 3078f98bee9b8901fd54ea0670f6805db16bdcac
 
     // Test case 2: Merge one empty BST with a non-empty BST
     BST<Movie> emptyBST, nonEmptyBST;

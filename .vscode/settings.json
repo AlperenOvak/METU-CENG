@@ -56,7 +56,27 @@
         "cwctype": "cpp",
         "__nullptr": "cpp",
         "deque": "cpp",
-        "__split_buffer": "cpp"
+        "__split_buffer": "cpp",
+        "__node_handle": "cpp",
+        "filesystem": "cpp",
+        "random": "cpp",
+        "chrono": "cpp",
+        "map": "cpp",
+        "unordered_map": "cpp",
+        "functional": "cpp",
+        "numeric": "cpp",
+        "ratio": "cpp",
+        "ranges": "cpp",
+        "sstream": "cpp",
+        "thread": "cpp",
+        "cinttypes": "cpp",
+        "__locale": "cpp",
+        "optional": "cpp",
+        "__bit_reference": "cpp",
+        "__functional_base": "cpp",
+        "__memory": "cpp",
+        "locale": "cpp",
+        "set": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
