@@ -53,10 +53,14 @@ int main(){
     c.print();
     c.remove("Berat");
     user->removeMovie(movie2);
-    user->
+    User* user1 = c.search("Alperen");
     if(c.search("eray")){
         cout<<"zort";
     }
     cout<<"\n ************************\n";
     c.print();
+    user1->movies=user1->movies.merge(user->movies);
+    cout<<"\n ***merge*****************\n";
+    c.print();
+    
 }

@@ -48,7 +48,7 @@ public: // Do not change.
     BST<T>* merge(BST<T>* bst);
     BST<T>* intersection(BST<T>* bst);
     std::vector<TreeNode> tree2vector(TreeNode* root);
-    void tree2vector(TreeNode* node, std::vector<TreeNode>& result)
+    void tree2vector(TreeNode* node, std::vector<TreeNode>& result);
     void print();
     
 private:// you may add your own utility member functions here.
@@ -243,9 +243,31 @@ private:// you may add your own utility member functions here.
         vector<TreeNode> LHS =tree2vector(root);
         vector<TreeNode> RHS =tree2vector(bst->getRoot());
         vector<TreeNode> result;
+        BST<T> a();
+        int i=0;
+        int j=0;
+        while(i<LHS.size() && j<RHS.size()){
+            if(LHS[i].key < RHS[j].key){
+                result.push_back(LHS[i++]);
+            }else if(LHS[i].key > RHS[j].key){
+                result.push_back(RHS[j++]);
+            }else{
+                result.push_back(RHS[j++]);
+                i++;
+            }
+        }
 
+        while(i<LHS.size()){
+            result.push_back(LHS[i++]);
+        }
+        while(j<RHS.size()){
+            result.push_back(RHS[j++]);
+        }
 
-        return result;
+        for(i=0;i<result.size();i++){
+            a.insert(result[i].key, result[i].data);
+        }
+        return a;
     }
         
     // Intersect two BST's and return new BST.

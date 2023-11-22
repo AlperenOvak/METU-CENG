@@ -8,8 +8,9 @@
 class User {
 private:
     std::string username;
-    BST<Movie> movies;
+    //BST<Movie> movies;
 public:
+    BST<Movie> movies;
     User() : username(""), movies() {}
     User(std::string username) : username(username),  movies() {}
     std::string getUsername() { return username; }
