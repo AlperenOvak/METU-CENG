@@ -33,13 +33,9 @@ public: // Do not change.
     BST();
     ~BST();
     void destroyTree(TreeNode* node); //remove it later
-<<<<<<< HEAD
     TreeNode* getRoot() { 
         std::cout<< "verdim" << std::endl;
         return root; }
-=======
-    TreeNode* getRoot() { return root; }
->>>>>>> 3078f98bee9b8901fd54ea0670f6805db16bdcac
     bool isEmpty() { return root == NULL; }
 
     BST& insert(const std::string key, const T& value);
@@ -56,10 +52,7 @@ public: // Do not change.
 
     std::vector<TreeNode> tree2vector(TreeNode* root);
     void tree2vector(TreeNode* node, std::vector<TreeNode>& result);
-<<<<<<< HEAD
     void printvector(); //delete
-=======
->>>>>>> 3078f98bee9b8901fd54ea0670f6805db16bdcac
     void print();
     
 private:// you may add your own utility member functions here.
@@ -80,29 +73,18 @@ private:// you may add your own utility member functions here.
     }
 
     template <class T>
-<<<<<<< HEAD
     void BST<T>::destroyTree(TreeNode* node) {                    //DONE
-=======
-    void BST<T>::destroyTree(TreeNode* node) {
->>>>>>> 3078f98bee9b8901fd54ea0670f6805db16bdcac
         if (node != NULL) {
             destroyTree(node->left);  // Recursively delete left subtree
             destroyTree(node->right); // Recursively delete right subtree
             delete node;              // Delete the current node
         }
-<<<<<<< HEAD
         root=NULL;
-=======
->>>>>>> 3078f98bee9b8901fd54ea0670f6805db16bdcac
     }
 
     // Insert function for BST.    
     template <class T>
-<<<<<<< HEAD
     BST<T>& BST<T>::insert(const string key, const T& value) {      //DONE
-=======
-    BST<T>& BST<T>::insert(const string key, const T& value) {
->>>>>>> 3078f98bee9b8901fd54ea0670f6805db16bdcac
             /* IMPLEMENT THIS */
             root=insertRecursive(root,key,value);
             
@@ -110,11 +92,7 @@ private:// you may add your own utility member functions here.
     }
 
     template <class T>
-<<<<<<< HEAD
     typename BST<T>::TreeNode* BST<T>::insertRecursive(TreeNode* node, const std::string& key, const T& value) {  //DONE
-=======
-    typename BST<T>::TreeNode* BST<T>::insertRecursive(TreeNode* node, const std::string& key, const T& value) {
->>>>>>> 3078f98bee9b8901fd54ea0670f6805db16bdcac
         if (node == nullptr) {
             // If the tree is empty or we reached a leaf, create a new node
             return new TreeNode(key, value);
@@ -183,11 +161,7 @@ private:// you may add your own utility member functions here.
     }
 
     template <class T>
-<<<<<<< HEAD
     typename BST<T>::TreeNode* BST<T>::deleteNode(TreeNode* node, std::string key){       //DONE
-=======
-    typename BST<T>::TreeNode* BST<T>::deleteNode(TreeNode* node, std::string key){
->>>>>>> 3078f98bee9b8901fd54ea0670f6805db16bdcac
     // Base case
     if (node == NULL)
         return node;
@@ -255,27 +229,17 @@ private:// you may add your own utility member functions here.
     vector<typename BST<T>::TreeNode> BST<T>::tree2vector(TreeNode* root) {        //DONE
         vector<TreeNode> result;
         tree2vector(root, result);
-<<<<<<< HEAD
-=======
-        std::cout<<"vector done" << std::endl;
->>>>>>> 3078f98bee9b8901fd54ea0670f6805db16bdcac
         return result;
     }
 
     template <class T>
-<<<<<<< HEAD
     void BST<T>::tree2vector(TreeNode* node, std::vector<TreeNode>& result){         //DONE
         if(node){
-=======
-    void BST<T>::tree2vector(TreeNode* node, std::vector<TreeNode>& result){
-        while(node){
->>>>>>> 3078f98bee9b8901fd54ea0670f6805db16bdcac
             tree2vector(node->left, result);
             result.push_back(*node);
             tree2vector(node->right, result);
         }
     }
-<<<<<<< HEAD
 
     template <class T>
     void BST<T>::printvector(){   //delete it later
@@ -286,14 +250,11 @@ private:// you may add your own utility member functions here.
             std::cout<< result[i].key << std::endl;
         }
     }
-=======
->>>>>>> 3078f98bee9b8901fd54ea0670f6805db16bdcac
     
     // Merge two BST's and return merged BST.
     template <class T>
 BST<T>* BST<T>::merge(BST<T>* bst) {
     /* IMPLEMENT THIS */
-<<<<<<< HEAD
     vector<TreeNode> LHS = tree2vector(getRoot());
     std::cout<<"vector1 done" << std::endl;
     vector<TreeNode> RHS = bst->tree2vector(bst->getRoot());
@@ -303,16 +264,6 @@ BST<T>* BST<T>::merge(BST<T>* bst) {
     std::cout<<(int)RHS.size() << "babam" << std::endl;
 
     int i = 0;
-=======
-    vector<TreeNode> LHS = tree2vector(root);
-    std::cout<<"vector1 done" << std::endl;
-    vector<TreeNode> RHS = tree2vector(bst->getRoot());
-    std::cout<<"vector2 done" << std::endl;
-    vector<TreeNode> result;
-
-
-    /*int i = 0;
->>>>>>> 3078f98bee9b8901fd54ea0670f6805db16bdcac
     int j = 0;
 
     while (i < LHS.size() && j < RHS.size()) {
@@ -332,11 +283,7 @@ BST<T>* BST<T>::merge(BST<T>* bst) {
 
     while (j < RHS.size()) {
         result.push_back(RHS[j++]);
-<<<<<<< HEAD
     }
-=======
-    }*/
->>>>>>> 3078f98bee9b8901fd54ea0670f6805db16bdcac
 
     BST<T>* mergedBST = new BST<T>();
 
