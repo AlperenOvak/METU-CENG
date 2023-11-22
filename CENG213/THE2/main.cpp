@@ -58,9 +58,34 @@ int main(){
         cout<<"zort";
     }
     cout<<"\n ************************\n";
-    c.print();
-    user1->movies=user1->movies.merge(user->movies);
-    cout<<"\n ***merge*****************\n";
-    c.print();
+    //c.print();
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    /*BST<Movie> emptyBST1, emptyBST2;
+    BST<Movie> *resultEmpty = emptyBST1.merge(&emptyBST2);
+    cout << "Merged Empty BSTs: ";
+    resultEmpty->print();    // boş bastırmıyor??
+    cout << "\n ************************\n";*/
+
+    // Test case 2: Merge one empty BST with a non-empty BST
+    BST<Movie> emptyBST, nonEmptyBST;
+    nonEmptyBST.insert("testKey", Movie("testMovie", 42, 123));
+    BST<Movie> *resultNonEmpty = emptyBST.merge(&nonEmptyBST);
+    cout << "Merged Empty and Non-Empty BSTs: ";
+    resultNonEmpty->print();
+    cout << "\n ************************\n";
+
+    // Test case 3: Merge two non-empty BSTs
+    BST<Movie> bst1, bst2;
+    bst1.insert("key1", Movie("movie1", 1, 1));
+    bst1.insert("key2", Movie("movie2", 2, 2));
+    bst1.insert("key3", Movie("movie3", 3, 3));
+    bst2.insert("key4", Movie("movie4", 4, 4));
+    bst2.insert("key5", Movie("movie5", 5, 5));
+    bst2.insert("key6", Movie("movie6", 6, 6));
+    BST<Movie> *resultMerged = bst1.merge(&bst2);
+    cout << "Merged BSTs: ";
+    resultMerged->print();
+    cout << "\n ************************\n";
+
     
 }

@@ -224,6 +224,7 @@ private:// you may add your own utility member functions here.
     vector<typename BST<T>::TreeNode> BST<T>::tree2vector(TreeNode* root) {
         vector<TreeNode> result;
         tree2vector(root, result);
+        std::cout<<"vector done" << std::endl;
         return result;
     }
 
@@ -231,44 +232,52 @@ private:// you may add your own utility member functions here.
     void BST<T>::tree2vector(TreeNode* node, std::vector<TreeNode>& result){
         while(node){
             tree2vector(node->left, result);
-            result.push_back(node);
+            result.push_back(*node);
             tree2vector(node->right, result);
         }
     }
     
     // Merge two BST's and return merged BST.
     template <class T>
-    BST<T>* BST<T>::merge(BST<T>* bst) {
+BST<T>* BST<T>::merge(BST<T>* bst) {
     /* IMPLEMENT THIS */
-        vector<TreeNode> LHS =tree2vector(root);
-        vector<TreeNode> RHS =tree2vector(bst->getRoot());
-        vector<TreeNode> result;
-        BST<T> a();
-        int i=0;
-        int j=0;
-        while(i<LHS.size() && j<RHS.size()){
-            if(LHS[i].key < RHS[j].key){
-                result.push_back(LHS[i++]);
-            }else if(LHS[i].key > RHS[j].key){
-                result.push_back(RHS[j++]);
-            }else{
-                result.push_back(RHS[j++]);
-                i++;
-            }
-        }
+    vector<TreeNode> LHS = tree2vector(root);
+    std::cout<<"vector1 done" << std::endl;
+    vector<TreeNode> RHS = tree2vector(bst->getRoot());
+    std::cout<<"vector2 done" << std::endl;
+    vector<TreeNode> result;
 
-        while(i<LHS.size()){
+
+    /*int i = 0;
+    int j = 0;
+
+    while (i < LHS.size() && j < RHS.size()) {
+        if (LHS[i].key < RHS[j].key) {
             result.push_back(LHS[i++]);
-        }
-        while(j<RHS.size()){
+        } else if (LHS[i].key > RHS[j].key) {
             result.push_back(RHS[j++]);
+        } else {
+            result.push_back(RHS[j++]);
+            i++;
         }
-
-        for(i=0;i<result.size();i++){
-            a.insert(result[i].key, result[i].data);
-        }
-        return a;
     }
+
+    while (i < LHS.size()) {
+        result.push_back(LHS[i++]);
+    }
+
+    while (j < RHS.size()) {
+        result.push_back(RHS[j++]);
+    }*/
+
+    BST<T>* mergedBST = new BST<T>();
+
+    for (int i = 0; i < result.size(); i++) {
+        mergedBST->insert(result[i].key, result[i].data);
+    }
+
+    return mergedBST;
+}
         
     // Intersect two BST's and return new BST.
     template <class T>
