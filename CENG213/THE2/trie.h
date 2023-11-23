@@ -40,7 +40,10 @@ public: // Do not change.
     Trie& insert(const string& username); 
     void remove(std::string username);
     T* search(std::string username); 
+
     void findStartingWith(std::string prefix, std::vector<T*> &results); 
+    void findAllKeys(TrieNode* root,vector<T*> &results);
+
     void wildcardSearch(const std::string &wildcardKey, std::vector<T*> &results); 
     void print(); 
 
@@ -145,7 +148,37 @@ void Trie<T>::remove(std::string username) {
 template <class T>
 void Trie<T>::findStartingWith(string prefix,vector<T*> &results) {
 /* IMPLEMENT THIS */
-    
+    TrieNode* current = root;
+    int level = 0;
+
+    // Traverse the trie based on the characters of the input key
+    while (level < (int)prefix.length()) {
+        int index = (prefix[level]);
+
+        // If the current node does not exist, the key is not present in the trie
+        if (current->children[index] == NULL) {
+            current=NULL;
+            level=(int)prefix.length();
+        }
+
+        current = current->children[index];
+        ++level;
+    }
+    findAllKeys(current,results);
+}
+
+template <class T>
+void Trie<T>::findAllKeys(TrieNode* root,vector<T*> &results){
+    while(root){
+        if(root->isEndOfKey){
+            results.push_back(root->data);
+        }
+        for(int i=0;i<128;i++){
+            if(root->children[i]){
+                findAllKeys(root->children[i],results);
+            }
+        }
+    }
 }
 
 template <class T>

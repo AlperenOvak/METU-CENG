@@ -44,7 +44,11 @@ int main(){
     c.insert("Berat");
     c.insert("Alperen");
     c.insert("Alper");
-    User* user = c.search("eray");
+    vector<User*> inter;
+    c.findStartingWith("Alp",inter);
+
+
+    /*User* user = c.search("eray");
     
     user->addMovie("titanic",movie1);
     user->addMovie("edsadasray",movie2);
@@ -60,7 +64,7 @@ int main(){
     cout<<"\n ************************\n";
     //c.print();
     ////////////////////////////////////////////////////////////////////////////////////////////
-    /*BST<Movie> emptyBST1, emptyBST2;
+    BST<Movie> emptyBST1, emptyBST2;
     BST<Movie> *resultEmpty = emptyBST1.merge(&emptyBST2);
     cout << "Merged Empty BSTs: ";
     resultEmpty->print();    // boş bastırmıyor??
@@ -72,7 +76,7 @@ int main(){
     BST<Movie> *resultNonEmpty = emptyBST.merge(&nonEmptyBST);
     cout << "Merged Empty and Non-Empty BSTs: ";
     resultNonEmpty->print();
-    cout << "\n ************************\n";*/
+    cout << "\n ************************\n";
 
     // Test case 3: Merge two non-empty BSTs
     BST<Movie> bst1, bst2;
@@ -92,7 +96,7 @@ int main(){
 
     BST<Movie> *resultinter = bst1.intersection(&bst2);
     cout << "Intersection BSTs: \n" ;
-    resultinter->print();
+    resultinter->print();*/
 
     
 }
