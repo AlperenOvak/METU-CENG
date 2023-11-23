@@ -253,7 +253,7 @@ private:// you may add your own utility member functions here.
     
     // Merge two BST's and return merged BST.
     template <class T>
-BST<T>* BST<T>::merge(BST<T>* bst) {
+BST<T>* BST<T>::merge(BST<T>* bst) {      //DONE
     /* IMPLEMENT THIS */
     vector<TreeNode> LHS = tree2vector(getRoot());
     std::cout<<"vector1 done" << std::endl;
@@ -296,11 +296,40 @@ BST<T>* BST<T>::merge(BST<T>* bst) {
         
     // Intersect two BST's and return new BST.
     template <class T>
-    BST<T>* BST<T>::intersection(BST<T>* bst) {
+    BST<T>* BST<T>::intersection(BST<T>* bst) {    //DONE
     /* IMPLEMENT THIS */
-        return this;
+        vector<TreeNode> LHS = tree2vector(getRoot());
+        std::cout<<"vector1 done" << std::endl;
+        vector<TreeNode> RHS = bst->tree2vector(bst->getRoot());
+        std::cout<<"vector2 done" << std::endl;
+        vector<TreeNode> result;
+        std::cout<<(int)LHS.size() << "anam" << std::endl;
+        std::cout<<(int)RHS.size() << "babam" << std::endl;
+
+        int i = 0;
+        int j = 0;
+
+        while (i < LHS.size() && j < RHS.size()) {
+            if (LHS[i].key < RHS[j].key) {
+                i++;
+            } else if (LHS[i].key > RHS[j].key) {
+                j++;
+            } else {
+                result.push_back(RHS[j++]);
+                i++;
+            }
+        }
+
+
+        BST<T>* interBST = new BST<T>();
+
+        for (int i = 0; i < result.size(); i++) {
+            interBST->insert(result[i].key, result[i].data);
+        }
+
+        return interBST;
     }
-    
+
     /* DO NOT CHANGE */
     template <class T>
     void BST<T>::print() {

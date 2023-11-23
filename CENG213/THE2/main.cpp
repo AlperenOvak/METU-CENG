@@ -81,7 +81,7 @@ int main(){
     bst1.insert("key3", Movie("movie3", 3, 3));
     bst2.insert("key4", Movie("movie4", 4, 4));
     bst2.insert("key9", Movie("movie9", 5, 5));
-    bst2.insert("key6", Movie("movie6", 6, 6));
+    bst2.insert("key8", Movie("movie8", 6, 6));
     cout<< bst2.search("key7") <<"\n" ;
     bst2.print();
     //bst1.printvector();
@@ -89,6 +89,10 @@ int main(){
     BST<Movie> *resultMerged = bst1.merge(&bst2);
     cout << "Merged BSTs: \n" ;
     resultMerged->print();
+
+    BST<Movie> *resultinter = bst1.intersection(&bst2);
+    cout << "Intersection BSTs: \n" ;
+    resultinter->print();
 
     
 }
