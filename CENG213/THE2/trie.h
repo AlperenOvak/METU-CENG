@@ -40,8 +40,13 @@ public: // Do not change.
     Trie& insert(const string& username); 
     void remove(std::string username);
     T* search(std::string username); 
+
     void findStartingWith(std::string prefix, std::vector<T*> &results); 
+    void findAllKeys(TrieNode* root,vector<T*> &results);
+
     void wildcardSearch(const std::string &wildcardKey, std::vector<T*> &results); 
+    void wildcardRecursive(TrieNode* node,const std::string &text,std::string prefix, int index, std::vector<T*> &results);
+
     void print(); 
 
 private: // you may add your own utility member functions here.
@@ -145,13 +150,84 @@ void Trie<T>::remove(std::string username) {
 template <class T>
 void Trie<T>::findStartingWith(string prefix,vector<T*> &results) {
 /* IMPLEMENT THIS */
-    
+    TrieNode* current = root;
+    int level = 0;
+    if(prefix[0]==root->keyChar){
+        // Traverse the trie based on the characters of the input key
+        while (level < (int)prefix.length()) {
+            int index = (prefix[level]);
+
+            // If the current node does not exist, the key is not present in the trie
+            if (current->children[index] == NULL) {
+                current=NULL;
+                level=(int)prefix.length();
+            }
+
+            current = current->children[index];
+            ++level;
+        }
+        findAllKeys(current,results);
+    }
+}
+
+template <class T>
+void Trie<T>::findAllKeys(TrieNode* root,vector<T*> &results){
+    if(root){
+        if(root->isEndOfKey){
+            std::cout<<root->keyChar << root->isEndOfKey << std::endl;
+            results.push_back(root->data);
+        }
+        for(int i=0;i<128;i++){
+            if(root->children[i]){
+                findAllKeys(root->children[i],results);
+            }
+        }
+    }
 }
 
 template <class T>
 void Trie<T>::wildcardSearch(const std::string &wildcardKey, std::vector<T*> &results) {
 /* IMPLEMENT THIS */
+    std::string prefix = "";
+    if((wildcardKey.length()>0) && (root!=NULL)){
+        if(wildcardKey[0]!='*' && wildcardKey[0]!='?' && root->keyChar==wildcardKey[0]){
+            prefix+=root->keyChar;
+        }
+    }
+    wildcardRecursive(root,wildcardKey,prefix,0,results);     
 }
+template <class T>
+void Trie<T>::wildcardRecursive(TrieNode* node,const std::string &text,std::string prefix, int index, std::vector<T*> &results) {
+/* IMPLEMENT THIS */
+    if(node!=NULL){
+        if(index == text.length()){
+            if(node->isEndOfKey){
+                std::cout<<prefix<<std::endl;
+                results.push_back(node->data);
+            }
+        }else{
+            if(text[index]=='?'){
+                for(int i=0;i<128;i++){
+                    if(node->children[i]){
+                        wildcardRecursive(node->children[i],text,prefix+node->children[i]->keyChar,index+1,results);
+                    }
+                }
+            }else if(text[index]=='*'){
+                wildcardRecursive(node,text,prefix,index+1,results); // '*' might me 0 char
+                for(int i=0;i<128;i++){
+                    if(node->children[i]){
+                        wildcardRecursive(node->children[i],text,prefix+node->children[i]->keyChar,index,results);
+                    }
+                }
+            }else{
+                wildcardRecursive(node->children[(int)text[index]],text,prefix+text[index],index+1,results); // deal with first node if it is a char!!!
+            }   
+        }
+    }
+
+}
+
+
 
 /* DO NOT CHANGE */
 template<class T>

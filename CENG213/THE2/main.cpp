@@ -40,25 +40,39 @@ int main(){
     a.insert(key5,movie5);
     /*result=a.merge(&b);*/
     Trie<User> c;
-    c.insert("eray");
-    c.insert("Berat");
-    c.insert("Alperen");
-    c.insert("Alper");
-    User* user = c.search("eray");
+    c.insert("ali");
+    c.insert("alper");
+    c.insert("alpis");
+    c.insert("ata");
+    c.insert("atalp");
+    c.insert("att");
+    c.insert("atapi");
+    User* user = c.search("atalp");
     
     user->addMovie("titanic",movie1);
     user->addMovie("edsadasray",movie2);
     user->printMovies();
-    cout<<"\n ************************\n";
-    c.print();
     c.remove("Berat");
-    user->removeMovie(movie2);
+    //user->removeMovie(movie2);
     User* user1 = c.search("Alperen");
-    if(c.search("eray")){
-        cout<<"zort";
-    }
+    vector<User*> inter;
+    c.findStartingWith("Alp",inter);
     cout<<"\n ************************\n";
+    for(int i=0;i<inter.size();i++){
+        inter[i]->printMovies();
+        cout<<"\n ************************\n" << i << endl;
+    }
     //c.print();
+    c.print();
+    cout<<"\n *********find************\n";
+
+    vector<User*> inter1;
+    c.wildcardSearch("*al*",inter1);
+    cout<<"\n wildcard Done\n"<< endl;
+    for(int i=0;i<inter1.size();i++){
+        inter1[i]->printMovies();
+        cout<<"\n ***************" << i <<"***************"<< endl;
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////
     /*BST<Movie> emptyBST1, emptyBST2;
     BST<Movie> *resultEmpty = emptyBST1.merge(&emptyBST2);
@@ -72,7 +86,7 @@ int main(){
     BST<Movie> *resultNonEmpty = emptyBST.merge(&nonEmptyBST);
     cout << "Merged Empty and Non-Empty BSTs: ";
     resultNonEmpty->print();
-    cout << "\n ************************\n";*/
+    cout << "\n ************************\n";
 
     // Test case 3: Merge two non-empty BSTs
     BST<Movie> bst1, bst2;
@@ -80,7 +94,7 @@ int main(){
     bst1.insert("key2", Movie("movie2", 2, 2));
     bst1.insert("key3", Movie("movie3", 3, 3));
     bst2.insert("key4", Movie("movie4", 4, 4));
-    bst2.insert("key9", Movie("movie9", 5, 5));
+    bst2.insert("key10", Movie("movie10", 5, 5));
     bst2.insert("key6", Movie("movie6", 6, 6));
     cout<< bst2.search("key7") <<"\n" ;
     bst2.print();
@@ -88,7 +102,7 @@ int main(){
     cout << "\n ************************\n";
     BST<Movie> *resultMerged = bst1.merge(&bst2);
     cout << "Merged BSTs: \n" ;
-    resultMerged->print();
+    resultMerged->print();*/
 
     
 }
