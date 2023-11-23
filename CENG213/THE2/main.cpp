@@ -74,7 +74,7 @@ int main(){
         cout<<"\n ***************" << i <<"***************"<< endl;
     }
     ////////////////////////////////////////////////////////////////////////////////////////////
-    /*BST<Movie> emptyBST1, emptyBST2;
+    BST<Movie> emptyBST1, emptyBST2;
     BST<Movie> *resultEmpty = emptyBST1.merge(&emptyBST2);
     cout << "Merged Empty BSTs: ";
     resultEmpty->print();    // boş bastırmıyor??
@@ -103,6 +103,10 @@ int main(){
     BST<Movie> *resultMerged = bst1.merge(&bst2);
     cout << "Merged BSTs: \n" ;
     resultMerged->print();*/
+
+    BST<Movie> *resultinter = bst1.intersection(&bst2);
+    cout << "Intersection BSTs: \n" ;
+    resultinter->print();*/
 
     
 }
