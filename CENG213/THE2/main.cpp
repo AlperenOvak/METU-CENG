@@ -13,17 +13,17 @@
 using namespace std;
 int main(){
     string key1="titanic";
-    string key2="araasy";
-    string key3="beray";
-    string key4="yusuf";
-    string key5="zuyokamk";
-    string key6="sadadsa";
+    string key2="Inception";
+    string key3="Jurassic Park";
+    string key4="Pulp Fiction";
+    string key5="The Dark Knight";
+    string key6="Forrest Gump";
     string mov1="titanic";
-    string mov2="edsadasray";
-    string mov3="vvveray";
-    string mov4="cghb";
-    string mov5="sadsada";
-    string mov6="asdjasdkasdas";
+    string mov2="Inception";
+    string mov3="Jurassic Park";
+    string mov4="Pulp Fiction";
+    string mov5="The Dark Knigh";
+    string mov6="Forrest Gump";
     Movie movie1(mov1,3432,331);
     Movie movie2(mov2,342,31231231);
     Movie movie3(mov3,32,3131);
@@ -38,41 +38,65 @@ int main(){
     a.insert(key3,movie3);
     a.insert(key4,movie4);
     a.insert(key5,movie5);
-    /*result=a.merge(&b);*/
+    cout<< "titanic in a is: " <<a.search("titanic") << endl;
+    //result=a.merge(&b);
     Trie<User> c;
     c.insert("ali");
     c.insert("alper");
+    c.insert("alperen");
+    c.insert("eren");
+    c.insert("Alperen");
     c.insert("alpis");
     c.insert("ata");
     c.insert("atalp");
     c.insert("att");
     c.insert("atapi");
+    //c.insert("eren");
     User* user = c.search("atalp");
     
     user->addMovie("titanic",movie1);
     user->addMovie("edsadasray",movie2);
-    user->printMovies();
+    //user->printMovies();
     c.remove("Berat");
-    //user->removeMovie(movie2);
-    User* user1 = c.search("Alperen");
-    vector<User*> inter;
-    c.findStartingWith("Alp",inter);
-    cout<<"\n ************************\n";
+    user->removeMovie(movie2);
+    User* user1 = c.search("alperen");
+    user1->addMovie(key6,movie6);
+    user1->addMovie(key1,movie1);
+    user1->addMovie(key6,movie6);
+    user1->addMovie(key2,movie2);
+    User* user2 = c.search("ata");
+    user2->addMovie(key6,movie6);
+    user2->addMovie(key1,movie1);
+    user2->addMovie(key4,movie4);
+    user2->addMovie(key5,movie5);
+    user2->printMovies();
+    cout << "\n ************************************\n";
+    BST<Movie> *resultEmpty = user2->getMovies()->intersection(user1->getMovies());
+    cout << "Merged Empty BSTs: " << endl;
+    resultEmpty->print();    // boş bastırmıyor??
+    cout << "\n ************************\n";
+    
+    /*vector<User*> inter;
+    /*c.findStartingWith("a",inter);
+    cout<<"\n ************************\n" <<inter.size()<< endl;
     for(int i=0;i<inter.size();i++){
+        cout<<"\n *******movies of " << inter[i]->getUsername() << endl ;
         inter[i]->printMovies();
-        cout<<"\n ************************\n" << i << endl;
     }
     //c.print();
-    c.print();
-    cout<<"\n *********find************\n";
 
+    cout<<"\n ************************\n";
     vector<User*> inter1;
-    c.wildcardSearch("*al*",inter1);
+    c.wildcardSearch("e*",inter1);
     cout<<"\n wildcard Done\n"<< endl;
     for(int i=0;i<inter1.size();i++){
         inter1[i]->printMovies();
         cout<<"\n ***************" << i <<"***************"<< endl;
-    }
+    }*/
+
+    /*cout<<"\n *********find************\n";
+
+    
     ////////////////////////////////////////////////////////////////////////////////////////////
     BST<Movie> emptyBST1, emptyBST2;
     BST<Movie> *resultEmpty = emptyBST1.merge(&emptyBST2);
@@ -102,7 +126,7 @@ int main(){
     cout << "\n ************************\n";
     BST<Movie> *resultMerged = bst1.merge(&bst2);
     cout << "Merged BSTs: \n" ;
-    resultMerged->print();*/
+    resultMerged->print();
 
     BST<Movie> *resultinter = bst1.intersection(&bst2);
     cout << "Intersection BSTs: \n" ;

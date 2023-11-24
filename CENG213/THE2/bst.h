@@ -32,9 +32,7 @@ public: // Do not change.
 
     BST();
     ~BST();
-    void destroyTree(TreeNode* node); //remove it later
     TreeNode* getRoot() { 
-        std::cout<< "verdim" << std::endl;
         return root; }
     bool isEmpty() { return root == NULL; }
 
@@ -42,7 +40,6 @@ public: // Do not change.
     TreeNode* insertRecursive(TreeNode* node, const std::string& key, const T& value);
 
     bool search(std::string value) const;
-    TreeNode* finder(TreeNode* root,std::string key);
 
     void remove(std::string value);
     TreeNode* deleteNode(TreeNode* node, std::string key);
@@ -57,6 +54,7 @@ public: // Do not change.
     
 private:// you may add your own utility member functions here.
 
+    void destroyTree(TreeNode* node); 
     void print(TreeNode* node, std::string indent, bool last, bool isLeftChild); // Do not change.
     
 };
@@ -68,7 +66,6 @@ private:// you may add your own utility member functions here.
     // Destructor
     template <class T>
     BST<T>::~BST() {    // write again !!!!!!!
-    /* IMPLEMENT THIS */
         destroyTree(root);
     }
 
@@ -85,7 +82,7 @@ private:// you may add your own utility member functions here.
     // Insert function for BST.    
     template <class T>
     BST<T>& BST<T>::insert(const string key, const T& value) {      //DONE
-            /* IMPLEMENT THIS */
+
             root=insertRecursive(root,key,value);
             
             return *this;
@@ -139,24 +136,10 @@ private:// you may add your own utility member functions here.
         return false;
     }
 
-    template <class T>
-    typename BST<T>::TreeNode* BST<T>::finder(TreeNode* node,std::string key) {   // no need??
-     /* IMPLEMENT THIS */
-        if (node == NULL)
-            return NULL;
-        if (node->key > key){
-            return finder(node->left,key);
-        }else if (node->key < key){
-            return finder(node->right,key);
-        }else{
-            return node;
-        }
-    }
     
     // Remove a node from BST for given key. If key not found, do not change anything.
     template <class T>
     void BST<T>::remove(std::string key) {   //DONE
-        /* IMPLEMENT THIS */
         root= deleteNode(root,key);
     }
 
@@ -228,45 +211,33 @@ private:// you may add your own utility member functions here.
     template <class T>
     vector<typename BST<T>::TreeNode> BST<T>::tree2vector(TreeNode* root) {        //DONE
         vector<TreeNode> result;
-        tree2vector(root, result);
+        tree2vector(root, result); //create a flatten vector for tree, it will be alphabetic order
         return result;
     }
 
-    template <class T>
+    template <class T>  
     void BST<T>::tree2vector(TreeNode* node, std::vector<TreeNode>& result){         //DONE
-        if(node){
+        if(node){   
             tree2vector(node->left, result);
             result.push_back(*node);
             tree2vector(node->right, result);
         }
     }
-
-    template <class T>
-    void BST<T>::printvector(){   //delete it later
-        std::cout<< "orrr" << std::endl;
-        vector<TreeNode> result = this->tree2vector(this->getRoot());
-        std::cout<< result.size() << std::endl;
-        for(int i=0;i<result.size();i++){
-            std::cout<< result[i].key << std::endl;
-        }
-    }
     
     // Merge two BST's and return merged BST.
     template <class T>
-BST<T>* BST<T>::merge(BST<T>* bst) {      //DONE
+BST<T>* BST<T>::merge(BST<T>* bst) {      //DONE      //test it with empty sets
     /* IMPLEMENT THIS */
     vector<TreeNode> LHS = tree2vector(getRoot());
     std::cout<<"vector1 done" << std::endl;
     vector<TreeNode> RHS = bst->tree2vector(bst->getRoot());
     std::cout<<"vector2 done" << std::endl;
     vector<TreeNode> result;
-    std::cout<<(int)LHS.size() << "anam" << std::endl;
-    std::cout<<(int)RHS.size() << "babam" << std::endl;
 
     int i = 0;
     int j = 0;
 
-    while (i < LHS.size() && j < RHS.size()) {
+    while (i < LHS.size() && j < RHS.size()) {  // U union
         if (LHS[i].key < RHS[j].key) {
             result.push_back(LHS[i++]);
         } else if (LHS[i].key > RHS[j].key) {
@@ -297,19 +268,18 @@ BST<T>* BST<T>::merge(BST<T>* bst) {      //DONE
     // Intersect two BST's and return new BST.
     template <class T>
     BST<T>* BST<T>::intersection(BST<T>* bst) {    //DONE
-    /* IMPLEMENT THIS */
+
         vector<TreeNode> LHS = tree2vector(getRoot());
         std::cout<<"vector1 done" << std::endl;
         vector<TreeNode> RHS = bst->tree2vector(bst->getRoot());
         std::cout<<"vector2 done" << std::endl;
         vector<TreeNode> result;
-        std::cout<<(int)LHS.size() << "anam" << std::endl;
-        std::cout<<(int)RHS.size() << "babam" << std::endl;
+        
 
         int i = 0;
         int j = 0;
 
-        while (i < LHS.size() && j < RHS.size()) {
+        while (i < LHS.size() && j < RHS.size()) {   // ∩ intersection
             if (LHS[i].key < RHS[j].key) {
                 i++;
             } else if (LHS[i].key > RHS[j].key) {
