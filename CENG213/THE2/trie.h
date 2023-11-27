@@ -36,7 +36,7 @@ public: // Do not change.
 
     Trie(); 
     ~Trie();
-    void deleteTrieNode(TrieNode* node);
+    
     Trie& insert(const string& username); 
     void remove(std::string username);
     T* search(std::string username); 
@@ -45,6 +45,7 @@ public: // Do not change.
     void print(); 
 
 private: // you may add your own utility member functions here.
+    void deleteTrieNode(TrieNode* node);
     void findAllKeys(TrieNode* root,vector<T*> &results);
     void wildcardRecursive(TrieNode* node,const std::string &text,std::string prefix, int index, std::vector<T*> &results);
     void print(const std::string& primaryKey); // Do not change this line.
@@ -216,10 +217,6 @@ void Trie<T>::wildcardRecursive(TrieNode* node,const std::string &text,std::stri
                     }
                 }
             }else if(text[index]=='*'){
-                /*if(index < index-1 && text[index+1]=='*'){
-                    index++;
-                    std::cout<<"buldummmmmmmmmmmmmmmmmmmm\n";
-                }*/
                 wildcardRecursive(node,text,prefix,index+1,results); 
                 for(int i=0;i<128;i++){
                     if(node->children[i]){

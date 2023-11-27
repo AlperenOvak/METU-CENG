@@ -32,29 +32,24 @@ public: // Do not change.
 
     BST();
     ~BST();
-    TreeNode* getRoot() { 
-        return root; }
+    TreeNode* getRoot() { return root; }
     bool isEmpty() { return root == NULL; }
 
     BST& insert(const std::string key, const T& value);
-    TreeNode* insertRecursive(TreeNode* node, const std::string& key, const T& value);
-
     bool search(std::string value) const;
-
     void remove(std::string value);
-    TreeNode* remove(TreeNode* node, std::string key);
-
     BST<T>* merge(BST<T>* bst);
     BST<T>* intersection(BST<T>* bst);
-
     std::vector<TreeNode> tree2vector(TreeNode* root);
-    void tree2vector(TreeNode* node, std::vector<TreeNode>& result);
     void print();
     
 private:// you may add your own utility member functions here.
 
     void destroyTree(TreeNode* node); 
+    TreeNode* insertRecursive(TreeNode* node, const std::string& key, const T& value);
     void print(TreeNode* node, std::string indent, bool last, bool isLeftChild); // Do not change.
+    void tree2vector(TreeNode* node, std::vector<TreeNode>& result);
+    TreeNode* remove(TreeNode* node, std::string key);
     
 };
 
@@ -89,7 +84,7 @@ private:// you may add your own utility member functions here.
 
     template <class T>
     typename BST<T>::TreeNode* BST<T>::insertRecursive(TreeNode* node, const std::string& key, const T& value) {  //DONE
-        if (node == nullptr) {
+        if (node == NULL) {
             // If the tree is empty or we reached a leaf, create a new node
             return new TreeNode(key, value);
         }

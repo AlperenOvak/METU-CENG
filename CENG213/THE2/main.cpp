@@ -78,11 +78,25 @@ int main(){
     c.print();
     cout<<"\n ************************\n";
     vector<User*> inter1;
-    c.wildcardSearch("**lp**?",inter1);
+    c.wildcardSearch("??per**?",inter1);
     cout<<"\n wildcard Done\n"<< endl;
     for(int i=0;i<inter1.size();i++){
         inter1[i]->printMovies();
         cout<<"\n ***************" << inter1[i]->getUsername() <<"***************"<< endl;
+    }
+
+    Trie<User> tr;
+    tr.insert("user1");
+    tr.insert("abcdef123");
+    tr.insert("12345ac");
+    tr.insert("1345ac");
+
+    vector<User*> v;
+    tr.wildcardSearch("*1*", v);
+    cout<<"\n wildcard Done\n"<< endl;
+    for(int i=0;i<v.size();i++){
+        v[i]->printMovies();
+        cout<<"\n ***************" << v[i]->getUsername() <<"***************"<< endl;
     }
     /*cout << "\n ************reswult******************\n";
     BST<Movie> *resultEmpty = user2->getMovies()->intersection(user1->getMovies());
