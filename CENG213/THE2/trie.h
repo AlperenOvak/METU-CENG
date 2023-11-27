@@ -158,9 +158,10 @@ void Trie<T>::findStartingWith(string prefix,vector<T*> &results) {
         if (current->children[index] == NULL) {
             current=NULL;  //WTF
             level=(int)prefix.length();
+        }else{
+            current = current->children[index];
+            ++level;
         }
-        current = current->children[index];
-        ++level;
     }  //we find the node that has the last char of prefix
     findAllKeys(current,results); //add all Keys under this node
     
@@ -184,21 +185,28 @@ template <class T>
 void Trie<T>::wildcardSearch(const std::string &wildcardKey, std::vector<T*> &results) {
 
     std::string prefix = "";
-    if((wildcardKey.length()>0) && (root!=NULL)){
+    /*if((wildcardKey.length()>0) && (root!=NULL)){
         if(wildcardKey[0]!='*' && wildcardKey[0]!='?' && root->keyChar==wildcardKey[0]){
             prefix+=root->keyChar;                                                          //I don't know how it works, but it works LoL
         }
-    }
+    }*/
     wildcardRecursive(root,wildcardKey,prefix,0,results);     
 }
 template <class T>
 void Trie<T>::wildcardRecursive(TrieNode* node,const std::string &text,std::string prefix, int index, std::vector<T*> &results) {  //DONE
-/* IMPLEMENT THIS */
+
     if(node!=NULL){
         if(index == text.length()){
             if(node->isEndOfKey){
-                std::cout<<prefix<<std::endl;
-                results.push_back(node->data);
+                bool isIn = false;
+                for(int i=0; i<results.size();i++){
+                    if(node->data == results[i]){
+                        isIn = true;
+                    }
+                }
+                if(!isIn){
+                    results.push_back(node->data);
+                }
             }
         }else{
             if(text[index]=='?'){
@@ -208,6 +216,10 @@ void Trie<T>::wildcardRecursive(TrieNode* node,const std::string &text,std::stri
                     }
                 }
             }else if(text[index]=='*'){
+                /*if(index < index-1 && text[index+1]=='*'){
+                    index++;
+                    std::cout<<"buldummmmmmmmmmmmmmmmmmmm\n";
+                }*/
                 wildcardRecursive(node,text,prefix,index+1,results); 
                 for(int i=0;i<128;i++){
                     if(node->children[i]){

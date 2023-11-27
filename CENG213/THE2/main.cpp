@@ -48,16 +48,20 @@ int main(){
     c.insert("Alperen");
     c.insert("alpis");
     c.insert("ata");
-    c.insert("atalp");
+    c.insert("muzaffer");
     c.insert("att");
     c.insert("atapi");
+    c.insert("O");
     //c.insert("eren");
-    User* user = c.search("atalp");
+    User* user5 = c.search("O");
+    
+    user5->addMovie("titanic",movie1);
+    User* user = c.search("eren");
     
     user->addMovie("titanic",movie1);
     user->addMovie("edsadasray",movie2);
     //user->printMovies();
-    c.remove("Berat");
+    //c.remove("alpis");
     user->removeMovie(movie2);
     User* user1 = c.search("alperen");
     user1->addMovie(key6,movie6);
@@ -65,54 +69,58 @@ int main(){
     user1->addMovie(key6,movie6);
     user1->addMovie(key2,movie2);
     User* user2 = c.search("ata");
-    user2->addMovie(key6,movie6);
-    user2->addMovie(key1,movie1);
+    //user2->addMovie(key6,movie6);
+    user2->addMovie(key3,movie3);
     user2->addMovie(key4,movie4);
     user2->addMovie(key5,movie5);
     user2->printMovies();
-    cout << "\n ************************************\n";
+    cout<<"*****************\n";
+    c.print();
+    cout<<"\n ************************\n";
+    vector<User*> inter1;
+    c.wildcardSearch("**lp**?",inter1);
+    cout<<"\n wildcard Done\n"<< endl;
+    for(int i=0;i<inter1.size();i++){
+        inter1[i]->printMovies();
+        cout<<"\n ***************" << inter1[i]->getUsername() <<"***************"<< endl;
+    }
+    /*cout << "\n ************reswult******************\n";
     BST<Movie> *resultEmpty = user2->getMovies()->intersection(user1->getMovies());
     cout << "Merged Empty BSTs: " << endl;
     resultEmpty->print();    // boş bastırmıyor??
-    cout << "\n ************************\n";
+    cout << "\n ************************\n";*/
     
     /*vector<User*> inter;
-    /*c.findStartingWith("a",inter);
-    cout<<"\n ************************\n" <<inter.size()<< endl;
+    c.findStartingWith("alp",inter);
+    cout<<"\n ********starting*******\n" <<inter.size()<< endl;
     for(int i=0;i<inter.size();i++){
         cout<<"\n *******movies of " << inter[i]->getUsername() << endl ;
         inter[i]->printMovies();
     }
     //c.print();
 
-    cout<<"\n ************************\n";
-    vector<User*> inter1;
-    c.wildcardSearch("e*",inter1);
-    cout<<"\n wildcard Done\n"<< endl;
-    for(int i=0;i<inter1.size();i++){
-        inter1[i]->printMovies();
-        cout<<"\n ***************" << i <<"***************"<< endl;
-    }*/
 
-    /*cout<<"\n *********find************\n";
+    cout<<"\n *********find************\n";*/
 
     
     ////////////////////////////////////////////////////////////////////////////////////////////
-    BST<Movie> emptyBST1, emptyBST2;
+    /*BST<Movie> emptyBST1, emptyBST2;
     BST<Movie> *resultEmpty = emptyBST1.merge(&emptyBST2);
     cout << "Merged Empty BSTs: ";
     resultEmpty->print();    // boş bastırmıyor??
     cout << "\n ************************\n";
 
     // Test case 2: Merge one empty BST with a non-empty BST
+    cout << "\n *******Case 2**********\n";
     BST<Movie> emptyBST, nonEmptyBST;
     nonEmptyBST.insert("testKey", Movie("testMovie", 42, 123));
-    BST<Movie> *resultNonEmpty = emptyBST.merge(&nonEmptyBST);
-    cout << "Merged Empty and Non-Empty BSTs: ";
+    BST<Movie> *resultNonEmpty = nonEmptyBST.merge(&emptyBST);
+    cout << "Merged Empty and Non-Empty BSTs:           ";
     resultNonEmpty->print();
     cout << "\n ************************\n";
 
     // Test case 3: Merge two non-empty BSTs
+    cout << "\n *******Case 3**********\n";
     BST<Movie> bst1, bst2;
     bst1.insert("key8", Movie("movie8", 1, 1));
     bst1.insert("key2", Movie("movie2", 2, 2));

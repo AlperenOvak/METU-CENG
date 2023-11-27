@@ -42,14 +42,13 @@ public: // Do not change.
     bool search(std::string value) const;
 
     void remove(std::string value);
-    TreeNode* deleteNode(TreeNode* node, std::string key);
+    TreeNode* remove(TreeNode* node, std::string key);
 
     BST<T>* merge(BST<T>* bst);
     BST<T>* intersection(BST<T>* bst);
 
     std::vector<TreeNode> tree2vector(TreeNode* root);
     void tree2vector(TreeNode* node, std::vector<TreeNode>& result);
-    void printvector(); //delete
     void print();
     
 private:// you may add your own utility member functions here.
@@ -82,7 +81,7 @@ private:// you may add your own utility member functions here.
     // Insert function for BST.    
     template <class T>
     BST<T>& BST<T>::insert(const string key, const T& value) {      //DONE
-
+            
             root=insertRecursive(root,key,value);
             
             return *this;
@@ -140,28 +139,26 @@ private:// you may add your own utility member functions here.
     // Remove a node from BST for given key. If key not found, do not change anything.
     template <class T>
     void BST<T>::remove(std::string key) {   //DONE
-        root= deleteNode(root,key);
+        root= remove(root,key);
     }
 
     template <class T>
-    typename BST<T>::TreeNode* BST<T>::deleteNode(TreeNode* node, std::string key){       //DONE
+    typename BST<T>::TreeNode* BST<T>::remove(TreeNode* node, std::string key){       //DONE
     // Base case
     if (node == NULL)
         return node;
  
-    // Recursive calls for ancestors of
-    // node to be deleted
+    // Recursive calls for ancestors of node to be deleted
     if (node->key > key) {
-        node->left = deleteNode(node->left, key);
+        node->left = remove(node->left, key);
         return node;
     }
     else if (node->key < key) {
-        node->right = deleteNode(node->right, key);
+        node->right = remove(node->right, key);
         return node;
     }
  
-    // We reach here when root is the node
-    // to be deleted.
+    // when root is the node to be deleted.
  
     // If one of the children is empty
     if (node->left == NULL) {
@@ -188,8 +185,8 @@ private:// you may add your own utility member functions here.
         }
  
         // Delete successor.  Since successor
-        // is always left child of its parent
-        // we can safely make successor's right
+        // is left child of its parent
+        // make successor's right
         // right child as left of its parent.
         // If there is no succ, then assign
         // succ->right to succParent->right
@@ -229,9 +226,7 @@ private:// you may add your own utility member functions here.
 BST<T>* BST<T>::merge(BST<T>* bst) {      //DONE      //test it with empty sets
     /* IMPLEMENT THIS */
     vector<TreeNode> LHS = tree2vector(getRoot());
-    std::cout<<"vector1 done" << std::endl;
     vector<TreeNode> RHS = bst->tree2vector(bst->getRoot());
-    std::cout<<"vector2 done" << std::endl;
     vector<TreeNode> result;
 
     int i = 0;
@@ -270,9 +265,9 @@ BST<T>* BST<T>::merge(BST<T>* bst) {      //DONE      //test it with empty sets
     BST<T>* BST<T>::intersection(BST<T>* bst) {    //DONE
 
         vector<TreeNode> LHS = tree2vector(getRoot());
-        std::cout<<"vector1 done" << std::endl;
+        //std::cout<<"vector1 done" << std::endl;
         vector<TreeNode> RHS = bst->tree2vector(bst->getRoot());
-        std::cout<<"vector2 done" << std::endl;
+        //std::cout<<"vector2 done" << std::endl;
         vector<TreeNode> result;
         
 
