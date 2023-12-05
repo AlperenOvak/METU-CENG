@@ -1,0 +1,241 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+%misc libraries goes here
+\usepackage{fitch}
+
+\begin{document}
+
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name :  Alperen OVAK\\
+Id Number :  2580801\\
+
+% Write your answers below the section tags
+\section*{Answer 1}
+
+\paragraph{(a)}
+
+\textbf{Base Case (\(n = 1\)):} 
+When \(n = 1\), \(2^{3n} - 3^n = 2^3 - 3 = 8 - 3 = 5\), which is clearly divisible by 5.
+
+\textbf{Inductive Step:}
+Assume that for some positive integer \(k\), \(2^{3k} - 3^k\) is divisible by 5.
+
+Now, let's show that it's true for \(k + 1\):
+
+\[
+\begin{aligned}
+2^{3(k+1)} - 3^{k+1} &= 2^{3k + 3} - 3^{k+1} \\
+&= 2^{3k} \cdot 2^3 - 3 \cdot 3^k.
+\end{aligned}
+\]
+
+By our assumption, we know \(2^{3k} - 3^k\) is divisible by 5. Let \(2^{3k} - 3^k = 5m\) for some integer \(m\).
+
+Now substitute this into our expression:
+
+\[
+\begin{aligned}
+&= (5m+3^k) \cdot 2^3 - 3 \cdot 3^k \\
+&= 40m +8\cdot 3^k - 3 \cdot 3^k.\\
+&= 40m +5\cdot 3^k\\
+&= 5(8m + 3^k).
+\end{aligned}
+\]
+
+Since \(5(8m + 3^k)\) is divisible by 5, the entire expression is divisible by 5.
+
+This completes the inductive step.
+
+By mathematical induction, we've shown that \(2^{3n} - 3^n\) is divisible by 5 for all integers \(n \geq 1\).
+
+\paragraph{(b)}
+
+\textbf{Step 1 (Base Case):}
+Show that the statement is true for the smallest value of \(n\), which is usually \(n = 2\).
+
+For \(n = 2\), we have:
+\[4^2 - 7(2) - 1 = 16 - 14 - 1 = 1 > 0.\]
+So, the base case holds.
+
+\textbf{Step 2 (Inductive Step):}
+Assume that the statement is true for some arbitrary positive integer \(k \geq 2\), i.e., assume that \(4^k - 7k - 1 > 0\).
+
+Now, we need to show that the statement is also true for \(k + 1\). That is, we want to show:
+\[4^{k+1} - 7(k+1) - 1 > 0.\]
+
+Starting with the assumption \(4^k - 7k - 1 > 0\), let's manipulate this expression to get to \(4^{k+1} - 7(k+1) - 1\):
+
+\[4^{k+1} - 7(k+1) - 1 = 4 \cdot 4^k - 7k - 7 - 1\]
+
+Now, use the assumption \(4^k - 7k - 1 > 0\):
+
+\[4^{k+1} - 7(k+1) - 1 = 4 \cdot (4^k) - 7k - 7 - 1 > 4 \cdot (7k + 1) - 7k - 7 - 1\]
+
+Simplify further:
+
+\[4 \cdot (7k + 1) - 7k - 7 - 1 = 28k + 4 - 7k - 8 = 21k - 4.\]
+
+Now, since we assumed \(4^k - 7k - 1 > 0\), we know that \(21k - 4\) is greater than 0.
+
+Therefore, by mathematical induction, we have shown that \(4^n - 7n - 1 > 0\) for all integers \(n \geq 2\).
+
+
+\section*{Answer 2}
+\paragraph{(a)}
+
+1. \textbf{Exactly 7 ones:}
+   \[
+   \binom{10}{7} = \frac{10!}{7!(10-7)!} = 120 \text{ combinations.}
+   \]
+
+2. \textbf{Exactly 8 ones:}
+   \[
+   \binom{10}{8} = \frac{10!}{8!(10-8)!} = 45 \text{ combinations.}
+   \]
+
+3. \textbf{Exactly 9 ones:}
+   \[
+   \binom{10}{9} = \frac{10!}{9!(10-9)!} = 10 \text{ combinations.}
+   \]
+
+4. \textbf{Exactly 10 ones:}
+   \[
+   \binom{10}{10} = \frac{10!}{10!(10-10)!} = 1 \text{ combination.}
+   \]
+
+Now, summing up these cases:
+\[
+120 + 45 + 10 + 1 = 176.
+\]
+
+So, there are 176 bit strings of length 10 with at least seven 1s in them.
+
+
+\paragraph{(b)}
+
+1. \textbf{One Discrete Mathematics textbook and three Statistical Methods textbooks:}
+   \[
+   \binom{4}{1} \times \binom{5}{3}
+   \]
+
+2. \textbf{Two Discrete Mathematics textbooks and two Statistical Methods textbooks:}
+   \[
+   \binom{4}{2} \times \binom{5}{2}
+   \]
+
+3. \textbf{Three Discrete Mathematics textbooks and one Statistical Methods textbook:}
+   \[
+   \binom{4}{3} \times \binom{5}{1}
+   \]
+
+4. \textbf{Four Statistical Methods textbooks and zero Discrete Mathematics textbooks:}
+   \[
+   \binom{5}{4}
+   \]
+
+Now, sum up the results from each case:
+\[
+\binom{4}{1} \times \binom{5}{3} + \binom{4}{2} \times \binom{5}{2} + \binom{4}{3} \times \binom{5}{1} + \binom{5}{4}
+\]
+
+Calculate each term and sum them up:
+\[
+4 \times 10 + 6 \times 10 + 4 \times 5 + 5 = 40 + 60 + 20 + 5 = 125
+\]
+
+So, there are 125 ways to make a collection of 4 books with at least one Discrete Mathematics textbook and at least one Statistical Methods textbook.
+
+
+\paragraph{(c)}
+
+
+\section*{Answer 3}
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+      % Vertices of the equilateral triangle
+      \coordinate[label=above:$A$] (A) at (0,0);
+      \coordinate[label=left:$B$] (B) at (-2, -3.464);
+      \coordinate[label=right:$C$] (C) at (2, -3.464);
+
+      \draw (A) -- (B) -- (C) -- cycle;
+      
+      \coordinate[label=above:$ $] (d) at (0,0);
+      \coordinate[label=left:$ $] (e) at (-1, -1.732);
+      \coordinate[label=right:$ $] (f) at (1, -1.732);
+
+      % Draw the equilateral triangle
+      \draw (d) -- (e) -- (f) -- cycle;
+
+      \coordinate[label=above:$ $] (d) at (0,-3.464);
+      \coordinate[label=left:$ $] (e) at (-1, -1.732);
+      \coordinate[label=right:$ $] (f) at (1, -1.732);
+
+      % Draw the equilateral triangle
+      \draw (d) -- (e) -- (f) -- cycle;
+  
+      
+      % Draw the distances for explanation
+      \draw[dotted] (A) -- node[midway, above] {$500\text{ m}$} (B);
+      \draw[dotted] (A) -- node[midway, above] {$500\text{ m}$} (C);
+      \draw[dotted] (B) -- node[midway, below] {$500\text{ m}$} (C);
+      
+      \coordinate (E) at (0,-0.5);
+      \draw[fill] (E) circle (2pt);
+      \node[above right] at (E) {$ $};
+
+      \coordinate (D) at (0,-2.5);
+      \draw[fill] (D) circle (2pt);
+      \node[above right] at (D) {$ $};
+
+      \coordinate (F) at (-1,-2.5);
+      \draw[fill] (F) circle (2pt);
+      \node[above right] at (F) {$ $};
+
+      \coordinate (G) at (1,-2.5);
+      \draw[fill] (G) circle (2pt);
+      \node[above right] at (G) {$ $};
+
+      \coordinate (H) at (0,-2.8);
+      \draw[fill] (H) circle (2pt);
+      \node[above right] at (H) {$ $};
+    \end{tikzpicture}
+    \caption{Equilateral Triangle with Side Length 500 meters}
+  \end{figure}
+  
+    This problem is a geometric version of the Pigeonhole Principle, often referred to as the "Pigeonhole in a Triangle" problem. In this case, imagine each child as a "pigeon," and the area within 250 meters of each child as a "pigeonhole." The goal is to show that, no matter how the children are distributed within the equilateral triangle, at least two of them must be in the same "pigeonhole" (i.e., within 250 meters of each other). \\
+
+    Now, consider the point at the center of the equilateral triangle. The distance from the center to any vertex is \( h \), which is less than 250 meters.\\
+
+    So, no matter where the children are within the equilateral triangle, at least two of them will be within 250 meters of each other. This follows from the fact that the distance between any two vertices is less than 500 meters (the side length of the triangle), and the height of the triangle is less than 250 meters.\\
+
+    This proves that, no matter how much the children wander within the triangle-shaped circus, there will always be two of them within 250 meters of each other.\\
+
+\section*{Answer 4}
+\paragraph{(a)}
+
+
+
+\paragraph{(b)}
+
+
+\paragraph{(c)}
+
+\end{document}
