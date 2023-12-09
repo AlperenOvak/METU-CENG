@@ -67,7 +67,7 @@ By mathematical induction, we've shown that \(2^{3n} - 3^n\) is divisible by 5 f
 \paragraph{(b)}
 
 \textbf{Step 1 (Base Case):}
-Show that the statement is true for the smallest value of \(n\), which is usually \(n = 2\).
+Show that the statement is true for \(n = 2\).
 
 For \(n = 2\), we have:
 \[4^2 - 7(2) - 1 = 16 - 14 - 1 = 1 > 0.\]
@@ -91,10 +91,10 @@ Simplify further:
 
 \[4 \cdot (7k + 1) - 7k - 7 - 1 = 28k + 4 - 7k - 8 = 21k - 4.\]
 
-Now, since we assumed \(4^k - 7k - 1 > 0\), we know that \(21k - 4\) is greater than 0.
+Now, since we assumed \(4^k - 7k - 1 > 0\) and, since \(k \geq 2\), we have \(21k - 4\) is greater than 0.
+Therefore, we can say that \(4^{k+1} - 7(k+1) - 1 > 0 \).
 
 Therefore, by mathematical induction, we have shown that \(4^n - 7n - 1 > 0\) for all integers \(n \geq 2\).
-
 
 \section*{Answer 2}
 \paragraph{(a)}
@@ -129,41 +129,41 @@ So, there are 176 bit strings of length 10 with at least seven 1s in them.
 
 \paragraph{(b)}
 
-1. \textbf{One Discrete Mathematics textbook and three Statistical Methods textbooks:}
-   \[
-   \binom{4}{1} \times \binom{5}{3}
-   \]
+   Since the Discrete Mathematics textbooks and the Statistical Methods textbooks are both identical, which textbooks will be choosen does not matter.\\
 
-2. \textbf{Two Discrete Mathematics textbooks and two Statistical Methods textbooks:}
-   \[
-   \binom{4}{2} \times \binom{5}{2}
-   \]
+   Also since we have a collection which we can assume it as a set, the order also does not matter.\\
 
-3. \textbf{Three Discrete Mathematics textbooks and one Statistical Methods textbook:}
-   \[
-   \binom{4}{3} \times \binom{5}{1}
-   \]
+   Therefore, we have jsut three posibilities with the condition that at least one Discrete Mathematics textbook and at least one Statistical Methods textbook is in the collection.\\
 
-4. \textbf{Four Statistical Methods textbooks and zero Discrete Mathematics textbooks:}
-   \[
-   \binom{5}{4}
-   \]
+   Here is 3 posibilities:
 
-Now, sum up the results from each case:
-\[
-\binom{4}{1} \times \binom{5}{3} + \binom{4}{2} \times \binom{5}{2} + \binom{4}{3} \times \binom{5}{1} + \binom{5}{4}
-\]
+1. \textbf{One Discrete Mathematics textbook and three Statistical Methods textbooks}
+   
+2. \textbf{Two Discrete Mathematics textbooks and two Statistical Methods textbooks}
 
-Calculate each term and sum them up:
-\[
-4 \times 10 + 6 \times 10 + 4 \times 5 + 5 = 40 + 60 + 20 + 5 = 125
-\]
-
-So, there are 125 ways to make a collection of 4 books with at least one Discrete Mathematics textbook and at least one Statistical Methods textbook.
-
+3. \textbf{Three Discrete Mathematics textbooks and one Statistical Methods textbook}
 
 \paragraph{(c)}
 
+We know that there is \(3^5\) functions from from a set with 5 elements to a set with 3 elements. \\
+
+To find onto functions, we should substract the number of non-onto functions from total number of functions.\\
+
+Let's choose 2 elements in the domain, we have \(\binom{3}{2}\) posibilities. Then, we have \(2^5\) functions from a set with five elements to the remaining two elements in the each codomain. \\
+\[
+\binom{3}{2}2^5
+\]
+
+Let's choose 1 element in the domain, we have \(\binom{3}{1}\) posibilities. Then, we have \(1^5=1\) functions from a set with five elements to the remaining one element in the each codomain. 
+Since first condition count this condition two times, we should add it up to the our result.\\
+\[
+\binom{3}{1}
+\]
+
+Therefore the result is:
+\[
+3^5 - \binom{3}{2}2^5 + \binom{3}{1} =150
+\]
 
 \section*{Answer 3}
 
@@ -220,11 +220,13 @@ So, there are 125 ways to make a collection of 4 books with at least one Discret
     \caption{Equilateral Triangle with Side Length 500 meters}
   \end{figure}
   
-    This problem is a geometric version of the Pigeonhole Principle, often referred to as the "Pigeonhole in a Triangle" problem. In this case, imagine each child as a "pigeon," and the area within 250 meters of each child as a "pigeonhole." The goal is to show that, no matter how the children are distributed within the equilateral triangle, at least two of them must be in the same "pigeonhole" (i.e., within 250 meters of each other). \\
+    This problem is a geometric version of the Pigeonhole Principle, In this case, each child represents a "pigeon," and the area within 250 meters of each child represents a "pigeonhole." The goal is to show that, no matter how the children are distributed within the equilateral triangle, at least two of them must be in the same "pigeonhole" (i.e., within 250 meters of each other). \\
 
-    Now, consider the point at the center of the equilateral triangle. The distance from the center to any vertex is \( h \), which is less than 250 meters.\\
+    Let's, divide the triangle into four smaller equilateral triangles by connecting midpoints of its sides.(\( Figure 1 \))\\
 
-    So, no matter where the children are within the equilateral triangle, at least two of them will be within 250 meters of each other. This follows from the fact that the distance between any two vertices is less than 500 meters (the side length of the triangle), and the height of the triangle is less than 250 meters.\\
+    Then, the maximum distance between any two points within a small equilateral triangle is determined by the length of its side, which is 250 meters.\\
+
+    So, no matter where the children are within the equilateral triangle, at least two of them will be within 250 meters of each other.\\
 
     This proves that, no matter how much the children wander within the triangle-shaped circus, there will always be two of them within 250 meters of each other.\\
 
