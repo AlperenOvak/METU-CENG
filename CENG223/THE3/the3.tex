@@ -133,7 +133,7 @@ So, there are 176 bit strings of length 10 with at least seven 1s in them.
 
    Also since we have a collection which we can assume it as a set, the order also does not matter.\\
 
-   Therefore, we have jsut three posibilities with the condition that at least one Discrete Mathematics textbook and at least one Statistical Methods textbook is in the collection.\\
+   Therefore, we have just three posibilities with the condition that at least one Discrete Mathematics textbook and at least one Statistical Methods textbook is in the collection.\\
 
    Here is 3 posibilities:
 
@@ -149,13 +149,13 @@ We know that there is \(3^5\) functions from from a set with 5 elements to a set
 
 To find onto functions, we should substract the number of non-onto functions from total number of functions.\\
 
-Let's choose 2 elements in the domain, we have \(\binom{3}{2}\) posibilities. Then, we have \(2^5\) functions from a set with five elements to the remaining two elements in the each codomain. \\
+Let's choose 2 elements in the codomaindomain, we have \(\binom{3}{2}\) posibilities. Then, we have \(2^5\) functions from a set with five elements to the remaining two elements in the each codomain. \\
 \[
 \binom{3}{2}2^5
 \]
 
-Let's choose 1 element in the domain, we have \(\binom{3}{1}\) posibilities. Then, we have \(1^5=1\) functions from a set with five elements to the remaining one element in the each codomain. 
-Since first condition count this condition two times, we should add it up to the our result.\\
+Let's choose 1 element in the codomain, we have \(\binom{3}{1}\) posibilities. Then, we have \(1^5=1\) functions from a set with five elements to the remaining one element in the each codomain. 
+Since first condition (\(\binom{3}{2}2^5\)) counts this condition two times, we should add it up to the our result.\\
 \[
 \binom{3}{1}
 \]
@@ -237,11 +237,11 @@ The homogeneous part of the solution comes from ignoring the non-homogeneous ter
 
 So, the homogeneous recurrence relation is \(a_n^{(h)} = 3a_{n-1}^{(h)}\).
 
-Let \(a_n^{(h)} = c \cdot r^n\), then:
+Let \(a_n^{(h)} = C \cdot r^n\), then:
 
-\[c \cdot r^n = 3c \cdot r^{n-1}\]
+\[c \cdot r^n = 3C \cdot r^{n-1}\]
 
-Divide both sides by \(c \cdot r^{n-1}\):
+Divide both sides by \(C \cdot r^{n-1}\):
 
 \[r = 3\]
 
@@ -249,7 +249,7 @@ So, the characteristic root \(r\) is 3.
 
 The homogeneous solution is then:
 
-\[a_n^{(h)} = c \cdot 3^n\]
+\[a_n^{(h)} = C \cdot 3^n\]
 
 \textbf{b. Particular Solution:}
 
@@ -273,13 +273,13 @@ Let's find \(a_n\)
 
 \[a_n = a_n^{(p)} + a_n^{(h)} \]
 
-\[a_n = \frac{5^n}{2} + c \cdot 3^n \]
+\[a_n = \frac{5^n}{2} + C \cdot 3^n \]
 
 We know that \(a_1 = 4\):
 
-\[a_1 = \frac{5^1}{2} + c \cdot 3^1 = 5/2 + 3c = 4\]
+\[a_1 = \frac{5^1}{2} + C \cdot 3^1 = 5/2 + 3C = 4\]
 
-We find that \(c=0.5\).
+We find that \(C=0.5\).
 
 Therefore, \[a_n = \frac{5^n}{2} + \frac{3^n}{2} \]
 
