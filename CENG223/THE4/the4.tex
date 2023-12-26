@@ -40,15 +40,8 @@ Considering:
     \item \( Q_{n-1} \) has \( 2^{n-1} \) vertices and \( E_{n-1} \) edges.
     \item When adding another dimension to \( Q_{n-1} \), we essentially have two identical \( Q_{n-1} \) graphs.
     \item We need to relabel those vertices. Let add a leading 0 for one of the \( Q_{n-1} \) and 1 for other \( Q_{n-1} \)
-    \item Since before adding leading number we had pairs whose labels are same but not connected, after adding leading number those pairs differ in exactly one digit. Therefore we need to connect them.
-    \item To connect corresponding vertices in these two \( Q_{n-1} \) graphs to form \( Q_n \), we need to add \( 2^{n-1} \) edges.
-\end{enumerate}
-
-Therefore, the total number of edges \( E_n \) in \( Q_n \) is:
-\[ E_n = E_{n-1} + 2^{n-1} \]
-
-This represents the recurrence relation for the number of edges in the \( Q_n \) cube graph in terms of \( E_{n-1} \). \\ \\
-\[
+    \item Since before adding leading number we had pairs whose labels are same but not connected, after adding leading number those pairs differ in exactly one digit. Therefore we need to connect them. \\
+    \[
 \begin{tikzpicture}[scale=1.5]
     % Define vertices and labels
     \coordinate[label=below:000] (000) at (0,0,0);
@@ -72,6 +65,14 @@ This represents the recurrence relation for the number of edges in the \( Q_n \)
     \draw[dotted, line width=1.5pt] (022) -- (222);
 \end{tikzpicture}
 \]
+    \item To connect corresponding vertices in these two \( Q_{n-1} \) graphs to form \( Q_n \), we need to add \( 2^{n-1} \) edges.
+\end{enumerate}
+
+Therefore, the total number of edges \( E_n \) in \( Q_n \) is:
+\[ E_n = E_{n-1} + 2^{n-1} \]
+
+This represents the recurrence relation for the number of edges in the \( Q_n \) cube graph in terms of \( E_{n-1} \). \\ \\
+
 
 \section*{Answer 2}
 
@@ -185,6 +186,8 @@ Thus, we can say that: \[ a_n = 2^{n+1}-1\]
 
 
 \section*{Answer 4}
+
+\section*{Answer 5}
 
 
 \end{document}
