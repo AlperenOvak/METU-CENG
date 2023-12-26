@@ -28,6 +28,50 @@ Id Number :  2580801\\
 % Write your answers below the section tags
 \section*{Answer 1}
 
+The \( Q_n \) cube graph has \( 2^n \) vertices, and each vertex is labelled with a binary string of lenght n, each vertices is connected to other vertices whose labels is differ in exactly one digit.
+
+To derive a recurrence relation for the number of edges \( E_n \) in \( Q_n \), consider how we can form \( Q_n \) from \( Q_{n-1} \).
+
+The cube graph \( Q_n \) can be constructed by taking two copies of \( Q_{n-1} \) and connecting corresponding vertices in these two copies by an edge.
+
+Considering:
+
+\begin{enumerate}
+    \item \( Q_{n-1} \) has \( 2^{n-1} \) vertices and \( E_{n-1} \) edges.
+    \item When adding another dimension to \( Q_{n-1} \), we essentially have two identical \( Q_{n-1} \) graphs.
+    \item We need to relabel those vertices. Let add a leading 0 for one of the \( Q_{n-1} \) and 1 for other \( Q_{n-1} \)
+    \item Since before adding leading number we had pairs whose labels are same but not connected, after adding leading number those pairs differ in exactly one digit. Therefore we need to connect them.
+    \item To connect corresponding vertices in these two \( Q_{n-1} \) graphs to form \( Q_n \), we need to add \( 2^{n-1} \) edges.
+\end{enumerate}
+
+Therefore, the total number of edges \( E_n \) in \( Q_n \) is:
+\[ E_n = E_{n-1} + 2^{n-1} \]
+
+This represents the recurrence relation for the number of edges in the \( Q_n \) cube graph in terms of \( E_{n-1} \). \\ \\
+\[
+\begin{tikzpicture}[scale=1.5]
+    % Define vertices and labels
+    \coordinate[label=below:000] (000) at (0,0,0);
+    \coordinate[label=above:001] (002) at (0,0,2);
+    \coordinate[label=left:010] (020) at (0,2,0);
+    \coordinate[label={[shift={(0.2,-0.2)}]above:011}] (022) at (0,2,2);
+    \coordinate[label=below:100] (200) at (2,0,0);
+    \coordinate[label=above:101] (202) at (2,0,2);
+    \coordinate[label=left:110] (220) at (2,2,0);
+    \coordinate[label=above:111] (222) at (2,2,2);
+
+   \foreach \point in {(000),(002),(020),(022),(200),(202),(220),(222)} {
+        \fill \point circle[radius=2pt];
+    }
+    % Draw edges
+    \draw (000) -- (002) -- (022) -- (020) -- cycle;
+    \draw (200) -- (202) -- (222) -- (220) -- cycle;
+    \draw[dotted, line width=1.5pt]  (000) -- (200);
+    \draw[dotted, line width=1.5pt] (002) -- (202);
+    \draw[dotted, line width=1.5pt] (020) -- (220);
+    \draw[dotted, line width=1.5pt] (022) -- (222);
+\end{tikzpicture}
+\]
 
 \section*{Answer 2}
 
