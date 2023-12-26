@@ -327,53 +327,109 @@ Let's solve each part step by step.
 
 \subsection*{a) Reflexive and Symmetric Relations:}
 
-A relation \( R \) on a set \( A \) is reflexive if for every \( a \) in \( A \), \( aRa \) is true.
+For a relation to be reflexive on a set \( A \), it must contain the diagonal elements of the set, i.e., every element in \( A \) must be related to itself. Since a relation is reflexive if and only if it contains all the ordered pairs \( (a,a) \) where \( a \) is an element of \( A \), there are \( n \) such pairs.
 
-A relation \( R \) is symmetric if for every \( a, b \) in \( A \), if \( aRb \) is true, then \( bRa \) is also true.
+For a relation to be symmetric on a set \( A \), if \( (a,b) \) is in the relation, then \( (b,a) \) must also be in the relation. However, this condition doesn't add any new ordered pairs, because if we have \( (a,a) \) for reflexivity, then by the definition of a relation being symmetric, \( (a,a) \) would also imply \( (a,a) \) again (since \( (a,a) \) implies \( (a,a) \) by reflexivity). Similarly, if we have some \( (a,b) \) with \( a \neq b \), then \( (b,a) \) would also be present in the relation by symmetry. However, by definition, we are already considering the relations that satisfy both reflexivity and symmetry.
 
-To find relations that are both reflexive and symmetric, let's consider each of the following:
+Thus, for a given pair \( (a,b) \) in \( A \), we are essentially choosing between \( (a,b) \) and \( (b,a) \) or including both. This means there are \( 2^{\frac{n(n-1)}{2}} \) possible relations that are both reflexive and symmetric on \( A \).
 
-\begin{enumerate}
-    \item For any \( a \) in \( A \), \( aRa \) must be true for reflexivity.
-    \item If \( aRb \) is true, then \( bRa \) must also be true for symmetry.
-\end{enumerate}
+Here's why:
 
-For a relation to be both reflexive and symmetric:
+For each distinct pair \( (a,b) \) in \( A \) (where \( a \neq b \)), we have two choices: to include \( (a,b) \) or to include \( (b,a) \). As there are \( \frac{n(n-1)}{2} \) such distinct pairs in \( A \), the total number of ways to choose relations that are both reflexive and symmetric is \( 2^{\frac{n(n-1)}{2}} \).
 
-\begin{enumerate}
-    \item Each element \( a \) can either be related to itself (making the relation reflexive) or not related to itself. There are \( 2 \) choices for each element \( a \).
-    \item If \( a \) is related to \( b \) (and vice versa for symmetry), then \( b \) must be related to \( a \). This means, for each pair \( (a, b) \) such that \( aRb \), we are also defining \( bRa \). However, since the relation is symmetric, we don't need to count this as a separate relation.
-\end{enumerate}
+So, the number of different binary relations on \( A \) that are both reflexive and symmetric is \( 2^{\frac{n(n-1)}{2}} \).
 
-Therefore, the number of different binary relations on \( A \) that are both reflexive and symmetric is \( 2^n \).
 
 \subsection*{b) Reflexive and Antisymmetric Relations:}
 
-A relation \( R \) on a set \( A \) is reflexive if for every \( a \) in \( A \), \( aRa \) is true.
-
-A relation \( R \) is antisymmetric if for every distinct \( a, b \) in \( A \), if both \( aRb \) and \( bRa \) are true, then \( a = b \).
-
-To find relations that are both reflexive and antisymmetric:
+To determine the number of different binary relations on \( A \) that are both reflexive and antisymmetric, let's break it down step by step.
 
 \begin{enumerate}
-    \item Each element \( a \) can either be related to itself (making the relation reflexive) or not related to itself. There are \( 2 \) choices for each element \( a \).
-    \item For every distinct pair \( (a, b) \) where \( a \neq b \):
-    \begin{itemize}
-        \item If \( aRb \) is true, then \( bRa \) cannot be true to satisfy antisymmetry. Thus, we have only one choice for this pair: \( aRb \) is true and \( bRa \) is false.
-        \item If \( aRb \) is false, then \( bRa \) can be either true or false.
-    \end{itemize}
+    \item \textbf{Reflexive Property}:
+    For a relation to be reflexive on a set \( A \), it must contain the diagonal elements of the set, i.e., every element in \( A \) must be related to itself. Since a relation is reflexive if and only if it contains all the ordered pairs \( (a, a) \) where \( a \) is an element of \( A \), there are \( n \) such pairs.
+    
+    \item \textbf{Antisymmetric Property}:
+    A relation \( R \) on a set \( A \) is antisymmetric if for all distinct elements \( a \) and \( b \) in \( A \), if \( (a, b) \) and \( (b, a) \) both belong to \( R \), then \( a = b \).
+    
+    Given the reflexive property, the diagonal elements are already covered. Now, consider any two distinct elements \( a \) and \( b \) in \( A \). There are three possibilities for their relation:
+    
+    \begin{enumerate}
+        \item \( (a, b) \) belongs to the relation and \( (b, a) \) does not.
+        \item \( (b, a) \) belongs to the relation and \( (a, b) \) does not.
+        \item Neither \( (a, b) \) nor \( (b, a) \) belongs to the relation.
+    \end{enumerate}
+    
+    For the relation to be antisymmetric, only one of the these possibilities can occur for any distinct pair \( (a, b) \). If both were present, the relation wouldn't be antisymmetric due to the given definition.
+    
+    Thus, for each distinct pair \( (a, b) \) in \( A \) (where \( a \neq b \)), there are 3 possibilities, and the number of such pairs is \( \frac{n(n-1)}{2} \). 
+    
+    So, for each of these \( \frac{n(n-1)}{2} \) pairs, there are 3 choices to make the relation antisymmetric.
 \end{enumerate}
 
-Considering the choices for each distinct pair:
-\begin{itemize}
-    \item There are \( n(n-1) \) distinct pairs where \( a \neq b \).
-    \item For each distinct pair \( (a, b) \), there are \( 2 \) choices: \( aRb \) is true and \( bRa \) is false, or both are false.
-\end{itemize}
-
-Thus, the total number of different binary relations on \( A \) that are both reflexive and antisymmetric is \( 2^{n(n-1)} \).
+Therefore, the total number of different binary relations on \( A \) that are both reflexive and antisymmetric is \( 3^{\frac{n(n-1)}{2}} \).
 
 
 
 \section*{Answer 6}
+
+\begin{enumerate}
+    \item \textbf{Antisymmetric Relation}:
+An antisymmetric relation is one where for each directed edge in a graph, no edge exists that goes the other way. In other words, if an edge exists from element \( a \) to element \( b \), there cannot be an edge from \( b \) to \( a \). Mathematically, this means that if \( (a, b) \) is in the relation, then \( (b, a) \) cannot be in the relation unless \( a \) and \( b \) are the same element (i.e., \( a = b \)).
+    \item \textbf{Transitive Closure}:
+Now, let's consider the transitive closure of an antisymmetric relation. The transitive closure of a relation is the smallest transitive relation that contains the original relation as a subset. In other words, it ensures that if \( (a, b) \) and \( (b, c) \) are in the relation, then \( (a, c) \) must also be in the relation.
+\end{enumerate}
+Here's the interesting part: the transitive closure of an antisymmetric relation is not always antisymmetric! Let's see why:\\
+
+Suppose we have an antisymmetric relation \( R \). \\
+The transitive closure \( R^+ \) contains all pairs from \( R \) and additional pairs to satisfy the transitive property.\\
+If \( (a, b) \) and \( (b, c) \) are in \( R^+ \), then by the transitive property, \( (a, c) \) must also be in \( R^+ \).\\
+Since \( R \) is antisymmetric, if \( (a, b) \) is in \( R \), then \( (b, a) \) cannot be in \( R \). But if \( (a, b) \) and \( (b, c) \) are in \( R^+ \), but \( (a, c) \) may be in \( R^+ \), since there might be a path \(c\) to \(a\). Let's say \((c,d)\) and \( (d,a)\),therefore \( (c, a) \) can be in \( R^+ \). \\
+Thus, \( R^+ \) does not satisfy the antisymmetric property. \\
+
+Let's consider a counter example: \\
+
+Consider a set, let's say \(A= \{1, 2, 3, 4\} \) \\
+
+And relatin of \(A\) is \( R = \{(1, 3),(2, 1),(2, 3),(3, 4),(4, 1)\}\). \\
+
+
+Let's find the transitive closure of these relations on \( \{1, 2, 3, 4\} \).
+
+\begin{enumerate}
+    \item \( R = \{(1, 2),(2, 1),(2, 3),(3, 4),(4, 1)\} \)
+
+    Transitive Closure:
+    \begin{align*}
+    &M_R^* \\
+    &= M_R \lor M_R^2  \lor M_R^3 \\
+    &= \begin{bmatrix}
+    0 & 0 & 1 & 0 \\
+    1 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 0 \\
+    \end{bmatrix} \lor \begin{bmatrix}
+    0 & 0 & 0 & 1\\
+    0 & 0 & 1 & 1 \\
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    \end{bmatrix} \lor \begin{bmatrix}
+    1 & 0 & 0 & 0 \\
+    1 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    \end{bmatrix} \\
+    &= \begin{bmatrix}
+    1 & 0 & 1 & 1 \\
+    1 & 0 & 1 & 1 \\
+    1 & 0 & 1 & 1 \\
+    1 & 0 & 1 & 1 \\
+    \end{bmatrix}
+    \end{align*}
+\end{enumerate}
+
+Note that \(\lor M_R^4\) is same with \(\lor M_R\) itself, therefore we do not need to write \(\lor M_R^4\) and keep writing the further \(M\)'s.\\
+
+As you can see that \(M_R^*\) is not antisymmetric. Therefore we can say that transitive closure of an antisymmetric relation is not always antisymmetric.\\
+
 
 \end{document}
