@@ -221,7 +221,159 @@ R = \begin{bmatrix}
 \end{bmatrix}
 \]
 
+\paragraph{c)}
+
+To determine if \( (A, R) \) is a lattice, we need to check two conditions:
+
+\begin{enumerate}
+    \item Every pair of elements in \( A \) has both a least upper bound (LUB) and a greatest lower bound (GLB) in \( A \).
+    \item The LUB and GLB are unique.
+\end{enumerate}
+
+Given the relation \( R \) defined as \( a \) divides \( b \), let's analyze the elements of \( A = \{1, 2, 3, 9, 18\} \):
+
+\begin{enumerate}
+    \item \textbf{Least Upper Bound (LUB) and Greatest Lower Bound (GLB) for each pair:}
+    \begin{itemize}
+        \item \( 1 \) and \( 2 \): LUB = \( 2 \), GLB = \( 1 \)
+        \item \( 1 \) and \( 3 \): LUB = \( 3 \), GLB = \( 1 \)
+        \item \( 1 \) and \( 9 \): LUB = \( 9 \), GLB = \( 1 \)
+        \item \( 1 \) and \( 18 \): LUB = \( 18 \), GLB = \( 1 \)
+        \item \( 2 \) and \( 3 \): LUB = \( 18 \) , GLB = \( 1 \)
+        \item \( 2 \) and \( 9 \): LUB = \( 18 \), GLB = \( 1 \)
+        \item \( 2 \) and \( 18 \): LUB = \( 18 \), GLB = \( 2 \)
+        \item \( 3 \) and \( 9 \): LUB = \( 9 \), GLB = \( 3 \)
+        \item \( 3 \) and \( 18 \): LUB = \( 18 \), GLB = \( 3 \)
+        \item \( 9 \) and \( 18 \): LUB = \( 18 \), GLB = \( 9 \)
+    \end{itemize}
+    \item \textbf{Uniqueness of LUB and GLB:}
+    \begin{itemize}
+        \item For any pair, the LUB and GLB are unique based on the above analysis.
+    \end{itemize}
+\end{enumerate}
+
+Given that every pair in \( A \) has both a LUB and a GLB, and these are unique for each pair, \( (A, R) \) satisfies the conditions of being a lattice.
+
+Therefore, \( (A, R) \) is indeed a lattice.\\
+
+\paragraph{d)}
+
+The symmetric closure \( R^s \) of a relation \( R \) consists of all the ordered pairs \( (a, b) \) such that whenever \( (a, b) \) is in \( R \), then \( (b, a) \) is also in \( R^s \).
+
+Given the relation \( R \) where \( a \) divides \( b \), we need to find the symmetric closure \( R^s \).
+
+For each pair \( (a, b) \) in \( R \), we also need to include the pair \( (b, a) \) in \( R^s \).
+
+From the previous matrix representation of \( R \):
+
+\[
+R = \begin{bmatrix}
+1 & 1 & 1 & 1 & 1 \\
+0 & 1 & 0 & 0 & 1 \\
+0 & 0 & 1 & 1 & 1 \\
+0 & 0 & 0 & 1 & 1 \\
+0 & 0 & 0 & 0 & 1 \\
+\end{bmatrix}
+\]
+
+For \( R^s \):
+
+\begin{enumerate}
+    \item \( (1, 2) \) is in \( R \), so we add \( (2, 1) \) to \( R^s \).
+    \item \( (1, 3) \) is in \( R \), so we add \( (3, 1) \) to \( R^s \).
+    \item \( (1, 9) \) is in \( R \), so we add \( (9, 1) \) to \( R^s \).
+    \item \( (1, 18) \) is in \( R \), so we add \( (18, 1) \) to \( R^s \).
+    \item \( (2, 18) \) is in \( R \), so we add \( (18, 2) \) to \( R^s \).
+    \item \( (3, 9) \) is in \( R \), so we add \( (9, 3) \) to \( R^s \).
+    \item \( (3, 18) \) is in \( R \), so we add \( (18, 3) \) to \( R^s \).
+    \item \( (9, 18) \) is in \( R \), so we add \( (18, 9) \) to \( R^s \).
+\end{enumerate}
+
+But, since \( R \) only contains pairs where \( a \) divides \( b \) and does not contain pairs where \( b \) divides \( a \), the symmetric closure \( R^s \) will have all these pairs as well.
+
+The matrix representation for \( R^s \) will therefore be:
+
+\[
+R = \begin{bmatrix}
+1 & 1 & 1 & 1 & 1 \\
+1 & 1 & 0 & 0 & 1 \\
+1 & 0 & 1 & 1 & 1 \\
+1 & 0 & 1 & 1 & 1 \\
+1 & 1 & 1 & 1 & 1 \\
+\end{bmatrix}
+\]
+
+This matrix captures the relation \( R^s \), which is the symmetric closure of \( R \).
+
+\paragraph{e)}
+
+
+In the relation \( R \) where \( a \) divides \( b \):
+
+\begin{itemize}
+    \item \( 2 \) does not divide \( 9 \). \\
+    \( 9 \) does not divide \( 2 \). \\
+    Since both \( (2,9) \) and \( (9,2) \) are not in the set of relation \( R \), we can say that \( 2 \) and \( 9 \) are not comparable in \( R \).
+    \item \( 18 \) does not divide \( 3 \) but,\\
+    \( 3 \) divides \( 18 \) since \( 3 \times 6 = 18 \)\\
+    Thus, \( (3,18) \) is in the set of relation \( R \) . Therefore, \( 3 \) and \( 18 \) are comparable in \( R \).
+\end{itemize}
+
+
 \section*{Answer 5}
 
+
+Let's solve each part step by step.
+
+\subsection*{a) Reflexive and Symmetric Relations:}
+
+A relation \( R \) on a set \( A \) is reflexive if for every \( a \) in \( A \), \( aRa \) is true.
+
+A relation \( R \) is symmetric if for every \( a, b \) in \( A \), if \( aRb \) is true, then \( bRa \) is also true.
+
+To find relations that are both reflexive and symmetric, let's consider each of the following:
+
+\begin{enumerate}
+    \item For any \( a \) in \( A \), \( aRa \) must be true for reflexivity.
+    \item If \( aRb \) is true, then \( bRa \) must also be true for symmetry.
+\end{enumerate}
+
+For a relation to be both reflexive and symmetric:
+
+\begin{enumerate}
+    \item Each element \( a \) can either be related to itself (making the relation reflexive) or not related to itself. There are \( 2 \) choices for each element \( a \).
+    \item If \( a \) is related to \( b \) (and vice versa for symmetry), then \( b \) must be related to \( a \). This means, for each pair \( (a, b) \) such that \( aRb \), we are also defining \( bRa \). However, since the relation is symmetric, we don't need to count this as a separate relation.
+\end{enumerate}
+
+Therefore, the number of different binary relations on \( A \) that are both reflexive and symmetric is \( 2^n \).
+
+\subsection*{b) Reflexive and Antisymmetric Relations:}
+
+A relation \( R \) on a set \( A \) is reflexive if for every \( a \) in \( A \), \( aRa \) is true.
+
+A relation \( R \) is antisymmetric if for every distinct \( a, b \) in \( A \), if both \( aRb \) and \( bRa \) are true, then \( a = b \).
+
+To find relations that are both reflexive and antisymmetric:
+
+\begin{enumerate}
+    \item Each element \( a \) can either be related to itself (making the relation reflexive) or not related to itself. There are \( 2 \) choices for each element \( a \).
+    \item For every distinct pair \( (a, b) \) where \( a \neq b \):
+    \begin{itemize}
+        \item If \( aRb \) is true, then \( bRa \) cannot be true to satisfy antisymmetry. Thus, we have only one choice for this pair: \( aRb \) is true and \( bRa \) is false.
+        \item If \( aRb \) is false, then \( bRa \) can be either true or false.
+    \end{itemize}
+\end{enumerate}
+
+Considering the choices for each distinct pair:
+\begin{itemize}
+    \item There are \( n(n-1) \) distinct pairs where \( a \neq b \).
+    \item For each distinct pair \( (a, b) \), there are \( 2 \) choices: \( aRb \) is true and \( bRa \) is false, or both are false.
+\end{itemize}
+
+Thus, the total number of different binary relations on \( A \) that are both reflexive and antisymmetric is \( 2^{n(n-1)} \).
+
+
+
+\section*{Answer 6}
 
 \end{document}
