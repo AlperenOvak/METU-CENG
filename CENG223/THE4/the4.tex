@@ -3,7 +3,9 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
+
 \usepackage{tikz}
+\usetikzlibrary{positioning}
 
 \usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
 %\topmargin=0cm
@@ -186,6 +188,38 @@ Thus, we can say that: \[ a_n = 2^{n+1}-1\]
 
 
 \section*{Answer 4}
+
+\paragraph{a)}
+\[
+\begin{tikzpicture}[node distance=1.5cm]
+  \tikzstyle{circ} = [circle, draw, fill=black!20, inner sep=0pt, minimum width=0.6cm]
+
+  \node[circ] (18) {18};
+  \node[circ, below right=of 18] (9) {9};
+  \node[circ, below =of 9] (3) {3};
+  \node[circ, below left=of 9] (2) {2};
+  \node[circ, below left=of 3] (1) {1};
+
+  \draw (18) -- (9);
+  \draw (18) -- (2);
+  \draw (9) -- (3);
+
+  \draw (2) -- (1);
+  \draw (3) -- (1);
+
+\end{tikzpicture}
+\]
+\paragraph{b)}
+
+\[
+R = \begin{bmatrix}
+1 & 1 & 1 & 1 & 1 \\
+0 & 1 & 0 & 0 & 1 \\
+0 & 0 & 1 & 1 & 1 \\
+0 & 0 & 0 & 1 & 1 \\
+0 & 0 & 0 & 0 & 1 \\
+\end{bmatrix}
+\]
 
 \section*{Answer 5}
 
