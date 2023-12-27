@@ -43,6 +43,7 @@ Considering:
     \item When adding another dimension to \( Q_{n-1} \), we essentially have two identical \( Q_{n-1} \) graphs.
     \item We need to relabel those vertices. Let add a leading 0 for one of the \( Q_{n-1} \) and 1 for other \( Q_{n-1} \)
     \item Since before adding leading number we had pairs whose labels are same but not connected, after adding leading number those pairs differ in exactly one digit. Therefore we need to connect them. \\
+\begin{figure}[H] 
     \[
 \begin{tikzpicture}[scale=1.5]
     % Define vertices and labels
@@ -67,11 +68,13 @@ Considering:
     \draw[dotted, line width=1.5pt] (022) -- (222);
 \end{tikzpicture}
 \]
+\caption{Cube graph representation of \(Q_3\)}
+\end{figure}
     \item To connect corresponding vertices in these two \( Q_{n-1} \) graphs to form \( Q_n \), we need to add \( 2^{n-1} \) edges.
 \end{enumerate}
 
 Therefore, the total number of edges \( E_n \) in \( Q_n \) is:
-\[ E_n = E_{n-1} + 2^{n-1} \]
+\[ E_n = 2E_{n-1} + 2^{n-1} \]
 
 This represents the recurrence relation for the number of edges in the \( Q_n \) cube graph in terms of \( E_{n-1} \). \\ \\
 
@@ -193,8 +196,12 @@ Thus, we can say that: \[ a_n = 2^{n+1}-1\]
 
 \section*{Answer 4}
 
-\paragraph{a)}
-\[
+\subsection*{a)}
+
+\begin{figure}[H]
+
+\centering    
+
 \begin{tikzpicture}[node distance=1.5cm]
   \tikzstyle{circ} = [circle, draw, fill=black!20, inner sep=0pt, minimum width=0.6cm]
 
@@ -212,9 +219,12 @@ Thus, we can say that: \[ a_n = 2^{n+1}-1\]
   \draw (3) -- (1);
 
 \end{tikzpicture}
-\]
-\paragraph{b)}
+\caption{Hasse diagram of relation R}
+\end{figure}
 
+\subsection*{b)}
+
+\begin{figure}[H]
 \[
 R = \begin{bmatrix}
 1 & 1 & 1 & 1 & 1 \\
@@ -224,7 +234,8 @@ R = \begin{bmatrix}
 0 & 0 & 0 & 0 & 1 \\
 \end{bmatrix}
 \]
-
+\caption{Matrix representation for R}
+\end{figure}
 \paragraph{c)}
 
 To determine if \( (A, R) \) is a lattice, we need to check two conditions:
@@ -262,13 +273,17 @@ Therefore, \( (A, R) \) is indeed a lattice.\\
 
 \paragraph{d)}
 
-The symmetric closure \( R^s \) of a relation \( R \) consists of all the ordered pairs \( (a, b) \) such that whenever \( (a, b) \) is in \( R \), then \( (b, a) \) is also in \( R^s \).
+The symmetric closure \( R_s \) of a relation \( R \) consists of all the ordered pairs \( (a, b) \) such that whenever \( (a, b) \) is in \( R \), then \( (b, a) \) is also in \( R_s \).
 
-Given the relation \( R \) where \( a \) divides \( b \), we need to find the symmetric closure \( R^s \).
+Given the relation \( R \) where \( a \) divides \( b \), we need to find the symmetric closure \( R_s \).
 
-For each pair \( (a, b) \) in \( R \), we also need to include the pair \( (b, a) \) in \( R^s \).
+For each pair \( (a, b) \) in \( R \), we also need to include the pair \( (b, a) \) in \( R_s \).
 
 From the previous matrix representation of \( R \):
+
+
+
+\begin{figure}[H]
 
 \[
 R = \begin{bmatrix}
@@ -279,23 +294,25 @@ R = \begin{bmatrix}
 0 & 0 & 0 & 0 & 1 \\
 \end{bmatrix}
 \]
+\caption{Matrix representation for \(R_s\)}
+\end{figure}
 
 For \( R^s \):
 
 \begin{enumerate}
-    \item \( (1, 2) \) is in \( R \), so we add \( (2, 1) \) to \( R^s \).
-    \item \( (1, 3) \) is in \( R \), so we add \( (3, 1) \) to \( R^s \).
-    \item \( (1, 9) \) is in \( R \), so we add \( (9, 1) \) to \( R^s \).
-    \item \( (1, 18) \) is in \( R \), so we add \( (18, 1) \) to \( R^s \).
-    \item \( (2, 18) \) is in \( R \), so we add \( (18, 2) \) to \( R^s \).
-    \item \( (3, 9) \) is in \( R \), so we add \( (9, 3) \) to \( R^s \).
-    \item \( (3, 18) \) is in \( R \), so we add \( (18, 3) \) to \( R^s \).
-    \item \( (9, 18) \) is in \( R \), so we add \( (18, 9) \) to \( R^s \).
+    \item \( (1, 2) \) is in \( R \), so we add \( (2, 1) \) to \( R_s \).
+    \item \( (1, 3) \) is in \( R \), so we add \( (3, 1) \) to \( R_s \).
+    \item \( (1, 9) \) is in \( R \), so we add \( (9, 1) \) to \( R_s \).
+    \item \( (1, 18) \) is in \( R \), so we add \( (18, 1) \) to \( R_s \).
+    \item \( (2, 18) \) is in \( R \), so we add \( (18, 2) \) to \( R_s \).
+    \item \( (3, 9) \) is in \( R \), so we add \( (9, 3) \) to \( R_s \).
+    \item \( (3, 18) \) is in \( R \), so we add \( (18, 3) \) to \( R_s \).
+    \item \( (9, 18) \) is in \( R \), so we add \( (18, 9) \) to \( R_s \).
 \end{enumerate}
 
 But, since \( R \) only contains pairs where \( a \) divides \( b \) and does not contain pairs where \( b \) divides \( a \), the symmetric closure \( R^s \) will have all these pairs as well.
 
-The matrix representation for \( R^s \) will therefore be:
+The matrix representation for \( R_s \) will therefore be:
 
 \[
 R = \begin{bmatrix}

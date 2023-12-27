@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.10.16)  27 DEC 2023 00:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.10.16)  27 DEC 2023 21:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -433,49 +433,44 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
  (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+Underfull \hbox (badness 10000) in paragraph at lines 45--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
+Underfull \hbox (badness 10000) in paragraph at lines 79--80
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
+Underfull \hbox (badness 10000) in paragraph at lines 79--80
 
  []
 
 [1
 
 {C:/Users/OVAK/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
-
+Overfull \hbox (22.88286pt too wide) in paragraph at lines 132--133
+[]\OT1/cmr/m/n/12 By The-o-rem 1 of Sec-tion 8.4, sub-tract-ing the gen-er-at-ing func-tion for the se-quence $\OML/cmm/m/it/12 < \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; [] >$
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
-
- []
-
-
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 179--180
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
 
  []
 
@@ -484,64 +479,79 @@ Underfull \hbox (badness 10000) in paragraph at lines 183--184
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+
+ []
+
 [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 257--258
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
 
  []
 
-[6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 381--382
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 383--388
+[6] [7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 402--403
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--390
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 391--392
+Underfull \hbox (badness 10000) in paragraph at lines 404--409
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--394
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--431
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 432--433
+Underfull \hbox (badness 10000) in paragraph at lines 414--415
 
  []
 
-[9] (the4.aux)
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 451--452
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
+
+ []
+
+[10] (the4.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-10-10>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 13989 strings out of 474823
- 279626 string characters out of 5751427
+ 13993 strings out of 474823
+ 279707 string characters out of 5751427
  1935043 words of memory out of 5000000
- 35701 multiletter control sequences out of 15000+600000
+ 35705 multiletter control sequences out of 15000+600000
  564569 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,14n,107p,708b,727s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,14n,107p,740b,829s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\OVAK\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on the4.pdf (9 pages, 153281 bytes).
+Output written on the4.pdf (10 pages, 155110 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
+ 103 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
