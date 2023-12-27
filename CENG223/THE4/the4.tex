@@ -105,11 +105,12 @@ and further simplifies to:
 
 Starting with the basic generating functions:
 \begin{enumerate}
-    \item The generating function for the sequence \( <1, 1, 1, 1, \dots> \) is:
+    \item (By Table 1 of Section 8.4) generating function for the sequence \( <1, 1, 1, 1, \dots> \) is:
     \[ \frac{1}{1-x} \]
 
-    \item Differentiating the above generating function gives:
+    \item (By Table 1 of Section 8.4) Differentiating the above generating function gives:
     \[ \frac{d}{dx} \left( \frac{1}{1-x} \right) = \frac{1}{(1-x)^2} \]
+    We have \(\frac{1}{(1-x)^2}\) = \(1+2x+3x^2+4x^3+...\) \\
     Which represents the sequence \( <1, 2, 3, 4, \dots> \).
 
     \item Using the scaling theorem:
@@ -125,7 +126,7 @@ Starting with the basic generating functions:
     &\text{Which represents the sequence } <3, 6, 9, 12, \dots>.
     \end{align*}
 
-    \item Subtracting the generating function for the sequence \( <2, 2, 2, 2, \dots> \) from the generating function for the sequence \( <3, 6, 9, 12, \dots> \) gives:
+    \item By Theorem 1 of Section 8.4, subtracting the generating function for the sequence \( <2, 2, 2, 2, \dots> \) from the generating function for the sequence \( <3, 6, 9, 12, \dots> \) gives:
     \[ \frac{3}{(1-x)^2} - \frac{2}{1-x} \]
     This resulting generating function represents the sequence \( <1, 4, 7, 10, 13, \dots> \).
 \end{enumerate}
@@ -150,11 +151,13 @@ Multiply both sides of the recurrence relation by \( x^n \) and sum over all val
 
 We can write \( \sum_{n=1}^{\infty} a_{n-1} x^{n-1}\) as \( \sum_{n=0}^{\infty} a_{n} x^{n} = A(x) \) \\
 
-Furthermore, we know that  \( \sum_{n=0}^{\infty} 2^n x^n = \frac{1}{1-2x} \),\\
+Furthermore, (By Table 1 of Section 8.4) we know that  \( \sum_{n=0}^{\infty} 2^n x^n = \frac{1}{1-2x} \),\\
 
-Thus \( \sum_{n=1}^{\infty} 2^n x^n = \frac{1}{1-2x} - 1\)\\
+Thus \( \sum_{n=1}^{\infty} 2^n x^n = \frac{1}{1-2x} - 2^0x_0\),\\
 
-Let's put them into the equation we have above:
+\( \sum_{n=1}^{\infty} 2^n x^n = \frac{1}{1-2x} - 1\).\\
+
+Let's put them into the equation, we have above:
 
 \begin{align*}
 A(x)-a_{0} &= xA(x) + \frac{1}{1-2x} - 1\\
@@ -174,15 +177,16 @@ So, we have \( B=-1\) and \(C=2\)
 A(x)&= \frac{1}{(1-2x)(1-x)} = \frac{-1}{(1-x)} + \frac{2}{(1-2x)}  \\
 \end{align*}
 
-Since sequence of \( \frac{1}{1-x} \) generating function is \( <1, 1, 1, 1, \dots> \),\\
+Since sequence of \( \frac{1}{1-x} \) generating function is \( <1, 1, 1, 1, \dots> \)(By Table 1 of Section 8.4),\\
 
 Sequence of \(\frac{-1}{(1-x)}\) is \( <-1, -1, -1, -1, \dots> \).\\
 
-Since sequence of \( \frac{1}{1-2x} \) generating function is \( <1, 2, 4, 8, \dots> \),\\
+Since sequence of \( \frac{1}{1-2x} \) generating function is \( <1, 2, 4, 8, \dots> \)(By Table 1 of Section 8.4),\\
 
 Sequence of \(\frac{2}{(1-2x)}\) is \( <2, 4, 8, 16, \dots> \).\\
 
-Therefore sequence of \( A(x) \) is \[ <1, 3, 7, 15, \dots, 2^{n+1}-1 , \dots>\].\\
+Therefore sequence of \( A(x) \) is (By Theorem 1 of Section 8.4)\[ <1, 3, 7, 15, \dots, 2^{n+1}-1 , \dots>\] \\
+Notice that, \(2^{n+1}-1\) is the \(n^{th}\) term of this sequence.\\
 Thus, we can say that: \[ a_n = 2^{n+1}-1\]
 
 
@@ -327,9 +331,9 @@ Let's solve each part step by step.
 
 \subsection*{a) Reflexive and Symmetric Relations:}
 
-For a relation to be reflexive on a set \( A \), it must contain the diagonal elements of the set, i.e., every element in \( A \) must be related to itself. Since a relation is reflexive if and only if it contains all the ordered pairs \( (a,a) \) where \( a \) is an element of \( A \), there are \( n \) such pairs.
+(By Definition 3 of Section 9.1) For a relation to be reflexive on a set \( A \), it must contain the diagonal elements of the set, i.e., every element in \( A \) must be related to itself. Since a relation is reflexive if and only if it contains all the ordered pairs \( (a,a) \) where \( a \) is an element of \( A \), there are \( n \) such pairs.
 
-For a relation to be symmetric on a set \( A \), if \( (a,b) \) is in the relation, then \( (b,a) \) must also be in the relation. However, this condition doesn't add any new ordered pairs, because if we have \( (a,a) \) for reflexivity, then by the definition of a relation being symmetric, \( (a,a) \) would also imply \( (a,a) \) again (since \( (a,a) \) implies \( (a,a) \) by reflexivity). Similarly, if we have some \( (a,b) \) with \( a \neq b \), then \( (b,a) \) would also be present in the relation by symmetry. However, by definition, we are already considering the relations that satisfy both reflexivity and symmetry.
+(By Definition 4 of Section 9.1)For a relation to be symmetric on a set \( A \), if \( (a,b) \) is in the relation, then \( (b,a) \) must also be in the relation. However, this condition doesn't add any new ordered pairs, because if we have \( (a,a) \) for reflexivity, then by the definition of a relation being symmetric, \( (a,a) \) would also imply \( (a,a) \) again (since \( (a,a) \) implies \( (a,a) \) by reflexivity). Similarly, if we have some \( (a,b) \) with \( a \neq b \), then \( (b,a) \) would also be present in the relation by symmetry. However, by definition, we are already considering the relations that satisfy both reflexivity and symmetry.
 
 Thus, for a given pair \( (a,b) \) in \( A \), we are essentially choosing between \( (a,b) \) and \( (b,a) \) or including both. This means there are \( 2^{\frac{n(n-1)}{2}} \) possible relations that are both reflexive and symmetric on \( A \).
 
@@ -346,10 +350,10 @@ To determine the number of different binary relations on \( A \) that are both r
 
 \begin{enumerate}
     \item \textbf{Reflexive Property}:
-    For a relation to be reflexive on a set \( A \), it must contain the diagonal elements of the set, i.e., every element in \( A \) must be related to itself. Since a relation is reflexive if and only if it contains all the ordered pairs \( (a, a) \) where \( a \) is an element of \( A \), there are \( n \) such pairs.
+    (By Definition 3 of Section 9.1) For a relation to be reflexive on a set \( A \), it must contain the diagonal elements of the set, i.e., every element in \( A \) must be related to itself. Since a relation is reflexive if and only if it contains all the ordered pairs \( (a, a) \) where \( a \) is an element of \( A \), there are \( n \) such pairs.
     
     \item \textbf{Antisymmetric Property}:
-    A relation \( R \) on a set \( A \) is antisymmetric if for all distinct elements \( a \) and \( b \) in \( A \), if \( (a, b) \) and \( (b, a) \) both belong to \( R \), then \( a = b \).
+    (By Definition 4 of Section 9.1) A relation \( R \) on a set \( A \) is antisymmetric if for all distinct elements \( a \) and \( b \) in \( A \), if \( (a, b) \) and \( (b, a) \) both belong to \( R \), then \( a = b \).
     
     Given the reflexive property, the diagonal elements are already covered. Now, consider any two distinct elements \( a \) and \( b \) in \( A \). There are three possibilities for their relation:
     
@@ -374,11 +378,11 @@ Therefore, the total number of different binary relations on \( A \) that are bo
 
 \begin{enumerate}
     \item \textbf{Antisymmetric Relation}:
-An antisymmetric relation is one where for each directed edge in a graph, no edge exists that goes the other way. In other words, if an edge exists from element \( a \) to element \( b \), there cannot be an edge from \( b \) to \( a \). Mathematically, this means that if \( (a, b) \) is in the relation, then \( (b, a) \) cannot be in the relation unless \( a \) and \( b \) are the same element (i.e., \( a = b \)).
+(By Definition 4 of Section 9.1) An antisymmetric relation is one where for each directed edge in a graph, no edge exists that goes the other way. In other words, if an edge exists from element \( a \) to element \( b \), there cannot be an edge from \( b \) to \( a \). Mathematically, this means that if \( (a, b) \) is in the relation, then \( (b, a) \) cannot be in the relation unless \( a \) and \( b \) are the same element (i.e., \( a = b \)).
     \item \textbf{Transitive Closure}:
-Now, let's consider the transitive closure of an antisymmetric relation. The transitive closure of a relation is the smallest transitive relation that contains the original relation as a subset. In other words, it ensures that if \( (a, b) \) and \( (b, c) \) are in the relation, then \( (a, c) \) must also be in the relation.
+(By Definition 2 and Theorem 2 of Section 9.4) Now, let's consider the transitive closure of an antisymmetric relation. The transitive closure of a relation is the smallest transitive relation that contains the original relation as a subset. In other words, it ensures that if \( (a, b) \) and \( (b, c) \) are in the relation, then \( (a, c) \) must also be in the relation.
 \end{enumerate}
-Here's the interesting part: the transitive closure of an antisymmetric relation is not always antisymmetric! Let's see why:\\
+The transitive closure of an antisymmetric relation is not always antisymmetric! Let's explain:\\
 
 Suppose we have an antisymmetric relation \( R \). \\
 The transitive closure \( R^+ \) contains all pairs from \( R \) and additional pairs to satisfy the transitive property.\\
@@ -396,7 +400,7 @@ And relatin of \(A\) is \( R = \{(1, 3),(2, 1),(2, 3),(3, 4),(4, 1)\}\). \\
 Let's find the transitive closure of these relations on \( \{1, 2, 3, 4\} \).
 
 \begin{enumerate}
-    \item \( R = \{(1, 2),(2, 1),(2, 3),(3, 4),(4, 1)\} \)
+    \item \( R = \{(1, 3),(2, 1),(2, 3),(3, 4),(4, 1)\} \)
 
     Transitive Closure:
     \begin{align*}
@@ -427,9 +431,9 @@ Let's find the transitive closure of these relations on \( \{1, 2, 3, 4\} \).
     \end{align*}
 \end{enumerate}
 
-Note that \(\lor M_R^4\) is same with \(\lor M_R\) itself, therefore we do not need to write \(\lor M_R^4\) and keep writing the further \(M\)'s.\\
+Note that \(M_R^4\) is same with \(M_R\) itself, therefore we do not need to write \(M_R^4\) and keep writing the further \(M\)'s.\\
 
-As you can see that \(M_R^*\) is not antisymmetric. Therefore we can say that transitive closure of an antisymmetric relation is not always antisymmetric.\\
+As you can see that \(M_R^*\) is not antisymmetric (i.e., (3,4) and (4,3) are both in the \(M_R^*\)). Therefore we can say that transitive closure of an antisymmetric relation is not always antisymmetric.\\
 
 
 \end{document}
