@@ -76,7 +76,9 @@
         "__functional_base": "cpp",
         "__memory": "cpp",
         "locale": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "queue": "cpp",
+        "span": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

@@ -173,11 +173,29 @@ float MultiGraph::Lerp(float w0, float w1, float alpha)
 void MultiGraph::InsertVertex(const std::string& vertexName)
 {
     /* TODO */
+    for(size_t  i=0;i<vertexList.size();i++){
+        if(vertexName == vertexList[i].name){
+            throw DuplicateVertexException(vertexName);
+        }
+    }
+    GraphVertex newVertex;
+    newVertex.name = vertexName;
+    vertexList.push_back(newVertex);
 }
 
 void MultiGraph::RemoveVertex(const std::string& vertexName)
 {
-    /* TODO */
+    /* TODO 
+    int i=0;
+    bool find=false;
+    for(i;i<vertexList.size();i++){
+        if(vertexName == vertexList[i].name){
+            find=true;
+        }
+    }
+    if(!find){
+        throw VertexNotFoundException();
+    }*/
 }
 
 void MultiGraph::AddEdge(const std::string& edgeName,
@@ -186,6 +204,31 @@ void MultiGraph::AddEdge(const std::string& edgeName,
                          float weight0, float weight1)
 {
     /* TODO */
+    int fromIndex=-1; //fromIndex
+    int toIndex=-1; //toIndex
+    for(size_t  i=0;i<vertexList.size();i++){
+        if(vertexFromName==vertexList[i].name){
+            fromIndex=static_cast<int>(i); //find the index
+        }
+        if(vertexToName==vertexList[i].name){
+            toIndex=static_cast<int>(i); //find the index
+        }
+    }
+    if(toIndex== -1 ){  // if one of them does not exist
+        throw VertexNotFoundException(vertexToName);
+    }
+    if(fromIndex== -1  ){  // if one of them does not exist
+        throw VertexNotFoundException(vertexFromName);
+    }
+    
+    for(size_t  k=0;k<vertexList[fromIndex].edges.size();k++){
+        if(vertexList[fromIndex].edges[k].endVertexIndex==toIndex && edgeName==vertexList[fromIndex].edges[k].name){ // I found a edge btw A to B named edgeName.
+                throw SameNamedEdgeException(edgeName,vertexFromName, vertexToName);  // if there is a conflict
+        }
+    }
+    //Both A and B exist, and there is no edge btw AtoB named edgeName.
+    //Let's add the directional edge btw them
+    vertexList[fromIndex].edges.push_back({edgeName, {weight0, weight1}, toIndex});
 }
 
 void MultiGraph::RemoveEdge(const std::string& edgeName,
@@ -193,6 +236,34 @@ void MultiGraph::RemoveEdge(const std::string& edgeName,
                             const std::string& vertexToName)
 {
     /* TODO */
+    int fromIndex=-1; //fromIndex
+    int toIndex=-1; //toIndex
+    for(size_t  i=0;i<vertexList.size();i++){
+        if(vertexFromName==vertexList[i].name){
+            fromIndex=static_cast<int>(i); //find the index
+        }
+        if(vertexToName==vertexList[i].name){
+            toIndex=static_cast<int>(i); //find the index
+        }
+    }
+    if(toIndex== -1 ){  // if one of them does not exist
+        throw VertexNotFoundException(vertexToName);
+    }
+    if(fromIndex== -1  ){  // if one of them does not exist
+        throw VertexNotFoundException(vertexFromName);
+    }
+    int rmvEdge= -1;
+    for(size_t  k=0;k<vertexList[fromIndex].edges.size();k++){
+        if(vertexList[fromIndex].edges[k].endVertexIndex==toIndex && edgeName==vertexList[fromIndex].edges[k].name){ // I found a edge btw A to B named edgeName.
+                rmvEdge == static_cast<int>(k);  // if there is a conflict
+        }
+    }
+    if(rmvEdge == -1){
+        throw EdgeNotFoundException(vertexToName,edgeName);
+    }
+    
+    vertexList[fromIndex].edges.erase(vertexList[fromIndex].edges.begin()+rmvEdge);
+
 }
 
 bool MultiGraph::HeuristicShortestPath(std::vector<int>& orderedVertexEdgeIndexList,
