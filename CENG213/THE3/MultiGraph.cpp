@@ -167,7 +167,8 @@ void MultiGraph::PrintEntireGraph() const
 float MultiGraph::Lerp(float w0, float w1, float alpha)
 {
     /* TODO */
-    return -1.0f;
+    float beta = w0*(alpha)+w1*(1.0f-alpha);
+    return beta;
 }
 
 void MultiGraph::InsertVertex(const std::string& vertexName)
@@ -185,17 +186,37 @@ void MultiGraph::InsertVertex(const std::string& vertexName)
 
 void MultiGraph::RemoveVertex(const std::string& vertexName)
 {
-    /* TODO 
-    int i=0;
-    bool find=false;
-    for(i;i<vertexList.size();i++){
-        if(vertexName == vertexList[i].name){
-            find=true;
+    /* TODO */
+    int rmvIndex=-1; //rmvIndex
+    for(size_t  i=0;i<vertexList.size();i++){
+        if(vertexName==vertexList[i].name){
+            rmvIndex=static_cast<int>(i); //find the index
         }
     }
-    if(!find){
-        throw VertexNotFoundException();
-    }*/
+    if(rmvIndex== -1 ){  // if it does not exist
+        throw VertexNotFoundException(vertexName);
+    }
+
+    //when we remove a vertex, after the index of this deleted vertex,
+    //others will be shifted to left
+    //so we need to change the edges which toward to those shifted vertices.
+    
+
+    // we need to deal with edges
+
+    for(size_t i=0;i < vertexList.size();i++){
+        for(size_t j=0; j< vertexList[i].edges.size(); j++){
+            if(vertexList[i].edges[j].endVertexIndex == rmvIndex){
+                vertexList[i].edges.erase(vertexList[i].edges.begin()+j);
+                j--;// since the edge-list shifted towards şeft
+            }
+            else if(vertexList[i].edges[j].endVertexIndex > rmvIndex){ 
+                vertexList[i].edges[j].endVertexIndex--; //shift the edges to left
+            }
+        }
+    }
+
+    vertexList.erase(vertexList.begin() + rmvIndex); // erase the vertex
 }
 
 void MultiGraph::AddEdge(const std::string& edgeName,
@@ -246,20 +267,20 @@ void MultiGraph::RemoveEdge(const std::string& edgeName,
             toIndex=static_cast<int>(i); //find the index
         }
     }
-    if(toIndex== -1 ){  // if one of them does not exist
-        throw VertexNotFoundException(vertexToName);
-    }
     if(fromIndex== -1  ){  // if one of them does not exist
         throw VertexNotFoundException(vertexFromName);
+    }
+    if(toIndex== -1 ){  // if one of them does not exist
+        throw VertexNotFoundException(vertexToName);
     }
     int rmvEdge= -1;
     for(size_t  k=0;k<vertexList[fromIndex].edges.size();k++){
         if(vertexList[fromIndex].edges[k].endVertexIndex==toIndex && edgeName==vertexList[fromIndex].edges[k].name){ // I found a edge btw A to B named edgeName.
-                rmvEdge == static_cast<int>(k);  // if there is a conflict
+                rmvEdge = static_cast<int>(k);  // if there is a conflict
         }
     }
     if(rmvEdge == -1){
-        throw EdgeNotFoundException(vertexToName,edgeName);
+        throw EdgeNotFoundException(vertexFromName,edgeName);
     }
     
     vertexList[fromIndex].edges.erase(vertexList[fromIndex].edges.begin()+rmvEdge);

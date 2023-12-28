@@ -78,7 +78,10 @@
         "locale": "cpp",
         "set": "cpp",
         "queue": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "hash_map": "cpp",
+        "__hash_table": "cpp",
+        "__tree": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
