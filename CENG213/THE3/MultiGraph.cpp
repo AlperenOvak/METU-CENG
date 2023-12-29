@@ -381,18 +381,152 @@ bool MultiGraph::FilteredShortestPath(std::vector<int>& orderedVertexEdgeIndexLi
                                       const std::vector<std::string>& edgeNames) const
 {
     /* TODO */
-    return false;
+    MinPairHeap<float,int> pq; //our prioirty queue
+    int V=static_cast<int>(vertexList.size());//num of vertices
+    std::vector<float> distance(V,9999999); 
+    std::vector<int> previous(V,-1);
+    std::vector<int> edgeIndex(V,-1);
+
+    int fromIndex=-1; //fromIndex
+    int toIndex=-1; //toIndex
+    for(size_t  i=0;i<vertexList.size();i++){
+        if(vertexNameFrom==vertexList[i].name){
+            fromIndex=static_cast<int>(i); //find the index
+        }
+        if(vertexNameTo==vertexList[i].name){
+            toIndex=static_cast<int>(i); //find the index
+        }
+    }
+    if(fromIndex==-1){  // if one of them does not exist
+        throw VertexNotFoundException(vertexNameFrom);
+    }
+    if(toIndex== -1){  // if one of them does not exist
+        throw VertexNotFoundException(vertexNameTo);
+    }
+    
+    //std::cout<<"toIndex= "<<toIndex<<"fromIndex= "<<fromIndex<<std::endl;
+    
+    distance[fromIndex]=0; 
+
+    for (int i = 0; i < V; ++i) { // Add all vertices to pq
+        pq.push({distance[i], i});
+    }
+    while (!pq.empty()){
+        Pair<float,int> curr = pq.top();
+        //std::cout<<"curr= "<<curr.value<<" "<<curr.key<<std::endl;
+        pq.pop();
+        for(size_t  k=0;k<vertexList[curr.value].edges.size();k++){
+            int v = vertexList[curr.value].edges[k].endVertexIndex;
+            bool isAllowed=true;
+            for(size_t i=0;i<edgeNames.size();i++){
+                if(vertexList[curr.value].edges[k].name == edgeNames[i]){
+                    isAllowed = false;
+                }
+            }
+            if(isAllowed){
+                float beta = Lerp(vertexList[curr.value].edges[k].weight[0],vertexList[curr.value].edges[k].weight[1],heuristicWeight);
+                float newDist = beta + distance[curr.value];
+                if(newDist < distance[v]){
+                    distance[v] = newDist;
+                    previous[v] = curr.value;
+                    edgeIndex[v] = static_cast<int>(k);
+                    pq.push({newDist, v});
+                }
+            }
+        }
+        if(curr.value==toIndex){ // we react to the target vertex
+            //std::cout<<"vardık "<<curr.value<<" "<<curr.key<<std::endl;
+            break;
+        }
+    }
+    // Dijkstras algorith is done
+
+    if(distance[toIndex]==9999999){
+        //std::cout<<"MESAFE 9999999 ÇIKTI!"<<std::endl;
+        return false;
+    }
+    int endIndex=toIndex;
+    // Let's write the path itself.
+    orderedVertexEdgeIndexList.clear();
+    while (endIndex != -1 && previous[endIndex] != -1) {
+        orderedVertexEdgeIndexList.push_back(endIndex);
+        orderedVertexEdgeIndexList.push_back(edgeIndex[endIndex]);
+        endIndex=previous[endIndex];
+    }
+    orderedVertexEdgeIndexList.push_back(endIndex);
+    //reverseVector(orderedVertexEdgeIndexList);
+    int n = static_cast<int>(orderedVertexEdgeIndexList.size());
+    for (int i = 0; i < n / 2; ++i) {
+        std::swap(orderedVertexEdgeIndexList[i], orderedVertexEdgeIndexList[n - i - 1]);
+    }
+
+    return !orderedVertexEdgeIndexList.empty();
 }
 
 int MultiGraph::BiDirectionalEdgeCount() const
 {
     /* TODO */
-    return -1;
+    int biCount = 0;
+    std::vector<int> seenVertex(vertexList.size(),0); //we will mark them as seen
+    for(size_t  i=0;i<vertexList.size();i++){
+        for(size_t  j=0;j<vertexList[i].edges.size();j++){
+            int endVertexIndex = vertexList[i].edges[j].endVertexIndex;
+            if(seenVertex[endVertexIndex] == 0){
+                std::string edgeName = vertexList[i].edges[j].name;
+                for(size_t  k=0; k<vertexList[endVertexIndex].edges.size();k++){
+                    if(vertexList[endVertexIndex].edges[k].name == edgeName && vertexList[endVertexIndex].edges[k].endVertexIndex == static_cast<int>(i)){
+                        biCount++;
+                    }
+                }
+            }
+        }
+        seenVertex[i]=1;
+        
+    }    
+    return biCount;
 }
 
 int MultiGraph::MaxDepthViaEdgeName(const std::string& vertexName,
                                     const std::string& edgeName) const
 {
     /* TODO */
-    return -1;
+    int startVertexIndex = -1;
+    for (size_t i = 0; i < vertexList.size(); ++i) {
+        if (vertexList[i].name == vertexName) {
+            startVertexIndex = static_cast<int>(i);
+            break;
+        }
+    }
+    if (startVertexIndex == -1) {
+        throw VertexNotFoundException(vertexName);
+    }
+    int maxDepth = 0;
+    MinPairHeap<int, int> q;  // Pair: depth, vertex index
+    std::vector<bool> visited(vertexList.size(), false);
+    
+
+    q.push({0,startVertexIndex });  // Start vertex with depth 0
+
+    while (!q.empty()) {
+        Pair<int,int> curr = q.top();
+        int currIndex = curr.value;
+        int depth = curr.key;
+        q.pop();
+        
+
+        visited[currIndex] = true;
+        for(size_t  i=0;i<vertexList[currIndex].edges.size();i++){
+            if (vertexList[currIndex].edges[i].name == edgeName) {
+                int nextVertexIndex = vertexList[currIndex].edges[i].endVertexIndex;
+                if (!visited[nextVertexIndex]) {
+                    q.push({depth + 1, nextVertexIndex});
+                    maxDepth = depth + 1;
+                }
+            }
+        }
+    }
+
+
+
+    return maxDepth;
 }

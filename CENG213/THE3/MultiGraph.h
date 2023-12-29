@@ -22,6 +22,8 @@ class MultiGraph
 {
     private:
     std::vector<GraphVertex>    vertexList;
+    
+    void        reverseVector(std::vector<int>& vec);
 
     static float Lerp(float w0, float w1, float alpha);
 
