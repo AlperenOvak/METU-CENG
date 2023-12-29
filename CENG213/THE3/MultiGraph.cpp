@@ -287,6 +287,13 @@ void MultiGraph::RemoveEdge(const std::string& edgeName,
 
 }
 
+void MultiGraph::reverseVector(std::vector<int>& vec) {
+    int n = static_cast<int>(vec.size());
+    for (int i = 0; i < n / 2; ++i) {
+        std::swap(vec[i], vec[n - i - 1]);
+    }
+}
+
 bool MultiGraph::HeuristicShortestPath(std::vector<int>& orderedVertexEdgeIndexList,
                                        const std::string& vertexNameFrom,
                                        const std::string& vertexNameTo,
@@ -294,64 +301,75 @@ bool MultiGraph::HeuristicShortestPath(std::vector<int>& orderedVertexEdgeIndexL
 {
     /* TODO */
     MinPairHeap<float,int> pq; //our prioirty queue
-    int V=vertexList.size();//num of vertices
-    vector<float> distance(V,INFINITY); 
-    vector<int> previous(V,NULL);
-    vector<int> edgeIndex(V,NULL);
+    int V=static_cast<int>(vertexList.size());//num of vertices
+    std::vector<float> distance(V,9999999); 
+    std::vector<int> previous(V,-1);
+    std::vector<int> edgeIndex(V,-1);
 
     int fromIndex=-1; //fromIndex
     int toIndex=-1; //toIndex
     for(size_t  i=0;i<vertexList.size();i++){
-        if(vertexFromName==vertexList[i].name){
+        if(vertexNameFrom==vertexList[i].name){
             fromIndex=static_cast<int>(i); //find the index
         }
-        if(vertexToName==vertexList[i].name){
+        if(vertexNameTo==vertexList[i].name){
             toIndex=static_cast<int>(i); //find the index
         }
     }
     if(fromIndex==-1){  // if one of them does not exist
-        throw VertexNotFoundException(vertexFromName);
+        throw VertexNotFoundException(vertexNameFrom);
     }
     if(toIndex== -1){  // if one of them does not exist
-        throw VertexNotFoundException(vertexToName);
+        throw VertexNotFoundException(vertexNameTo);
     }
+    
+    //std::cout<<"toIndex= "<<toIndex<<"fromIndex= "<<fromIndex<<std::endl;
+    
     distance[fromIndex]=0; 
 
     for (int i = 0; i < V; ++i) { // Add all vertices to pq
         pq.push({distance[i], i});
     }
     while (!pq.empty()){
-        Pair<float,int> curr = pq.pop();
-        if(curr.value==toIndex){ // we react to the target vertex
-            break;
-        }
+        Pair<float,int> curr = pq.top();
+        //std::cout<<"curr= "<<curr.value<<" "<<curr.key<<std::endl;
+        pq.pop();
         for(size_t  k=0;k<vertexList[curr.value].edges.size();k++){
             int v = vertexList[curr.value].edges[k].endVertexIndex;
-            int beta = Lerp(vertexList[curr.value].edges[k].weight[0],vertexList[curr.value].edges[k].weight[1],heuristicWeight);
-            int newDist = beta + distance[curr.value];
+            float beta = Lerp(vertexList[curr.value].edges[k].weight[0],vertexList[curr.value].edges[k].weight[1],heuristicWeight);
+            float newDist = beta + distance[curr.value];
             if(newDist < distance[v]){
                 distance[v] = newDist;
                 previous[v] = curr.value;
-                edgeIndex[v] = k;
+                edgeIndex[v] = static_cast<int>(k);
                 pq.push({newDist, v});
             }
+        }
+        if(curr.value==toIndex){ // we react to the target vertex
+            //std::cout<<"vardık "<<curr.value<<" "<<curr.key<<std::endl;
+            break;
         }
     }
     // Dijkstras algorith is done
 
-    if(distance[toIndex]==INFINITY){
+    if(distance[toIndex]==9999999){
+        //std::cout<<"MESAFE 9999999 ÇIKTI!"<<std::endl;
         return false;
     }
+    int endIndex=toIndex;
     // Let's write the path itself.
     orderedVertexEdgeIndexList.clear();
-    while (endIndex != -1 && previous[endIndex] != NULL) {
+    while (endIndex != -1 && previous[endIndex] != -1) {
         orderedVertexEdgeIndexList.push_back(endIndex);
         orderedVertexEdgeIndexList.push_back(edgeIndex[endIndex]);
         endIndex=previous[endIndex];
     }
     orderedVertexEdgeIndexList.push_back(endIndex);
-    std::reverse(orderedVertexEdgeIndexList.begin(), orderedVertexEdgeIndexList.end());
-
+    //reverseVector(orderedVertexEdgeIndexList);
+    int n = static_cast<int>(orderedVertexEdgeIndexList.size());
+    for (int i = 0; i < n / 2; ++i) {
+        std::swap(orderedVertexEdgeIndexList[i], orderedVertexEdgeIndexList[n - i - 1]);
+    }
 
     return !orderedVertexEdgeIndexList.empty();
 }
