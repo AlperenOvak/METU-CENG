@@ -32,14 +32,14 @@ Id Number :  2580801\\
 
 The \( Q_n \) cube graph has \( 2^n \) vertices, and each vertex is labelled with a binary string of lenght n, each vertices is connected to other vertices whose labels is differ in exactly one digit.
 
-To derive a recurrence relation for the number of edges \( E_n \) in \( Q_n \), consider how we can form \( Q_n \) from \( Q_{n-1} \).
+To derive a recurrence relation for the number of edges \( a_n \) in \( Q_n \), consider how we can form \( Q_n \) from \( Q_{n-1} \).
 
 The cube graph \( Q_n \) can be constructed by taking two copies of \( Q_{n-1} \) and connecting corresponding vertices in these two copies by an edge.
 
 Considering:
 
 \begin{enumerate}
-    \item \( Q_{n-1} \) has \( 2^{n-1} \) vertices and \( E_{n-1} \) edges.
+    \item \( Q_{n-1} \) has \( 2^{n-1} \) vertices and \( a_{n-1} \) edges.
     \item When adding another dimension to \( Q_{n-1} \), we essentially have two identical \( Q_{n-1} \) graphs.
     \item We need to relabel those vertices. Let add a leading 0 for one of the \( Q_{n-1} \) and 1 for other \( Q_{n-1} \)
     \item Since before adding leading number we had pairs whose labels are same but not connected, after adding leading number those pairs differ in exactly one digit. Therefore we need to connect them. \\
@@ -73,10 +73,10 @@ Considering:
     \item To connect corresponding vertices in these two \( Q_{n-1} \) graphs to form \( Q_n \), we need to add \( 2^{n-1} \) edges.
 \end{enumerate}
 
-Therefore, the total number of edges \( E_n \) in \( Q_n \) is:
-\[ E_n = 2E_{n-1} + 2^{n-1} \]
+Therefore, the total number of edges \( a_n \) in \( Q_n \) is:
+\[ a_n = 2a_{n-1} + 2^{n-1} \]
 
-This represents the recurrence relation for the number of edges in the \( Q_n \) cube graph in terms of \( E_{n-1} \). \\ \\
+This represents the recurrence relation for the number of edges in the \( Q_n \) cube graph in terms of \( a_{n-1} \). \\ \\
 
 
 \section*{Answer 2}
@@ -348,15 +348,15 @@ Let's solve each part step by step.
 
 \subsection*{a) Reflexive and Symmetric Relations:}
 
-(By Definition 3 of Section 9.1) For a relation to be reflexive on a set \( A \), it must contain the diagonal elements of the set, i.e., every element in \( A \) must be related to itself. Since a relation is reflexive if and only if it contains all the ordered pairs \( (a,a) \) where \( a \) is an element of \( A \), there are \( n \) such pairs.
+(By Definition 3 of Section 9.1) A relation must contain the set's diagonal members in order to be reflexive on set \( A \). There are \( n \) pairs since a relation is reflexive if and only if it includes all ordered pairs \( (i, i) \) in which i is an element of \( A \).\\
 
-(By Definition 4 of Section 9.1)For a relation to be symmetric on a set \( A \), if \( (a,b) \) is in the relation, then \( (b,a) \) must also be in the relation. However, this condition doesn't add any new ordered pairs, because if we have \( (a,a) \) for reflexivity, then by the definition of a relation being symmetric, \( (a,a) \) would also imply \( (a,a) \) again (since \( (a,a) \) implies \( (a,a) \) by reflexivity). Similarly, if we have some \( (a,b) \) with \( a \neq b \), then \( (b,a) \) would also be present in the relation by symmetry. However, by definition, we are already considering the relations that satisfy both reflexivity and symmetry.
+(By Definition 4 of Section 9.1) If \( (a,b) \) is in the relation, then \( (b,a) \) must also be in the relation for the relation to be symmetric on a set \( A \). This requirement, however, prevents the addition of new ordered pairs since, by definition of a symmetric relation, \( (i,i) \) implies \( (i,i) \) once again if we have \( (i,i) \) for reflexivity. In a similar vein, by symmetry, \( (b, a) \) would be present in the relation if we had some \( (a, b) \) with \( a \neq b \).  However, by definition, we are already considering the relations that satisfy both reflexivity and symmetry.\\
 
 Thus, for a given pair \( (a,b) \) in \( A \), we are essentially choosing between \( (a,b) \) and \( (b,a) \) or including both. This means there are \( 2^{\frac{n(n-1)}{2}} \) possible relations that are both reflexive and symmetric on \( A \).
 
 Here's why:
 
-For each distinct pair \( (a,b) \) in \( A \) (where \( a \neq b \)), we have two choices: to include \( (a,b) \) or to include \( (b,a) \). As there are \( \frac{n(n-1)}{2} \) such distinct pairs in \( A \), the total number of ways to choose relations that are both reflexive and symmetric is \( 2^{\frac{n(n-1)}{2}} \).
+For each distinct pair \( (a,b) \) in \( A \) (where \( a \neq b \)), we have two choices: to include \( (a,b) \) or to include \( (b,a) \). Since we have total \(n^2\) pairs and \(n\) of them are diagonal and choosen, \(n^2 - n\) are not choosen yet. As there are \( \frac{n(n-1)}{2} \) such distinct pairs in \( A \), the total number of ways to choose relations that are both reflexive and symmetric is \( 2^{\frac{n(n-1)}{2}} \).
 
 So, the number of different binary relations on \( A \) that are both reflexive and symmetric is \( 2^{\frac{n(n-1)}{2}} \).
 
@@ -367,7 +367,7 @@ To determine the number of different binary relations on \( A \) that are both r
 
 \begin{enumerate}
     \item \textbf{Reflexive Property}:
-    (By Definition 3 of Section 9.1) For a relation to be reflexive on a set \( A \), it must contain the diagonal elements of the set, i.e., every element in \( A \) must be related to itself. Since a relation is reflexive if and only if it contains all the ordered pairs \( (a, a) \) where \( a \) is an element of \( A \), there are \( n \) such pairs.
+    (By Definition 3 of Section 9.1) A relation must contain the set's diagonal members in order to be reflexive on set \( A \). There are \( n \) pairs since a relation is reflexive if and only if it includes all ordered pairs \( (i, i) \) in which i is an element of \( A \).\\
     
     \item \textbf{Antisymmetric Property}:
     (By Definition 4 of Section 9.1) A relation \( R \) on a set \( A \) is antisymmetric if for all distinct elements \( a \) and \( b \) in \( A \), if \( (a, b) \) and \( (b, a) \) both belong to \( R \), then \( a = b \).
@@ -382,7 +382,7 @@ To determine the number of different binary relations on \( A \) that are both r
     
     For the relation to be antisymmetric, only one of the these possibilities can occur for any distinct pair \( (a, b) \). If both were present, the relation wouldn't be antisymmetric due to the given definition.
     
-    Thus, for each distinct pair \( (a, b) \) in \( A \) (where \( a \neq b \)), there are 3 possibilities, and the number of such pairs is \( \frac{n(n-1)}{2} \). 
+    Thus, for each distinct pair \( (a, b) \) in \( A \) (where \( a \neq b \)), there are 3 possibilities, and the number of such pairs is \( \frac{n(n-1)}{2} \) (from part \(a\)). 
     
     So, for each of these \( \frac{n(n-1)}{2} \) pairs, there are 3 choices to make the relation antisymmetric.
 \end{enumerate}
