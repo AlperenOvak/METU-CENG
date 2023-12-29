@@ -293,7 +293,67 @@ bool MultiGraph::HeuristicShortestPath(std::vector<int>& orderedVertexEdgeIndexL
                                        float heuristicWeight) const
 {
     /* TODO */
-    return false;
+    MinPairHeap<float,int> pq; //our prioirty queue
+    int V=vertexList.size();//num of vertices
+    vector<float> distance(V,INFINITY); 
+    vector<int> previous(V,NULL);
+    vector<int> edgeIndex(V,NULL);
+
+    int fromIndex=-1; //fromIndex
+    int toIndex=-1; //toIndex
+    for(size_t  i=0;i<vertexList.size();i++){
+        if(vertexFromName==vertexList[i].name){
+            fromIndex=static_cast<int>(i); //find the index
+        }
+        if(vertexToName==vertexList[i].name){
+            toIndex=static_cast<int>(i); //find the index
+        }
+    }
+    if(fromIndex==-1){  // if one of them does not exist
+        throw VertexNotFoundException(vertexFromName);
+    }
+    if(toIndex== -1){  // if one of them does not exist
+        throw VertexNotFoundException(vertexToName);
+    }
+    distance[fromIndex]=0; 
+
+    for (int i = 0; i < V; ++i) { // Add all vertices to pq
+        pq.push({distance[i], i});
+    }
+    while (!pq.empty()){
+        Pair<float,int> curr = pq.pop();
+        if(curr.value==toIndex){ // we react to the target vertex
+            break;
+        }
+        for(size_t  k=0;k<vertexList[curr.value].edges.size();k++){
+            int v = vertexList[curr.value].edges[k].endVertexIndex;
+            int beta = Lerp(vertexList[curr.value].edges[k].weight[0],vertexList[curr.value].edges[k].weight[1],heuristicWeight);
+            int newDist = beta + distance[curr.value];
+            if(newDist < distance[v]){
+                distance[v] = newDist;
+                previous[v] = curr.value;
+                edgeIndex[v] = k;
+                pq.push({newDist, v});
+            }
+        }
+    }
+    // Dijkstras algorith is done
+
+    if(distance[toIndex]==INFINITY){
+        return false;
+    }
+    // Let's write the path itself.
+    orderedVertexEdgeIndexList.clear();
+    while (endIndex != -1 && previous[endIndex] != NULL) {
+        orderedVertexEdgeIndexList.push_back(endIndex);
+        orderedVertexEdgeIndexList.push_back(edgeIndex[endIndex]);
+        endIndex=previous[endIndex];
+    }
+    orderedVertexEdgeIndexList.push_back(endIndex);
+    std::reverse(orderedVertexEdgeIndexList.begin(), orderedVertexEdgeIndexList.end());
+
+
+    return !orderedVertexEdgeIndexList.empty();
 }
 
 bool MultiGraph::FilteredShortestPath(std::vector<int>& orderedVertexEdgeIndexList,
