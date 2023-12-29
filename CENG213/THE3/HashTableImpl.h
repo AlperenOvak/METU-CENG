@@ -60,7 +60,14 @@ template<int MAX_SIZE>
 int HashTable<MAX_SIZE>::Hash(int startInt, int endInt, bool isCostWeighted)
 {
     /* TODO */
-    return -1;
+    int values[] = { startInt, endInt, isCostWeighted ? 1 : 0 };
+
+    int hashValue = 0;
+    for (int i = 0; i < 3; ++i) {
+        hashValue += PRIMES[i] * values[i];
+    }
+
+    return hashValue;
 }
 
 template<int MAX_SIZE>
