@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include "IntPair.h"
 
 struct GraphEdge
 {
@@ -45,6 +46,13 @@ class MultiGraph
     void        RemoveEdge(const std::string& edgeName,
                            const std::string& vertexFromName,
                            const std::string& vertexToName);
+
+    //return w0 and w1 if its exist, else print error
+    Pair<float,float> errorForFlight(const std::string& edgeName,
+                        const std::string& vertexFromName,
+                        const std::string& vertexToName);
+
+    int indexOfVertex(const std::string& vertexName);
 
     // Shortest Path Functions
     bool        HeuristicShortestPath(std::vector<int>& orderedVertexEdgeIndexList,

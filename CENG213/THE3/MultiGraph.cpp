@@ -167,7 +167,7 @@ void MultiGraph::PrintEntireGraph() const
 float MultiGraph::Lerp(float w0, float w1, float alpha)
 {
     /* TODO */
-    float beta = w0*(alpha)+w1*(1.0f-alpha);
+    float beta = w0*(1.0f-alpha)+w1*(alpha);
     return beta;
 }
 
@@ -184,6 +184,47 @@ void MultiGraph::InsertVertex(const std::string& vertexName)
     vertexList.push_back(newVertex);
 }
 
+int MultiGraph::indexOfVertex(const std::string& vertexName){
+    int Index=-1; //Index
+    for(size_t  i=0;i<vertexList.size();i++){
+        if(vertexName==vertexList[i].name){
+            Index=static_cast<int>(i); //find the index
+        }
+    }
+    return Index;
+}
+
+
+Pair<float,float> MultiGraph::errorForFlight(const std::string& edgeName,
+                                            const std::string& vertexFromName,
+                                            const std::string& vertexToName){
+    int fromIndex=-1; //fromIndex
+    int toIndex=-1; //toIndex
+    Pair<float,float> W={-1,-1};
+    for(size_t  i=0;i<vertexList.size();i++){
+        if(vertexFromName==vertexList[i].name){
+            fromIndex=static_cast<int>(i); //find the index
+        }
+        if(vertexToName==vertexList[i].name){
+            toIndex=static_cast<int>(i); //find the index
+        }
+    }
+    if(fromIndex== -1 || toIndex== -1){  // if one of them does not exist
+        return W;
+    }
+
+    int rmvEdge= -1;
+    for(size_t  k=0;k<vertexList[fromIndex].edges.size();k++){
+        if(vertexList[fromIndex].edges[k].endVertexIndex==toIndex && edgeName==vertexList[fromIndex].edges[k].name){ // I found a edge btw A to B named edgeName.
+                rmvEdge = static_cast<int>(k);  // if there is a conflict
+        }
+    }
+    if(rmvEdge != -1){
+        W.key= vertexList[fromIndex].edges[rmvEdge].weight[0];
+        W.value=vertexList[fromIndex].edges[rmvEdge].weight[1];
+    }
+    return W;
+}
 void MultiGraph::RemoveVertex(const std::string& vertexName)
 {
     /* TODO */
