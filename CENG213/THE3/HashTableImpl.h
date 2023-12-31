@@ -74,13 +74,76 @@ template<int MAX_SIZE>
 HashTable<MAX_SIZE>::HashTable()
 {
     /* TODO */
+    for (int i = 0; i < MAX_SIZE; ++i) {
+        table[i].lruCounter = 0;                // Set lruCounter to zero
+        table[i].sentinel = EMPTY_MARK;         // Mark the spot as empty
+        table[i].intArray.clear();              // Clear the integer array (if any)
+        table[i].isCostWeighted = false;        // Initialize isCostWeighted to false
+        table[i].startInt = 0;                  // Initialize startInt to zero
+        table[i].endInt = 0;                    // Initialize endInt to zero
+    }
+    elementCount = 0;     
+
 }
 
 template<int MAX_SIZE>
 int HashTable<MAX_SIZE>::Insert(const std::vector<int>& intArray, bool isCostWeighted)
 {
     /* TODO */
-    return -1;
+    int preLRU=0;
+
+    if(intArray.size()<1){
+        throw InvalidTableArgException();
+    }
+
+
+    //search wheter it is in the table or not
+    int startInt = intArray[0];
+    int endInt = intArray[intArray.size()-1];
+    int hashIndex = Hash(startInt,endInt,isCostWeighted); // find the original index
+
+    for (int i = 0; i < MAX_SIZE; ++i) {
+         
+        if(table[i].startInt == startInt && table[i].endInt==endInt && table[i].isCostWeighted=isCostWeighted){
+            preLRU = table[i].lruCounter;
+            table[i].lruCounter++;
+            return preLRU;
+        }               
+    }
+
+    // if it's new, insert it
+    if(elementCount >= MAX_SIZE/2){
+        throw TableCapFullException();
+    }
+    if(table[hashIndex].sentinel == EMPTY_MARK){
+        preLRU=table[hashIndex].lruCounter;
+        table[hashIndex].lruCounter++;        
+        table[hashIndex].sentinel = OCCUPIED_MARK; 
+        table[hashIndex].intArray = intArray;      
+        table[hashIndex].isCostWeighted = isCostWeighted;
+        table[hashIndex].startInt = startInt;          
+        table[hashIndex].endInt = endInt;                
+    }else{    //quadratic probing
+        for (int j = 0; j < MAX_SIZE; j++) {
+            // Computing the new hash value
+            int t = (hashIndex + j * j) % MAX_SIZE;
+            if (table[t].sentinel == EMPTY_MARK) {
+                // Break the loop after
+                // inserting the value
+                // in the table
+                preLRU=table[t].lruCounter;
+                table[t].lruCounter++;        
+                table[t].sentinel = OCCUPIED_MARK; 
+                table[t].intArray = intArray;      
+                table[t].isCostWeighted = isCostWeighted;
+                table[t].startInt = startInt;          
+                table[t].endInt = endInt;        
+                return preLRU;
+            }
+        }
+    }
+    return preLRU;
+
 }
 
 template<int MAX_SIZE>
