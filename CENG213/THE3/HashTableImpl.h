@@ -1,6 +1,8 @@
 #ifndef HASH_TABLE_HPP
 #define HASH_TABLE_HPP
 
+#include <iostream>
+
 //=======================//
 // Implemented Functions //
 //=======================//
@@ -100,20 +102,20 @@ int HashTable<MAX_SIZE>::Insert(const std::vector<int>& intArray, bool isCostWei
     //search wheter it is in the table or not
     int startInt = intArray[0];
     int endInt = intArray[intArray.size()-1];
-    int hashIndex = Hash(startInt,endInt,isCostWeighted); // find the original index
-
+    int hashIndex = Hash(startInt,endInt,isCostWeighted)%MAX_SIZE; // find the original index
     for (int i = 0; i < MAX_SIZE; ++i) {
          
-        if(table[i].startInt == startInt && table[i].endInt==endInt && table[i].isCostWeighted=isCostWeighted){
+        if(table[i].startInt == startInt && table[i].endInt==endInt && table[i].isCostWeighted ==isCostWeighted){
             preLRU = table[i].lruCounter;
             table[i].lruCounter++;
             return preLRU;
         }               
-    }
-
+    } 
+    //std::cout<<hashIndex<<" "<<startInt<<" "<<endInt<<" "<<isCostWeighted<< " hashIndex ne çıkacak\n";
+    //std::cout<<elementCount<<"elementCount\n";
     // if it's new, insert it
-    if(elementCount >= MAX_SIZE/2){
-        throw TableCapFullException();
+    if(elementCount > MAX_SIZE/2){
+        throw TableCapFullException(elementCount);
     }
     if(table[hashIndex].sentinel == EMPTY_MARK){
         preLRU=table[hashIndex].lruCounter;
@@ -122,7 +124,8 @@ int HashTable<MAX_SIZE>::Insert(const std::vector<int>& intArray, bool isCostWei
         table[hashIndex].intArray = intArray;      
         table[hashIndex].isCostWeighted = isCostWeighted;
         table[hashIndex].startInt = startInt;          
-        table[hashIndex].endInt = endInt;                
+        table[hashIndex].endInt = endInt;
+        elementCount++;
     }else{    //quadratic probing
         for (int j = 0; j < MAX_SIZE; j++) {
             // Computing the new hash value
@@ -137,7 +140,8 @@ int HashTable<MAX_SIZE>::Insert(const std::vector<int>& intArray, bool isCostWei
                 table[t].intArray = intArray;      
                 table[t].isCostWeighted = isCostWeighted;
                 table[t].startInt = startInt;          
-                table[t].endInt = endInt;        
+                table[t].endInt = endInt;    
+                elementCount++;
                 return preLRU;
             }
         }
