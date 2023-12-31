@@ -156,6 +156,23 @@ bool HashTable<MAX_SIZE>::Find(std::vector<int>& intArray,
                                bool incLRU)
 {
     /* TODO */
+    
+    
+    //search wheter it is in the table or not
+    int i = Hash(startInt,endInt,isCostWeighted) % MAX_SIZE; // find the original index
+    int k=1; //quadratic probing;
+    while (table[i].sentinel != EMPTY_MARK) {
+         
+        if(table[i].sentinel==OCCUPIED_MARK && table[i].startInt == startInt && table[i].endInt==endInt && table[i].isCostWeighted ==isCostWeighted){
+            if(incLRU)
+            table[i].lruCounter++;
+            intArray = table[i].intArray;
+            return true;
+        }
+        i=i+(k*k);
+        k++;
+
+    } 
     return false;
 }
 
@@ -163,12 +180,31 @@ template<int MAX_SIZE>
 void HashTable<MAX_SIZE>::InvalidateTable()
 {
     /* TODO */
+    for (int i = 0; i < MAX_SIZE; ++i) {
+        table[i].lruCounter = 0;                // Set lruCounter to zero
+        table[i].sentinel = EMPTY_MARK;         // Mark the spot as empty
+        table[i].intArray.clear();              // Clear the integer array (if any)
+        table[i].isCostWeighted = false;        // Initialize isCostWeighted to false
+        table[i].startInt = 0;                  // Initialize startInt to zero
+        table[i].endInt = 0;                    // Initialize endInt to zero
+    }
+    elementCount = 0;
+    /*HashTable();*/
 }
 
 template<int MAX_SIZE>
 void HashTable<MAX_SIZE>::GetMostInserted(std::vector<int>& intArray) const
 {
     /* TODO */
+    int maxLRU=0;
+    int index;
+    for (int i = 0; i < MAX_SIZE; ++i) {
+        if(maxLRU<table[i].lruCounter){
+            maxLRU=table[i].lruCounter;
+            index=i;
+        }    
+    }
+    intArray = table[index].intArray;
 }
 
 template<int MAX_SIZE>
@@ -176,18 +212,72 @@ void HashTable<MAX_SIZE>::Remove(std::vector<int>& intArray,
                                  int startInt, int endInt, bool isCostWeighted)
 {
     /* TODO */
+    int i = Hash(startInt,endInt,isCostWeighted) % MAX_SIZE; // find the original index
+    int k=1; //quadratic probing;
+    while (table[i].sentinel != EMPTY_MARK) {
+         
+        if(table[i].sentinel==OCCUPIED_MARK && table[i].startInt == startInt && table[i].endInt==endInt && table[i].isCostWeighted ==isCostWeighted){
+            intArray = table[i].intArray;
+            break;
+        }
+        i=i+(k*k);
+        k++;
+
+    } 
+    //std::cout<<i<<"\n";
+    intArray = table[i].intArray;
+    table[i].lruCounter = 0;         
+    table[i].sentinel = SENTINEL_MARK;  
+    table[i].intArray.clear();       
+    table[i].isCostWeighted = false; 
+    table[i].startInt = 0;           
+    table[i].endInt = 0; 
+    elementCount--;
 }
 
 template<int MAX_SIZE>
 void HashTable<MAX_SIZE>::RemoveLRU(int lruElementCount)
 {
     /* TODO */
+    int lowestLRU=9999999999;
+    for (int i = 0; i < MAX_SIZE; ++i){
+        if(table[i].sentinel == OCCUPIED_MARK && lowestLRU>table[i].lruCounter){
+            lowestLRU=table[i].lruCounter;
+        }
+    }
+    //std::cout<<lowestLRU<<"\n";
+    int i=0;
+    int count=lruElementCount;
+    while(count && i<MAX_SIZE){
+        if(table[i].sentinel == OCCUPIED_MARK && table[i].lruCounter == lowestLRU){
+            table[i].lruCounter = 0;         
+            table[i].sentinel = SENTINEL_MARK;  
+            table[i].intArray.clear();       
+            table[i].isCostWeighted = false; 
+            table[i].startInt = 0;           
+            table[i].endInt = 0; 
+            elementCount--;
+            count--;
+        }
+        i++;
+    }
 }
 
 template<int MAX_SIZE>
 void HashTable<MAX_SIZE>::PrintSortedLRUEntries() const
 {
     /* TODO */
+    MaxPairHeap<int,int> pq;
+    for(int i=0;i<MAX_SIZE;i++){
+        if(table[i].sentinel == OCCUPIED_MARK){
+            pq.push({table[i].lruCounter,i});
+        }
+    }
+    while(!pq.empty()){
+        Pair<int,int> curr = pq.top();
+        pq.pop();
+        PrintLine(curr.value);
+    }
 }
 
 #endif // HASH_TABLE_HPP
