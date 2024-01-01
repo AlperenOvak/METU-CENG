@@ -225,6 +225,40 @@ Pair<float,float> MultiGraph::errorForFlight(const std::string& edgeName,
     }
     return W;
 }
+
+int MultiGraph::NumberOfVertex() const{
+        return vertexList.size();
+}
+
+int MultiGraph::AvailableFlightsWithSister(const std::string& airportName,
+                                            const std::string& edgeName){
+    int fromIndex=-1;
+    fromIndex = indexOfVertex(airportName);
+    if(fromIndex == -1) {
+        return -1;
+    }           
+    int count=0;
+    for(size_t  k=0;k<vertexList[fromIndex].edges.size();k++){
+        if(vertexList[fromIndex].edges[k].name==edgeName){ 
+                count++;  
+        }
+    }         
+    return count;                          
+}
+
+int MultiGraph::NonVisitedNborCount(const int fromIndex,std::vector<int>& visited){
+    
+    std::vector<int> toVertex(vertexList.size());
+    int count=0;
+    for(size_t  k=0;k<vertexList[fromIndex].edges.size();k++){
+        int j=[fromIndex].edges[k].endVertexIndex;
+        if(visited(j)==0 && toVertex(j)==0){ 
+                count++; 
+                toVertex[j]=1;
+        }
+    } 
+    return count;  
+}
 void MultiGraph::RemoveVertex(const std::string& vertexName)
 {
     /* TODO */
@@ -260,6 +294,23 @@ void MultiGraph::RemoveVertex(const std::string& vertexName)
     vertexList.erase(vertexList.begin() + rmvIndex); // erase the vertex
 }
 
+std::string& MultiGraph::NonUtilizedAirline(const int fromIndex,std::vector<std::string>& airlineNames,std::vector<int>& visited){
+    for(int i=0;i<vertexList[fromIndex].edges.size();i++){
+        int endVertexIndex = vertexList[fromIndex].edges[i].endVertexIndex;
+        if(visited[endVertexIndex]==0){
+            bool notInNames =true;
+            for(int j=airlineNames.size();j>;j--){
+                if(airlineNames[j]==vertexList[fromIndex].edges[i].name){
+                    notInNames=false;
+                    break;
+                }
+            }
+            if(notInNames){
+                return vertexList[fromIndex].edges[i].name;
+            }
+        }
+    }
+}
 void MultiGraph::AddEdge(const std::string& edgeName,
                          const std::string& vertexFromName,
                          const std::string& vertexToName,

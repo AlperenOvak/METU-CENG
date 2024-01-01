@@ -136,15 +136,18 @@ void CENGFlight::FindFlight(const std::string& startAirportName,
     int fromIndex= navigationMap.indexOfVertex(startAirportName);
     int toIndex=navigationMap.indexOfVertex(endAirportName);
     std::vector<int> intArray;
-    if(lruTable.Find(intArray,fromIndex,toIndex,true,false)){ //why trueee ?????
+    bool incLRU = ((alpha==0 || alpha==1) ? true : false);
+    if(lruTable.Find(intArray,fromIndex,toIndex,true,incLRU)){ //why trueee ?????
         PrintFlightFoundInCache(startAirportName,endAirportName,true); //why ture?????
         navigationMap.PrintPath(intArray,alpha,true);
         return;
     }
     navigationMap.HeuristicShortestPath(intArray,startAirportName,endAirportName,alpha);
-    PrintFlightCalculated(startAirportName,endAirportName,true); //why ture?
     //add to cache
-    lruTable.Insert(intArray,true);
+    if(incLRU){
+        PrintFlightCalculated(startAirportName,endAirportName,true); //why ture?
+        lruTable.Insert(intArray,true);
+    }
     navigationMap.PrintPath(intArray,alpha,true);
 }
 
@@ -154,6 +157,10 @@ void CENGFlight::FindSpecificFlight(const std::string& startAirportName,
                                     const std::vector<std::string>& unwantedAirlineNames) const
 {
     /* TODO */
+    std::vector<int> intArray;
+    navigationMap.FilteredShortestPath(intArray,startAirportName,endAirportName,alpha,unwantedAirlineNames);
+    navigationMap.PrintPath(intArray,alpha,true);
+    //PrintFlightCalculated ???
 }
 
 void CENGFlight::FindSisterAirlines(std::vector<std::string>& airlineNames,
@@ -161,11 +168,39 @@ void CENGFlight::FindSisterAirlines(std::vector<std::string>& airlineNames,
                                const std::string& airportName) const
 {
     /* TODO */
+    std::vector<int> visited(navigationMap.NumberOfVertex(),0);
+    std::vector<std::string> currentAirlineList = {startAirlineName};
+    int startPortIndex = navigationMap.indexOfVertex(airportName);
+    
+    /*if(startPortIndex == -1){
+        PrintSisterAirlinesDontCover(airportName);
+        return;
+    }
+    if(navigationMap.AvailableFlightsWithSister(airportName,startAirlineName) < 1){
+        PrintSisterAirlinesDontCover(airportName);
+        return;
+    }
+    visited[startPortIndex] = 1;
+    int maxNeighbors = -1;
+    int newPortIndex=-1
+    for(int i=navigationMap.NumberOfVertex();i>0;i--){ //select visited vertex with max nonvisited neighbors
+        if(visited[i]){
+            int neighbors = navigationMap.NonVisitedNborCount(i,visited);
+            if(neighbors>maxNeighbors){
+                maxNeighbors=neighbors;
+                newPortIndex = i;
+            }
+        }
+    }
+    std::string newAirline = navigationMap.NonUtilizedAirline(newPortIndex,currentAirlineList,visited);
+    currentAirlineList.push_back(newAirline);*/
+
+    
 }
 
 int CENGFlight::FurthestTransferViaAirline(const std::string& airportName,
                                            const std::string& airlineName) const
 {
     /* TODO */
-    return -1;
+    return navigationMap.MaxDepthViaEdgeName(airportName,airlineName);
 }

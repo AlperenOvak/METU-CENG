@@ -52,6 +52,18 @@ class MultiGraph
                         const std::string& vertexFromName,
                         const std::string& vertexToName);
 
+    int AvailableFlightsWithSister(const std::string& airportName,
+                                            const std::string& edgeName);
+
+    int AvailableFlightsWithSister(const std::string& airportName,
+                                            const std::string& edgeName);
+
+    int NumberOfVertex() const;
+
+    int NonVisitedNborCount(const int fromIndex,std::vector<int> visited);
+
+    std::string& NonUtilizedAirline(const int fromIndex,std::vector<std::string>& airlineNames,std::vector<int>& visited);
+
     int indexOfVertex(const std::string& vertexName);
 
     // Shortest Path Functions
