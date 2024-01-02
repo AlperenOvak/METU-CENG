@@ -578,6 +578,47 @@ int MultiGraph::BiDirectionalEdgeCount() const
     return biCount;
 }
 
+void MultiGraph::MaxVisitViaEdgeList(const std::string& vertexName,
+                                    std::vector<std::string>& edgeNames,
+                                    std::vector<int>& visited){
+    int startVertexIndex = -1;
+    for (size_t i = 0; i < vertexList.size(); ++i) {
+        if (vertexList[i].name == vertexName) {
+            startVertexIndex = static_cast<int>(i);
+            break;
+        }
+    }
+    if (startVertexIndex == -1) {
+        throw VertexNotFoundException(vertexName);
+    }
+    int maxDepth = 0;
+    MinPairHeap<int, int> q;  // Pair: depth, vertex index
+    //visited[startVertexIndex]=1;
+
+    q.push({0,startVertexIndex });  // Start vertex with depth 0
+
+    while (!q.empty()) {
+        Pair<int,int> curr = q.top();
+        int currIndex = curr.value;
+        int depth = curr.key;
+        q.pop();
+        
+
+        visited[currIndex] = 1;
+        for(size_t  i=0;i<vertexList[currIndex].edges.size();i++){
+            for(int j=0;j<edgeNames.size();j++){
+                if (vertexList[currIndex].edges[i].name == edgeNames[j]) {
+                    int nextVertexIndex = vertexList[currIndex].edges[i].endVertexIndex;
+                    if (!visited[nextVertexIndex]) {
+                        q.push({depth + 1, nextVertexIndex});
+                        maxDepth = depth + 1;
+                    }
+                }
+            }
+        }
+    }                                    
+}
+
 int MultiGraph::MaxDepthViaEdgeName(const std::string& vertexName,
                                     const std::string& edgeName) const
 {

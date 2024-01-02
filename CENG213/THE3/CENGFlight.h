@@ -1,89 +1,90 @@
-#ifndef CENG_FLIGHT_H
-#define CENG_FLIGHT_H
+#ifndef MULTI_GRAPH_H
+#define MULTI_GRAPH_H
 
-#include "HashTable.h"
-#include "MultiGraph.h"
+#include <vector>
+#include <string>
+#include "IntPair.h"
 
-#define FLIGHT_TABLE_SIZE 29
-
-struct HaltedFlight
+struct GraphEdge
 {
-    std::string airportFrom;
-    std::string airportTo;
-    std::string airline;
-    float w0;
-    float w1;
+    std::string name;       // Name of the vertex
+    float       weight[2];  // Weights of the edge
+                            // (used on shortest path)
+    int         endVertexIndex;
 };
 
-class CENGFlight
+struct GraphVertex
+{
+    std::vector<GraphEdge> edges; // Adjacency List
+    std::string            name;  // Name of the vertex
+};
+
+class MultiGraph
 {
     private:
-    HashTable<FLIGHT_TABLE_SIZE> lruTable;
-    MultiGraph                   navigationMap;
+    std::vector<GraphVertex>    vertexList;
+    
+    void        reverseVector(std::vector<int>& vec);
 
-    // Print Related
-    // Use these
-    static void PrintCanNotHalt(const std::string& airportFrom,
-                                const std::string& airportTo,
-                                const std::string& airlineName);
-    static void PrintCanNotResumeFlight(const std::string& airportFrom,
-                                        const std::string& airportTo,
-                                        const std::string& airlineName);
-    static void PrintFlightFoundInCache(const std::string& airportFrom,
-                                        const std::string& airportTo,
-                                        bool isCostWeighted);
-    static void PrintFlightCalculated(const std::string& airportFrom,
-                                      const std::string& airportTo,
-                                      bool isCostWeighted);
-    static void PrintPathDontExist(const std::string& airportFrom,
-                                   const std::string& airportTo);
-
-    static void PrintSisterAirlinesDontCover(const std::string& airportFrom);
-
-    //
-    std::vector<HaltedFlight>    haltedFlights;
-    //
+    static float Lerp(float w0, float w1, float alpha);
 
     protected:
     public:
     // Constructors & Destructor
-            CENGFlight(const std::string& flightMapPath);
+                MultiGraph();
+                MultiGraph(const std::string& filePath);
 
-    // Members
-    // Halting/Continuing flights
+    // Connect Vertices
+    void        InsertVertex(const std::string& vertexName);
+    void        RemoveVertex(const std::string& vertexName);
 
-    // (Direct Function call)
-    void    HaltFlight(const std::string& airportFrom,
-                       const std::string& airportTo,
-                       const std::string& airlineName);
+    // Connect Vertices
+    void        AddEdge(const std::string& edgeName,
+                        const std::string& vertexFromName,
+                        const std::string& vertexToName,
+                        float weight0, float weight1);
+    void        RemoveEdge(const std::string& edgeName,
+                           const std::string& vertexFromName,
+                           const std::string& vertexToName);
 
-    // (Direct Function call)
-    void    ContinueFlight(const std::string& airportFrom,
-                           const std::string& airportTo,
-                           const std::string& airlineName);
-    // Flight Finding
-    // (Direct Function call)
-    void    FindFlight(const std::string& startAirportName,
-                       const std::string& endAirportName,
-                       float alpha);
-    // (Direct Function call)
-    void    FindSpecificFlight(const std::string& startAirportName,
-                               const std::string& endAirportName,
-                               float alpha,
-                               const std::vector<std::string>& unwantedAirlineNames) const;
+    //return w0 and w1 if its exist, else print error
+    Pair<float,float> errorForFlight(const std::string& edgeName,
+                        const std::string& vertexFromName,
+                        const std::string& vertexToName);
 
-    // Print the transfers from a specific airport, only for certain depth
-    void    FindSisterAirlines(std::vector<std::string>& airlineNames,
-                               const std::string& startAirlineName,
-                               const std::string& airportName) const;
+    int indexOfVertex(const std::string& vertexName)const;
+    
+    int IndexOfNonUtilizedAirline(int VertexIndex,std::vector<int>& visited,std::vector<std::string>& usedAirlines)const;
+    
+    std::string NameOfAirline(int VertexIndex,int EdgeIndex)const;
+    
+    int Number()const;
 
-    // (Direct Function call)
-    int     FurthestTransferViaAirline(const std::string& airportName,
-                                       const std::string& airlineName) const;
+    // Shortest Path Functions
+    bool        HeuristicShortestPath(std::vector<int>& orderedVertexEdgeIndexList,
+                                      const std::string& vertexNameFrom,
+                                      const std::string& vertexNameTo,
+                                      float heuristicWeight) const;
+    bool        FilteredShortestPath(std::vector<int>& orderedVertexEdgeIndexList,
+                                     const std::string& vertexNameFrom,
+                                     const std::string& vertexNameTo,
+                                     float heuristicWeight,
+                                     const std::vector<std::string>& edgeNames) const;
 
-    // Printing Functions
-    void    PrintMap();
-    void    PrintCache();
+    // Other functions
+    int         BiDirectionalEdgeCount() const;
+    int         MaxVisitViaEdgeList(int startVertexIndex,
+                                    std::vector<std::string>& edgeNames,
+                                    std::vector<int>& visited) const;
+    int         NumberOfNonVisitedNeighbor(int vertexIndex,std::vector<int>& visited)const;
+    int         MaxDepthViaEdgeName(const std::string& vertexName,
+                                    const std::string& edgeName) const;
+
+    // Implemented Functions for Debugging
+    void        PrintPath(const std::vector<int>& orderedVertexEdgeIndexList,
+                          float heuristicWeight,
+                          bool sameLine = false) const;
+    void        PrintEntireGraph() const;
 };
 
-#endif // CENG_FLIGHT_H
+#endif // MULTI_GRAPH_H
