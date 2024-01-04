@@ -52,19 +52,13 @@ class MultiGraph
                         const std::string& vertexFromName,
                         const std::string& vertexToName);
 
-    int AvailableFlightsWithSister(const std::string& airportName,
-                                            const std::string& edgeName);
-
-    int AvailableFlightsWithSister(const std::string& airportName,
-                                            const std::string& edgeName);
-
-    int NumberOfVertex() const;
-
-    int NonVisitedNborCount(const int fromIndex,std::vector<int> visited);
-
-    std::string& NonUtilizedAirline(const int fromIndex,std::vector<std::string>& airlineNames,std::vector<int>& visited);
-
-    int indexOfVertex(const std::string& vertexName);
+    int indexOfVertex(const std::string& vertexName)const;
+    
+    int IndexOfNonUtilizedAirline(int VertexIndex,std::vector<int>& visited,std::vector<std::string>& usedAirlines)const;
+    
+    std::string NameOfAirline(int VertexIndex,int EdgeIndex)const;
+    
+    int Number()const;
 
     // Shortest Path Functions
     bool        HeuristicShortestPath(std::vector<int>& orderedVertexEdgeIndexList,
@@ -76,9 +70,19 @@ class MultiGraph
                                      const std::string& vertexNameTo,
                                      float heuristicWeight,
                                      const std::vector<std::string>& edgeNames) const;
+    
+    bool        FilteredShortestPathForCengFlight(std::vector<int>& orderedVertexEdgeIndexList,
+                                      const std::string& vertexNameFrom,
+                                      const std::string& vertexNameTo,
+                                      float heuristicWeight,
+                                      const std::vector<std::string>& edgeNames) const;
 
     // Other functions
     int         BiDirectionalEdgeCount() const;
+    int         MaxVisitViaEdgeList(int startVertexIndex,
+                                    std::vector<std::string>& edgeNames,
+                                    std::vector<int>& visited) const;
+    int         NumberOfNonVisitedNeighbor(int vertexIndex,std::vector<int>& visited)const;
     int         MaxDepthViaEdgeName(const std::string& vertexName,
                                     const std::string& edgeName) const;
 

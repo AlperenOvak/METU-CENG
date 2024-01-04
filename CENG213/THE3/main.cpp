@@ -5,7 +5,8 @@
 
 int main(int argc, const char* argv[])
 {
-    // For testing from VPL
-    //  ...
+    
+    CENGFlight newMap("test.txt");
+    
     return 0;
 }

@@ -114,7 +114,7 @@ int HashTable<MAX_SIZE>::Insert(const std::vector<int>& intArray, bool isCostWei
     //std::cout<<hashIndex<<" "<<startInt<<" "<<endInt<<" "<<isCostWeighted<< " hashIndex ne çıkacak\n";
     //std::cout<<elementCount<<"elementCount\n";
     // if it's new, insert it
-    if(elementCount > MAX_SIZE/2){
+    if(elementCount >= MAX_SIZE/2){
         throw TableCapFullException(elementCount);
     }
     if(table[hashIndex].sentinel == EMPTY_MARK){
@@ -164,12 +164,13 @@ bool HashTable<MAX_SIZE>::Find(std::vector<int>& intArray,
     while (table[i].sentinel != EMPTY_MARK) {
          
         if(table[i].sentinel==OCCUPIED_MARK && table[i].startInt == startInt && table[i].endInt==endInt && table[i].isCostWeighted ==isCostWeighted){
-            if(incLRU)
-            table[i].lruCounter++;
+            if(incLRU){
+                table[i].lruCounter++;
+            }
             intArray = table[i].intArray;
             return true;
         }
-        i=i+(k*k);
+        i=(i+(k*k))% MAX_SIZE;
         k++;
 
     } 
@@ -220,7 +221,7 @@ void HashTable<MAX_SIZE>::Remove(std::vector<int>& intArray,
             intArray = table[i].intArray;
             break;
         }
-        i=i+(k*k);
+        i=i+(k*k)% MAX_SIZE;
         k++;
 
     } 

@@ -184,7 +184,7 @@ void MultiGraph::InsertVertex(const std::string& vertexName)
     vertexList.push_back(newVertex);
 }
 
-int MultiGraph::indexOfVertex(const std::string& vertexName){
+int MultiGraph::indexOfVertex(const std::string& vertexName)const{
     int Index=-1; //Index
     for(size_t  i=0;i<vertexList.size();i++){
         if(vertexName==vertexList[i].name){
@@ -192,6 +192,28 @@ int MultiGraph::indexOfVertex(const std::string& vertexName){
         }
     }
     return Index;
+}
+
+int MultiGraph::IndexOfNonUtilizedAirline(int VertexIndex,std::vector<int>& visited,std::vector<std::string>& usedAirlines)const{
+    int IndexOfNonUtilizedAirline = -1;
+    int num=vertexList[VertexIndex].edges.size();
+    for(int i=num-1;i>=0;i--){
+        bool isInUsedAirlines=false;
+        for(int j=0;j<usedAirlines.size();j++){
+            if(vertexList[VertexIndex].edges[i].name == usedAirlines[j]){
+                isInUsedAirlines=true;
+                break;
+            }
+        }
+        if(!isInUsedAirlines && !visited[vertexList[VertexIndex].edges[i].endVertexIndex]){
+            IndexOfNonUtilizedAirline=i;
+        }
+    }
+    return IndexOfNonUtilizedAirline;
+}
+
+std::string MultiGraph::NameOfAirline(int VertexIndex,int EdgeIndex)const{
+    return vertexList[VertexIndex].edges[EdgeIndex].name;
 }
 
 
@@ -225,40 +247,6 @@ Pair<float,float> MultiGraph::errorForFlight(const std::string& edgeName,
     }
     return W;
 }
-
-int MultiGraph::NumberOfVertex() const{
-        return vertexList.size();
-}
-
-int MultiGraph::AvailableFlightsWithSister(const std::string& airportName,
-                                            const std::string& edgeName){
-    int fromIndex=-1;
-    fromIndex = indexOfVertex(airportName);
-    if(fromIndex == -1) {
-        return -1;
-    }           
-    int count=0;
-    for(size_t  k=0;k<vertexList[fromIndex].edges.size();k++){
-        if(vertexList[fromIndex].edges[k].name==edgeName){ 
-                count++;  
-        }
-    }         
-    return count;                          
-}
-
-int MultiGraph::NonVisitedNborCount(const int fromIndex,std::vector<int>& visited){
-    
-    std::vector<int> toVertex(vertexList.size());
-    int count=0;
-    for(size_t  k=0;k<vertexList[fromIndex].edges.size();k++){
-        int j=[fromIndex].edges[k].endVertexIndex;
-        if(visited(j)==0 && toVertex(j)==0){ 
-                count++; 
-                toVertex[j]=1;
-        }
-    } 
-    return count;  
-}
 void MultiGraph::RemoveVertex(const std::string& vertexName)
 {
     /* TODO */
@@ -283,7 +271,7 @@ void MultiGraph::RemoveVertex(const std::string& vertexName)
         for(size_t j=0; j< vertexList[i].edges.size(); j++){
             if(vertexList[i].edges[j].endVertexIndex == rmvIndex){
                 vertexList[i].edges.erase(vertexList[i].edges.begin()+j);
-                j--;// since the edge-list shifted towards şeft
+                j--;// since the edge-list shifted towards left
             }
             else if(vertexList[i].edges[j].endVertexIndex > rmvIndex){ 
                 vertexList[i].edges[j].endVertexIndex--; //shift the edges to left
@@ -294,23 +282,6 @@ void MultiGraph::RemoveVertex(const std::string& vertexName)
     vertexList.erase(vertexList.begin() + rmvIndex); // erase the vertex
 }
 
-std::string& MultiGraph::NonUtilizedAirline(const int fromIndex,std::vector<std::string>& airlineNames,std::vector<int>& visited){
-    for(int i=0;i<vertexList[fromIndex].edges.size();i++){
-        int endVertexIndex = vertexList[fromIndex].edges[i].endVertexIndex;
-        if(visited[endVertexIndex]==0){
-            bool notInNames =true;
-            for(int j=airlineNames.size();j>;j--){
-                if(airlineNames[j]==vertexList[fromIndex].edges[i].name){
-                    notInNames=false;
-                    break;
-                }
-            }
-            if(notInNames){
-                return vertexList[fromIndex].edges[i].name;
-            }
-        }
-    }
-}
 void MultiGraph::AddEdge(const std::string& edgeName,
                          const std::string& vertexFromName,
                          const std::string& vertexToName,
@@ -394,7 +365,7 @@ bool MultiGraph::HeuristicShortestPath(std::vector<int>& orderedVertexEdgeIndexL
     /* TODO */
     MinPairHeap<float,int> pq; //our prioirty queue
     int V=static_cast<int>(vertexList.size());//num of vertices
-    std::vector<float> distance(V,9999999); 
+    std::vector<float> distance(V,99999999); 
     std::vector<int> previous(V,-1);
     std::vector<int> edgeIndex(V,-1);
 
@@ -444,8 +415,8 @@ bool MultiGraph::HeuristicShortestPath(std::vector<int>& orderedVertexEdgeIndexL
     }
     // Dijkstras algorith is done
 
-    if(distance[toIndex]==9999999){
-        //std::cout<<"MESAFE 9999999 ÇIKTI!"<<std::endl;
+    if(distance[toIndex]==99999999){
+        //std::cout<<"MESAFE 99999999 ÇIKTI!"<<std::endl;
         return false;
     }
     int endIndex=toIndex;
@@ -475,7 +446,7 @@ bool MultiGraph::FilteredShortestPath(std::vector<int>& orderedVertexEdgeIndexLi
     /* TODO */
     MinPairHeap<float,int> pq; //our prioirty queue
     int V=static_cast<int>(vertexList.size());//num of vertices
-    std::vector<float> distance(V,9999999); 
+    std::vector<float> distance(V,99999999); 
     std::vector<int> previous(V,-1);
     std::vector<int> edgeIndex(V,-1);
 
@@ -533,8 +504,97 @@ bool MultiGraph::FilteredShortestPath(std::vector<int>& orderedVertexEdgeIndexLi
     }
     // Dijkstras algorith is done
 
-    if(distance[toIndex]==9999999){
-        //std::cout<<"MESAFE 9999999 ÇIKTI!"<<std::endl;
+    if(distance[toIndex]==99999999){
+        //std::cout<<"MESAFE 99999999 ÇIKTI!"<<std::endl;
+        return false;
+    }
+    int endIndex=toIndex;
+    // Let's write the path itself.
+    orderedVertexEdgeIndexList.clear();
+    while (endIndex != -1 && previous[endIndex] != -1) {
+        orderedVertexEdgeIndexList.push_back(endIndex);
+        orderedVertexEdgeIndexList.push_back(edgeIndex[endIndex]);
+        endIndex=previous[endIndex];
+    }
+    orderedVertexEdgeIndexList.push_back(endIndex);
+    //reverseVector(orderedVertexEdgeIndexList);
+    int n = static_cast<int>(orderedVertexEdgeIndexList.size());
+    for (int i = 0; i < n / 2; ++i) {
+        std::swap(orderedVertexEdgeIndexList[i], orderedVertexEdgeIndexList[n - i - 1]);
+    }
+
+    return !orderedVertexEdgeIndexList.empty();
+}
+
+bool MultiGraph::FilteredShortestPathForCengFlight(std::vector<int>& orderedVertexEdgeIndexList,
+                                      const std::string& vertexNameFrom,
+                                      const std::string& vertexNameTo,
+                                      float heuristicWeight,
+                                      const std::vector<std::string>& edgeNames) const
+{
+    /* TODO */
+    MinPairHeap<float,int> pq; //our prioirty queue
+    int V=static_cast<int>(vertexList.size());//num of vertices
+    std::vector<float> distance(V,99999999); 
+    std::vector<int> previous(V,-1);
+    std::vector<int> edgeIndex(V,-1);
+
+    int fromIndex=-1; //fromIndex
+    int toIndex=-1; //toIndex
+    for(size_t  i=0;i<vertexList.size();i++){
+        if(vertexNameFrom==vertexList[i].name){
+            fromIndex=static_cast<int>(i); //find the index
+        }
+        if(vertexNameTo==vertexList[i].name){
+            toIndex=static_cast<int>(i); //find the index
+        }
+    }
+    if(fromIndex==-1){  // if one of them does not exist
+        return false;
+    }
+    if(toIndex== -1){  // if one of them does not exist
+        return false;
+    }
+    
+    //std::cout<<"toIndex= "<<toIndex<<"fromIndex= "<<fromIndex<<std::endl;
+    
+    distance[fromIndex]=0; 
+
+    for (int i = 0; i < V; ++i) { // Add all vertices to pq
+        pq.push({distance[i], i});
+    }
+    while (!pq.empty()){
+        Pair<float,int> curr = pq.top();
+        //std::cout<<"curr= "<<curr.value<<" "<<curr.key<<std::endl;
+        pq.pop();
+        for(size_t  k=0;k<vertexList[curr.value].edges.size();k++){
+            int v = vertexList[curr.value].edges[k].endVertexIndex;
+            bool isAllowed=true;
+            for(size_t i=0;i<edgeNames.size();i++){
+                if(vertexList[curr.value].edges[k].name == edgeNames[i]){
+                    isAllowed = false;
+                }
+            }
+            if(isAllowed){
+                float beta = Lerp(vertexList[curr.value].edges[k].weight[0],vertexList[curr.value].edges[k].weight[1],heuristicWeight);
+                float newDist = beta + distance[curr.value];
+                if(newDist < distance[v]){
+                    distance[v] = newDist;
+                    previous[v] = curr.value;
+                    edgeIndex[v] = static_cast<int>(k);
+                    pq.push({newDist, v});
+                }
+            }
+        }
+        if(curr.value==toIndex){ // we react to the target vertex
+            //std::cout<<"vardık "<<curr.value<<" "<<curr.key<<std::endl;
+            break;
+        }
+    }
+    // Dijkstras algorith is done
+
+    if(distance[toIndex]==99999999){
+        //std::cout<<"MESAFE 99999999 ÇIKTI!"<<std::endl;
         return false;
     }
     int endIndex=toIndex;
@@ -578,19 +638,25 @@ int MultiGraph::BiDirectionalEdgeCount() const
     return biCount;
 }
 
-void MultiGraph::MaxVisitViaEdgeList(const std::string& vertexName,
-                                    std::vector<std::string>& edgeNames,
-                                    std::vector<int>& visited){
-    int startVertexIndex = -1;
-    for (size_t i = 0; i < vertexList.size(); ++i) {
-        if (vertexList[i].name == vertexName) {
-            startVertexIndex = static_cast<int>(i);
-            break;
+int MultiGraph::Number() const{
+    return vertexList.size();
+}
+
+int MultiGraph::NumberOfNonVisitedNeighbor(int vertexIndex,std::vector<int>& visited)const{
+    int num=0;
+    for(int i=0;i<vertexList[vertexIndex].edges.size();i++){
+        if(visited[vertexList[vertexIndex].edges[i].endVertexIndex]==0){
+            num++;
         }
     }
-    if (startVertexIndex == -1) {
-        throw VertexNotFoundException(vertexName);
-    }
+    return num;
+}
+
+int MultiGraph::MaxVisitViaEdgeList(int startVertexIndex,
+                                    std::vector<std::string>& edgeNames,
+                                    std::vector<int>& visited) const{
+    
+    int error=0;
     int maxDepth = 0;
     MinPairHeap<int, int> q;  // Pair: depth, vertex index
     //visited[startVertexIndex]=1;
@@ -603,7 +669,7 @@ void MultiGraph::MaxVisitViaEdgeList(const std::string& vertexName,
         int depth = curr.key;
         q.pop();
         
-
+        
         visited[currIndex] = 1;
         for(size_t  i=0;i<vertexList[currIndex].edges.size();i++){
             for(int j=0;j<edgeNames.size();j++){
@@ -616,8 +682,10 @@ void MultiGraph::MaxVisitViaEdgeList(const std::string& vertexName,
                 }
             }
         }
-    }                                    
+    }    
+    return error;
 }
+
 
 int MultiGraph::MaxDepthViaEdgeName(const std::string& vertexName,
                                     const std::string& edgeName) const
@@ -653,13 +721,13 @@ int MultiGraph::MaxDepthViaEdgeName(const std::string& vertexName,
                 int nextVertexIndex = vertexList[currIndex].edges[i].endVertexIndex;
                 if (!visited[nextVertexIndex]) {
                     q.push({depth + 1, nextVertexIndex});
-                    maxDepth = depth + 1;
+                    if(maxDepth < depth + 1){
+                        maxDepth = depth + 1;
+                    }
                 }
             }
         }
     }
-
-
-
     return maxDepth;
 }
+
