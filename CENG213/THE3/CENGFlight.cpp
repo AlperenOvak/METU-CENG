@@ -181,13 +181,29 @@ void CENGFlight::FindSisterAirlines(std::vector<std::string>& airlineNames,
     int num = navigationMap.Number();
     //std::cout<<num<<"\n";
     std::vector<int> visited(num,0);
+    std::vector<int> oldvisited(num,0);
     std::vector<std::string> usedAirlines;
     
     bool AllVisited = false;
     usedAirlines.push_back(startAirlineName);
-    navigationMap.MaxVisitViaEdgeList(navigationMap.indexOfVertex(airportName),usedAirlines,visited);
+    if(navigationMap.indexOfVertex(airportName)==-1){
+        PrintSisterAirlinesDontCover(airportName);
+    }
+    if(navigationMap.MaxVisitViaEdgeList(navigationMap.indexOfVertex(airportName),usedAirlines,visited)== 0){
+        PrintSisterAirlinesDontCover(airportName);
+        return;
+    }
     while(!AllVisited){
-        
+        bool visitchanged=true;
+        for(int i=0;i<num;i++){
+            if(visited[i]!=oldvisited[i]){
+                visitchanged=false;
+            }
+        }
+        if(visitchanged){ //until our visted airports did not change from the last iteration.
+            PrintSisterAirlinesDontCover(airportName);
+            return;
+        }
         int nextAirPort;
         int maxNonVisitedNum=-1;
         for(int i=num-1;i>=0;i--){
@@ -200,7 +216,8 @@ void CENGFlight::FindSisterAirlines(std::vector<std::string>& airlineNames,
         
         int newAirlineIndex = navigationMap.IndexOfNonUtilizedAirline(nextAirPort,visited,usedAirlines);
         if(newAirlineIndex==-1){
-            //error
+            PrintSisterAirlinesDontCover(airportName);
+            return;
         }
         std::string newAirline = navigationMap.NameOfAirline(nextAirPort,newAirlineIndex);
         usedAirlines.push_back(newAirline);
@@ -214,6 +231,7 @@ void CENGFlight::FindSisterAirlines(std::vector<std::string>& airlineNames,
                 AllVisited=false;
             }
         }
+        oldvisited=visited;
     }
     /*for(int i=0;i<num;i++){
         std::cout<<visited[i];

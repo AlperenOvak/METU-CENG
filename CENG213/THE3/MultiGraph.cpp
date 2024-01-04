@@ -674,6 +674,7 @@ int MultiGraph::MaxVisitViaEdgeList(int startVertexIndex,
         for(size_t  i=0;i<vertexList[currIndex].edges.size();i++){
             for(int j=0;j<edgeNames.size();j++){
                 if (vertexList[currIndex].edges[i].name == edgeNames[j]) {
+                    error=1;
                     int nextVertexIndex = vertexList[currIndex].edges[i].endVertexIndex;
                     if (!visited[nextVertexIndex]) {
                         q.push({depth + 1, nextVertexIndex});
