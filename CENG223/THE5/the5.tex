@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 
 \usepackage{tikz}
+\usepackage{forest}
 \usetikzlibrary{positioning}
 
 \usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
@@ -259,7 +260,73 @@ Thus, to incorporate a complete subgraph \( K_4 \) into \( G \), the edge connec
 
 \subsection*{a)}
 
+The chromatic number \( \chi(C_n) \) of the cycle graph \( C_n \) is 2 if \( n \) is even, and 3 if \( n \) is odd.
+
+
+
+\textbf{ When \( n \) is even:}
+For \( n \) even, we can see that the vertices of \( C_n \) can be alternately colored using two colors. To illustrate, consider \( C_6 \):
+
+\begin{itemize}
+    \item Start with vertex \( v_0 \) and color it red.
+    \item Proceeding clockwise, the next vertex \( v_1 \) is colored blue.
+    \item Continue this pattern, alternating between red and blue, until \( v_5 \), which is adjacent to \( v_0 \), is colored blue.
+\end{itemize}
+\begin{tikzpicture}
+    % Vertices for C_6
+    \foreach \x in {0,...,5} {
+        \coordinate (v\x) at ({360/6 * (\x - 1)}:1);
+        \ifodd\x
+        \node[draw, circle, fill=blue, inner sep=2pt, label=below:{$v_\x$}] at (v\x) {};
+        \else
+          \node[draw, circle, fill=red, inner sep=2pt, label=below:{$v_\x$}] at (v\x) {};
+        \fi
+    }
+    % Edges for C_6
+    \draw (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
+\end{tikzpicture}
+
+
+Thus, \( C_6 \) is bipartite and can be colored using two colors, indicating that the chromatic number is 2 amd bipartite when \( n \) is even.
+
+\textbf{When \( n \) is odd:}
+For \( n \) odd, alternating colors while traversing \( C_n \) clockwise will eventually lead to a vertex (e.g., \( v_5 \) in \( C_5 \)) that is adjacent to both the starting vertex \( v_0 \) and the vertex before the starting vertex. This situation requires a third color to ensure no adjacent vertices share the same color.
+
+For instance, in \( C_5 \):
+
+\begin{itemize}
+    \item Start with \( v_0 \) colored red.
+    \item Proceeding clockwise, \( v_1 \) is blue, \( v_2 \) is red, \( v_3 \) is blue, but when reaching \( v_4 \), which is adjacent to both \( v_3 \) and \( v_0 \), a third color (say green) is needed.
+\end{itemize}
+
+\begin{tikzpicture}
+    % Vertices for C_5
+    \foreach \x/\color in {0/red, 1/blue, 2/red, 3/blue, 4/green} {
+      \coordinate (u\x) at ({360/5 * \x}:1);
+      \node[draw, circle, fill=\color, inner sep=2pt, label=below:{$v_\x$}] at (u\x) {};
+    }
+    % Edges for C_5
+    \draw (u0) -- (u1) -- (u2) -- (u3) -- (u4) -- cycle;
+  \end{tikzpicture}
+
+Thus, \( C_5 \) requires three colors, indicating that the chromatic number is 3 and it is not bipartite when \( n \) is odd.
+
+
 \subsection*{b)}
+
+The chromatic number of the hypercube \( Q_n \) is 2. This can be understood by observing the binary nature of the vertex labels. We can partition the vertices into two sets based on the parity of the number of 1s in their binary labels:
+
+\begin{itemize}
+    \item One set contains vertices labeled with sequences having an even number of 1s.
+    \item The other set contains vertices labeled with sequences having an odd number of 1s.
+\end{itemize}
+
+Within each set, vertices are not connected by edges because the Hamming distance between them would always be even. On the other hand, there will never be an edge between two sequences with the same parity (i.e., either both sequences have an even number of 1s or both have an odd number of 1s) because edges in \( Q_n \) exist only between sequences with binary labels that differ in one position (leading to a change in parity).
+
+As we can understand that \( Q_n \) is a bipartite.
+
+Thus, the vertices of \( Q_n \) can be colored with two colors in such a way that no two adjacent vertices have the same color, indicating that the chromatic number of \( Q_n \) is 2.
+
 
 \section*{Answer 4}
 
@@ -274,8 +341,101 @@ Thus, to incorporate a complete subgraph \( K_4 \) into \( G \), the edge connec
 
 \subsection*{a)}
 
+\textbf{Base Case (d = 1):}
+
+Consider a perfect binary tree \( B_1 \) with depth 1. This tree consists of a single node (the root). The number of nodes \( N_1 \) is 1, and the number of leaves \( L_1 \) is also 1.
+
+From the provided information:
+\begin{align*}
+N_1 &= 2^1 - 1 = 2 - 1 = 1 \\
+L_1 &= \frac{N_1 + 1}{2} = \frac{2}{2} = 1
+\end{align*}
+
+Both the number of nodes and leaves satisfy the given formulas for the base case.
+
+\textbf{Inductive Step (d \(\rightarrow\) d+1):}
+
+Assume the statements hold for some arbitrary depth \( d \). That is:
+\begin{align*}
+N_d &= 2^d - 1 \\
+L_d &= \frac{N_d + 1}{2}
+\end{align*}
+
+Now, consider a perfect binary tree \( B_{d+1} \) of depth \( d+1 \) with \( B_d \) as its last layer. Each leaf of \( B_d \) will become two leaves in \( B_{d+1} \).
+
+1. \textbf{Nodes:} For each leaf in \( B_d \), we add 2 nodes in \( B_{d+1} \). So, the new number of nodes \( N_{d+1} \) is:
+\begin{align*}
+N_{d+1} &= N_d + 2L_d \\
+&= (2^d - 1) + 2 \left( \frac{2^d - 1 + 1}{2} \right) \\
+&= 2^d - 1 + 2^d - 1 + 1 \\
+&= 2(2^d) - 1 \\
+&= 2^{d+1} - 1
+\end{align*}
+This matches the formula for \( N_{d+1} \).
+
+2. \textbf{Leaves:} Each leaf in \( B_d \) transforms into two leaves in \( B_{d+1} \). Thus, the number of leaves \( L_{d+1} \) becomes:
+\begin{align*}
+L_{d+1} &= 2L_d \\
+&= 2 \left( \frac{N_d + 1}{2} \right) \\
+&= 2 \left( \frac{2^d - 1 + 1}{2} \right) \\
+&= 2^d - 1 + 1 \\
+&= \frac{2^{d+1}}{2}  \\
+&= \frac{2^{d+1} - 1 +1}{2}  \\
+&= \frac{N_{d+1} + 1}{2}
+\end{align*}
+This matches the formula for \( L_{d+1} \).
+
+Thus, both the number of nodes and leaves in the tree of depth \( d+1 \) satisfy the given formulas based on the induction hypothesis. This completes the inductive step.
+
+By the principle of mathematical induction, the statements are true for all positive integers \( d \).
+
+
 \subsection*{b)}
 
+The chromatic number \( \chi(G) \) of a graph \( G \) is the smallest number of colors needed to color the vertices of \( G \) such that no two adjacent vertices have the same color.
+
+For a tree \( T \), the chromatic number \( \chi(T) \) is 2. Here's why:
+
+\begin{enumerate}
+    \item A tree is a connected graph with no cycles.
+    \item Consider any vertex \( v \) of the tree. Since the tree is connected and has no cycles, there is exactly one path between any two vertices in the tree. Therefore, if we start coloring the tree from vertex \( v \) and proceed along the tree, we can ensure that adjacent vertices get different colors.
+    \item Because of the above property, we only need two colors to color a tree such that no two adjacent vertices share the same color: one for \( v \) and its immediate neighbors and another for the neighbors of those neighbors, and so on.
+\end{enumerate}
+
+Hence, the chromatic number of a tree \( \chi(T) = 2 \).
+
 \subsection*{c)}
+
+The tree is called a full m-ary tree if every internal vertex has exactly m children.(Definition 3 - 11.1)
+
+To get upper bound for height, we need to just add m children to one of the nodes in each level.
+
+Therefore, we have m nodes in every level, except level-1. This means that the number of levels which have m many nodes equals to height of the tree.\\
+
+So, we have total \( 1+mh = n \) nodes.
+
+It means that the upper bound of height is \( h=\frac{n-1}{m}\).
+
+\begin{forest}
+    for tree={circle, draw, minimum size=1em, s sep=10pt}
+    [0
+        [ 1  
+            [2
+                [3
+                    [ \dots, edge label={node[midway,right,font=\tiny]{...}} ]
+                ]
+                [...]
+                [...]
+                [m]
+            ]
+            [...]
+            [...]
+            [m]
+        ]
+        [...]
+        [...]
+        [m]
+    ]
+    \end{forest}
 
 \end{document}

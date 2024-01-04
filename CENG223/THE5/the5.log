@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.10.16)  3 JAN 2024 23:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.10.16)  4 JAN 2024 10:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -318,7 +318,130 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@expandcount=\count292
  (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
+))) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/forest\forest.sty
+Package: forest 2017/07/14 v2.1.5 Drawing (linguistic) trees
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.callouts.code.tex (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.callouts.code.tex)) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodepartlowerbox=\box66
+\pgfnodeparttwobox=\box67
+\pgfnodepartthreebox=\box68
+\pgfnodepartfourbox=\box69
+\pgfnodeparttwentybox=\box70
+\pgfnodepartnineteenbox=\box71
+\pgfnodeparteighteenbox=\box72
+\pgfnodepartseventeenbox=\box73
+\pgfnodepartsixteenbox=\box74
+\pgfnodepartfifteenbox=\box75
+\pgfnodepartfourteenbox=\box76
+\pgfnodepartthirteenbox=\box77
+\pgfnodeparttwelvebox=\box78
+\pgfnodepartelevenbox=\box79
+\pgfnodeparttenbox=\box80
+\pgfnodepartninebox=\box81
+\pgfnodeparteightbox=\box82
+\pgfnodepartsevenbox=\box83
+\pgfnodepartsixbox=\box84
+\pgfnodepartfivebox=\box85
+))) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryintersections.code.tex (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryfpu.code.tex)
+\pgf@intersect@solutions=\count293
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/pgfopts\pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks39
+\pgfopts@list@add@b@toks=\toks40
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count294
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/elocalloc\elocalloc.sty
+Package: elocalloc 2016/12/15 v0.03 local allocation for LaTeX 2015+ (DPC)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/environ\environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.sty (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2023-10-10 L3 programming layer (loader) 
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-10-10 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count295
+\l__pdf_internal_box=\box86
+))
+Package: xparse 2023-10-10 L3 Experimental document command parser
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/inlinedef\inlinedef.sty
+Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
+\ID@toks=\toks41
+\ID@count=\count296
+)
+\ID@usercommands=\toks42
+\safeloop@depth=\count297
+\safeRKloop@depth=\count298
+\forest@temp@dimen=\dimen258
+\forest@temp@count=\count299
+\forest@n=\count300
+\forest@temp@global@count=\count301
+\forest@temp@toks=\toks43
+\forest@temparray@M=\count302
+\forest@temparray@N=\count303
+\forest@global@temparray@M=\count304
+\forest@global@temparray@N=\count305
+\forest@isnum@count=\count306
+\forest@isdim@nonintpart=\count307
+\forest@isdim@dimen=\dimen259
+\forest@sort@m=\count308
+\forest@sort@k=\count309
+\forest@sort@p=\count310
+\bracket@content=\toks44
+\bracket@afterthought=\toks45
+\forest@node@maxid=\count311
+\forest@process@left@M=\count312
+\forest@process@left@N=\count313
+\forest@process@right@M=\count314
+\forest@process@right@N=\count315
+\forest@process@saved@M=\count316
+\forest@process@saved@N=\count317
+\forest@process@result@M=\count318
+\forest@process@result@N=\count319
+\forest@process@n=\count320
+\forest@nodewalk@branch@toks=\toks46
+\forest@nodewalk@shortsteps@resolution=\toks47
+\forest@do@dynamics=\toks48
+\forest@box=\box87
+\forest@xg=\dimen260
+\forest@yg=\dimen261
+\forest@xs=\dimen262
+\forest@ys=\dimen263
+\forest@pi@toks=\toks49
+\forest@segment@toks=\toks50
+\forest@PIi@toks=\toks51
+\forest@PIii@toks=\toks52
+\forest@copy@in=\read3
+\forest@copy@out=\write4
+\forest@externalize@max@outer@n=\count321
+\forest@externalize@inner@n=\count322
+)
+(C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
@@ -327,59 +450,55 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
-\Gm@cnth=\count293
-\Gm@cntv=\count294
-\c@Gm@tempcnt=\count295
-\Gm@bindingoffset=\dimen258
-\Gm@wd@mp=\dimen259
-\Gm@odd@mp=\dimen260
-\Gm@even@mp=\dimen261
-\Gm@layoutwidth=\dimen262
-\Gm@layoutheight=\dimen263
-\Gm@layouthoffset=\dimen264
-\Gm@layoutvoffset=\dimen265
-\Gm@dimlist=\toks39
+\Gm@cnth=\count323
+\Gm@cntv=\count324
+\c@Gm@tempcnt=\count325
+\Gm@bindingoffset=\dimen264
+\Gm@wd@mp=\dimen265
+\Gm@odd@mp=\dimen266
+\Gm@even@mp=\dimen267
+\Gm@layoutwidth=\dimen268
+\Gm@layoutheight=\dimen269
+\Gm@layouthoffset=\dimen270
+\Gm@layoutvoffset=\dimen271
+\Gm@dimlist=\toks53
  (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (fitch.sty
-\nd*ctr=\count296
+\nd*ctr=\count326
 \nd*dim=\skip53
-\nd*depthdim=\dimen266
-\nd*hsep=\dimen267
-\ndindent=\dimen268
-\nd*n=\count297
-) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-10-10 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count298
-\l__pdf_internal_box=\box66
+\nd*depthdim=\dimen272
+\nd*hsep=\dimen273
+\ndindent=\dimen274
+\nd*n=\count327
 ) (the5.aux)
 \openout1 = `the5.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
  (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count299
-\scratchdimen=\dimen269
-\scratchbox=\box67
-\nofMPsegments=\count300
-\nofMParguments=\count301
-\everyMPshowfont=\toks40
-\MPscratchCnt=\count302
-\MPscratchDim=\dimen270
-\MPnumerator=\count303
-\makeMPintoPDFobject=\count304
-\everyMPtoPDFconversion=\toks41
+\scratchcounter=\count328
+\scratchdimen=\dimen275
+\scratchbox=\box88
+\nofMPsegments=\count329
+\nofMParguments=\count330
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count331
+\MPscratchDim=\dimen276
+\MPnumerator=\count332
+\makeMPintoPDFobject=\count333
+\everyMPtoPDFconversion=\toks55
 ) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -421,15 +540,15 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--29
+Underfull \hbox (badness 10000) in paragraph at lines 28--30
 
  []
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 62.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 63.
 (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 62.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
  (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -439,24 +558,29 @@ Missing character: There is no c in font nullfont!
 Missing character: There is no x in font nullfont!
 Missing character: There is no x in font nullfont!
 Missing character: There is no x in font nullfont!
-[4] [5] (the5.aux)
+[4] [5] [6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 413--414
+
+ []
+
+[8] (the5.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-10-10>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 13968 strings out of 474823
- 279007 string characters out of 5751427
- 1934043 words of memory out of 5000000
- 35680 multiletter control sequences out of 15000+600000
+ 27477 strings out of 474823
+ 628363 string characters out of 5751427
+ 1936043 words of memory out of 5000000
+ 49103 multiletter control sequences out of 15000+600000
  564569 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,6n,107p,460b,647s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\OVAK\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on the5.pdf (5 pages, 88185 bytes).
+ 142i,9n,139p,1655b,2355s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\OVAK\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on the5.pdf (8 pages, 137968 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
+ 82 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
