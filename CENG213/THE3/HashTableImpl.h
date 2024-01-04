@@ -156,12 +156,8 @@ bool HashTable<MAX_SIZE>::Find(std::vector<int>& intArray,
                                bool incLRU)
 {
     /* TODO */
-    
-    
     //search wheter it is in the table or not
-    int i = Hash(startInt,endInt,isCostWeighted) % MAX_SIZE; // find the original index
-    int k=1; //quadratic probing;
-    while (table[i].sentinel != EMPTY_MARK) {
+    for(int i=0;i<MAX_SIZE;i++) {
          
         if(table[i].sentinel==OCCUPIED_MARK && table[i].startInt == startInt && table[i].endInt==endInt && table[i].isCostWeighted ==isCostWeighted){
             if(incLRU){
@@ -170,9 +166,6 @@ bool HashTable<MAX_SIZE>::Find(std::vector<int>& intArray,
             intArray = table[i].intArray;
             return true;
         }
-        i=(i+(k*k))% MAX_SIZE;
-        k++;
-
     } 
     return false;
 }
@@ -213,18 +206,16 @@ void HashTable<MAX_SIZE>::Remove(std::vector<int>& intArray,
                                  int startInt, int endInt, bool isCostWeighted)
 {
     /* TODO */
-    int i = Hash(startInt,endInt,isCostWeighted) % MAX_SIZE; // find the original index
-    int k=1; //quadratic probing;
-    while (table[i].sentinel != EMPTY_MARK) {
-         
-        if(table[i].sentinel==OCCUPIED_MARK && table[i].startInt == startInt && table[i].endInt==endInt && table[i].isCostWeighted ==isCostWeighted){
-            intArray = table[i].intArray;
-            break;
+    int i = -1; // find the original index
+    for(int j=0;j<MAX_SIZE;j++){
+        if(table[j].sentinel==OCCUPIED_MARK && table[j].startInt == startInt && table[j].endInt==endInt && table[j].isCostWeighted ==isCostWeighted){
+            i=j;
+            break; // I found it 
         }
-        i=i+(k*k)% MAX_SIZE;
-        k++;
-
-    } 
+    }
+    if(i==-1){
+        return;
+    }
     //std::cout<<i<<"\n";
     intArray = table[i].intArray;
     table[i].lruCounter = 0;         
@@ -240,27 +231,23 @@ template<int MAX_SIZE>
 void HashTable<MAX_SIZE>::RemoveLRU(int lruElementCount)
 {
     /* TODO */
-    int lowestLRU=9999999999;
-    for (int i = 0; i < MAX_SIZE; ++i){
-        if(table[i].sentinel == OCCUPIED_MARK && lowestLRU>table[i].lruCounter){
-            lowestLRU=table[i].lruCounter;
+    for(int j=0;j<lruElementCount;j++){
+        int lowestLRU=9999999999;
+        int index=-1;
+        for (int i = 0; i < MAX_SIZE; ++i){
+            if(table[i].sentinel == OCCUPIED_MARK && lowestLRU>table[i].lruCounter){
+                lowestLRU=table[i].lruCounter;
+                index = i;
+            }
         }
-    }
-    //std::cout<<lowestLRU<<"\n";
-    int i=0;
-    int count=lruElementCount;
-    while(count && i<MAX_SIZE){
-        if(table[i].sentinel == OCCUPIED_MARK && table[i].lruCounter == lowestLRU){
-            table[i].lruCounter = 0;         
-            table[i].sentinel = SENTINEL_MARK;  
-            table[i].intArray.clear();       
-            table[i].isCostWeighted = false; 
-            table[i].startInt = 0;           
-            table[i].endInt = 0; 
-            elementCount--;
-            count--;
-        }
-        i++;
+        
+        table[index].lruCounter = 0;         
+        table[index].sentinel = SENTINEL_MARK;  
+        table[index].intArray.clear();       
+        table[index].isCostWeighted = false; 
+        table[index].startInt = 0;           
+        table[index].endInt = 0; 
+        elementCount--;        
     }
 }
 
