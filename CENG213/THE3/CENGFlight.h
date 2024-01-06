@@ -225,20 +225,22 @@ void CENGFlight::FindFlight(const std::string& startAirportName,
     if(fromIndex == -1 || toIndex == -1){
         PrintPathDontExist(startAirportName,endAirportName);
     }
+    bool isCostWeighted ((alpha==0) ? true : false);
     bool incLRU = ((alpha==0 || alpha==1) ? true : false);
-    if(lruTable.Find(intArray,fromIndex,toIndex,true,incLRU)){ //why trueee ?????
-        PrintFlightFoundInCache(startAirportName,endAirportName,true); //why ture?????
+    if(lruTable.Find(intArray,fromIndex,toIndex,isCostWeighted,incLRU)){ //why trueee ?????
+        PrintFlightFoundInCache(startAirportName,endAirportName,isCostWeighted); //why ture?????
         navigationMap.PrintPath(intArray,alpha,true);
         return;
     }
     if(navigationMap.HeuristicShortestPath(intArray,startAirportName,endAirportName,alpha)){
         //add to cache
         if(incLRU){
-            PrintFlightCalculated(startAirportName,endAirportName,true); //why ture?
+            PrintFlightCalculated(startAirportName,endAirportName,isCostWeighted); //why ture?
             try{
-                lruTable.Insert(intArray,true);
+                lruTable.Insert(intArray,isCostWeighted);
             }catch(TableCapFullException e){
                 lruTable.RemoveLRU(1);
+                lruTable.Insert(intArray,isCostWeighted);
             }
         }
         navigationMap.PrintPath(intArray,alpha,true);    

@@ -520,11 +520,17 @@ bool MultiGraph::HeuristicShortestPath(std::vector<int>& orderedVertexEdgeIndexL
     orderedVertexEdgeIndexList.push_back(endIndex);
     //reverseVector(orderedVertexEdgeIndexList);
     int n = static_cast<int>(orderedVertexEdgeIndexList.size());
+    int temp;
     for (int i = 0; i < n / 2; ++i) {
-        std::swap(orderedVertexEdgeIndexList[i], orderedVertexEdgeIndexList[n - i - 1]);
+        temp = orderedVertexEdgeIndexList[i];
+        orderedVertexEdgeIndexList[i] = orderedVertexEdgeIndexList[n - i - 1];
+        orderedVertexEdgeIndexList[n - i - 1] = temp;
     }
-
-    return !orderedVertexEdgeIndexList.empty();
+    if(orderedVertexEdgeIndexList.size()>1){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 bool MultiGraph::FilteredShortestPath(std::vector<int>& orderedVertexEdgeIndexList,
