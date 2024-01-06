@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{float}
 \usepackage{amsmath}
+\usepackage{kbordermatrix}
 \usepackage{amssymb}
 
 \usepackage{tikz}
@@ -254,6 +255,54 @@ Thus, to incorporate a complete subgraph \( K_4 \) into \( G \), the edge connec
 
 \section*{Answer 2}
 
+Let's first verify some properties: the count of vertices, edges, and the number of vertices with each degree should match for both graphs. In graph \( G \), there are 8 vertices and 16 edges, with each vertex having a degree of 4. Similarly, in graph \( H \), there are also 8 vertices and 16 edges, and each vertex has a degree of 4. So, there is a possibility of isomorphism.
+
+We need to introduce a function, \( i \) which is both one-to-one and onto, and then determine if it represents an isomorphism. By analyzing the cycles of lengths 3 and 4 in the graphs, we can define the following function, \( i \), by mapping the graphs: 
+\begin{align*}
+    i(a) = a',
+    i(b) = c',
+    i(c) = e', 
+    i(d) = g', 
+    i(e) = b', 
+    i(f) = h', 
+    i(g) = d', 
+    i(h) = f'.
+\end{align*}
+
+We now have a one-to-one correspondence between the vertex set of \( G \) and the vertex set of \( H \).
+
+Let's take a look at the adjacency matrix of \( G \):
+\[
+  \text{A}_{G} = \kbordermatrix{
+    & a & b & c & d & e & f & g & h \\
+    a & 0 & 1 & 0 & 1 & 1 & 1 & 0 & 0 \\ 
+    b & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 \\ 
+    c & 0 & 1 & 0 & 1 & 0 & 0 & 1 & 1 \\ 
+    d & 1 & 0 & 1 & 0 & 0 & 1 & 0 & 1 \\ 
+    e & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 1 \\ 
+    f & 1 & 0 & 0 & 1 & 1 & 0 & 1 & 0 \\
+    g & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 1 \\
+    h & 0 & 0 & 1 & 1 & 1 & 0 & 1 & 0 \\
+  }
+\]
+
+
+
+and the adjacency matrix of \( H \) with the rows and columns labeled by the images of the corresponding vertices in \( G \):
+\[
+  \text{A}_{H} = \kbordermatrix{
+    & a' & c' & e' & g' & b' & h' & d' & f' \\
+    a' & 0 & 1 & 0 & 1 & 1 & 1 & 0 & 0 \\ 
+    c' & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 \\ 
+    e' & 0 & 1 & 0 & 1 & 0 & 0 & 1 & 1 \\ 
+    g' & 1 & 0 & 1 & 0 & 0 & 1 & 0 & 1 \\ 
+    b' & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 1 \\ 
+    h' & 1 & 0 & 0 & 1 & 1 & 0 & 1 & 0 \\
+    d' & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 1 \\
+    f' & 0 & 0 & 1 & 1 & 1 & 0 & 1 & 0 \\
+  }
+\]
+Because \( A_G = A_H \), it follows that \( i \) preserves edges. We conclude that \( i \) is an isomorphism, so \( G \) and \( H \) are isomorphic.
 
 
 \section*{Answer 3}
@@ -332,10 +381,32 @@ Thus, the vertices of \( Q_n \) can be colored with two colors in such a way tha
 
 \subsection*{a)}
 
+In Kruskal's algorithm, we begin by selecting the edge in the graph with the smallest weight. We then proceed to add edges with the next smallest weights, ensuring that they don't create a loop with the previously chosen edges. The process concludes once we have chosen \( n - 1 \) edges.
+
+The order in which the edges are added to the tree is \{a,b\}, \{c,e\},\{e,f\},\{a,d\},and \{b,c\}.
+
 \subsection*{b)}
+
+\begin{tikzpicture}[scale=0.8]
+    \node[circle,draw,] (a) at (-3,0) {a};
+    \node[circle,draw,] (b) at (0,0) {b};
+    \node[circle,draw,] (c) at (3,0) {c};
+    \node[circle,draw,] (d) at (-3,-3) {d};
+    \node[circle,draw,](e) at (0,-3) {e};
+    \node[circle,draw,] (f) at (3,-3) {f};
+    
+    \draw (a) -- (b);
+    \draw (c) -- (e);
+    \draw (e) -- (f);
+    \draw (a) -- (d);
+    \draw (b) -- (c);
+    
+\end{tikzpicture}
+
 
 \subsection*{c)}
 
+No, the choice isn't unique. For instance, selecting edge \{c,f\} would yield a similar cost as the one we initially picked in step-3. Hence, it leads to an alternative minimum spanning tree. The variations in minimum spanning trees arise due to the diverse selections made while applying the algorithm.
 
 \section*{Answer 5}
 
