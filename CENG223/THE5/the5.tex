@@ -192,7 +192,7 @@ After attempting to color the graph \( G \) with 3 colors, we find that it is in
 
 \textbf{Making \( G \) Bipartite:} To make \( G \) bipartite, we would aim to decrease its chromatic number to 2. This can be achieved by removing or "breaking" cycles of odd length in \( G \), as any such cycle in a graph prevents it from being bipartite.
 
-\textbf{Removing \( K_3 \) Subgraphs:} You correctly identified the \( K_3 \) subgraphs in \( G \). To make \( G \) bipartite by removing edges, we would focus on the \( K_3 \) subgraphs.
+\textbf{Removing \( K_3 \) Subgraphs:} We need to identify the \( K_3 \) subgraphs in \( G \). To make \( G \) bipartite by removing edges, we would focus on the \( K_3 \) subgraphs.
 
 \begin{itemize}
     \item For \( K_3 \) subgraphs where all vertices are pairwise connected, removing any single edge would suffice.
@@ -336,7 +336,7 @@ For \( n \) even, we can see that the vertices of \( C_n \) can be alternately c
 \end{tikzpicture}
 
 
-Thus, \( C_6 \) is bipartite and can be colored using two colors, indicating that the chromatic number is 2 amd bipartite when \( n \) is even.
+Thus, \( C_6 \) is bipartite and can be colored using two colors, indicating that the chromatic number is 2 and bipartite when \( n \) is even.
 
 \textbf{When \( n \) is odd:}
 For \( n \) odd, alternating colors while traversing \( C_n \) clockwise will eventually lead to a vertex (e.g., \( v_5 \) in \( C_5 \)) that is adjacent to both the starting vertex \( v_0 \) and the vertex before the starting vertex. This situation requires a third color to ensure no adjacent vertices share the same color.
