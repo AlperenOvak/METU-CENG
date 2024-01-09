@@ -32,7 +32,8 @@ Id Number :  2580801\\
 % Write your answers below the section tags
 \section*{Answer 1}
 
-
+\begin{figure}[H] 
+    \[
 \begin{tikzpicture}[scale=0.8]
     \node[circle,draw] (a) at (0,4) {a};
     \node[circle,draw] (b) at (-4,2) {b};
@@ -56,10 +57,13 @@ Id Number :  2580801\\
     \draw (g) -- (h) -- (i) -- (j);
     \draw (k) -- (l) -- (m);
 \end{tikzpicture}
+\]
+\caption{Graph G in \(Q_1\)}
+\end{figure}
 
 \subsection*{a)}
 
-For a graph to have an Eulerian circuit, each vertex must have an even degree (number of edges incident to it), and the graph must be connected.
+For a graph to have an Eulerian circuit, each vertex must have an even degree (number of edges incident to it), and the graph must be connected (Theorem 1, Section 10.5).
 
 From the graph \( G \) provided:
 
@@ -83,14 +87,18 @@ All vertices have even degrees, which means graph \( G \) meets the first criter
 
 The graph \( G \) is also connected as you can see in the graph, as we can trace a path from any vertex to any other vertex in the graph by following the edges.
 
+Here is an Eulerian circuit: \\
+
+\( k-g-b-c-a-e-f-j-m-e-i-j-e-d-i-h-d-c-g-h-l-k \) \\
+
 Therefore, graph \( G \) does have an Eulerian circuit.
 
 
 \subsection*{b)}
 
-For an Eulerian path (that is not a circuit) to exist, the number of vertices which have odd degree must be 0 or 2. Additionally, the graph must be connected.
+For an Eulerian path (that is not a circuit) to exist, the number of vertices which have odd degree must be 2 (Theorem 2, Section 10.5). Additionally, the graph must be connected.
 
-Since there is no odd degreed vertices, and the graph is connected, we can say that there is an Eulerian path.
+Since there is no odd degreed vertices, we can say that there is no an Eulerian path.
 
 \subsection*{c)}
 
@@ -99,10 +107,11 @@ To determine if graph \( G \) has a Hamiltonian circuit, we must find a closed l
 \textbf{Observations and Analysis:}
 
 \begin{itemize}
-    \item \textbf{Vertex Degrees:} The vertices \( a \), \( b \), \( f \), \( k \), and \( m \) have a degree of 2. In a Hamiltonian circuit, we must use all edges connected to vertices of degree 2, entering and exiting each of these vertices.
+    \item \textbf{Vertex Degrees:} The vertices \( a \), \( b \), \( f \), \( k \), and \( m \) have a degree of 2. In a Hamiltonian circuit, we must use all edges connected to vertices of degree 2, entering and exiting each of these vertices (Conditions for the Existence of Hamilton Circuits, Section 10.5).
     
     \item \textbf{Outer Circle Formation:} When we consider the edges connected to vertices of degree 2 and ensure that we enter and exit each of these vertices, we form an outer circle or loop. This outer loop includes edges connected to vertices \( a \), \( c \), \( b \), \( g \), \( k \), \( l \), \( m \), \( j \), \( f \) and \( e \).
-    
+    \begin{figure}[H] 
+        \[
     \begin{tikzpicture}[scale=0.8]
         \node[circle,draw] (a) at (0,4) {a};
         \node[circle,draw] (b) at (-4,2) {b};
@@ -130,8 +139,10 @@ To determine if graph \( G \) has a Hamiltonian circuit, we must find a closed l
         \draw (k) edge[red, line width=1.5pt] (l);
         \draw (l) edge[red, line width=1.5pt] (m);
     \end{tikzpicture}
-
-    \item \textbf{Inner Vertices:} The vertices which are not visited in the outer loop are \( d \), \( h \) and \( i \). To form a Hamiltonian circuit, we must also visit these inner vertices exactly once.
+    \]
+\caption{Outer loop of graph G after connecting  to vertices with degree 2}
+\end{figure}
+    \item \textbf{Inner Vertices:} The vertices which are not visited in the outer loop are \( d \), \( h \) and \( i \). To form a Hamiltonian circuit, we must also visit these inner vertices exactly once.But, we know that a Hamilton circuit cannot contain a smaller circuit within it (Conditions for the Existence of Hamilton Circuits, Section 10.5).
     
     \item \textbf{Revisiting Vertices:} The challenge arises when we try to connect the outer loop with the inner vertices without revisiting any vertex. Due to the connectivity of graph \( G \), it is not possible to visit all inner vertices without revisiting at least one vertex, breaking the condition for a Hamiltonian circuit.
 \end{itemize}
@@ -157,6 +168,8 @@ To determine the chromatic number \( \chi(G) \) of the graph \( G \):
     \item \textbf{Verification:} By trying to color the graph \( G \) using only 3 colors, we can verify if it's possible to ensure no adjacent vertices share the same color. If successful, then \( \chi(G) = 3 \). If not, then \( \chi(G) \) would be 4 or 5.
 \end{enumerate}
 
+\begin{figure}[H] 
+    \[
 \begin{tikzpicture}[scale=0.8]
     \node[circle,draw,fill=blue!30] (a) at (0,4) {a};
     \node[circle,draw,fill=blue!30] (b) at (-4,2) {b};
@@ -180,6 +193,9 @@ To determine the chromatic number \( \chi(G) \) of the graph \( G \):
     \draw (g) -- (h) -- (i) -- (j);
     \draw (k) -- (l) -- (m);
 \end{tikzpicture}
+\]
+\caption{Coloring of G with 3 different color}
+\end{figure}
 
 \textbf{Conclusion:}
 
@@ -188,16 +204,23 @@ After attempting to color the graph \( G \) with 3 colors, we find that it is in
 
 \subsection*{f)}
 
-\textbf{Chromatic Number and Bipartite Graphs:} It's correct that the chromatic number of a bipartite graph is 2. Since \( \chi(G) = 3 \) for \( G \), it confirms that \( G \) cannot be bipartite.
+\textbf{Chromatic Number and Bipartite Graphs:} 
+
+
+A graph is bipartite if it's possible to color its vertices with just two distinct colors such that no neighboring vertices share the same color.(Theorem 4, Section 10.2)
+
+It's correct that the chromatic number of a bipartite graph is 2. Since \( \chi(G) = 3 \) for \( G \), it confirms that \( G \) cannot be bipartite.\\
 
 \textbf{Making \( G \) Bipartite:} To make \( G \) bipartite, we would aim to decrease its chromatic number to 2. This can be achieved by removing or "breaking" cycles of odd length in \( G \), as any such cycle in a graph prevents it from being bipartite.
 
-\textbf{Removing \( K_3 \) Subgraphs:} You correctly identified the \( K_3 \) subgraphs in \( G \). To make \( G \) bipartite by removing edges, we would focus on the \( K_3 \) subgraphs.
+\textbf{Removing \( K_3 \) Subgraphs:} Let's identify the \( K_3 \) subgraphs in \( G \). To make \( G \) bipartite by removing edges, we would focus on the \( K_3 \) subgraphs.\\
+
+b-c-g, e-f-j, d-h-i and h-i-l are the \( K_3 \) subgraphs in \( G \).
 
 \begin{itemize}
     \item For \( K_3 \) subgraphs where all vertices are pairwise connected, removing any single edge would suffice.
     
-    \item For \( K_3 \) subgraphs where two \( K_3 \) subgraphs share a common edge (forming a 4-clique or \( K_4 \)), removing just one edge would break both \( K_3 \) subgraphs into separate components.
+    \item For \( K_3 \) subgraphs where two \( K_3 \) subgraphs share a common edge, removing just one edge would break both \( K_3 \) subgraphs into separate components.
 \end{itemize}
 
 Note that we need to create odd cycle.
@@ -208,6 +231,8 @@ Right now, A and B are our two sets of nodes. Select a node that is not in eithe
 
 Thus, \( b-c \), \( e-f \),\( h-i \) are the edges that should be deleted to get bipartite graph.
 
+\begin{figure}[H] 
+    \[
 \begin{tikzpicture}[scale=0.8]
     \node[circle,draw,fill=blue!30] (a) at (0,4) {a};
     \node[circle,draw,fill=red!30] (b) at (-4,2) {b};
@@ -235,10 +260,15 @@ Thus, \( b-c \), \( e-f \),\( h-i \) are the edges that should be deleted to get
     \draw (i) -- (j);
     \draw (k) -- (l) -- (m);
 \end{tikzpicture}
+\]
+\caption{Bipartite version of graph G after deleting the edges}
+\end{figure}
+
 
 \subsection*{g)}
 
-Given the graph \( G \) with chromatic number \( \chi(G) = 3 \), it indicates that no set of four vertices in \( G \) can form a complete subgraph \( K_4 \) since a \( K_4 \) would require 4 distinct colors.
+We know that the chromatic number of a complete graph with n vertices is n (Example 2, Section 10.8).\\
+Given the graph \( G \) with chromatic number \( \chi(G) = 3 \), it indicates that no set of four vertices in \( G \) can form a complete subgraph \( K_4 \), since a \( K_4 \) would require 4 distinct colors.
 
 Upon examining the graph:
 
@@ -252,6 +282,21 @@ The edge between vertices \( d \) and \( l \) can be added to \( G \) to ensure 
 
 Thus, to incorporate a complete subgraph \( K_4 \) into \( G \), the edge connecting \( d \) and \( l \) should be added.
 
+\begin{figure}[H] 
+    \[
+\begin{tikzpicture}[scale=0.8]
+
+    \node[circle,draw,fill=blue!30] (d) at (0,2) {d};
+    \node[circle,draw,fill=red!30] (h) at (-2,0) {h};
+    \node[circle,draw,fill=green!30] (i) at (2,0) {i};
+    \node[circle,draw,fill=orange!30] (l) at (0,-2) {l};
+
+    \draw (d) -- (h) -- (l) -- (i) -- (d) -- (l) -- (i) -- (h);
+
+\end{tikzpicture}
+\]
+\caption{subgraph \(K_4\) in G after adding the edge \{d,l\}}
+\end{figure}
 
 \section*{Answer 2}
 
@@ -272,6 +317,7 @@ We need to introduce a function, \( i \) which is both one-to-one and onto, and 
 We now have a one-to-one correspondence between the vertex set of \( G \) and the vertex set of \( H \).
 
 Let's take a look at the adjacency matrix of \( G \):
+\begin{figure}[H] 
 \[
   \text{A}_{G} = \kbordermatrix{
     & a & b & c & d & e & f & g & h \\
@@ -286,9 +332,12 @@ Let's take a look at the adjacency matrix of \( G \):
   }
 \]
 
+\caption{Adjacency matrix of \( G \)}
+\end{figure}
 
 
 and the adjacency matrix of \( H \) with the rows and columns labeled by the images of the corresponding vertices in \( G \):
+\begin{figure}[H] 
 \[
   \text{A}_{H} = \kbordermatrix{
     & a' & c' & e' & g' & b' & h' & d' & f' \\
@@ -302,6 +351,8 @@ and the adjacency matrix of \( H \) with the rows and columns labeled by the ima
     f' & 0 & 0 & 1 & 1 & 1 & 0 & 1 & 0 \\
   }
 \]
+\caption{Adjacency matrix of \( H \)}
+\end{figure}
 Because \( A_G = A_H \), it follows that \( i \) preserves edges. We conclude that \( i \) is an isomorphism, so \( G \) and \( H \) are isomorphic.
 
 
@@ -321,6 +372,8 @@ For \( n \) even, we can see that the vertices of \( C_n \) can be alternately c
     \item Proceeding clockwise, the next vertex \( v_1 \) is colored blue.
     \item Continue this pattern, alternating between red and blue, until \( v_5 \), which is adjacent to \( v_0 \), is colored blue.
 \end{itemize}
+\begin{figure}[H] 
+    \[
 \begin{tikzpicture}
     % Vertices for C_6
     \foreach \x in {0,...,5} {
@@ -334,9 +387,11 @@ For \( n \) even, we can see that the vertices of \( C_n \) can be alternately c
     % Edges for C_6
     \draw (v0) -- (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- cycle;
 \end{tikzpicture}
+\]
+\caption{Coloring of \(Q_6\)}
+\end{figure}
 
-
-Thus, \( C_6 \) is bipartite and can be colored using two colors, indicating that the chromatic number is 2 amd bipartite when \( n \) is even.
+Thus, \( C_6 \) is bipartite and can be colored using two colors, indicating that the chromatic number is 2 and bipartite when \( n \) is even.
 
 \textbf{When \( n \) is odd:}
 For \( n \) odd, alternating colors while traversing \( C_n \) clockwise will eventually lead to a vertex (e.g., \( v_5 \) in \( C_5 \)) that is adjacent to both the starting vertex \( v_0 \) and the vertex before the starting vertex. This situation requires a third color to ensure no adjacent vertices share the same color.
@@ -348,6 +403,8 @@ For instance, in \( C_5 \):
     \item Proceeding clockwise, \( v_1 \) is blue, \( v_2 \) is red, \( v_3 \) is blue, but when reaching \( v_4 \), which is adjacent to both \( v_3 \) and \( v_0 \), a third color (say green) is needed.
 \end{itemize}
 
+\begin{figure}[H] 
+    \[
 \begin{tikzpicture}
     % Vertices for C_5
     \foreach \x/\color in {0/red, 1/blue, 2/red, 3/blue, 4/green} {
@@ -357,6 +414,9 @@ For instance, in \( C_5 \):
     % Edges for C_5
     \draw (u0) -- (u1) -- (u2) -- (u3) -- (u4) -- cycle;
   \end{tikzpicture}
+\]
+\caption{Coloring of \(Q_5\)}
+\end{figure}
 
 Thus, \( C_5 \) requires three colors, indicating that the chromatic number is 3 and it is not bipartite when \( n \) is odd.
 
@@ -381,12 +441,35 @@ Thus, the vertices of \( Q_n \) can be colored with two colors in such a way tha
 
 \subsection*{a)}
 
-In Kruskal's algorithm, we begin by selecting the edge in the graph with the smallest weight. We then proceed to add edges with the next smallest weights, ensuring that they don't create a loop with the previously chosen edges. The process concludes once we have chosen \( n - 1 \) edges.
+In Kruskal's algorithm, we begin by selecting the edge in the graph with the smallest weight. We then proceed to add edges with the next smallest weights, ensuring that they don't create a loop with the previously chosen edges. The process concludes once we have chosen \( n - 1 \) edges.(Algorithm 2, Section 11.5)
 
 The order in which the edges are added to the tree is \{a,b\}, \{c,e\},\{e,f\},\{a,d\},and \{b,c\}.
 
+\begin{figure}[H] 
+
+\begin{table}[H]
+	\small
+	\centering
+	\begin{tabular}{|c|c|c|}	
+	\hline
+	$Choice$ & $Edge$ & $Weight$\\
+	\hline 
+	1 & $\{a,b\}$ & 1\\			
+	2 & $\{c,e\}$ & 2\\	
+	3 & $\{e,f\}$ & 2\\	
+	4 & $\{a,d\}$ & 3\\	
+	5 & $\{b,c\}$ & 4 \\	
+	\hline 
+	\end{tabular}
+\end{table}
+
+\caption{Table of Kruskal steps}
+\end{figure}
+
 \subsection*{b)}
 
+\begin{figure}[H] 
+    \[
 \begin{tikzpicture}[scale=0.8]
     \node[circle,draw,] (a) at (-3,0) {a};
     \node[circle,draw,] (b) at (0,0) {b};
@@ -402,11 +485,34 @@ The order in which the edges are added to the tree is \{a,b\}, \{c,e\},\{e,f\},\
     \draw (b) -- (c);
     
 \end{tikzpicture}
-
+\]
+\caption{Minimum spanning tree for the graph G}
+\end{figure}
 
 \subsection*{c)}
 
 No, the choice isn't unique. For instance, selecting edge \{c,f\} would yield a similar cost as the one we initially picked in step-3. Hence, it leads to an alternative minimum spanning tree. The variations in minimum spanning trees arise due to the diverse selections made while applying the algorithm.
+
+\begin{figure}[H] 
+    \[
+\begin{tikzpicture}[scale=0.8]
+    \node[circle,draw,] (a) at (-3,0) {a};
+    \node[circle,draw,] (b) at (0,0) {b};
+    \node[circle,draw,] (c) at (3,0) {c};
+    \node[circle,draw,] (d) at (-3,-3) {d};
+    \node[circle,draw,](e) at (0,-3) {e};
+    \node[circle,draw,] (f) at (3,-3) {f};
+    
+    \draw (a) -- (b);
+    \draw (c) -- (f);
+    \draw (e) -- (f);
+    \draw (a) -- (d);
+    \draw (b) -- (c);
+    
+\end{tikzpicture}
+\]
+\caption{Alternative spanning tree}
+\end{figure}
 
 \section*{Answer 5}
 
@@ -414,45 +520,38 @@ No, the choice isn't unique. For instance, selecting edge \{c,f\} would yield a 
 
 \textbf{Base Case (d = 1):}
 
-Consider a perfect binary tree \( B_1 \) with depth 1. This tree consists of a single node (the root). The number of nodes \( N_1 \) is 1, and the number of leaves \( L_1 \) is also 1.
+Consider a full binary tree \( B_1 \) with depth 1. This tree consists of a single node (the root). The number of nodes \( N_1 \) is 1, and the number of leaves \( L_1 \) is also 1.
 
 From the provided information:
 \begin{align*}
-N_1 &= 2^1 - 1 = 2 - 1 = 1 \\
+N_1 &= = 1 \\
 L_1 &= \frac{N_1 + 1}{2} = \frac{2}{2} = 1
 \end{align*}
 
-Both the number of nodes and leaves satisfy the given formulas for the base case.
+The number of leaves satisfy the given formulas for the base case.
 
 \textbf{Inductive Step (d \(\rightarrow\) d+1):}
 
-Assume the statements hold for some arbitrary depth \( d \). That is:
+Assume the statements hold for some full binary graph with \(n\) nodes and arbitrary depth \( d \). That is:
 \begin{align*}
-N_d &= 2^d - 1 \\
+N_d &= n \\
 L_d &= \frac{N_d + 1}{2}
 \end{align*}
 
-Now, consider a perfect binary tree \( B_{d+1} \) of depth \( d+1 \) with \( B_d \) as its last layer. Each leaf of \( B_d \) will become two leaves in \( B_{d+1} \).
+Now, consider a full binary tree \( B_{d+1} \) of depth \( d+1 \) with \( B_d \) as its last layer. Each leaf of \( B_d \) at depth \(d\) will have two leaves in \( B_{d+1} \) and they become a internal node.
 
-1. \textbf{Nodes:} For each leaf in \( B_d \), we add 2 nodes in \( B_{d+1} \). So, the new number of nodes \( N_{d+1} \) is:
+1. \textbf{Nodes:} To obtain a full binary graph with depth \(d+1\) (\( B_{d+1} \)), for each leaf in \( B_d \) at depth \(d\), we can add 2 nodes in \( B_{d+1} \). Let's choose \(m\) many leaf where m is a positive integer, and add 2 leaf to each one. So, the new number of nodes \( N_{d+1} \) is:
 \begin{align*}
-N_{d+1} &= N_d + 2L_d \\
-&= (2^d - 1) + 2 \left( \frac{2^d - 1 + 1}{2} \right) \\
-&= 2^d - 1 + 2^d - 1 + 1 \\
-&= 2(2^d) - 1 \\
-&= 2^{d+1} - 1
+N_{d+1} &= N_d + 2m \\
 \end{align*}
-This matches the formula for \( N_{d+1} \).
 
-2. \textbf{Leaves:} Each leaf in \( B_d \) transforms into two leaves in \( B_{d+1} \). Thus, the number of leaves \( L_{d+1} \) becomes:
+2. \textbf{Leaves:} Each leaf in \( B_d \) at depth \(d\) transforms into two leaves in \( B_{d+1} \), and they become a internal node. Thus, the number of leaves \( L_{d+1} \) becomes:
 \begin{align*}
-L_{d+1} &= 2L_d \\
-&= 2 \left( \frac{N_d + 1}{2} \right) \\
-&= 2 \left( \frac{2^d - 1 + 1}{2} \right) \\
-&= 2^d - 1 + 1 \\
-&= \frac{2^{d+1}}{2}  \\
-&= \frac{2^{d+1} - 1 +1}{2}  \\
-&= \frac{N_{d+1} + 1}{2}
+L_{d+1} &= L_d + 2m - m\\
+&= L_d + m \\
+&= \frac{N_d + 1}{2} + m \\
+&= \frac{N_d + 2m + 1}{2} \\
+&= \frac{N_{d+1} + 1}{2} \\
 \end{align*}
 This matches the formula for \( L_{d+1} \).
 
@@ -485,8 +584,12 @@ Therefore, we have m nodes in every level, except level-1. This means that the n
 
 So, we have total \( 1+mh = n \) nodes.
 
+As a result, \( h \le \frac{n-1}{m}\)
+
 It means that the upper bound of height is \( h=\frac{n-1}{m}\).
 
+\begin{figure}[H] 
+    \[
 \begin{forest}
     for tree={circle, draw, minimum size=1em, s sep=10pt}
     [0
@@ -508,5 +611,8 @@ It means that the upper bound of height is \( h=\frac{n-1}{m}\).
         [m]
     ]
     \end{forest}
+\]
+\caption{Full m-ary binary tree with m nodes in each level}
+\end{figure}
 
 \end{document}
