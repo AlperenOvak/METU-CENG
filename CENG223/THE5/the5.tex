@@ -152,7 +152,16 @@ Based on the structure of the graph \( G \) and the analysis above, we can concl
 
 \subsection*{d)}
 
-Yes there is a Hamilton path in G: \(  b - c - a - e - f - j - m - l - i-d-h-g-k \)
+We know that If G is a simple graph with n vertices with \(n \geq 3\) such that the
+degree of every vertex in G is at least n/2, then G has a Hamilton circuit.(Dirac's Theorem, Section 10.5)\\
+
+Moreover,If G is a simple graph with n vertices with \(n \geq 3\) such that
+\( deg(u) + deg(v) \geq n \) for every pair of nonadjacent vertices u and v in G, then G has a
+Hamilton circuit.(Ore's Theorem, Section 10.5)\\
+
+Since both theorem do not satisfy, we can not directly say that there is a Hamilton circuit, therefore we can not say directly there is a Hamilton Path. But we can also find a Hamilton Path manually.
+
+Therefore there is a Hamilton path in G: \(  b - c - a - e - f - j - m - l - i-d-h-g-k \)
 
 \subsection*{e)}
 
@@ -524,7 +533,7 @@ Consider a full binary tree \( B_1 \) with depth 1. This tree consists of a sing
 
 From the provided information:
 \begin{align*}
-N_1 &= = 1 \\
+N_1 &= 1 \\
 L_1 &= \frac{N_1 + 1}{2} = \frac{2}{2} = 1
 \end{align*}
 
@@ -562,17 +571,25 @@ By the principle of mathematical induction, the statements are true for all posi
 
 \subsection*{b)}
 
-The chromatic number \( \chi(G) \) of a graph \( G \) is the smallest number of colors needed to color the vertices of \( G \) such that no two adjacent vertices have the same color.
+To show that the chromatic number of a tree is 2 using mathematical induction, we'll proceed with the following steps:
 
-For a tree \( T \), the chromatic number \( \chi(T) \) is 2. Here's why:
+\textbf{Base Case:}
+A tree with one vertex is trivially 2-colorable. Thus, the base case is true.\\
 
-\begin{enumerate}
-    \item A tree is a connected graph with no cycles.
-    \item Consider any vertex \( v \) of the tree. Since the tree is connected and has no cycles, there is exactly one path between any two vertices in the tree. Therefore, if we start coloring the tree from vertex \( v \) and proceed along the tree, we can ensure that adjacent vertices get different colors.
-    \item Because of the above property, we only need two colors to color a tree such that no two adjacent vertices share the same color: one for \( v \) and its immediate neighbors and another for the neighbors of those neighbors, and so on.
-\end{enumerate}
+\textbf{Inductive Hypothesis:}
+Assume that any tree with $n$ vertices is 2-colorable.\\
 
-Hence, the chromatic number of a tree \( \chi(T) = 2 \).
+We want to prove that any tree with $n+1$ vertices is also 2-colorable.
+
+Consider a tree $T$ with $n+1$ vertices. Remove any leaf vertex $v$ from $T$ to obtain a tree $T'$ with $n$ vertices.
+
+Since $T'$ is a tree with $n$ vertices, by our inductive hypothesis, we can 2-color $T'$ such that no adjacent vertices have the same color.
+
+Now, when we add the leaf vertex $v$ back to $T'$ to form $T$, we can always color $v$ with the color different from its adjacent vertex in $T'$ because $v$ is connected to only one other vertex in $T'$.
+
+Thus, we can always 2-color the tree $T$ with $n+1$ vertices such that no adjacent vertices have the same color.
+
+By the principle of mathematical induction, we can conclude that any tree can be 2-colored. Therefore, the chromatic number of a tree is 2.
 
 \subsection*{c)}
 
