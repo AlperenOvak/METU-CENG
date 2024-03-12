@@ -44,3 +44,40 @@ add (RV g) (RV f) = RV (f+g)
 toReal val = case val of
             RV v -> v
             Rat(a,b) -> ((fromInteger a)/(fromInteger b))
+
+
+index _ [] = -1
+index k (v:rest) | k == v = 0
+                 | otherwise = case index k rest of     
+                                -1 ->  -1
+                                a ->  a+1 
+                                
+reversee [] = []
+reversee (v:rest) = (reversee rest) ++ [v]
+
+reverse2' [] new = new 
+reverse2' (k:rest) new = reverse2' rest (k:new)
+
+reverse2 list = reverse2' list []
+
+
+isprefix [] _ = True
+isprefix _ [] = False
+isprefix (a:ra) (b:rb)  | a==b = isprefix ra rb
+                        |  otherwise = False
+
+
+issuffix [] [] = Just 0
+issuffix _ [] = Nothing
+issuffix ra rB@(b:rb) | isprefix ra rB = Just 0
+                      | otherwise = case issuffix ra rb of 
+                                    Nothing -> Nothing
+                                    Just a -> Just (a+1)    
+yesOrNo a b | True = case issuffix a b of 
+                Nothing -> False
+                Just a -> True
+            | otherwise = False
+                        
+pset [] = [[]]
+pset (v:rest) = let sub = pset rest
+                in sub ++ [v:m | m <-sub]
