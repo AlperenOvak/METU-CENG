@@ -153,6 +153,51 @@ $\text{Cov}(X, Y) = E(XY) - E(X)E(Y) = 0$
 
 \subsection*{a)} 
 
+Let $p$ be the probability of success in a single attempt. The probability of failure in a single attempt is $1 - p$.
+
+The probability of not having a success in a single attempt is $1 - p$. The probability of not having a success in all 1000 attempts is $(1 - p)^{1000}$.
+
+Now, the probability of at least one success in 1000 attempts is the complement of the probability of no success in all attempts:
+
+\[
+P\{X \geq 1\} = 1 - P\{X \leq 1\}
+\]
+
+Given that the probability of no success in a single attempt is $(1 - p)$, the probability of no success in all 1000 attempts is $(1 - p)^{1000}$.
+
+So, we want to find $p$ such that:
+
+\[
+1 - (1 - p)^{1000} = 0.95
+\]
+
+Now, we can solve this equation for $p$:
+
+\[
+(1 - p)^{1000} = 0.05
+\]
+
+Taking the 1000th root of both sides:
+
+\[
+1 - p = 0.05^{1/1000}
+\]
+
+Now, solve for $p$:
+
+\[
+p = 1 - 0.05^{1/1000}
+\]
+
+Calculating this gives the probability of success for an individual attempt:
+
+\[
+p \approx 0.003
+\]
+
+So, the probability of success for an individual attempt should be approximately $0.003$ to ensure that the probability of at least one success in 1000 trials is 95%.
+
+
 \subsection*{b)} 
 
 \subsection*{c)} 
