@@ -232,7 +232,7 @@ void HashTable<MAX_SIZE>::RemoveLRU(int lruElementCount)
 {
     /* TODO */
     for(int j=0;j<lruElementCount;j++){
-        int lowestLRU=9999999999;
+        int lowestLRU=99999999;
         int index=-1;
         for (int i = 0; i < MAX_SIZE; ++i){
             if(table[i].sentinel == OCCUPIED_MARK && lowestLRU>table[i].lruCounter){
