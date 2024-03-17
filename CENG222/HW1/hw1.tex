@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{float}
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 \usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
 %\topmargin=0cm
@@ -199,12 +200,93 @@ So, the probability of success for an individual attempt should be approximately
 
 
 \subsection*{b)} 
+\textbf{i)}
+Let \( X \) be the number of games played until 2 matches are won against
+an IM for an average player. Since \( X \) has Negative Binomial distribution with \( k = 2\) and \( p = 0.003 \), it is a number of trials needed to see 2 won. We need \( P\{X > 500\} = \sum_{n=501}^{\infty} P(x) \) or \( 1 - F(500) \); however, there is no table of Negative Binomial distribution in the Appendix, and applying the formula for \( P(x) \) directly. \\
+Instead, we can solve this problem by a Binomial distribution. Although \( X \) is not Binomial at all, the probability \( P\{X > 500\} \) can be related to some Binomial variable.
+
+\begin{align*}
+P\{X > 500\} &= P\{ \text{more than 500 games needed to get 2 won} \} \\
+            &= P\{ \text{500 games are not sufficient} \} \\
+            &= P\{ \text{there are fewer than 2 wons in 500 games} \} \\
+            &= P\{Y < 2\} ,
+\end{align*}
+where \( Y \) is the number of successes (non-defective components) in 500 games, which is a Binomial variable with parameters \( n = 500 \) and \( p = 0.003 \).
+\[ P\{X > 500\} = P\{Y < 2\} = P\{Y \leq 1\} = F(2) \]
+
+We can calculate this as follows:
+
+\[ F(2) = P(0) + P(1) \]
+
+According to the Binomial distribution formula $P(x) = P\{X = x\} = \binom{n}{x} p^x q^{n-x}$:
+
+\begin{align*}
+P(0) &=   \binom{500}{0} p^0 q^{500-0}\\
+     &=   1 \times (0.003)^0 \times (1-0.003)^{500-0} \\
+     &=   1 \times 1 \times (0.997)^{500} \\
+     &=   (0.997)^{500} \\
+     &\approx   0.223\\
+\end{align*}
+
+\begin{align*}
+P(1) &=   \binom{500}{1} p^1 q^{500-1}\\
+     &=   500 \times (0.003)^1 \times (1-0.003)^{500-1} \\
+     &=   500 \times (0.003) \times (0.997)^{499} \\
+     &\approx   0.335\\
+\end{align*}
+
+Therefore, Our answer is:
+
+\[ F(2) \approx 0.223 + 0.335 \approx 0.558\]
+
+\textbf{ii)} This question is very similar to above question. We can solve it in same way:
+
+\begin{align*}
+P\{X > 10^4\} &= P\{ \text{more than $10^4$ games needed to get 2 won} \} \\
+            &= P\{ \text{$10^4$ games are not sufficient} \} \\
+            &= P\{ \text{there are fewer than 2 wons in $10^4$ games} \} \\
+            &= P\{Y < 2\} ,
+\end{align*}
+
+Solve by Binomial variable with parameters \( n = 10^4 \) and \( p = 10^{-4} \).
+\[ P\{X > 10^4\} = P\{Y < 2\} = P\{Y \leq 1\} = F(2) \]
+
+\[ F(2) = P(0) + P(1) \]
+
+\begin{align*}
+P(0) &=   \binom{10^4}{0} p^0 q^{10^4-0}\\
+     &=   1 \times (10^{-4})^0 \times (1-10^{-4})^{10^4-0} \\
+     &=   1 \times 1 \times (1-10^{-4})^{10^4} \\
+     &=   (1-10^{-4})^{10^4} \\
+     &=   0.367861046\\
+\end{align*}
+
+\begin{align*}
+P(1) &=   \binom{10^4}{1} p^1 q^{10^4-1}\\
+     &=   10^4 \times (10^{-4})^1 \times (1-10^{-4})^{10^4-1} \\
+     &=   0.367897836\\
+\end{align*}
+
+Therefore, Our answer is:
+
+\[ F(2) \approx 0.367861046 + 0.367897836 \approx 0.7358\]
 
 \subsection*{c)} 
+
+Let \( X \) be the number of days feeled healthy. It is the number of successes in 366 Bernoulli trials, thus \( X \) is Binomial with \( n = 366 \) and \( p = 0.98 \). Poisson approximation cannot be applied to \( X \) because \( p \) is too large. However, the number of failures \( Y \) is also Binomial, with parameters \( n = 366 \) and \( q = 0.02 \), and it is approximately Poisson with \( \lambda = nq = 7.32 \). \\
+
+From Table A3, there is no value for $\lambda =7.32 $. Thus, we need to choose most fitting values from Table A3 which is $\lambda =7.5 $
+\[ P \{X \geq 360\} = P \{Y \leq 6\} = F_Y(6) \approx 0.378. \]
 
 
 \section*{Answer 3}
 \subsection*{a)} 
+\begin{figure}[h]
+    \centering
+    \includegraphics{3a_kod}
+    \caption{Name of the image goes here}
+\end{figure}
+
 \subsection*{b)} 
 \subsection*{c)} 
 
