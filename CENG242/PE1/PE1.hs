@@ -44,6 +44,7 @@ diagonal n m=
     in
         concat diagonalCols ++ concat diagonalRows
 
+
 traversee l r = 
     let 
         matrix = diagonal (length l)  (length (head l) )
@@ -71,12 +72,39 @@ createMatrix a [] = a
 createMatrix newM ((m,n,j):flatten) =
     createMatrix (addValueToNestedList newM j (m,n)) flatten
 
+
+nextItem matrix (i,j)= 
+    let n = length matrix
+        m = length (head matrix)
+        diagonalFrom i j =
+            if (i == n -1 && j == m-1)
+                    then (-1,-1)
+                    else if  i >= n-1 || j == 0 -- bottom border
+                        then if i+j >= m-1 -- go down
+                            then (i+j-m+2,m-1) 
+                            else (0,i+j+1)
+            else 
+                (i+1,j-1) 
+    in
+        diagonalFrom i j
+
+finderMatrix l r (i,j) (k,m) =
+    if (i > -1 && j > -1 && k > -1 && m > -1)
+        then if ((l !! i !! j) == (r !! k !! m))
+                 then (i,j,k):finderMatrix l r (nextItem l (i,j)) (nextItem r (k,m))
+                 else finderMatrix l r (nextItem l (i,j)) (k,m)
+    else 
+        []
+        
+
+
 main :: IO ()
 main = do
-    let l =  [[1,2,3,4],[1,2,3,4],[5,6,7,8]]
-        r = [[1,5],[3,4]]
-        result = traversee l r
-        resultt = createMatrix [] result
-        resulttt = findInMatrix r l
+    let l =  [[1,2,3],[4,5,6],[7,8,9]]
+        r = [[1,2,3,4,5],[1,4,5,7,8],[3,6,6,9,0]]
+
+        result = createMatrix [] (finderMatrix l r (0,0) (0,0))
+        resultt = findInMatrix l r
     
-    print resulttt
+
+    print resultt
