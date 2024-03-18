@@ -284,8 +284,23 @@ From Table A3, there is no value for $\lambda =7.32 $. Thus, we need to choose m
 \begin{figure}[h]
     \centering
     \includegraphics{3a_kod}
-    \caption{Name of the image goes here}
+    \caption{CDF of the Poisson distribution for different values of lambda with the same number of events}
 \end{figure}
+
+The Poisson CDF represents the probability that the number of events in a Poisson process will be less than or equal to a certain value. So, in this case, we're comparing the probabilities of observing 6 or fewer events in two Poisson distributions with different lambda values.
+
+In the Poisson distribution, the parameter $\lambda$ represents the average rate of occurrence of events in a fixed interval. In this case, we're comparing two scenarios where the average rate of occurrence is slightly different: $\lambda_1 = 7.32$ and $\lambda_2 = 7.5$.
+
+To compare the two cumulative probabilities:
+
+- $\text{poisscdf}(6, 7.32)$: This represents the probability of observing 6 or fewer events in a Poisson process with an average rate of occurrence of $\lambda_1 = 7.32$.
+
+- $\text{poisscdf}(6, 7.5)$: This represents the probability of observing 6 or fewer events in a Poisson process with an average rate of occurrence of $\lambda_2 = 7.5$.
+
+Since the average rate of occurrence $\lambda_2 = 7.5$ is slightly higher than $\lambda_1 = 7.32$, it implies that there's a slightly higher chance of observing more events in the process with $\lambda_2$ compared to $\lambda_1$. Therefore, the cumulative probability of observing 6 or fewer events in the process with $\lambda_2$ ($\text{poisscdf}(6, 7.5)$) will be lower than the cumulative probability in the process with $\lambda_1$ ($\text{poisscdf}(6, 7.32)$).
+
+In essence, the higher the average rate of occurrence ($\lambda$), the more spread out the Poisson distribution becomes, resulting in a higher probability of observing larger numbers of events, which is reflected in the cumulative distribution function.
+
 
 \subsection*{b)} 
 \subsection*{c)} 
