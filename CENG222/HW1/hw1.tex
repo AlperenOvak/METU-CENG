@@ -3,6 +3,7 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{amssymb}
 
 \usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
 %\topmargin=0cm
@@ -287,36 +288,55 @@ From Table A3, there is no value for $\lambda =7.32 $. Thus, we need to choose m
     \caption{CDF of the Poisson distribution for different values of lambda with the same number of events}
 \end{figure}
 
-The Poisson CDF represents the probability that the number of events in a Poisson process will be less than or equal to a certain value. So, in this case, we're comparing the probabilities of observing 6 or fewer events in two Poisson distributions with different lambda values.
+The Poisson CDF represents the probability that the number of events in a Poisson process will be less than or equal to a certain value. So, in this case, we're comparing the probabilities of observing 6 or fewer events in two Poisson distributions with different lambda values. \\
 
-In the Poisson distribution, the parameter $\lambda$ represents the average rate of occurrence of events in a fixed interval. In this case, we're comparing two scenarios where the average rate of occurrence is slightly different: $\lambda_1 = 7.32$ and $\lambda_2 = 7.5$.
+In the Poisson distribution, the parameter $\lambda$ represents the average rate of occurrence of events in a fixed interval. In this case, we're comparing two scenarios where the average rate of occurrence is slightly different: $\lambda_1 = 7.32$ and $\lambda_2 = 7.5$. \\
 
 To compare the two cumulative probabilities:
 
-- $\text{poisscdf}(6, 7.32)$: This represents the probability of observing 6 or fewer events in a Poisson process with an average rate of occurrence of $\lambda_1 = 7.32$.
+\begin{itemize}
+    \item $\text{poisscdf}(6, 7.32)$: This represents the probability of observing 6 or fewer events in a Poisson process with an average rate of occurrence of $\lambda_1 = 7.32$.
 
-- $\text{poisscdf}(6, 7.5)$: This represents the probability of observing 6 or fewer events in a Poisson process with an average rate of occurrence of $\lambda_2 = 7.5$.
+    \item $\text{poisscdf}(6, 7.5)$: This represents the probability of observing 6 or fewer events in a Poisson process with an average rate of occurrence of $\lambda_2 = 7.5$.
+\end{itemize}
 
 Since the average rate of occurrence $\lambda_2 = 7.5$ is slightly higher than $\lambda_1 = 7.32$, it implies that there's a slightly higher chance of observing more events in the process with $\lambda_2$ compared to $\lambda_1$. Therefore, the cumulative probability of observing 6 or fewer events in the process with $\lambda_2$ ($\text{poisscdf}(6, 7.5)$) will be lower than the cumulative probability in the process with $\lambda_1$ ($\text{poisscdf}(6, 7.32)$).
 
-In essence, the higher the average rate of occurrence ($\lambda$), the more spread out the Poisson distribution becomes, resulting in a higher probability of observing larger numbers of events, which is reflected in the cumulative distribution function.
+Thus, the higher the average rate of occurrence ($\lambda$), the more spread out the Poisson distribution becomes, resulting in a higher probability of observing larger numbers of events, which is reflected in the cumulative distribution function.
 
 
 \subsection*{b)} 
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{3b_kod}
-    \caption{The kod of Poisson and Binomial probabilities}
+    \includegraphics[scale=0.6]{3b_kod}
+    \caption{The code of Poisson and Binomial probabilities for p=0.98}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{3b_graph}
-    \caption{The graph of Poisson and Binomial probabilities}
+    \caption{The graph of Poisson and Binomial probabilities for p=0.98}
 \end{figure}
 
 \subsection*{c)} 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{3c_cod}
+    \caption{The code  of Poisson and Binomial probabilities for p=0.78}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{3c_graph}
+    \caption{The graph of Poisson and Binomial probabilities for p=0.78}
+\end{figure}
+
+According to Chapter 3.4.6, The Poisson distribution is a suitable approximation for binomial probabilities when there are a large number of trials (n) and a small probability of success (p). This approximation is acceptable for cases where n $\geq$ 30 and p $\leq$ 0.05. As n increases, the accuracy of this approximation improves.\\
+
+In the first example, since our p  $ = 1-0.98 = 0.02 \leq 0.05 $ for Poisson distribution, the condition ensure that np, which represents the mean of the Binomial distribution is moderate enough for the Poisson approximation to hold. This parallel result aligns with the Binomial distribution (Figure 3).\\
+
+On the other hand, in the second example, since our p  $ = 1-0.78 = 0.22  \nless 0.05 $, the Poisson approximation of the Binomial distribution becomes less accurate due to violations of the assumptions underlying the approximation. In this scenario, the assumptions for using the Poisson distribution as an approximation of the Binomial distribution does not hold (Figure 5).\\
 
 \end{document}
