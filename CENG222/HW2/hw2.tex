@@ -1,0 +1,141 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\section*{Student Information}
+
+Name : Alperen OVAK \\
+
+ID : 2580801\\
+
+
+\section*{Answer 1}
+\subsection*{a)} 
+
+To find the value of $k$, According to $Definition 4.2 $ the joint density functions satisfies the probability of probability density functions. Therefore, we need to ensure that the given joint probability density function $f_{X,Y}(x,y)$ satisfies the properties of a valid probability density function, which include:
+\begin{itemize}
+    \item Non-negativity: $f_{X,Y}(x,y) \geq 0$ for all $(x,y)$ in the support of $f_{X,Y}(x,y)$.
+    \item Total integral: $\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X,Y}(x,y) \, dx \, dy = 1$. Since the total probability must be equal to 1, the total area under the funtion is also must be equal to 1.
+\end{itemize}
+In the domain where $ { x<0,x > 1,y < 0, y > 1 }$ the joint density function $ f=0 $, and in the domain $ {0 \leq x \leq 1, 0 \leq y \leq 1} $ the joint density function $ f > 0 $. Thus, the function satisfies the first property.\\
+
+To satisfies the second property,we need to compute the integral of $f_{X,Y}(x,y)$ over the entire domain $0 \leq x \leq 1$ and $0 \leq y \leq 1$ and set it equal to $1$, we have:
+
+\[
+\begin{aligned}
+&\int_{0}^{1} \left[ \int_{0}^{1} (x+ky^3) \, dy \right] \, dx &= 1 \\
+&\int_{0}^{1} \left[ x + \frac{ky^4}{4} \right]_0^1 \, dx &= 1 \\
+&\int_{0}^{1} \left( x + \frac{k}{4} \right) \, dx &= 1 \\
+&\left[ \frac{x^2}{2} + \frac{kx}{4} \right]_0^1 &= 1 \\
+&\left( \frac{1}{2} + \frac{k}{4} \right) - \left( 0 + 0 \right) &= 1 \\
+&\frac{1}{2} + \frac{k}{4} &= 1 \\
+&\frac{k}{4} &= \frac{1}{2} \\
+&k &= 2 \\
+\end{aligned}
+\]
+
+So, the value of $k$ is $2$.
+
+\subsection*{b)}
+
+To find the probability that \( X \) is equal to \( \frac{1}{2} \) = \( P(X = \frac{1}{2}) \), we need to take integral of the joint probability density function \( f_{X,Y}(x, y) \) with respect to \( y \) over the range where \( x = \frac{1}{2} \).
+
+Given that \( f_{X,Y}(x, y) = x + ky^3 \) and \( x = \frac{1}{2} \),(\( k = 2 \), from part $a$), we have:
+
+\[
+f_{X,Y}(x, y) = \frac{1}{2} + 2y^3
+\]
+
+Now, we integrate this over the range \( 0 \leq y \leq 1 \):
+
+\[
+P(X = \frac{1}{2}) = \int_{0}^{1} \left(\frac{1}{2} + 2y^3\right) \, dy
+\]
+
+\[
+= \left[\frac{1}{2}y + \frac{1}{2}y^4\right]_{0}^{1}
+\]
+
+\[
+= \left(\frac{1}{2}(1) + \frac{1}{2}(1)^4\right) - \left(\frac{1}{2}(0) + \frac{1}{2}(0)^4\right)
+\]
+
+\[
+= \frac{1}{2} + \frac{1}{2} = 1
+\]
+
+So, the probability \( P(X = \frac{1}{2}) \) is 1.
+
+\subsection*{c)} 
+
+To find \( P(0 \leq X \leq \frac{1}{2}, 0 \leq Y \leq \frac{1}{2}) \), we need to take integral of the joint probability density function \( f_{X,Y}(x, y) \) over the specified region.
+
+Given that \( f_{X,Y}(x, y) = x + 2y^3 \) and the region of integration is \( 0 \leq x \leq \frac{1}{2} \) and \( 0 \leq y \leq \frac{1}{2} \), we integrate as follows:
+
+\[
+P(0 \leq X \leq \frac{1}{2}, 0 \leq Y \leq \frac{1}{2}) = \int_{0}^{\frac{1}{2}} \int_{0}^{\frac{1}{2}} (x + 2y^3) \, dy \, dx
+\]
+
+\[
+= \int_{0}^{\frac{1}{2}} \left[ xy + \frac{2}{4}y^4 \right]_{0}^{\frac{1}{2}} \, dx
+\]
+
+\[
+= \int_{0}^{\frac{1}{2}} \left( \frac{1}{2}x + \frac{1}{32} \right) \, dx
+\]
+
+\[
+= \left[ \frac{1}{4}x^2 + \frac{1}{32}x \right]_{0}^{\frac{1}{2}}
+\]
+
+\[
+= \left( \frac{1}{4} \times \frac{1}{4} + \frac{1}{32} \times \frac{1}{2} \right) - \left( \frac{1}{4} \times 0 + \frac{1}{32} \times 0 \right)
+\]
+
+\[
+= \left( \frac{1}{16} + \frac{1}{64} \right)
+\]
+
+\[
+= \frac{4}{64} + \frac{1}{64}
+\]
+
+\[
+= \frac{5}{64}
+\]
+
+So, \( P(0 \leq X \leq \frac{1}{2}, 0 \leq Y \leq \frac{1}{2}) = \frac{5}{64} \).
+
+\section*{Answer 2}
+\subsection*{a)} 
+
+\subsection*{b)} 
+
+
+\section*{Answer 3}
+\subsection*{a)} 
+
+\subsection*{b)} 
+
+
+\section*{Answer 4}
+\subsection*{a)} 
+
+\subsection*{b)} 
+
+\subsection*{c)} 
+
+\end{document}
