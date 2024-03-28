@@ -160,11 +160,94 @@ where \( \lambda \)= 1:
 \section*{Answer 3}
 \subsection*{a)} 
 
+To solve this problem, we can use the binomial probability formula, as we are dealing with a situation where there are only two outcomes (naval or non-naval) for each soldier selected.
+
+Let's denote: \\
+- \( n = \)  the total number of soldiers selected (1000 in this case).\\
+- \( p =\) the probability that a randomly selected soldier belongs to the naval forces (0.10, since 10$\% $ belong to the naval forces).\\
+- \( q =\) the probability that a randomly selected soldier does not belong to the naval forces (1 - 0.10 = 0.90).\\
+- \( X =\) the number of naval soldiers among the selected 1000 soldiers.\\
+
+We want to find the probability that at least 9$\%$ of the soldiers belong to the naval forces, which means finding the probability of \( X \geq 0.09 \times 1000 = 90 \).\\
+
+
+We know that the formula for binomial probability is:
+
+\[ P(X = k) = \binom{n}{k} \times p^k \times q^{(n-k)} \]
+
+Thus, we can solve this negative distribution equation in order to solve the problem:
+
+\[
+P(X \geq 90) = \sum_{k=90}^{1000} P(X = k) = 1 - F(X \leq 89)
+\]
+
+Since calculating this directly using the negative binomial distribution formula can be complex, let's calculate it using Octave.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{q3a}
+    \caption{The code of negative binomial distribution for n = 1000}
+\end{figure}
+
+Therefore the probability that at least 9$\%$ of the soldiers belong to the naval forces is 0.8666.
+
 \subsection*{b)} 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{q3b}
+    \caption{The code of negative binomial distribution for n = 2000}
+\end{figure}
+
+In this case, the probability that at least 9$\%$ of the soldiers belong to the naval forces is 0.9385.\\
+
+If the retinue is increased to 2000 soldiers while maintaining the same minimum percentage requirement (9$\%$ of 2000 soldiers = 180), the probability of having at least that many naval soldiers will increase.\\
+
+The reason for this increase in probability is that as the number of soldiers increases, the total number of naval soldiers in the group also increases proportionally. With a larger pool of soldiers, it becomes more likely to have at least 9$\%$ of them belonging to the naval forces.\\
+
+In essence, increasing the sample size increases the chances of meeting or exceeding the minimum percentage requirement, thereby increasing the probability. This is a result of the law of large numbers, which states that as the sample size increases, the sample mean (or proportion in this case) converges to the population mean (or proportion), leading to more reliable estimates and outcomes.\\
 
 \section*{Answer 4}
 \subsection*{a)} 
+
+To calculate the probability that a randomly selected elephant will live more than 60 years but less than 75 years, we first need to standardize the values using the Z-score formula:
+
+\[ Z = \frac{{X - \mu}}{{\sigma}} \]
+
+Where:
+
+\begin{itemize}
+    \item \( X \) is the value we're interested in (either 60 or 75)
+    \item \( \mu = 65\) is the mean (65 years)
+    \item \( \sigma = 6\) is the standard deviation (6 years)
+\end{itemize}
+
+For X=60 years:
+\[ Z_1 = \frac{{60 - 65}}{{6}} = -\frac{5}{6} \]
+
+For X=75 years:
+\[ Z_2 = \frac{{75 - 65}}{{6}} = \frac{10}{6} = \frac{5}{3} \]
+
+Thus, we have:
+
+\[ P(60 < X < 75) = P(-\frac{5}{6} < Z < \frac{5}{3}) \]
+
+Now, we'll use the standard normal distribution table (Table \(A4\))to find the cumulative probabilities associated with these Z-scores.
+
+Let's denote:
+
+\[ P(X > 60) = P(Z > -\frac{5}{6}) =  \Phi(-5/6) \approx 0.2033 \]
+\[ P(X < 75) = P(Z < \frac{5}{3}) =  \Phi(5/3) \approx 0.9616 \]
+
+Now, calculate the probability that a randomly selected elephant will live more than 60 years but less than 75 years:
+
+\[ P(60 < X < 75) = P(-\frac{5}{6} < Z < \frac{5}{3}) \]
+\[ = \Phi(5/3) - \Phi(-5/6)\]
+\[ \approx 0.9616 - 0.2033\]
+\[ \approx 0.7583 \]
+
+So, the probability that a randomly selected elephant will live more than 60 years but less than 75 years is approximately 0.7583.
+
 
 \subsection*{b)} 
 
