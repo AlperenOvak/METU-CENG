@@ -122,7 +122,39 @@ So, \( P(0 \leq X \leq \frac{1}{2}, 0 \leq Y \leq \frac{1}{2}) = \frac{5}{64} \)
 \section*{Answer 2}
 \subsection*{a)} 
 
+To find the marginal probability density function (pdf) of Y, we can integrate the joint pdf over all possible values of X, since we have two continuous variables:
+
+\[ f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \, dx \]
+
+Given that \( f_{X,Y}(x, y) = \frac{e^{-y - \frac{x}{y}}}{y} \) for \( 0 < x, y < \infty \), compute the integral:
+
+\[ f_Y(y) = \int_{0}^{\infty} \frac{e^{-y - \frac{x}{y}}}{y} \, dx \]
+
+\[ f_Y(y) = \frac{e^{-y}}{y} \int_{0}^{\infty} e^{-\frac{x}{y}} \, dx \]
+
+Now, let \( u = \frac{x}{y} \), then \( du = \frac{1}{y} dx \), which means \( dx = y \, du \). When \( x = 0 \), \( u = 0 \), and when \( x = \infty \), \( u = \infty \). Substituting these into the integral:
+
+\[ f_Y(y) = \frac{e^{-y}}{y} \int_{0}^{\infty} e^{-u} \, y \, du \]
+\[ f_Y(y) = e^{-y} \int_{0}^{\infty} e^{-u} \, du \]
+\[ f_Y(y) = e^{-y} [-e^{-u}]_{0}^{\infty} \]
+\[ f_Y(y) = e^{-y} [-0 - (-1)] \]
+\[ f_Y(y) = e^{-y} \]
+
+So, the marginal pdf of Y is \( f_Y(y) = e^{-y} \), for \( 0 < y < \infty \). \\
+Notice that according to Chapter 4.2.2 exponential distribution, we have:
+\( f(x) = \lambda e^{-\lambda x } \) \\
+
+This is the pdf of the exponential distribution with parameter \( \lambda = 1 \). Therefore, Y follows an exponential distribution.
+
 \subsection*{b)} 
+
+Finding the expected value of Y is now very straightforward:
+
+\[ E(y) =  \int_{ }^{ } yf(y)\, dy = \int_{0}^{\infty } y\lambda e^{-\lambda y} dy = \frac{1}{\lambda}\] \\
+
+where \( \lambda \)= 1:
+
+\[ E(y) = \frac{1}{1} = 1 \]
 
 
 \section*{Answer 3}
