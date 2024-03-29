@@ -17,11 +17,11 @@ tSelectiveMap boolf func (Node k v children) | boolf k = Node k (func v) (map (t
 -- Question 3
 tSelectiveMappingFold :: (k -> Bool) -> (k -> v -> r) -> (r -> r -> r) -> r -> Tree k v -> r
 tSelectiveMappingFold _ _ _ idt EmptyTree = idt 
-tSelectiveMappingFold predicate mapper combiner acc (Node key value children)
-    | predicate key = let mappedValue = mapper key value
-                          childrenFolded = foldr (\child accum -> tSelectiveMappingFold predicate mapper combiner accum child) acc children
-                      in combiner mappedValue childrenFolded
-    | otherwise     = foldr (\child accum -> tSelectiveMappingFold predicate mapper combiner accum child) acc children
+tSelectiveMappingFold boolf func com acc (Node key value children)
+    | boolf key = let mappedValue = func key value
+                      childrenFolded = foldr (\child accum -> tSelectiveMappingFold boolf func com accum child) acc children
+                      in com mappedValue childrenFolded
+    | otherwise     = foldr (\child accum -> tSelectiveMappingFold boolf func com accum child) acc children
 
 
 
@@ -31,13 +31,11 @@ finder defo (Node k v children) wanted | wanted == k = v
                                        | otherwise = foldr (\child defos -> finder defos child wanted) defo children
 
 
-combinerY x y = y
-combinerX x y = x
+--comY x y = y
+--comX x y = x
 truee :: a -> Bool
 truee _ = True
 
-ali 3 = 5
-ali 6 = 8
 
 funcc [] def k = def
 --funcc ((\x -> y):rest) def k | x==k = y 
@@ -51,7 +49,6 @@ f def k v key | k==key = v
 
 com def func1 func2 k | func1 k == def = func2 k 
                       | otherwise = func1 k
-
 --and (func y) (func1 z) = (\x -> if x==y then (func y) else if x==z then (func1 z))
 
 --outerFunction :: Int -> Int

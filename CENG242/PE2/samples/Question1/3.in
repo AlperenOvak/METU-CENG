@@ -1,0 +1,2 @@
+selectiveMap ((>3) . length) (\(x:xs) -> [x]) ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]
+

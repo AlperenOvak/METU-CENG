@@ -1,0 +1,1 @@
+(searchTree "" (Node 2 "Hello" [Node 5 "Grow" [], Node 4 "Mellow" [], Node 0 "Yellow" [], Node 9 "Glow" []])) 2
