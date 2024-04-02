@@ -25,7 +25,7 @@ ID : 2580801\\
 \section*{Answer 1}
 \subsection*{a)} 
 
-To find the value of $k$, According to $Definition 4.2 $ the joint density functions satisfies the probability of probability density functions. Therefore, we need to ensure that the given joint probability density function $f_{X,Y}(x,y)$ satisfies the properties of a valid probability density function, which include:
+To find the value of $k$, according to Definition $4.2$ the joint density functions satisfies the probability of probability density functions. Therefore, we need to ensure that the given joint probability density function $f_{X,Y}(x,y)$ satisfies the properties of a valid probability density function, which include:
 \begin{itemize}
     \item Non-negativity: $f_{X,Y}(x,y) \geq 0$ for all $(x,y)$ in the support of $f_{X,Y}(x,y)$.
     \item Total integral: $\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X,Y}(x,y) \, dx \, dy = 1$. Since the total probability must be equal to 1, the total area under the funtion is also must be equal to 1.
@@ -55,29 +55,13 @@ To find the probability that \( X \) is equal to \( \frac{1}{2} \) = \( P(X = \f
 
 Given that \( f_{X,Y}(x, y) = x + ky^3 \) and \( x = \frac{1}{2} \),(\( k = 2 \), from part $a$), we have:
 
-\[
-f_{X,Y}(x, y) = \frac{1}{2} + 2y^3
-\]
+\begin{equation}
+P(X = \frac{1}{2}) = P\left(X = \frac{1}{2}, 0 \leq Y \leq  1\right) = \int_{0}^{1} \int_{\frac{1}{2}}^{\frac{1}{2}} (x + 2y^3) \, dx \, dy = 0
+\end{equation}
 
-Now, we integrate this over the range \( 0 \leq y \leq 1 \):
 
-\[
-P(X = \frac{1}{2}) = \int_{0}^{1} \left(\frac{1}{2} + 2y^3\right) \, dy
-\]
 
-\[
-= \left[\frac{1}{2}y + \frac{1}{2}y^4\right]_{0}^{1}
-\]
-
-\[
-= \left(\frac{1}{2}(1) + \frac{1}{2}(1)^4\right) - \left(\frac{1}{2}(0) + \frac{1}{2}(0)^4\right)
-\]
-
-\[
-= \frac{1}{2} + \frac{1}{2} = 1
-\]
-
-So, the probability \( P(X = \frac{1}{2}) \) is 1.
+So, the probability \( P(X = \frac{1}{2}) \) is 0.
 
 \subsection*{c)} 
 
@@ -175,28 +159,28 @@ We know that the formula for binomial probability is:
 
 \[ P(X = k) = \binom{n}{k} \times p^k \times q^{(n-k)} \]
 
-Thus, we can solve this negative distribution equation in order to solve the problem:
+Thus, in order to solve the problem, we should use binomial cdf function:
 
 \[
-P(X \geq 90) = \sum_{k=90}^{1000} P(X = k) = 1 - F(X \leq 89)
+P(X \geq 90) = \sum_{k=90}^{1000} P(X = k) = 1 - P(X \leq 89)
 \]
 
-Since calculating this directly using the negative binomial distribution formula can be complex, let's calculate it using Octave.
+Since calculating this directly can be complex, let's calculate it using Octave.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{q3a}
-    \caption{The code of negative binomial distribution for n = 1000}
+    \caption{The MATLAB code of binomial cdf for n = 1000}
 \end{figure}
 
-Therefore the probability that at least 9$\%$ of the soldiers belong to the naval forces is 0.8666.
+Therefore the probability that at least 9$\%$ of the soldiers belong to the naval forces is approximately 0.8666.
 
 \subsection*{b)} 
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{q3b}
-    \caption{The code of negative binomial distribution for n = 2000}
+    \caption{The MATLAB code of binomial cdf for n = 2000}
 \end{figure}
 
 In this case, the probability that at least 9$\%$ of the soldiers belong to the naval forces is 0.9385.\\
@@ -253,6 +237,12 @@ So, the probability that a randomly selected elephant will live more than 60 yea
 
 \begin{figure}[H]
     \centering
+    \includegraphics[scale=0.6]{q4b}
+    \caption{The MATLAB code of Distribution Histograms}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
     \includegraphics[scale=0.5]{q4b1}
     \caption{Distribution Histogram with random sample of size 20}
 \end{figure}
@@ -274,7 +264,7 @@ So, the probability that a randomly selected elephant will live more than 60 yea
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{q4c}
-    \caption{The code of 1000 iterations for random sample}
+    \caption{The MATLAB code of 1000 iterations for random sample}
 \end{figure}
 
 In part (a), the probability that a randomly selected elephant will live more than 60 years but less than 75 years was calculated to be approximately 0.7583. This implies that in a large population of elephants, around 75.83$\%$ of them are expected to fall within this age range.
