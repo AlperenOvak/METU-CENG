@@ -1,0 +1,1 @@
+"(cos -Variable 'x' * (sin Variable 'y' + cos Variable 'y'))"

@@ -1,0 +1,1 @@
+Addition (Addition (Variable "a") (Addition (Constant 6.0) (Negation (Variable "b")))) (Multiplication (Addition (Variable "c") (Negation (Variable "d"))) (Addition (Variable "c") (Variable "a")))

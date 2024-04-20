@@ -1,0 +1,1 @@
+Variable "a" + (Constant 6 - Variable "b") + ((Variable "c" - Variable "d") * (Variable "c" + Variable "a"))

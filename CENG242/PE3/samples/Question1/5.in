@@ -1,0 +1,1 @@
+show (Multiplication (Addition (Variable "a") (Variable "b")) (Addition (Negation (Addition (Variable "a") (Constant 12))) (Multiplication (Variable "b") (Addition (Variable "b") (Variable "a")))))

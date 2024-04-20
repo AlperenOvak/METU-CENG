@@ -1,0 +1,1 @@
+diff (Addition (Sine (Variable "x")) (Constant 4)) (Variable "x")

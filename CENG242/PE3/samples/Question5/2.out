@@ -1,0 +1,1 @@
+Multiplication (Addition (Variable "x") (Variable "a")) (Addition (Variable "y") (Negation (Variable "b")))

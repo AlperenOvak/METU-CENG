@@ -1,0 +1,1 @@
+Multiplication (Addition (Sine (Constant 0)) (Cosine (Variable "a"))) (Negation (Cosine (Negation (Variable "b")))) == Multiplication (Addition (Sine (Constant 0)) (Cosine (Variable "a"))) (Negation (Cosine (Negation (Variable "b"))))

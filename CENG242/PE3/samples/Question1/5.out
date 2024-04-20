@@ -1,0 +1,1 @@
+"((Variable 'a' + Variable 'b') * (-(Variable 'a' + Constant 12.0) + (Variable 'b' * (Variable 'b' + Variable 'a'))))"

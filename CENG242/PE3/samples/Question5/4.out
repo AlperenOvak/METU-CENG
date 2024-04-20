@@ -1,0 +1,1 @@
+Multiplication (Addition (Addition (Sine (Variable "x")) (Cosine (Variable "x"))) (Constant 1.0)) (Addition (Negation (Variable "x")) (Multiplication (Variable "x") (Sine (Variable "x"))))

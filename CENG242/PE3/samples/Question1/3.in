@@ -1,0 +1,1 @@
+show (Multiplication (Cosine (Negation (Variable "x"))) (Addition (Sine (Variable "y")) (Cosine (Variable "y"))))
