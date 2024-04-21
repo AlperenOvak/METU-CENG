@@ -42,7 +42,9 @@ instance Num Expression where
     (+) expr1 expr2 = Addition expr1 expr2
     negate (Constant c) = Constant (-c)
     negate expr = Negation expr
-    abs (Constant c) = (Constant c)
+    abs (Constant c) 
+        | c > 0 = (Constant c) 
+        | otherwise = (Constant (-c)) 
     abs (Negation (Constant c)) = (Constant c)
     signum (Constant c) 
         | c>0 = Constant 1
