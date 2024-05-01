@@ -18,3 +18,11 @@ iter n f s = iter (n -1) f ( f s )
 zpt a [] = [a]
 zpt a ( x : xs ) = if a > x then a :( x : xs )
                     else x :( zpt a xs )
+
+let a = 1
+    f x = a+g x
+    g x = x +2
+  in f 2 +  let a = 4
+                g x = x +1
+              in f 3
+print $ a

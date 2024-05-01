@@ -105,9 +105,13 @@ shuntingyard (v:list) (b:st) a
     | otherwise = shuntingyard list (b:st) (v:a)
 
 
+
+
 tokenize :: String -> [String]
 tokenize = words
 main = do
     let input = "( a + b ) * ( ( - a + 9 ) * - c * ( sin a + cos c ) )"
     let tokens = tokenize input
-    print $ shuntingyard tokens [] []
+
+
+    --print $ shuntingyard tokens [] []
