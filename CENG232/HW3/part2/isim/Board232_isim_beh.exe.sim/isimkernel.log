@@ -1,0 +1,29 @@
+Command line:
+   Board232_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  41844
+
+Thu May  2 19:16:44 2024
+
+
+ Elaboration Time: 0.04 sec
+
+ Current Memory Usage: 215.249 Meg
+
+ Total Signals          : 29
+ Total Nets             : 69
+ Total Signal Drivers   : 22
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 31
+ Total Traceable Variables  : 39
+ Total Scalar Nets and Variables : 262
+Total Line Count : 156
+
+ Total Simulation Time: 0.06 sec
+
+ Current Memory Usage: 292.848 Meg
+
+Thu May  2 19:17:12 2024
+

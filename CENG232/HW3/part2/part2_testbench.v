@@ -56,7 +56,7 @@ module SeatingSystemTestbench;
 		 #1;
 		 caseFailed = 0;
 		 // Set the inputs
-		 selectedArea = 2'b00;
+		 selectedArea = 0'b00;
 		 plugAvailability = 1; 
 		 
 		 #10;
@@ -86,7 +86,7 @@ module SeatingSystemTestbench;
 		 #1;
 		 caseFailed = 0;
 		 // Set the inputs
-		 selectedArea = 2'b01;
+		 selectedArea = 0'b01;
 		 plugAvailability = 1; 
 		 money = 21;
 		 #10;
@@ -116,7 +116,7 @@ module SeatingSystemTestbench;
 		 #1;
 		 caseFailed = 0;
 		 // Set the inputs
-		 selectedArea = 2'b11;
+		 selectedArea = 0'b11;
 		 money = 3;
 		 #10;
 		 gradeLocal = 0; // Set local grade
