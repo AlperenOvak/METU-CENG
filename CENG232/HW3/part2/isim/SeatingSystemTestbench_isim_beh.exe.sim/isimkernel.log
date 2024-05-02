@@ -1,0 +1,10 @@
+Command line:
+   SeatingSystemTestbench_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  36845
+
+Thu May  2 20:56:07 2024
+
+
+ Elaboration Time: 0.04 sec

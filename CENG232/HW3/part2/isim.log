@@ -1,2 +1,100 @@
 ISim log file
 Running: /home/ise/HW3/part2/SeatingSystemTestbench_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/ise/HW3/part2/SeatingSystemTestbench_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+----------------------------------------------------------------------
+INFO:Security:61 - The XILINXD_LICENSE_FILE environment variable is not set.
+INFO:Security:63 - The LM_LICENSE_FILE environment variable is not set.
+INFO:Security:68 - For more information or for assistance in obtaining 
+ a license, please run the Xilinx License Configuration Manager
+       (xlcm or "Manage Xilinx Licenses".)
+INFO:Security:68a - user is ise, on host localhost.localdomain.
+INFO:Security:15 - A feature for ISIM was found but is for the wrong hostid.
+ERROR:Security:14 - No feature was available for 'ISIM'.
+
+Invalid host.
+ The hostid of this system does not match the hostid
+ specified in the license file.
+Feature:       ISIM
+Hostid:        08002768c935
+License path:  /home/ise/.Xilinx/Xilinx.lic:/opt/Xilinx/14.7/ISE_DS/ISE//data/*.lic:/opt/Xilinx/14.7/ISE_DS/ISE//coregen/core_licenses/Xilinx.lic:/opt/Xilinx/14.7/ISE_DS/ISE//coregen/core_licenses/XilinxFree.lic:/opt/Xilinx/14.7/ISE_DS/EDK/data/core_licenses/Xilinx.lic:
+FLEXnet Licensing error:-9,57
+For further information, refer to the FLEXnet Licensing documentation,
+available at "www.flexerasoftware.com".
+----------------------------------------------------------------------
+WARNING: A full ISim License cannot be checked out due to the issues listed above. Please use Xilinx License Configuration Manager to fix these issues in order to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+WARNING: File "/home/ise/HW3/part2/part2_testbench2.v" Line 5.  For instance SeatingSystemTestbench/SeatingSystem/, width 5 of formal port money is not equal to width 6 of actual variable money. 
+WARNING: File "/home/ise/HW3/part2/part2_testbench2.v" Line 12.  For instance SeatingSystemTestbench/SeatingSystem/, width 6 of formal port seatLeft is not equal to width 5 of actual signal seatLeft.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Starting Testbench
+Finished circuit initialization process.
+Attempt to reserve a seat with plug in the Loud area - invalidPlugseat
+Values before checks: moneyLeft ==X, seatLeft ==15,invalidPlugSeat=1, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=0
+Passed Case 1
+Insufficient amount of money is given as input
+Values before checks: moneyLeft ==3, seatLeft ==15,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=1, seatUnavailable=0, seatReady=0
+Passed Case 1.1
+A seat is reserved successfully
+Values before checks: moneyLeft ==20, seatLeft ==14,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Passed Case 1.2
+All seats are reserved successfully after 14 more clock cycle
+Values before checks: moneyLeft ==20, seatLeft ==0,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Attempt to reserve one more seat when all are reserved
+Values before checks: moneyLeft ==30, seatLeft ==0,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=1, seatReady=0
+Attempt to reserve one more seat with a plug when all seats are reserved, prioritizes seatUnavailable error rather than invalidPlugSeat
+Values before checks: moneyLeft ==30, seatLeft ==0,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=1, seatReady=0
+ 
+Reserve a seat with plug
+Values before checks: moneyLeft ==1, seatLeft ==9,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Passed Case 5
+Reserve a seat with plug
+Values before checks: moneyLeft ==1, seatLeft ==8,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Passed Case 5.1
+Reserve a seat with non-plug
+Values before checks: moneyLeft ==1, seatLeft ==14,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Passed Case 5.2
+Reserve a seat with non-plug
+Values before checks: moneyLeft ==1, seatLeft ==13,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Passed Case 5.3
+Not enough money for seat without plug
+Values before checks: moneyLeft ==8, seatLeft ==13,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=1, seatUnavailable=0, seatReady=0
+Passed Case 5.4
+Not enough money for seat with plug
+Values before checks: moneyLeft ==8, seatLeft ==8,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=1, seatUnavailable=0, seatReady=0
+Passed Case 5.5
+Reserve a seat without plug
+Values before checks: moneyLeft ==1, seatLeft ==12,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Passed Case 5.6
+Reserve all non-plug seats
+Values before checks: moneyLeft ==1, seatLeft ==0,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Reserve one more non-plug seats when non-exist, seatUnavailable
+Values before checks: moneyLeft ==1, seatLeft ==31,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Reserve a seat with plug
+Values before checks: moneyLeft ==1, seatLeft ==7,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Passed Case 5.7
+Reserve all plug seats
+Values before checks: moneyLeft ==1, seatLeft ==0,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Reserve one more non-plug seats when non-exist, plugSeatUnavailable. If all seats are reserved, gives seatUnavailable as specified in PDF
+Values before checks: moneyLeft ==21, seatLeft ==0,invalidPlugSeat=0, plugSeatUnavailable=1, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=0
+ 
+Reserve a seat successfully
+Values before checks: moneyLeft ==0, seatLeft ==19,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Passed Case 11
+Reserve a seat successfully
+Values before checks: moneyLeft ==0, seatLeft ==18,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Passed Case 11.1
+The exact amount of money was not given
+Values before checks: moneyLeft ==3, seatLeft ==18,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=1, insufficientFund=0, seatUnavailable=0, seatReady=0
+Passed Case 11.2
+Reserve a seat successfully
+Values before checks: moneyLeft ==0, seatLeft ==17,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Passed Case 11.3
+All seats are reserved successfully after 17 more clock cycle
+Values before checks: moneyLeft ==0, seatLeft ==0,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=0, seatReady=1
+Attempt to reserve one more seat when all are reserved
+Values before checks: moneyLeft ==30, seatLeft ==0,invalidPlugSeat=0, plugSeatUnavailable=0, notExactFund=0, insufficientFund=0, seatUnavailable=1, seatReady=0
