@@ -97,15 +97,22 @@ always @(posedge CLK) begin
                 end
             end
             else begin
-                if(money >= entranceFee) begin
-                    moneyLeft = money - entranceFee;
-                    plugNoSeatsLeft_1 = plugNoSeatsLeft_1 - 1;
-                    seatLeft = plugNoSeatsLeft_1;
-                    seatReady = 1;
+                if(plugNoSeatsLeft_1 > 0) begin
+                    if(money >= entranceFee) begin
+                        moneyLeft = money - entranceFee;
+                        plugNoSeatsLeft_1 = plugNoSeatsLeft_1 - 1;
+                        seatLeft = plugNoSeatsLeft_1;
+                        seatReady = 1;
+                    end
+                    else begin
+                        insufficientFund = 1;
+                        moneyLeft = money;
+                    end
                 end
                 else begin
-                    insufficientFund = 1;
+                    seatUnavailable = 1;
                     moneyLeft = money;
+                    seatLeft = plugNoSeatsLeft_1;
                 end
             end
         end
