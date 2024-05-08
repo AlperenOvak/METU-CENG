@@ -5,55 +5,70 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 59: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 59: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 84: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 84: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 110: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 111: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 154: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 138: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 180: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 171: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 206: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 199: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 232: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 226: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 258: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 253: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 284: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 280: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 310: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 307: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 343: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 341: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 384: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 367: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 409: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 394: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 434: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 420: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 459: Invalid size of integer constant literal
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 447: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 26: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">money</arg>&gt;. Formal port size is <arg fmt="%d" index="2">5</arg>-bit while actual signal size is <arg fmt="%d" index="1">6</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 475: Invalid size of integer constant literal
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/ise/HW3/part2/part2_testbench2.v" Line 31: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">seatLeft</arg>&gt;. Formal port size is <arg fmt="%d" index="2">6</arg>-bit while actual signal size is <arg fmt="%d" index="1">5</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 501: Invalid size of integer constant literal
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 527: Invalid size of integer constant literal
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 554: Invalid size of integer constant literal
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1818" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 581: Invalid size of integer constant literal
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 26: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">money</arg>&gt;. Formal port size is <arg fmt="%d" index="2">5</arg>-bit while actual signal size is <arg fmt="%d" index="1">6</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/ise/HW3/part2/part2_testbench(better_version).v" Line 31: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">seatLeft</arg>&gt;. Formal port size is <arg fmt="%d" index="2">6</arg>-bit while actual signal size is <arg fmt="%d" index="1">5</arg>-bit.
 </msg>
 
 </messages>

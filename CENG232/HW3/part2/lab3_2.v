@@ -25,6 +25,13 @@ reg [5:0] plugSeatsLeft_2;
 initial begin
     entranceFee = 0;
     moneyLeft = 0;
+    seatLeft = 0;
+    seatUnavailable = 0;
+    insufficientFund = 0;
+    notExactFund = 0;
+    invalidPlugSeat = 0;
+    plugSeatUnavailable = 0;
+    seatReady = 0;
     plugNoSeatsLeft_0 = 15;
     plugSeatsLeft_0 = 0;
     plugNoSeatsLeft_1 = 15;
@@ -40,6 +47,8 @@ always @(posedge CLK) begin
     invalidPlugSeat = 0;
     plugSeatUnavailable = 0;
     seatReady = 0;
+	 moneyLeft = 0;
+    seatLeft = 0;
     if (selectedArea == 0) begin
             entranceFee = 10;
             seatLeft = plugNoSeatsLeft_0;

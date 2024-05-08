@@ -4,6 +4,7 @@
 #include <string>
 #include <set>
 #include <sstream>
+#include <queue>
 
 //#include "nfa.hpp"
 
@@ -385,6 +386,7 @@ void NFA::update_state_name(const std::string& old_name, const std::string& new_
 }
 
 bool NFA::process(std::string input){
+    
     if(!alphabet.is_valid(input)){
         std::cout<<"Invalid string\n";
         return false;
@@ -411,17 +413,20 @@ bool NFA::process(std::string input){
         //go with e 
         std::set<std::string> nextSWithE = transitions(current_state,'e');
         for(std::string emptpNext : nextSWithE){
-            ComputationBranch newbranch = branch.get_last_config();
-            newbranch.push_config(emptpNext,current_inpt);
-            Q.push(newbranch);
+            ComputationBranch newbranchh = branch;
+            newbranchh.push_config(emptpNext,current_inpt);
+            Q.push(newbranchh);
         }
 
         //go with a char
-        nextSWithE = transitions(current_state,current_inpt[0]);
-        for(std::string charNext : nextSWithE){
-            ComputationBranch newbranch = branch.get_last_config();
-            newbranch.push_config(charNext,current_inpt.substr(1));
-            Q.push(newbranch);
+        if(current_inpt != ""){
+                nextSWithE = transitions(current_state,current_inpt[0]);
+            for(std::string charNext : nextSWithE){
+                ComputationBranch newbranchh = branch;
+                newbranchh.push_config(charNext,current_inpt.substr(1));
+                Q.push(newbranchh);
+            }
+            
         }
 
         newbranch = branch;
@@ -499,37 +504,14 @@ void printSet(const std::set<T>& mySet) {
 }
 
 int main(){
-    /*TransitionTable table1, table2;
-    table1.add_rule("q0", 'a', "q1");
-    table1.add_rule("q1", 'b', "q2");
+    NFA M1("dfa1.inp");
+    NFA M2("nfa1.inp");
+    NFA M = !M1 + M2;
 
-    table2.add_rule("q1", 'b', "q2");
-
-    table1.update_state_name("q0", "new_q0");
-
-    std::set<std::string> next_states = table1("new_q0", 'a');
-    std::cout << "Next states for (new_q0, a): ";
-    for (const std::string& state : next_states) {
-        std::cout << state << " ";
-    }
-    std::cout << std::endl;
-
-    table1 += table2;
-
-    std::cout << "Combined Transition Table:\n" << table1;*/
-
-    Alphabet a,b;
-    std::string line = "a b d c e";
-    std::string line1 = "a b g h j";
-    a.init_from_line(line);
-    b.init_from_line(line1);
-
-    printSet(a.get_symbols());
-    std::cout << "Alphabet a: " << a  << std::endl;
-
-    a +=b;
-
-    std::cout << "Alphabet a: " << a  << std::endl;
+    M.process("aabbbab");
+    M.process("aabbbbaaaaab");
+    M.process("baabbbaaaaab");
+    M.process("bbbaa");
 
     return 0;
 }
