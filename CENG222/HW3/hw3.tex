@@ -63,7 +63,6 @@ Substituting the values into the formula:
 So, the 95\% confidence interval for the population mean is approximately (6.906, 10.434).
 
 
-
 \subsection*{b)} 
 
 To determine the sample size required for a specific margin, we can analyze the margin formula:
@@ -96,9 +95,61 @@ Rounding up, the sample size required is approximately 18 to achieve a margin of
 
 \subsection*{a)} 
 
+In hypothesis testing, the null hypothesis (\(H_0\)) typically claims that there is no effect or no change, while the alternative hypothesis (\(H_1\) or \(H_a\)) represents the claim that the researcher is trying to find evidence for.
+
+Given Leyla and Mecnun's debate about whether there has been a change in the average monthly revenue compared to last year, we can define the hypotheses as follows:
+
+In this scenario, Mecnun's claim, which asserts that the revenue has remained the same, should be considered as the null hypothesis (\(H_0\)), while Leyla's claim, suggesting that the revenue has increased, becomes the alternative hypothesis (\(H_1\)).
+
 \subsection*{b)} 
 
+To test Mecnun's claim that the average monthly revenue has remained the same compared to last year at a 5\% level of significance, we can conduct a hypothesis test using the sample data collected this year.
+
+We know that: Last year's average monthly revenue: \(\mu_0 = 20,000\) TL
+Standard deviation last year: \(\sigma = 3,000\) TL
+Sample size this year: \(n = 50\)
+Sample mean this year: \(\bar{x} = 22,000\) TL
+
+We'll perform a z-test because we have the population standard deviation (\(\sigma\)) and the sample size is relatively large (n \(>\) 30).
+
+The formula for the z-score is given by:
+
+\[ z = \frac{\bar{x} - \mu_0}{\frac{\sigma}{\sqrt{n}}} \]
+
+Substituting the given values:
+
+\[ z = \frac{22,000 - 20,000}{\frac{3,000}{\sqrt{50}}} \]
+
+\[ z = \frac{2,000}{\frac{3,000}{\sqrt{50}}} \]
+
+\[ z \approx 4.714 \]
+
+Now, we compare the calculated z-score with the critical z-value at a 5\% level of significance (two-tailed test).
+
+For a one-sided right tail test at $\alpha$ = 0.05, the critical z-value is approximately 1.645.
+
+Since our calculated z-score (4.716) is much greater than the critical z-value (1.645), we reject the null hypothesis.
+
+Therefore, we have enough evidence to conclude that Mecnun's claim is not supported at the 5\% level of significance. The average monthly revenue this year is significantly different from last year, indicating that there has been a change.
+
 \subsection*{c)} 
+
+To calculate the p-value for Mecnun's test, we can use the z-score we obtained earlier, which is approximately \(z = 4.714\).
+
+The p-value is the probability of observing a test statistic as extreme as, or more extreme than, the one observed, under the assumption that the null hypothesis is true.
+
+For a right-tailed test, the p-value is the area under the standard normal distribution curve to the right of the calculated z-score.
+
+The equation of p for right sided case is:
+
+\[P =(Z \geq Z_{obs}) = P(Z \geq 4.714) = 1 - \phi(4.716)\]
+
+\[\approx 0\]
+
+
+The p-value is very close to zero, indicating strong evidence against the null hypothesis. This means that the probability of observing a sample mean as extreme as 22,000 TL or more, assuming that the true population mean is 20,000 TL, is extremely low.
+
+In conclusion, Mecnun's p-value is close to zero, providing strong evidence to reject the null hypothesis in favor of the alternative hypothesis, supporting Leyla's claim that the average monthly revenue has increased compared to last year.
 
 \subsection*{d)} 
 
