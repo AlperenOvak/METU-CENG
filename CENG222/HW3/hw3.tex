@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+%misc libraries goes here
+
+\begin{document}
+
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name :  Alperen OVAK \\
+Id Number :  2580801\\
+
+% Write your answers below the section tags
+\section*{Answer 1}
+
+\subsection*{a)} 
+
+Given that the sample standard deviation (s) is not provided, we'll use the guaranteed standard deviation of the measurement device, which is $\sigma$ = 2.7.
+
+The formula to calculate the confidence interval for the population mean is:
+
+\[ \bar{x} \pm z \times \frac{\sigma}{\sqrt{n}} \]
+
+Where:
+\(\bar{x}\) is the sample mean,
+\(z\) is the z-score corresponding to the desired confidence level (95\% in this case),
+\(\sigma\) is the population standard deviation,
+\(n\) is the sample size.
+
+First, let's calculate the sample mean (\(\bar{x}\)) and the z-score for 95% confidence interval.
+
+Given sample measurements:
+\[ x = [6.4, 9.5, 8.2, 10.2, 7.6, 11.1, 8.7, 7.3, 9.1] \]
+
+\[ \bar{x} = \frac{6.4 + 9.5 + 8.2 + 10.2 + 7.6 + 11.1 + 8.7 + 7.3 + 9.1}{9} = 8.67 \]
+
+Now, to find the z-score for a 95\% confidence interval, we consult the standard normal distribution table or use statistical software:
+
+For a 95\% confidence interval, we need to find the z-score. Since this "Two-sided Z-test", we should wind the value of $z_{\frac{\alpha}{2}}$and the z-score is approximately 1.960 from Chapter 9.2.1.
+
+Substituting the values into the formula:
+
+\[ \text{Lower bound} = 8.67 - 1.960 \times \frac{2.7}{\sqrt{9}} \]
+
+\[ \text{Upper bound} = 8.67 + 1.960 \times \frac{2.7}{\sqrt{9}} \]
+
+\[ \text{Lower bound} \approx 6.906 \]
+
+\[ \text{Upper bound} \approx 10.434 \]
+
+So, the 95\% confidence interval for the population mean is approximately (6.906, 10.434).
+
+
+
+\subsection*{b)} 
+
+To determine the sample size required for a specific margin, we can analyze the margin formula:
+
+\[ {E} = \frac{z \times \sigma}{\sqrt{n}}\]
+
+In our case we want to set a limit, s.t:
+
+\[ {1.25} \geq \frac{z \times \sigma}{\sqrt{n}}\]
+
+we can get the formula easily:
+
+\[ n \geq \left( \frac{z \times \sigma}{1.25} \right)^2 \]
+
+Now let's solve the equation:
+
+Given that \(z = 1.96\) for a 95\% confidence interval, and \(\sigma = 2.7\), substituting the values:
+
+\[ n \geq \left( \frac{1.96 \times 2.7}{1.25} \right)^2 \]
+
+\[ n \geq \left( \frac{5.292}{1.25} \right)^2 \]
+
+\[ n \geq \left( 4.2336 \right)^2 \]
+
+\[ n \geq 17.93 \]
+
+Rounding up, the sample size required is approximately 18 to achieve a margin of error of 1.25 units with a 95\% confidence level.
+
+\section*{Answer 2}
+
+\subsection*{a)} 
+
+\subsection*{b)} 
+
+\subsection*{c)} 
+
+\subsection*{d)} 
+
+
+\section*{Answer 3}
+
+
+
+\end{document}
