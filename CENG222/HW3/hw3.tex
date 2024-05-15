@@ -34,11 +34,12 @@ The formula to calculate the confidence interval for the population mean is:
 
 \[ \bar{x} \pm z \times \frac{\sigma}{\sqrt{n}} \]
 
-Where:
-\(\bar{x}\) is the sample mean,
-\(z\) is the z-score corresponding to the desired confidence level (95\% in this case),
-\(\sigma\) is the population standard deviation,
-\(n\) is the sample size.
+\begin{itemize}
+    \item $\bar{x}$ is the sample mean,
+    \item $z$ is the z-score corresponding to the desired confidence level (95\% in this case),
+    \item $\sigma$ is the population standard deviation,
+    \item $n$ is the sample size.
+\end{itemize}
 
 First, let's calculate the sample mean (\(\bar{x}\)) and the z-score for 95% confidence interval.
 
@@ -47,22 +48,21 @@ Given sample measurements:
 
 \[ \bar{x} = \frac{6.4 + 9.5 + 8.2 + 10.2 + 7.6 + 11.1 + 8.7 + 7.3 + 9.1}{9} = 8.67 \]
 
-Now, to find the z-score for a 95\% confidence interval, we consult the standard normal distribution table or use statistical software:
+Now, to find the z-score for a 95\% confidence interval, we consult the standard normal distribution table or our book:
 
-For a 95\% confidence interval, we need to find the z-score. Since this "Two-sided Z-test", we should wind the value of $z_{\frac{\alpha}{2}}$and the z-score is approximately 1.960 from Chapter 9.2.1.
+For a 95\% confidence interval, we need to find the z-score. Since this "Two-sided Z-test", we should find the value of $z_{\frac{\alpha}{2}}$ which is $z_{0.025}$, so the z-score is approximately 1.960 from Chapter 9.2.1.
 
 Substituting the values into the formula:
 
 \[ \text{Lower bound} = 8.67 - 1.960 \times \frac{2.7}{\sqrt{9}} \]
 
-\[ \text{Upper bound} = 8.67 + 1.960 \times \frac{2.7}{\sqrt{9}} \]
-
 \[ \text{Lower bound} \approx 6.906 \]
+
+\[ \text{Upper bound} = 8.67 + 1.960 \times \frac{2.7}{\sqrt{9}} \]
 
 \[ \text{Upper bound} \approx 10.434 \]
 
 So, the 95\% confidence interval for the population mean is approximately (6.906, 10.434).
-
 
 \subsection*{b)} 
 
@@ -74,13 +74,13 @@ In our case we want to set a limit, s.t:
 
 \[ {1.25} \geq \frac{z \times \sigma}{\sqrt{n}}\]
 
-we can get the formula easily:
+we can get the formula easily to find boundary of $n$:
 
 \[ n \geq \left( \frac{z \times \sigma}{1.25} \right)^2 \]
 
 Now let's solve the equation:
 
-Given that \(z = 1.96\) for a 95\% confidence interval, and \(\sigma = 2.7\), substituting the values:
+Know that \(z = 1.96\) for a 95\% confidence interval, and \(\sigma = 2.7\), substituting the values:
 
 \[ n \geq \left( \frac{1.96 \times 2.7}{1.25} \right)^2 \]
 
@@ -90,7 +90,7 @@ Given that \(z = 1.96\) for a 95\% confidence interval, and \(\sigma = 2.7\), su
 
 \[ n \geq 17.93 \]
 
-Rounding up, the sample size required is approximately 18 to achieve a margin of error of 1.25 units with a 95\% confidence level.
+Rounding up, the sample size required $n$ is approximately 18 to achieve a margin of error of 1.25 units with a 95\% confidence level.
 
 \section*{Answer 2}
 
@@ -98,18 +98,22 @@ Rounding up, the sample size required is approximately 18 to achieve a margin of
 
 In hypothesis testing, the null hypothesis (\(H_0\)) typically claims that there is no effect or no change, while the alternative hypothesis (\(H_1\) or \(H_a\)) represents the claim that the researcher is trying to find evidence for.
 
-Given Leyla and Mecnun's debate about whether there has been a change in the average monthly revenue compared to last year, we can define the hypotheses as follows:
+Leyla and Mecnun discuss about whether there has been a change in the average monthly revenue compared to last year, we can define the hypotheses as follows:
 
 In this scenario, Mecnun's claim, which asserts that the revenue has remained the same, should be considered as the null hypothesis (\(H_0\)), while Leyla's claim, suggesting that the revenue has increased, becomes the alternative hypothesis (\(H_1\)).
 
 \subsection*{b)} 
 
-To test Mecnun's claim that the average monthly revenue has remained the same compared to last year at a 5\% level of significance, we can conduct a hypothesis test using the sample data collected this year.
+To test Mecnun's claim that the average monthly revenue has remained the same compared to last year at a 5\% level 
+of significance, we can run a hypothesis test using the sample data collected this year.
 
-We know that: Last year's average monthly revenue: \(\mu_0 = 20,000\) TL
-Standard deviation last year: \(\sigma = 3,000\) TL
-Sample size this year: \(n = 50\)
-Sample mean this year: \(\bar{x} = 22,000\) TL
+We know that: 
+\begin{itemize}
+    \item Last year's average monthly revenue: $\mu_0 = 20,000$ TL
+    \item Standard deviation last year: $\sigma = 3,000$ TL
+    \item Sample size: $n = 50$
+    \item Sample mean: $\bar{x} = 22,000$ TL
+\end{itemize}
 
 We'll perform a z-test because we have the population standard deviation (\(\sigma\)) and the sample size is relatively large (n \(>\) 30).
 
@@ -148,7 +152,8 @@ The equation of p for right sided case is:
 \[\approx 0\]
 
 
-The p-value is very close to zero, indicating strong evidence against the null hypothesis. This means that the probability of observing a sample mean as extreme as 22,000 TL or more, assuming that the true population mean is 20,000 TL, is extremely low.
+In this case, our p-value is really small, almost zero. This suggests that it's highly unlikely to see an average monthly revenue of 
+22,000 TL or more, assuming the usual average is 20,000 TL. So, Mecnun's data strongly suggests that things have changed, supporting Leyla's claim that the monthly revenue has gone up compared to last year.
 
 In conclusion, Mecnun's p-value is close to zero, providing strong evidence to reject the null hypothesis in favor of the alternative hypothesis, supporting Leyla's claim that the average monthly revenue has increased compared to last year.
 
@@ -161,9 +166,12 @@ The formula for the z-test statistic for two samples is:
 \[ Z = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \]
 
 Where:
-\( \bar{x}_1 \) and \( \bar{x}_2 \) are the sample means (their store: 22,000 TL, competitor's store: 24,000 TL)
-\( \sigma_1 \) and \( \sigma_2 \) are the population standard deviations (their store: 3,000 TL, competitor's store: 4,000 TL)
-\( n_1 \) and \( n_2 \) are the sample sizes (their store: 50, competitor's store: 40)
+\begin{itemize}
+    \item $\bar{x}_1$ and $\bar{x}_2$ are the sample means (base store: 22,000 TL, competitor's store: 24,000 TL)
+    \item $\sigma_1$ and $\sigma_2$ are the population standard deviations (base store: 3,000 TL, competitor's store: 4,000 TL)
+    \item $n_1$ and $n_2$ are the sample sizes (base store: 50, competitor's store: 40)
+\end{itemize}
+
 
 First, let's calculate the z-score:
 
