@@ -44,34 +44,35 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1715774071" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1715774071">
+    <transform xil_pn:end_ts="1715789378" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1715789378">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1715774186" xil_pn:in_ck="-845320988421657687" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1715774186">
+    <transform xil_pn:end_ts="1715789378" xil_pn:in_ck="-845320988421657687" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1715789378">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="BMM_module.v"/>
       <outfile xil_pn:name="testbench_p1.v"/>
     </transform>
-    <transform xil_pn:end_ts="1715774071" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="1854889385420917559" xil_pn:start_ts="1715774071">
+    <transform xil_pn:end_ts="1715789378" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="1854889385420917559" xil_pn:start_ts="1715789378">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1715774071" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-8463968783413368007" xil_pn:start_ts="1715774071">
+    <transform xil_pn:end_ts="1715789378" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-8463968783413368007" xil_pn:start_ts="1715789378">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1715774071" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="7063022884243607817" xil_pn:start_ts="1715774071">
+    <transform xil_pn:end_ts="1715789378" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="7063022884243607817" xil_pn:start_ts="1715789378">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1715774191" xil_pn:in_ck="-845320988421657687" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1715774191">
+    <transform xil_pn:end_ts="1715789378" xil_pn:in_ck="-845320988421657687" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1715789378">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="BMM_module.v"/>
       <outfile xil_pn:name="testbench_p1.v"/>
     </transform>
-    <transform xil_pn:end_ts="1715774194" xil_pn:in_ck="-845320988421657687" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="4057335136015247887" xil_pn:start_ts="1715774191">
+    <transform xil_pn:end_ts="1715789382" xil_pn:in_ck="-845320988421657687" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="4057335136015247887" xil_pn:start_ts="1715789378">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -83,7 +84,7 @@
       <outfile xil_pn:name="testbench_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1715774194" xil_pn:in_ck="7130759491340027311" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-6765454836195340814" xil_pn:start_ts="1715774194">
+    <transform xil_pn:end_ts="1715789382" xil_pn:in_ck="7130759491340027311" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-6765454836195340814" xil_pn:start_ts="1715789382">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="isim.cmd"/>
@@ -92,6 +93,7 @@
     </transform>
     <transform xil_pn:end_ts="1715774034" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1715774034">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1715774034" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="7767535718474959545" xil_pn:start_ts="1715774034">
       <status xil_pn:value="SuccessfullyRun"/>

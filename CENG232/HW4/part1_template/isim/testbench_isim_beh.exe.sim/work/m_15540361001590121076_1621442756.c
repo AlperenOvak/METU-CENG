@@ -25,7 +25,7 @@ static const char *ng0 = "/home/ise/HW4/part1_template/BMM_module.v";
 
 
 
-static void Cont_96_0(char *t0)
+static void Cont_104_0(char *t0)
 {
     char *t1;
     char *t2;
@@ -51,7 +51,7 @@ LAB0:    t1 = (t0 + 3320U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(96, ng0);
+LAB2:    xsi_set_current_line(104, ng0);
     t2 = (t0 + 2168U);
     t3 = *((char **)t2);
     t2 = (t0 + 3720);
@@ -82,7 +82,7 @@ LAB1:    return;
 
 extern void work_m_15540361001590121076_1621442756_init()
 {
-	static char *pe[] = {(void *)Cont_96_0};
+	static char *pe[] = {(void *)Cont_104_0};
 	xsi_register_didat("work_m_15540361001590121076_1621442756", "isim/testbench_isim_beh.exe.sim/work/m_15540361001590121076_1621442756.didat");
 	xsi_register_executes(pe);
 }

@@ -31,14 +31,22 @@ endmodule
 module Bitwise_Manipulation_RAM (
     input mode,                     // 0 for write, 1 for read
     input [2:0] addr,               // RAM address
-	 input [1:0] operation,          // Operation code (AND, OR, XOR, NAND)
+	input [1:0] operation,          // Operation code (AND, OR, XOR, NAND)
     input [7:0] dataIn,             // Input data
     input [7:0] romData,            // Data from ROM used in operations
     input CLK,                      // Clock signal
-	 output reg [7:0] dataOut        // Output data
+	output reg [7:0] dataOut        // Output data
 );
 	// RAM memory array
     reg [7:0] ram [0:7];
+
+    // Initialize RAM content to zeros
+    integer i;
+    initial begin
+        for (i = 0; i < 8; i = i + 1) begin
+            ram[i] = 8'b00000000;
+        end
+    end
     
     // Write mode: perform bitwise operations
     always @(posedge CLK) begin
