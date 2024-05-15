@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/home/ise/HW4/part1_template/testbench.xst" -ofn "/home/ise/HW4/part1_template/testbench.syr" 

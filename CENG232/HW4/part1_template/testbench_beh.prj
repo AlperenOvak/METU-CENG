@@ -1,0 +1,3 @@
+verilog work "BMM_module.v"
+verilog work "testbench_p1.v"
+verilog work "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"
