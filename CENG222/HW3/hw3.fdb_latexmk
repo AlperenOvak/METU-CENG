@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1715626879 "c:/Users/OVAK/Desktop/c/METU-CENG/CENG222/HW3/hw3.tex" "hw3.pdf" "hw3" 1715626879 0
+["pdflatex"] 1715713507 "c:/Users/OVAK/Desktop/c/METU-CENG/CENG222/HW3/hw3.tex" "hw3.pdf" "hw3" 1715713508 0
   "C:/Users/OVAK/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1709571950 83363 a6649a95c24f08db94d7181537d62d20 ""
   "C:/Users/OVAK/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1697489120 24174754 40962ff3c50e501234487ce6df9f1c75 ""
   "C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -42,9 +42,9 @@
   "C:/Users/OVAK/AppData/Local/Programs/MiKTeX/tex/latex/graphics/keyval.sty" 1665067579 2671 7e67d78d9b88c845599a85b2d41f2e39 ""
   "C:/Users/OVAK/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1696960579 29988 e1e28a7c88c8840671272f7848aef0d6 ""
   "C:/Users/OVAK/AppData/Local/Programs/MiKTeX/tex/latex/tools/multicol.sty" 1686255640 32515 51caec75eda9c8890135f12f1a4eddc3 ""
-  "c:/Users/OVAK/Desktop/c/METU-CENG/CENG222/HW3/hw3.tex" 1715626878 10364 a24bc7c021d26625b2664e8243224511 ""
-  "hw3.aux" 1715626879 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
-  "hw3.tex" 1715626878 10364 a24bc7c021d26625b2664e8243224511 ""
+  "c:/Users/OVAK/Desktop/c/METU-CENG/CENG222/HW3/hw3.tex" 1715713506 10365 7ac549547e504abeeab13538ebb126d6 ""
+  "hw3.aux" 1715713507 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
+  "hw3.tex" 1715713506 10365 7ac549547e504abeeab13538ebb126d6 ""
   (generated)
   "hw3.aux"
   "hw3.log"
