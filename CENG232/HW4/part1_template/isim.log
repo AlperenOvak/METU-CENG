@@ -36,3 +36,4 @@ RAM_dataOut: 10011101
 RAM_dataOut: 10011111
 Result is:13.00
 Stopped at time : 102 ns : File "/home/ise/HW4/part1_template/testbench_p1.v" Line 203
+# exit 0
