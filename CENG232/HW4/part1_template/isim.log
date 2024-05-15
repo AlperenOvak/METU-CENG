@@ -1,2 +1,38 @@
 ISim log file
 Running: /home/ise/HW4/part1_template/testbench_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/ise/HW4/part1_template/testbench_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Rom test begin
+Finished circuit initialization process.
+Pass case 1
+  0
+Pass case 2
+  1
+Pass case 3
+  2
+Pass case 4
+ 35
+Pass case 5
+196
+Pass case 6
+101
+Pass case 7
+ 30
+Pass case 8
+ 69
+Ram test begin
+RAM_dataOut: 00000000
+RAM_dataOut: 01010111
+RAM_dataOut: 11111101
+RAM_dataOut: 10011101
+RAM_dataOut: 10011111
+Result is:13.00
+Stopped at time : 102 ns : File "/home/ise/HW4/part1_template/testbench_p1.v" Line 203
