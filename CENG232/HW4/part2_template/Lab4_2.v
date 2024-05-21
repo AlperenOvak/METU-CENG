@@ -18,6 +18,8 @@ reg [15:0] IndividualArea;// 16 seats in Individual area
 reg [15:0] ZoomRooms;     // 16 seats in Zoom rooms
 reg [3:0] userIndex;
 reg [15:0] selectedArea;
+
+
 integer i; // Declare the integer for the loop outside
 
 // Initialize all areas to empty
