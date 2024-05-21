@@ -1,28 +1,106 @@
 `timescale 1ns / 1ps
 
-module lab4_2(
+module lab4_2 (
+    input [1:0] mode,        // Modes: 01 for Entrance, 00 for Exit, 10 for Search, 11 for List
+    input [5:0] userID,      // Format: [AreaID(2 bits)][UserID(4 bits)]
+    input CLK,
+    output reg [1:0] selectedAreaId, // Shows user-selected area
+    output reg [5:0] numberOfInsideUser, // Number of users inside
+    output reg [5:0] listOutput, // Lists the IDs of students in the area
+    output reg AlreadyInside, // Indicates if a student is inside
+    output reg NotInside // Indicates if a student is not inside
+);
 
-							input [1:0] mode,//Student Entrance Mode 01, Student Exit Mode 00,Search Mode 10,List Mode 11
-							input [5:0] userID,//USERID
-							input CLK,
-							output reg [1:0] selectedAreaId,// show user selected area 
-							output reg [5:0] numberOfInsideUser, //seatLeft
-							output reg [5:0] listOutput,
-							output reg AlreadyInside, //update 	
-							output reg NotInside  //update 
-    );
+// Local parameters and variables
+reg [15:0] LoudArea;      // 16 seats in Loud area
+reg [15:0] QuietArea;     // 16 seats in Quiet area
+reg [15:0] IndividualArea;// 16 seats in Individual area
+reg [15:0] ZoomRooms;     // 16 seats in Zoom rooms
+reg [3:0] userIndex;
+reg [15:0] selectedArea;
+integer i; // Declare the integer for the loop outside
 
-//locals
+// Initialize all areas to empty
+initial begin
+    LoudArea = 16'b0;
+    QuietArea = 16'b0;
+    IndividualArea = 16'b0;
+    ZoomRooms = 16'b0;
+    selectedAreaId = 2'b00;
+    numberOfInsideUser = 6'b0;
+    listOutput = 6'b0;
+    AlreadyInside = 1'b0;
+    NotInside = 1'b0;
+end
 
-						
+// Main always block
+always @(posedge CLK) begin
+    // Extract area ID and user ID
+    selectedAreaId = userID[5:4];
+    userIndex = userID[3:0];
+    
+    // Select the appropriate area
+    case (selectedAreaId)
+        2'b00: selectedArea = LoudArea;
+        2'b01: selectedArea = QuietArea;
+        2'b10: selectedArea = IndividualArea;
+        2'b11: selectedArea = ZoomRooms;
+        default: selectedArea = LoudArea;
+    endcase
 
-							initial begin
-				
-							end
+    // Reset flags
+    AlreadyInside = 1'b0;
+    NotInside = 1'b0;
 
-							always @(posedge CLK)
-							begin
-							
-							end
+    case (mode)
+        // Student Entrance Mode
+        2'b01: begin
+            if (selectedArea[userIndex]) begin
+                AlreadyInside = 1'b1;
+            end else begin
+                selectedArea[userIndex] = 1'b1;
+                numberOfInsideUser = numberOfInsideUser + 1;
+            end
+        end
 
-						endmodule
+        // Student Exit Mode
+        2'b00: begin
+            if (selectedArea[userIndex]) begin
+                selectedArea[userIndex] = 1'b0;
+                numberOfInsideUser = numberOfInsideUser - 1;
+            end else begin
+                NotInside = 1'b1;
+            end
+        end
+
+        // Search Mode
+        2'b10: begin
+            if (selectedArea[userIndex]) begin
+                AlreadyInside = 1'b1;
+            end else begin
+                NotInside = 1'b1;
+            end
+        end
+
+        // List Mode
+        2'b11: begin
+            for (i = 0; i < 16; i = i + 1) begin
+                if (selectedArea[i]) begin
+                    listOutput = {selectedAreaId, i[3:0]};
+                end
+            end
+        end
+
+        default: ;
+    endcase
+
+    // Update the selected area based on modifications
+    case (selectedAreaId)
+        2'b00: LoudArea = selectedArea;
+        2'b01: QuietArea = selectedArea;
+        2'b10: IndividualArea = selectedArea;
+        2'b11: ZoomRooms = selectedArea;
+    endcase
+end
+
+endmodule
