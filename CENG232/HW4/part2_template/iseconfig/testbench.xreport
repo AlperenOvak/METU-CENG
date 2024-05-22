@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2024-05-21T19:31:26</DateModified>
+  <DateModified>2024-05-21T21:32:36</DateModified>
   <ModuleName>testbench</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>/home/ise/HW4/part1_template/iseconfig/testbench.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/ise/HW4/part1_template/</ImplementationReportsDirectory>
-  <DateInitialized>2024-05-15T11:36:40</DateInitialized>
+  <SavedFilePath>/home/ise/HW4/part2_template/iseconfig/testbench.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/ise/HW4/part2_template/</ImplementationReportsDirectory>
+  <DateInitialized>2024-05-21T20:02:04</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

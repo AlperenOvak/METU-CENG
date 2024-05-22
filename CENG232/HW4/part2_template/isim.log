@@ -1,0 +1,2 @@
+ISim log file
+Running: /home/ise/HW4/part2_template/testbench_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/ise/HW4/part2_template/testbench_isim_beh.wdb 
