@@ -18,7 +18,10 @@ reg [15:0] IndividualArea;// 16 seats in Individual area
 reg [15:0] ZoomRooms;     // 16 seats in Zoom rooms
 reg [3:0] userIndex;
 reg [15:0] selectedArea;
-reg [5:0] areaCounts [3:0]; // Array to keep track of number of users inside each area
+reg [5:0] loudAreaCount;
+reg [5:0] quietAreaCount;
+reg [5:0] individualAreaCount;
+reg [5:0] zoomRoomsCount;
 integer i; // Declare the integer for the loop outside
 
 // Initialize all areas to empty
@@ -32,10 +35,10 @@ initial begin
     listOutput = 6'b0;
     AlreadyInside = 1'b0;
     NotInside = 1'b0;
-    areaCounts[0] = 6'b0; // Loud area
-    areaCounts[1] = 6'b0; // Quiet area
-    areaCounts[2] = 6'b0; // Individual area
-    areaCounts[3] = 6'b0; // Zoom rooms
+    loudAreaCount = 6'b0;
+    quietAreaCount = 6'b0;
+    individualAreaCount = 6'b0;
+    zoomRoomsCount = 6'b0;
 end
 
 // Main always block
@@ -64,7 +67,12 @@ always @(posedge CLK) begin
                 AlreadyInside = 1'b1;
             end else begin
                 selectedArea[userIndex] = 1'b1;
-                areaCounts[selectedAreaId] = areaCounts[selectedAreaId] + 1;
+                case (selectedAreaId)
+                    2'b00: loudAreaCount = loudAreaCount + 1;
+                    2'b01: quietAreaCount = quietAreaCount + 1;
+                    2'b10: individualAreaCount = individualAreaCount + 1;
+                    2'b11: zoomRoomsCount = zoomRoomsCount + 1;
+                endcase
             end
         end
 
@@ -72,7 +80,12 @@ always @(posedge CLK) begin
         2'b00: begin
             if (selectedArea[userIndex]) begin
                 selectedArea[userIndex] = 1'b0;
-                areaCounts[selectedAreaId] = areaCounts[selectedAreaId] - 1;
+                case (selectedAreaId)
+                    2'b00: loudAreaCount = loudAreaCount - 1;
+                    2'b01: quietAreaCount = quietAreaCount - 1;
+                    2'b10: individualAreaCount = individualAreaCount - 1;
+                    2'b11: zoomRoomsCount = zoomRoomsCount - 1;
+                endcase
             end else begin
                 NotInside = 1'b1;
             end
@@ -110,7 +123,12 @@ always @(posedge CLK) begin
     endcase
 
     // Update the number of inside users for the selected area
-    numberOfInsideUser = areaCounts[selectedAreaId];
+    case (selectedAreaId)
+        2'b00: numberOfInsideUser = loudAreaCount;
+        2'b01: numberOfInsideUser = quietAreaCount;
+        2'b10: numberOfInsideUser = individualAreaCount;
+        2'b11: numberOfInsideUser = zoomRoomsCount;
+    endcase
 end
 
 endmodule
