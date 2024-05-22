@@ -4,18 +4,18 @@ Number of CPUs detected in this system: 1
 Turning on mult-threading, number of parallel sub-compilation jobs: 0 
 Determining compilation order of HDL files
 Analyzing Verilog file "/home/ise/HW4/part2.1_template/Lab4_2.v" into library work
-Analyzing Verilog file "/home/ise/HW4/part2.1_template/testbench.v" into library work
+Analyzing Verilog file "/home/ise/HW4/part2.1_template/Lab4_2-testbenchV2.v" into library work
 Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 95104 KB
-Fuse CPU Usage: 1130 ms
+Fuse Memory Usage: 95096 KB
+Fuse CPU Usage: 1180 ms
 Compiling module lab4_2
 Compiling module testbench
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 3 Verilog Units
 Built simulation executable /home/ise/HW4/part2.1_template/testbench_isim_beh.exe
-Fuse Memory Usage: 98836 KB
-Fuse CPU Usage: 1190 ms
-GCC CPU Usage: 690 ms
+Fuse Memory Usage: 100196 KB
+Fuse CPU Usage: 1250 ms
+GCC CPU Usage: 890 ms
