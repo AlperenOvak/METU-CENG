@@ -63,7 +63,7 @@
 						  if (AlreadyInside==0) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 						if (NotInside==0) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 
-						  if(caseFailed) begin $display("Failed Case 1"); gradeLocal = gradeLocal >> 2; end
+						  if(caseFailed) begin $display("Failed Case 1"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 1");
 						  grade = grade + gradeLocal;
 				 
 					
@@ -84,7 +84,7 @@
 						  if (AlreadyInside==0) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 						if (NotInside==0) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 
-						  if(caseFailed) begin $display("Failed Case 2"); gradeLocal = gradeLocal >> 2; end
+						  if(caseFailed) begin $display("Failed Case 2"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 2");
 						  grade = grade + gradeLocal;
 
 
@@ -103,7 +103,7 @@
 						  if (AlreadyInside==0) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 						if (NotInside==0) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 
-						  if(caseFailed) begin $display("Failed Case 3"); gradeLocal = gradeLocal >> 2; end
+						  if(caseFailed) begin $display("Failed Case 3"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 3");
 						  grade = grade + gradeLocal;
 
 
@@ -124,7 +124,7 @@
 						  if (AlreadyInside==1) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 						if (NotInside==0) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 
-						  if(caseFailed) begin $display("Failed Case 4"); gradeLocal = gradeLocal >> 2; end
+						  if(caseFailed) begin $display("Failed Case 4"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 4");
 						  grade = grade + gradeLocal;
 
 
@@ -185,7 +185,7 @@
 						  if (AlreadyInside==0) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 						if (NotInside==0) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 
-						  if(caseFailed) begin $display("Failed Case 5"); gradeLocal = gradeLocal >> 2; end
+						  if(caseFailed) begin $display("Failed Case 5"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 5");
 						  grade = grade + gradeLocal;
 				  
 
@@ -207,7 +207,7 @@
 						  if (AlreadyInside==0) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 						if (NotInside==1) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 
-						  if(caseFailed) begin $display("Failed Case 6"); gradeLocal = gradeLocal >> 2; end
+						  if(caseFailed) begin $display("Failed Case 6"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 6");
 						  grade = grade + gradeLocal;
 						  
 						  
@@ -226,7 +226,7 @@
 						  if (AlreadyInside==0) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 						if (NotInside==1) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 
-						  if(caseFailed) begin $display("Failed Case 7"); gradeLocal = gradeLocal >> 2; end
+						  if(caseFailed) begin $display("Failed Case 7"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 7");
 						  grade = grade + gradeLocal;
 
 
@@ -247,7 +247,7 @@
 						  if (AlreadyInside==0) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 						if (NotInside==1) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 
-						  if(caseFailed) begin $display("Failed Case 8"); gradeLocal = gradeLocal >> 2; end
+						  if(caseFailed) begin $display("Failed Case 8"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 8");
 						  grade = grade + gradeLocal; 
 						  
 				 
@@ -264,8 +264,8 @@
 						  if (AlreadyInside==1) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 						if (NotInside==0) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 
-						  if(caseFailed) begin $display("Failed Case 9"); gradeLocal = gradeLocal >> 2; end
-						  grade = grade + gradeLocal;
+						  if(caseFailed) begin $display("Failed Case 9"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 9");
+						  grade = grade + gradeLocal; 
 				 
 				 
 						  //***
@@ -292,7 +292,7 @@
 						  if (AlreadyInside==0) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 						if (NotInside==0) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 
-						  if(caseFailed) begin $display("Failed Case 10"); gradeLocal = gradeLocal >> 2; end
+						  if(caseFailed) begin $display("Failed Case 10"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 10");
 						  grade = grade + gradeLocal;
 
 
@@ -309,7 +309,7 @@
 						  if (AlreadyInside==0) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 						if (NotInside==0) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 
-						  if(caseFailed) begin $display("Failed Case 11"); gradeLocal = gradeLocal >> 2; end
+						  if(caseFailed) begin $display("Failed Case 11"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 11");
 						  grade = grade + gradeLocal;
 				  
 				  
@@ -326,7 +326,7 @@
 						  if (AlreadyInside==0) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 						if (NotInside==0) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 
-						  if(caseFailed) begin $display("Failed Case 12"); gradeLocal = gradeLocal >> 2; end
+						  if(caseFailed) begin $display("Failed Case 12"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 12");
 						  grade = grade + gradeLocal;
 				 
 					 
@@ -355,7 +355,7 @@
 				if (listOutput==0) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 				end
 			endcase		
-				  if(caseFailed) begin $display("Failed Case 13"); gradeLocal = gradeLocal >> 2; end
+				  if(caseFailed) begin $display("Failed Case 13"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 13");
 				  grade = grade + gradeLocal;
 					
 					
@@ -373,7 +373,7 @@
 			  if (AlreadyInside==0) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 			if (NotInside==1) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 	 
-			  if(caseFailed) begin $display("Failed Case 14"); gradeLocal = gradeLocal >> 2; end
+			  if(caseFailed) begin $display("Failed Case 14"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 14");
 			  grade = grade + gradeLocal;
 
 				 #1;
@@ -394,7 +394,7 @@
 				end
 			endcase		
 
-			  if(caseFailed) begin $display("Failed Case 15"); gradeLocal = gradeLocal >> 2; end
+			  if(caseFailed) begin $display("Failed Case 15"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 15");
 			  grade = grade + gradeLocal;
 	 
 	 
@@ -411,7 +411,7 @@
 			if (numberOfInsideUser == 11) gradeLocal = gradeLocal+2;   else caseFailed = 1;
 			  if (listOutput==3) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 
-			  if(caseFailed) begin $display("Failed Case 16"); gradeLocal = gradeLocal >> 2; end
+			  if(caseFailed) begin $display("Failed Case 16"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 16");
 			  grade = grade + gradeLocal;
 				 
 				 
@@ -427,7 +427,7 @@
 			if (numberOfInsideUser == 11) gradeLocal = gradeLocal+2;   else caseFailed = 1;
 			  if (listOutput==4) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 
-			  if(caseFailed) begin $display("Failed Case 17"); gradeLocal = gradeLocal >> 2; end
+			  if(caseFailed) begin $display("Failed Case 17"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 17");
 			  grade = grade + gradeLocal;
 				 
 				  
@@ -445,7 +445,7 @@
 						  if (AlreadyInside==0) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 						if (NotInside==0) gradeLocal = gradeLocal+1;                 else caseFailed = 1;
 
-						  if(caseFailed) begin $display("Failed Case 10"); gradeLocal = gradeLocal >> 2; end
+						  if(caseFailed) begin $display("Failed Case 10"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 10");
 						  grade = grade + gradeLocal;
 
 					 
@@ -464,7 +464,7 @@
 			if (numberOfInsideUser == 10) gradeLocal = gradeLocal+2;   else caseFailed = 1;
 			  if (listOutput==2) gradeLocal = gradeLocal+1;            else caseFailed = 1;
 
-			  if(caseFailed) begin $display("Failed Case 17"); gradeLocal = gradeLocal >> 2; end
+			  if(caseFailed) begin $display("Failed Case 17"); gradeLocal = gradeLocal >> 2; end else $display("Pass Case 17");
 			  grade = grade + gradeLocal;
 				 
 				 

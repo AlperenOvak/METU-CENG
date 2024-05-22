@@ -1,0 +1,71 @@
+ISim log file
+Running: /home/ise/HW4/part2.1_template/testbench_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/ise/HW4/part2.1_template/testbench_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Starting Testbench
+Finished circuit initialization process.
+Values before checks: mode==1, userID ==1, selectedAreaId=0, numberOfInsideUser=1, AlreadyInside=0, NotInside=0 
+Pass Case 1
+Values before checks: mode==1, userID ==50, selectedAreaId=3, numberOfInsideUser=1, AlreadyInside=0, NotInside=0 
+Pass Case 2
+Values before checks: mode==1, userID ==3, selectedAreaId=0, numberOfInsideUser=2, AlreadyInside=0, NotInside=0 
+Pass Case 3
+Values before checks: mode==1, userID ==3, selectedAreaId=0, numberOfInsideUser=2, AlreadyInside=1, NotInside=0 
+Pass Case 4
+Values before checks: mode==1, userID ==16, selectedAreaId=1, numberOfInsideUser=1, AlreadyInside=0, NotInside=0 
+Values before checks: mode==1, userID ==2, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==3, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==4, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==5, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==6, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==7, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==8, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==9, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==10, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==11, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==12, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==13, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==14, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==15, selectedAreaId=0, numberOfInsideUser=15, AlreadyInside=1, NotInside=0 
+Values before checks: mode==1, userID ==16, selectedAreaId=1, numberOfInsideUser=1, AlreadyInside=1, NotInside=0 
+Values before checks: mode==0, userID ==1, selectedAreaId=0, numberOfInsideUser=14, AlreadyInside=0, NotInside=0 
+Pass Case 5
+Values before checks: mode==0, userID ==53, selectedAreaId=3, numberOfInsideUser=1, AlreadyInside=0, NotInside=1 
+Pass Case 6
+Values before checks: mode==0, userID ==37, selectedAreaId=2, numberOfInsideUser=0, AlreadyInside=0, NotInside=1 
+Pass Case 7
+Values before checks: mode==2, userID ==1, selectedAreaId=0, numberOfInsideUser=14, AlreadyInside=0, NotInside=1 
+Pass Case 8
+Values before checks: mode==2, userID ==3, selectedAreaId=0, numberOfInsideUser=14, AlreadyInside=1, NotInside=0 
+Pass Case 9
+Values before checks: mode==0, userID ==5, selectedAreaId=0, numberOfInsideUser=13, AlreadyInside=0, NotInside=0 
+Pass Case 10
+Values before checks: mode==0, userID ==7, selectedAreaId=0, numberOfInsideUser=12, AlreadyInside=0, NotInside=0 
+Pass Case 11
+Values before checks: mode==0, userID ==8, selectedAreaId=0, numberOfInsideUser=11, AlreadyInside=0, NotInside=0 
+Pass Case 12
+Values before checks: mode==3, userID ==37, selectedAreaId=2, numberOfInsideUser=0, AlreadyInside=0, NotInside=0,listOutput=x 
+Pass Case 13
+Values before checks: mode==0, userID ==30, selectedAreaId=1, numberOfInsideUser=1, AlreadyInside=0, NotInside=1 
+Pass Case 14
+Values before checks: mode==3, userID ==5, selectedAreaId=0, numberOfInsideUser=11, AlreadyInside=0, NotInside=0,listOutput=2 
+Pass Case 15
+Values before checks: mode==3, userID ==5, selectedAreaId=0, numberOfInsideUser=11, AlreadyInside=0, NotInside=0,listOutput=3 
+Pass Case 16
+Values before checks: mode==3, userID ==5, selectedAreaId=0, numberOfInsideUser=11, AlreadyInside=0, NotInside=0,listOutput=4 
+Pass Case 17
+Values before checks: mode==0, userID ==6, selectedAreaId=0, numberOfInsideUser=10, AlreadyInside=0, NotInside=0 
+Pass Case 10
+Values before checks: mode==3, userID ==5, selectedAreaId=0, numberOfInsideUser=10, AlreadyInside=0, NotInside=0,listOutput=2 
+Pass Case 17
+Result         100
+Stopped at time : 196 ns : File "/home/ise/HW4/part2.1_template/testbench.v" Line 477
+# exit 0
