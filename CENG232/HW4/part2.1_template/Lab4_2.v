@@ -2,14 +2,14 @@
 
 module lab4_2(
 
-							input [1:0] mode,//Student Entrance Mode 01, Student Exit Mode 00,Search Mode 10,List Mode 11
-							input [5:0] userID,//USERID
+							input [1:0] mode,
+							input [5:0] userID,
 							input CLK,
-							output reg [1:0] selectedAreaId,// show user selected area 
-							output reg [5:0] numberOfInsideUser, //seatLeft
+							output reg [1:0] selectedAreaId,
+							output reg [5:0] numberOfInsideUser, 
 							output reg [5:0] listOutput,
-							output reg AlreadyInside, //update 	
-							output reg NotInside  //update 
+							output reg AlreadyInside, 	
+							output reg NotInside   
     );
 
 //locals
@@ -30,7 +30,7 @@ reg [5:0] quietAreaIndex;
 reg [5:0] individualAreaIndex;
 reg [5:0] zoomRoomsIndex;
 reg [1:0] var;
-integer i; // Declare the integer for the loop outside
+integer i; 
 
 // Initialize all areas to empty
 initial begin
@@ -56,9 +56,8 @@ initial begin
 
 end
 
-// Main always block
 always @(posedge CLK) begin
-    // Extract area ID and user ID
+    
     selectedAreaId = userID[5:4];
     userIndex = userID[3:0];
     
@@ -79,7 +78,6 @@ always @(posedge CLK) begin
         default: AreaIndex = loudAreaIndex;
     endcase
 
-    // Reset flags
     AlreadyInside = 1'b0;
     NotInside = 1'b0;
 

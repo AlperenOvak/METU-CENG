@@ -27,7 +27,6 @@ module ROM (
 endmodule
 
 
-
 module Bitwise_Manipulation_RAM (
     input mode,                     // 0 for write, 1 for read
     input [2:0] addr,               // RAM address
@@ -37,10 +36,8 @@ module Bitwise_Manipulation_RAM (
     input CLK,                      // Clock signal
 	output reg [7:0] dataOut        // Output data
 );
-	// RAM memory array
     reg [7:0] ram [0:7];
 
-    // Initialize RAM content to zeros
     integer i;
     initial begin
         for (i = 0; i < 8; i = i + 1) begin
@@ -48,7 +45,7 @@ module Bitwise_Manipulation_RAM (
         end
     end
     
-    // Write mode: perform bitwise operations
+    // Write mode: 
     always @(posedge CLK) begin
         if (mode == 0) begin // Write mode
             case (operation)
@@ -61,7 +58,7 @@ module Bitwise_Manipulation_RAM (
         end
     end
 
-    // Read mode: read data from RAM
+    // Read mode: 
     always @(*) begin
         if (mode == 1) begin
             dataOut = ram[addr];
@@ -69,8 +66,6 @@ module Bitwise_Manipulation_RAM (
     end
 	
 endmodule
-
-
 
 module Combined_Memory_System (
     input mode,
@@ -82,14 +77,12 @@ module Combined_Memory_System (
 );
 	wire [7:0] romData;
     wire [7:0] ramDataOut;
-    
-    // Instantiate ROM module
+
     ROM rom_inst (
         .addr(systemAddr),
         .dataOut(romData)
     );
 
-    // Instantiate Bitwise Manipulation RAM module
     Bitwise_Manipulation_RAM ram_inst (
         .mode(mode),
         .addr(systemAddr),
@@ -100,7 +93,6 @@ module Combined_Memory_System (
         .dataOut(ramDataOut)
     );
 
-    // Output data from RAM module
     assign systemOutput = ramDataOut;
 	 
 endmodule
