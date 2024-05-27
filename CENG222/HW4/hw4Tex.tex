@@ -134,4 +134,49 @@ Thus, the size of the Monte Carlo simulation should be at least 4148.
 
 \section*{Answer 2}
 
+\subsection*{Simulation Size}
+We use \( N = 4148 \) as determined from part (a) to ensure that our simulation estimate is accurate within the desired margin of error.
+
+\subsection*{Generating Number of Vehicles}
+The number of automobiles \( \text{numA} \) is generated using a Poisson random variable with parameter \( \lambda_A = 60 \).
+The number of trucks \( \text{numT} \) is generated using a Poisson random variable with parameter \( \lambda_T = 12 \).
+
+\subsection*{Weights Calculation}
+The weight of each automobile is generated using a Gamma distribution with shape \( \alpha = 120 \) and scale \( \frac{1}{\lambda} = 10 \).
+
+The weight of each truck is generated using a Gamma distribution with shape \( \alpha = 14 \) and scale \( \frac{1}{\lambda} = 1000 \).
+
+\subsection*{Total Weight for Each Run}
+For each Monte Carlo run, the total weight of all vehicles (automobiles and trucks) is calculated and stored in the \texttt{TotalWeight} vector.
+
+\subsection*{Probability Estimation}
+The probability of the bridge collapsing is estimated by counting the number of simulations where the total weight exceeds 250,000 kg (250 tons) and dividing by \( N \).
+
+\[
+p_{\text{est}} = \frac{\sum_{k=1}^{N} I(\text{TotalWeight}_k > 250000)}{N}
+\]
+
+\subsection*{Expected Value and Standard Deviation}
+The expected total weight is the mean of the \texttt{TotalWeight} vector.
+
+\[
+\text{ExpectedWeight} = \frac{1}{N} \sum_{k=1}^{N} \text{TotalWeight}_k
+\]
+
+The standard deviation of the total weight is calculated using the standard deviation formula:
+
+\[
+\text{StdWeight} = \sqrt{\frac{1}{N-1} \sum_{k=1}^{N} (\text{TotalWeight}_k - \text{ExpectedWeight})^2}
+\]
+
+\section*{Output Example}
+When we run the \texttt{hw4.m} script, the output will look something like this:
+
+\begin{verbatim}
+Estimated probability = 0.034217
+Expected weight = 240123.487781
+Standard deviation = 38504.637221
+\end{verbatim}
+
+
 \end{document}
