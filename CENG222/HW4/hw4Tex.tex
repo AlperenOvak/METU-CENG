@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\section*{Student Information}
+
+Name : Alperen OVAK \\
+
+ID : 2580801\\
+
+
+\section*{Answer 1}
+\subsection*{a)} 
+
+We need to use the Normal approximation to determine the sample size \( n \) for the Monte Carlo simulation such that with 0.99 probability, the estimate differs from the true value by no more than 0.02.
+
+According to our book chapter 5.3, size of a Monte Carlo study is given by:
+
+\[ N \geq p(1-p){\left(\frac{z_{\alpha/2}}{\varepsilon}\right) }^2 \]
+
+Thus, the margin of error \( \varepsilon  \) for a Monte Carlo simulation is:
+
+\[ \varepsilon  = z_{\alpha/2} \sqrt{\frac{p(1-p)}{N}} \]
+
+Where:
+\begin{itemize}
+    \item \( z_{\alpha/2} \) is the critical value from the standard normal distribution for a 99\% confidence level. For 99\% confidence, \( \alpha = 0.01 \), so \( \alpha/2 = 0.005 \), and \( z_{\alpha/2} \approx 2.576 \).
+    \item \( p \) is the estimated probability (unknown, but we can use \( p = 0.5 \) for the most conservative estimate).
+    \item \( N \) is the sample size.
+\end{itemize}
+
+
+We want the margin of error \( \varepsilon  \) to be less than 0.02:
+
+\[ 0.02 = 2.576 \sqrt{\frac{0.5(1-0.5)}{N}} \]
+
+Solving for \( N \):
+
+\[ 0.02 = 2.576 \sqrt{\frac{0.25}{N}} \]
+
+\[ 0.02 = 2.576 \cdot \frac{0.5}{\sqrt{N}} \]
+
+\[ 0.02 = 1.288 / \sqrt{N} \]
+
+\[ \sqrt{N} = 1.288 / 0.02 \]
+
+\[ \sqrt{N} = 64.4 \]
+
+\[ N \approx 64.4^2 \]
+
+\[ N \approx 4147.36 \]
+
+Round up:
+
+\[ N = 4148 \]
+
+Thus, the size of the Monte Carlo simulation should be at least 4148.
+
+\subsection*{b)} 
+
+\begin{enumerate}
+    \item \textbf{Expected value for the weight of an automobile:}
+    
+    The weight of each automobile is Gamma distributed with parameters \(\alpha = 120\) and \(\lambda = 0.1\).
+    
+    The expected value \( E[X] \) for a Gamma distribution is given by:
+    
+    \[
+    E[X] = \frac{\alpha}{\lambda}
+    \]
+    
+    For the automobile:
+    
+    \[
+    E[\text{Weight of an automobile}] = \frac{120}{0.1} = 1200 \, \text{kg}
+    \]
+  
+    \item \textbf{Expected value for the weight of a truck:}
+    
+    The weight of each truck is Gamma distributed with parameters \(\alpha = 14\) and \(\lambda = 0.001\).
+    
+    For the truck:
+    
+    \[
+    E[\text{Weight of a truck}] = \frac{14}{0.001} = 14000 \, \text{kg}
+    \]
+  
+    \item \textbf{Expected value for the total weights of all automobiles:}
+    
+    The number of automobiles passing over the bridge per day is a Poisson random variable with \(\lambda_A = 60\).
+    
+    Since the weight of each automobile is independent and identically distributed, the total weight of all automobiles is:
+    
+    \[
+    E[\text{Total weight of all automobiles}] = E[N_A] \cdot E[\text{Weight of an automobile}]
+    \]
+    
+    Where \( N_A \) is the number of automobiles:
+    
+    \[
+    E[\text{Total weight of all automobiles}] = 60 \cdot 1200 = 72000 \, \text{kg}
+    \]
+  
+    \item \textbf{Expected value for the total weights of all trucks:}
+    
+    The number of trucks passing over the bridge per day is a Poisson random variable with \(\lambda_T = 12\).
+    
+    Since the weight of each truck is independent and identically distributed, the total weight of all trucks is:
+    
+    \[
+    E[\text{Total weight of all trucks}] = E[N_T] \cdot E[\text{Weight of a truck}]
+    \]
+    
+    Where \( N_T \) is the number of trucks:
+    
+    \[
+    E[\text{Total weight of all trucks}] = 12 \cdot 14000 = 168000 \, \text{kg}
+    \]
+  \end{enumerate}
+  
+
+\section*{Answer 2}
+
+\end{document}
