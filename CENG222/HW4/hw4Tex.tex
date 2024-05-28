@@ -133,50 +133,57 @@ Thus, the size of the Monte Carlo simulation should be at least 4148.
   
 
 \section*{Answer 2}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{Screenshot 2024-05-28 at 18.49.46.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
 
-\subsection*{Simulation Size}
-We use \( N = 4148 \) as determined from part (a) to ensure that our simulation estimate is accurate within the desired margin of error.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Screenshot 2024-05-28 at 18.45.31.png}
+    \caption{Expected Output of the Code}
+    \label{fig:enter-label}
+\end{figure}
 
-\subsection*{Generating Number of Vehicles}
-The number of automobiles \( \text{numA} \) is generated using a Poisson random variable with parameter \( \lambda_A = 60 \).
-The number of trucks \( \text{numT} \) is generated using a Poisson random variable with parameter \( \lambda_T = 12 \).
+From our simulation, according to Figure 2, we have found that the probability of the bridge collapsing is 0.405, indicating a significant risk. Additionally, the total weight of all vehicles crossing the bridge was estimated to be approximately 240196. The standard deviation of this total weight was estimated to be approximately 51459. Given that the size of our Monte Carlo simulation was 4148, which is quite large, we can confidently say that our estimate of the standard deviation is highly accurate.\\
 
-\subsection*{Weights Calculation}
-The weight of each automobile is generated using a Gamma distribution with shape \( \alpha = 120 \) and scale \( \frac{1}{\lambda} = 10 \).
+To find the new Poisson variable $\lambda_T$ so that the probability of bridge’s collapse is less than 0.1, we can change manually the variable (decrease one by one) and rerun our simulation. \\
 
-The weight of each truck is generated using a Gamma distribution with shape \( \alpha = 14 \) and scale \( \frac{1}{\lambda} = 1000 \).
+Let's decrease our $\lambda_T$ by 1 ($\lambda_T$ = 11):
 
-\subsection*{Total Weight for Each Run}
-For each Monte Carlo run, the total weight of all vehicles (automobiles and trucks) is calculated and stored in the \texttt{TotalWeight} vector.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image.png}
+    \caption{Simulation result with $\lambda_T$ = 11 }
+    \label{fig:enter-label}
+\end{figure}
 
-\subsection*{Probability Estimation}
-The probability of the bridge collapsing is estimated by counting the number of simulations where the total weight exceeds 250,000 kg (250 tons) and dividing by \( N \).
+We get approximately 0.31, so keep going until go below 0.1 :
 
-\[
-p_{\text{est}} = \frac{\sum_{k=1}^{N} I(\text{TotalWeight}_k > 250000)}{N}
-\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image.png}
+    \caption{Simulation result with $\lambda_T$ = 10}
+    \label{fig:enter-label}
+\end{figure}
 
-\subsection*{Expected Value and Standard Deviation}
-The expected total weight is the mean of the \texttt{TotalWeight} vector.
-
-\[
-\text{ExpectedWeight} = \frac{1}{N} \sum_{k=1}^{N} \text{TotalWeight}_k
-\]
-
-The standard deviation of the total weight is calculated using the standard deviation formula:
-
-\[
-\text{StdWeight} = \sqrt{\frac{1}{N-1} \sum_{k=1}^{N} (\text{TotalWeight}_k - \text{ExpectedWeight})^2}
-\]
-
-\section*{Output Example}
-When we run the \texttt{hw4.m} script, the output will look something like this:
-
-\begin{verbatim}
-Estimated probability = 0.034217
-Expected weight = 240123.487781
-Standard deviation = 38504.637221
-\end{verbatim}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image.png}
+    \caption{Simulation result with $\lambda_T$ = 9}
+    \label{fig:enter-label}
+\end{figure}
 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{image.png}
+    \caption{Simulation result with $\lambda_T$ = 8}
+    \label{fig:enter-label}
+\end{figure}
+
+Now we get the probability as 0.06 which is less then 0.1. Thus, we can say that the highest limit for number of trucks is 8.
 \end{document}
+
