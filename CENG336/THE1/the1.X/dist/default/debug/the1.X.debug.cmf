@@ -1,0 +1,436 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$build/default/debug/main.o
+resetVec CODE 0 1FFFC 1FFFC 4 1
+CODE - 0 0 0 1DC 1
+udata_acs COMRAM 1 0 0 13 1
+config CONFIG 4 300001 300001 D 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 60-F5F 1
+SFR F60-FFF 1
+BANK0 60-FF 1
+BANK1 100-1FF 1
+BANK2 200-2FF 1
+BANK3 300-3FF 1
+BANK4 400-4FF 1
+BANK5 500-5FF 1
+BANK6 600-6FF 1
+BANK7 700-7FF 1
+BANK8 800-8FF 1
+BANK9 900-9FF 1
+CONST 1DC-1FFFB 1
+IDLOC 200000-200007 1
+SMALLCONST 1000-1FFFB 1
+CODE 1DC-1FFFB 1
+BANK10 A00-AFF 1
+BANK11 B00-BFF 1
+BANK12 C00-CFF 1
+BANK13 D00-DFF 1
+BANK14 E00-EFF 1
+BANK15 F00-F5F 1
+BIGRAM 1DC-F5F 1
+COMRAM 13-5F 1
+CONFIG 300000-300000 1
+EEDATA F00000-F003FF 1
+MEDIUMCONST 1000-FFFF 1
+MEDIUMCONST 11000-1FFFB 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$build/default/debug/main.o
+0 CODE ABS >90:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+0 CODE ABS >91:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+2 CODE ABS >92:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+4 CODE ABS >93:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+6 CODE ABS >94:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+8 CODE ABS >95:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+A CODE ABS >96:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+C CODE ABS >97:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+E CODE ABS >98:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+10 CODE ABS >99:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+12 CODE ABS >100:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+14 CODE ABS >101:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+16 CODE ABS >102:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+18 CODE ABS >103:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1A CODE ABS >104:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1C CODE ABS >105:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1E CODE ABS >106:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+20 CODE ABS >107:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+22 CODE ABS >108:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+24 CODE ABS >109:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+26 CODE ABS >110:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+28 CODE ABS >111:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+2A CODE ABS >112:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+2C CODE ABS >113:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+2E CODE ABS >114:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+30 CODE ABS >117:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+32 CODE ABS >118:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+34 CODE ABS >120:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+36 CODE ABS >122:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+38 CODE ABS >123:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+3A CODE ABS >124:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+3C CODE ABS >126:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+40 CODE ABS >128:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+42 CODE ABS >129:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+44 CODE ABS >132:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+44 CODE ABS >134:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+48 CODE ABS >135:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+4C CODE ABS >136:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+50 CODE ABS >137:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+52 CODE ABS >138:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+56 CODE ABS >139:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+5A CODE ABS >141:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+5A CODE ABS >142:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+5E CODE ABS >143:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+62 CODE ABS >144:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+64 CODE ABS >146:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+64 CODE ABS >147:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+66 CODE ABS >148:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+68 CODE ABS >149:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+6C CODE ABS >150:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+6E CODE ABS >151:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+70 CODE ABS >152:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+74 CODE ABS >153:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+76 CODE ABS >154:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+78 CODE ABS >155:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+7C CODE ABS >156:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+7E CODE ABS >157:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+80 CODE ABS >158:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+84 CODE ABS >159:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+86 CODE ABS >160:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+88 CODE ABS >161:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+8C CODE ABS >162:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+8E CODE ABS >163:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+90 CODE ABS >164:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+94 CODE ABS >165:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+96 CODE ABS >167:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+96 CODE ABS >168:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+98 CODE ABS >169:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+9A CODE ABS >170:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+9A CODE ABS >171:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+9C CODE ABS >172:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+9E CODE ABS >173:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+9E CODE ABS >174:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+A0 CODE ABS >175:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+A2 CODE ABS >176:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+A2 CODE ABS >177:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+A4 CODE ABS >178:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+A6 CODE ABS >179:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+A6 CODE ABS >180:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+A8 CODE ABS >181:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+AA CODE ABS >182:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+AA CODE ABS >183:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+AC CODE ABS >184:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+AE CODE ABS >186:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+AE CODE ABS >187:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+B0 CODE ABS >188:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+B2 CODE ABS >189:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+B4 CODE ABS >190:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+B6 CODE ABS >191:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+B8 CODE ABS >192:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+BA CODE ABS >193:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+BC CODE ABS >199:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+BC CODE ABS >200:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+C0 CODE ABS >201:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+C4 CODE ABS >202:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+C8 CODE ABS >203:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+CC CODE ABS >204:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+D0 CODE ABS >205:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+D4 CODE ABS >206:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+D6 CODE ABS >208:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+D6 CODE ABS >209:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+D8 CODE ABS >210:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+DC CODE ABS >211:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+DE CODE ABS >212:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+E2 CODE ABS >213:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+E4 CODE ABS >214:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+E4 CODE ABS >215:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+E6 CODE ABS >216:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+E8 CODE ABS >217:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+EA CODE ABS >218:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+EC CODE ABS >219:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+EE CODE ABS >220:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+F0 CODE ABS >221:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+F2 CODE ABS >222:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+F2 CODE ABS >223:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+F4 CODE ABS >224:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+F6 CODE ABS >225:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+F6 CODE ABS >226:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+F8 CODE ABS >227:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+FC CODE ABS >228:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+FE CODE ABS >229:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+102 CODE ABS >230:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+104 CODE ABS >231:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+104 CODE ABS >232:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+106 CODE ABS >233:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+108 CODE ABS >234:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+10A CODE ABS >235:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+10C CODE ABS >236:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+10E CODE ABS >237:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+110 CODE ABS >238:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+112 CODE ABS >239:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+112 CODE ABS >240:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+114 CODE ABS >241:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+116 CODE ABS >242:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+116 CODE ABS >243:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+118 CODE ABS >244:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+11C CODE ABS >245:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+11E CODE ABS >246:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+122 CODE ABS >247:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+124 CODE ABS >248:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+124 CODE ABS >249:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+126 CODE ABS >250:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+128 CODE ABS >251:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+12A CODE ABS >252:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+12C CODE ABS >253:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+12E CODE ABS >254:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+130 CODE ABS >255:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+132 CODE ABS >256:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+132 CODE ABS >257:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+134 CODE ABS >258:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+136 CODE ABS >259:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+136 CODE ABS >260:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+138 CODE ABS >261:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+13C CODE ABS >262:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+13E CODE ABS >263:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+142 CODE ABS >264:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+144 CODE ABS >265:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+144 CODE ABS >266:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+146 CODE ABS >267:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+148 CODE ABS >268:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+14A CODE ABS >269:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+14C CODE ABS >270:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+14E CODE ABS >271:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+150 CODE ABS >272:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+152 CODE ABS >273:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+152 CODE ABS >274:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+154 CODE ABS >275:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+156 CODE ABS >276:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+156 CODE ABS >277:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+158 CODE ABS >278:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+15C CODE ABS >279:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+15E CODE ABS >280:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+162 CODE ABS >281:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+164 CODE ABS >282:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+164 CODE ABS >283:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+166 CODE ABS >284:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+168 CODE ABS >285:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+16A CODE ABS >286:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+16C CODE ABS >287:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+16E CODE ABS >288:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+170 CODE ABS >289:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+172 CODE ABS >290:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+172 CODE ABS >291:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+174 CODE ABS >292:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+176 CODE ABS >293:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+176 CODE ABS >294:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+178 CODE ABS >295:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+17C CODE ABS >296:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+17E CODE ABS >297:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+182 CODE ABS >298:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+184 CODE ABS >299:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+184 CODE ABS >300:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+186 CODE ABS >301:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+188 CODE ABS >302:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+18A CODE ABS >303:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+18C CODE ABS >304:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+18E CODE ABS >305:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+190 CODE ABS >306:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+192 CODE ABS >307:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+192 CODE ABS >308:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+194 CODE ABS >309:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+196 CODE ABS >312:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+196 CODE ABS >313:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+198 CODE ABS >314:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+19C CODE ABS >315:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+19E CODE ABS >316:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1A2 CODE ABS >317:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1A4 CODE ABS >318:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1A4 CODE ABS >319:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1A6 CODE ABS >320:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1A8 CODE ABS >321:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1AA CODE ABS >322:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1AA CODE ABS >323:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1AC CODE ABS >324:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1AE CODE ABS >327:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1AE CODE ABS >328:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1B0 CODE ABS >329:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1B2 CODE ABS >330:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1B4 CODE ABS >331:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1B6 CODE ABS >332:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1B6 CODE ABS >333:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1B6 CODE ABS >334:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1B6 CODE ABS >335:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1B8 CODE ABS >336:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1BA CODE ABS >337:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1BC CODE ABS >338:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1BE CODE ABS >339:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1C0 CODE ABS >340:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1C2 CODE ABS >341:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1C4 CODE ABS >342:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1C6 CODE ABS >344:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1C6 CODE ABS >345:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1C8 CODE ABS >346:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1CA CODE ABS >347:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1CC CODE ABS >348:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1CE CODE ABS >349:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1CE CODE ABS >350:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1CE CODE ABS >351:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1CE CODE ABS >352:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1D0 CODE ABS >353:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1D2 CODE ABS >354:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1D4 CODE ABS >355:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1D6 CODE ABS >356:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1D8 CODE ABS >357:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1DA CODE ABS >358:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1FFFC resetVec CODE >86:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+1FFFC resetVec CODE >87:C:\Users\OVAK\Desktop\c\METU-CENG\CENG336\THE1\the1.X\main.s
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__Hspace_0 20000 0 ABS 0 - -
+__Hspace_1 13 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Hspace_4 60000F 0 ABS 0 - -
+__Hudata_bank0 1DC 0 ABS 0 udata_bank0 -
+__Hudata_bank1 1DC 0 ABS 0 udata_bank1 -
+__Hudata_bank2 1DC 0 ABS 0 udata_bank2 -
+__Hudata_bank3 1DC 0 ABS 0 udata_bank3 -
+__Hudata_bank4 1DC 0 ABS 0 udata_bank4 -
+__Hudata_bank5 1DC 0 ABS 0 udata_bank5 -
+__Hudata_bank6 1DC 0 ABS 0 udata_bank6 -
+__Hudata_bank7 1DC 0 ABS 0 udata_bank7 -
+__Hudata_bank8 1DC 0 ABS 0 udata_bank8 -
+__Hudata_bank9 1DC 0 ABS 0 udata_bank9 -
+pause 12 0 COMRAM 1 udata_acs build/default/debug/main.o
+prev_re0 C 0 COMRAM 1 udata_acs build/default/debug/main.o
+prev_re1 D 0 COMRAM 1 udata_acs build/default/debug/main.o
+prev_re2 E 0 COMRAM 1 udata_acs build/default/debug/main.o
+prev_re3 F 0 COMRAM 1 udata_acs build/default/debug/main.o
+prev_re4 10 0 COMRAM 1 udata_acs build/default/debug/main.o
+prev_re5 11 0 COMRAM 1 udata_acs build/default/debug/main.o
+prev_re7 B 0 COMRAM 1 udata_acs build/default/debug/main.o
+__LresetVec 1DC 0 ABS 0 resetVec -
+__Hudata_bank10 1DC 0 ABS 0 udata_bank10 -
+__Hudata_bank11 1DC 0 ABS 0 udata_bank11 -
+__Hudata_bank12 1DC 0 ABS 0 udata_bank12 -
+__Hudata_bank13 1DC 0 ABS 0 udata_bank13 -
+__Hudata_bank14 1DC 0 ABS 0 udata_bank14 -
+__Hudata_bank15 1DC 0 ABS 0 udata_bank15 -
+__HresetVec 1DC 0 ABS 0 resetVec -
+__Hedata 1DC 0 ABS 0 edata -
+__Hudata 1DC 0 ABS 0 udata -
+__Hconfig 30000E 0 CONFIG 4 config -
+__Ledata 1DC 0 ABS 0 edata -
+__Ludata 1DC 0 ABS 0 udata -
+__HCODE 1DC 0 ABS 0 CODE -
+__Hcode 1DC 0 ABS 0 code -
+__Hdata 1DC 0 ABS 0 data -
+__LCODE 0 0 ABS 0 CODE -
+__Lcode 1DC 0 ABS 0 code -
+__Ldata 1DC 0 ABS 0 data -
+__S0 20000 0 ABS 0 - -
+__S1 13 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+dec0 3 0 COMRAM 1 udata_acs build/default/debug/main.o
+dec1 4 0 COMRAM 1 udata_acs build/default/debug/main.o
+dec2 5 0 COMRAM 1 udata_acs build/default/debug/main.o
+dec3 6 0 COMRAM 1 udata_acs build/default/debug/main.o
+dec4 7 0 COMRAM 1 udata_acs build/default/debug/main.o
+dec5 8 0 COMRAM 1 udata_acs build/default/debug/main.o
+var1 0 0 COMRAM 1 udata_acs build/default/debug/main.o
+var2 1 0 COMRAM 1 udata_acs build/default/debug/main.o
+var3 2 0 COMRAM 1 udata_acs build/default/debug/main.o
+__Ludata_bank10 1DC 0 ABS 0 udata_bank10 -
+__Ludata_bank11 1DC 0 ABS 0 udata_bank11 -
+__Ludata_bank12 1DC 0 ABS 0 udata_bank12 -
+__Ludata_bank13 1DC 0 ABS 0 udata_bank13 -
+__Ludata_bank14 1DC 0 ABS 0 udata_bank14 -
+__Ludata_bank15 1DC 0 ABS 0 udata_bank15 -
+__Lconfig 0 0 CONFIG 4 config -
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+__Ludata_bank0 1DC 0 ABS 0 udata_bank0 -
+__Ludata_bank1 1DC 0 ABS 0 udata_bank1 -
+__Ludata_bank2 1DC 0 ABS 0 udata_bank2 -
+__Ludata_bank3 1DC 0 ABS 0 udata_bank3 -
+__Ludata_bank4 1DC 0 ABS 0 udata_bank4 -
+__Ludata_bank5 1DC 0 ABS 0 udata_bank5 -
+__Ludata_bank6 1DC 0 ABS 0 udata_bank6 -
+__Ludata_bank7 1DC 0 ABS 0 udata_bank7 -
+__Ludata_bank8 1DC 0 ABS 0 udata_bank8 -
+__Ludata_bank9 1DC 0 ABS 0 udata_bank9 -
+counter 9 0 COMRAM 1 udata_acs build/default/debug/main.o
+__Hudata_acs 1DC 0 ABS 0 udata_acs -
+__Ludata_acs 1DC 0 ABS 0 udata_acs -
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+resetVec 0 1FFFC 1FFFC 4 1
+udata_acs 1 0 0 13 1
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES
