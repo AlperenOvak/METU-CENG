@@ -1,0 +1,50 @@
+add|1|a|Neural Networks|Alice Johnson
+add|2|b|Sorting Algorithms|Bob Smith
+add|3|c|Genome Sequencing|Carol Lee
+add|4|d|Number Theory|David Brown
+add|5|e|Quantum Mechanics|Emily Davis
+add|6|f|Market Analysis|Frank Wilson
+add|7|g|Deep Learning|Grace Martin
+add|8|h|Hashing Techniques|Henry Clark
+add|9|i|Protein Folding|Ivy Baker
+add|10|j|Topology|Jack Turner
+add|11|k|Thermodynamics|Karen Evans
+add|12|l|Risk Management|Leo Young
+add|13|m|Molecular Bonds|Mia Collins
+add|14|n|Galaxy Formation|Nathan Moore
+add|15|o|Graph Algorithms|Olivia Scott
+add|16|p|NLP Techniques|Paul Reed
+add|17|q|Cellular Pathways|Quinn Hughes
+add|18|r|Abstract Algebra|Rachel Price
+add|19|s|Optics|Sam White
+add|20|t|Supply Chain|Tina Murphy
+add|21|u|Catalysis Methods|Uma Perry
+add|22|v|Exoplanet Studies|Victor Brooks
+add|23|w|Distributed Systems|Wendy Adams
+add|24|x|GAN Applications|Xander Lopez
+add|25|y|Relativity|Yara Bell
+add|26|z|Economic Forecasts|Zane Hall
+add|27|za|Stem Cell Research|Alex Green
+add|28|zb|Marine Biology|Bella Carter
+add|29|zc|Cancer Studies|Cody Wright
+add|30|zd|Combinatorics|Dana Mitchell
+add|31|ze|Fluid Dynamics|Ethan King
+add|32|zf|Data Compression|Fiona Baker
+add|33|zg|Genetic Engineering|Gina Torres
+add|34|zh|Botany Insights|Hank Lopez
+add|35|zi|Linear Algebra|Isla Grant
+add|36|zj|AI Ethics|Jake Adams
+add|37|zk|Plasma Physics|Kara Steele
+add|38|zl|Black Hole Physics|Liam Rogers
+add|39|zm|Cell Biology|Mona Carter
+add|40|zn|Drug Development|Noah Simmons
+add|41|zo|Big Data|Olive James
+add|42|zp|Cybersecurity|Piper Nelson
+add|43|zq|Virology|Quinn Harper
+add|44|zr|Chemical Reactions|Reed Cook
+add|45|zs|Star Formation|Sofia Taylor
+add|46|zt|Cosmology|Theo Foster
+add|47|zu|Clinical Trials|Una Moore
+add|48|zv|Ecology Studies|Victor Grant
+add|49|zw|Matrix Theory|Willa James
+add|50|zx|Global Trade|Xavier Ward

@@ -1,0 +1,140 @@
+print1
+print2
+search1|52
+search2|Bla bla
+add|101|AI Journal|GAN|Xander Lopezo
+add|72|Computing Insights|Quantum Algorithms|Tina Marshall
+search2|Computing Insights
+print1
+add|3|BioMed|Genome Sequencing|Carol Lee
+search1|105
+add|91|Astronomy Reviews|Exoplanet Studies|Liam Rogers
+print2
+search2|Artificial Intelligence Insights
+add|44|Journal of Chemistry|Chemical Reactions|Reed Cook
+search1|27
+print1
+search2|Journal of Chemistry
+add|60|Healthcare Technologies|Telemedicine|Hannah Evans
+add|15|CS Advances|Graph Algorithms|Olivia Scott
+search1|75
+add|89|Healthcare Insights|Digital Health Records|Karen Evans
+search2|Neural Networks Journal
+print2
+add|1|AI Journal|Neural Networks|Alice Johnson
+add|50|Physics Explorer|Thermodynamics|Ethan King
+add|23|CS Advances|Distributed Systems|Wendy Adams
+search1|34
+search2|AstroPhysics Letters
+print1
+add|19|Physics Today|Optics|Sam White
+search1|90
+add|24|AI Journal|GAN Applications|Xander Lopez
+search2|AI Journal
+print2
+add|7|AI Journal|Deep Learning|Grace Martin
+add|81|Environmental Biology|Sustainability Research|Carol Lee
+search1|13
+add|88|CyberTech Journal|Cyber Threat Analysis|Jack Turner
+print1
+search1|54
+add|65|Economic Forum|Macroeconomic Policies|Mark Wilson
+search2|Physics Today
+print2
+add|74|Pure Mathematics|Functional Analysis|Victor Reed
+search1|28
+search2|Marine Biology
+add|38|AstroPhysics Letters|Black Hole Physics|Liam Rogers
+print1
+add|77|Chemical Discoveries|Catalysis Techniques|Yara Bell
+search2|Chemical Discoveries
+search1|82
+print2
+search1|110
+search2|Functional Analysis
+add|2|CS Review|Sorting Algorithms|Bob Smith
+print1
+search1|120
+add|33|Medical Innovations|Genetic Engineering|Gina Torres
+search2|Quantum Algorithms
+print2
+add|42|CS Advances|Cybersecurity|Piper Nelson
+search1|45
+add|84|Physics Innovations|High Energy Physics|Frank Wilson
+search2|Physics Innovations
+print1
+search1|99
+add|76|Economic Strategies|Trade Policies|Xander Price
+add|55|Physics Explorer|Solid-State Physics|Charlotte Ray
+search2|Solid-State Physics
+add|102|Advanced Mathematics|Incredible Computation|Alan Turing
+print2
+search1|7
+add|78|Space Sciences|Asteroid Composition|Zane Hall
+search2|Artificial Neural Networks
+print1
+add|53|Health Innovations|Gene Therapy|Alexandra Ruiz
+search1|33
+add|63|Advanced Mathematics|Differential Equations|Kevin Turner
+search2|Advanced Mathematics
+print2
+add|66|Innovative Chemistry|Polymers and Composites|Nina Cooper
+search1|20
+add|62|Molecular Medicine|Pathogen Studies|Julia Moore
+search2|Machine Learning Insights
+print1
+add|79|Coding Practices|Programming Paradigms|Alice Scott
+search1|111
+add|83|Algebra Review|Algebraic Structures|Ella Johnson
+search2|Algebra Review
+print2
+add|73|Medical Frontiers|Advanced Diagnostics|Uma Wright
+search1|98
+search2|Advanced Diagnostics
+add|58|Cosmic Discoveries|Astrobiology|Felicity Brown
+print1
+add|85|Global Economy Journal|Emerging Markets|Grace Martin
+search1|86
+add|71|AI Perspectives|Generative Models|Steve Rogers
+search2|AI Perspective
+print2
+add|68|Tech World|Edge Computing|Paula Jenkins
+search1|115
+search2|Quantum Machine Learning
+add|69|Medical Research Quarterly|Biomedical Devices|Quinn Taylor
+print1
+search1|101
+add|75|Science Innovations|Nanophotonics|Wendy Adams
+search2|Digital Currencies
+search2|Advanced Mathematics
+add|56|Global Finance Insights|Digital Currencies|Daniel Wood
+print2
+add|57|Chemistry Horizons|Green Chemistry|Emma Harris
+search1|31
+add|80|Biotech Monthly|CRISPR Advances|Bob Davis
+search2|CRISPR Advances
+print1
+add|82|Pathology Updates|Tissue Engineering|David Brown
+search1|47
+add|67|Astronomy Today|Extragalactic Astronomy|Oscar Clark
+search2|Astronomy Today
+print2
+search1|13
+add|70|Life Sciences Weekly|Biodiversity Studies|Rachel Simmons
+search2|Cell Biology Insights
+add|90|Ecology Review|Climate Change Impact|Leo Young
+print1
+search1|108
+add|87|Stellar Research|Black Hole Imaging|Ivy Baker
+search2|Stellar Research
+print2
+search1|72
+add|86|Material Chemistry|Advanced Alloys|Hank Lopez
+search2|Advanced Alloys
+add|61|Biology Digest|Marine Ecology|Ian Smith
+print1
+add|64|Physical Review|Electromagnetism|Laura Parker
+search1|29
+add|51|Tech Frontiers|Quantum Computing|Yara Lopez
+search2|Tech Frontiers
+print2
