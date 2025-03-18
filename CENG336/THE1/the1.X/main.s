@@ -131,12 +131,31 @@ main:
     
 main_loop:
     ; Round robin
+    ;call check_input
+    ;call dec_input
     call toggle_D
-    call check_input
-    call dec_input
+    btg PORTD,0
     btfss pause, 0
     call count
     goto main_loop
+    
+toggle_D:
+    movlw 1
+    movwf var3
+    movlw 25
+    movwf var2
+    toggle_outer_loop:
+	toggle_loop_start:
+	    toggle_inner_start:
+		call check_input
+		call dec_input
+		incf var1
+	        bnc toggle_inner_start
+	    decfsz var2
+	    bra toggle_loop_start
+	decfsz var3
+	bra toggle_outer_loop
+    return
     
 count:
     call update_display
@@ -324,22 +343,6 @@ check_input:
 	return
 
 	
-toggle_D:
-    movlw 3
-    movwf var3
-    movlw 200
-    movwf var2
-    toggle_outer_loop:
-	toggle_loop_start:
-	    toggle_inner_start:
-	        incf var1
-	        bnc toggle_inner_start
-	    decfsz var2
-	    bra toggle_loop_start
-	decfsz var3
-	bra toggle_outer_loop
-    btg PORTD,0
-    return
     
 busy_wait:
     movlw 5
