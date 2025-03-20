@@ -7902,10 +7902,11 @@ main_loop:
     ; Round robin
     ;call check_input
     ;call dec_input
-    call toggle_D
-    btg PORTD,0
+
     btfss pause, 0
     call count
+    call toggle_D
+    btg PORTD,0
     goto main_loop
 
 toggle_D:
