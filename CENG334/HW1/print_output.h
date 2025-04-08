@@ -21,7 +21,15 @@ typedef struct grid_update {
     char character;
 } gu;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // Print output function prototype
 void print_output(cmp *client_msg, smp *server_msg, gu *grid_updates, int update_count);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // PRINT_OUTPUT_H 
