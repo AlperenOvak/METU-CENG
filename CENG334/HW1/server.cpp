@@ -175,6 +175,9 @@ void run_server_loop(){
                 
                 if(byte < 0){
                     active_pipes[i] = 0;
+                    close(polls[i].fd);
+                    int status;
+                    waitpid(players[i].pid, &status, 0);
                     active_pipes_count--;
                     continue;
                 }
@@ -212,8 +215,9 @@ void run_server_loop(){
                         update.character = players[i].symbol;
                         grid_updates.push_back(update);
                     } 
-                    printf("Checking for winner...\n");
-                    write(polls[i].fd, &server_result_msg, sizeof(server_result_msg));
+                    printf("Player%c marked (%d, %d,%d) \n", players[i].symbol, x, y,server_result_msg.success);
+                    //write(polls[i].fd, &server_result_msg, sizeof(server_result_msg));
+                    printf("Server sent result to Player%c\n", players[i].symbol);
 
                     // Check for a winner
                     if (check_winner(x, y, players[i].symbol)) {
@@ -230,9 +234,11 @@ void run_server_loop(){
                 print_output(nullptr, &server_print, grid_updates.data(), filled_count);
 
                 // Send the server message back to the player
-                write(polls[i].fd, &server_result_msg, sizeof(server_result_msg));
+                write(players[i].fd_read_write, &server_result_msg, sizeof(server_result_msg));
+                printf("Server sent result to Player%c\n. Size of grid_update is equal = %d %d\n", players[i].symbol, grid_updates.size(), server_result_msg.filled_count);
                 // Send the grid updates to the player
-                write(polls[i].fd, grid_updates.data(), grid_updates.size() * sizeof(grid_update));
+                write(players[i].fd_read_write, grid_updates.data(), grid_updates.size() * sizeof(grid_update));
+                printf("Server sent grid updates to Player%c, remaining %d\n", players[i].symbol, active_pipes_count-i);
             
             }
 
@@ -246,7 +252,6 @@ int main() {
     init_board();
     // Create pipes for each player
     run_server_loop();
-    // Wait for all child processes to finish
     // Wait for all child processes to finish
     for (int i = 0; i < player_count; ++i) {
         close(players[i].fd_read_write);

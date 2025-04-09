@@ -4,10 +4,10 @@ X 4
 O 4
 ./horizontal_player O 20 50 50
 Z 4
-./smart_player Z 16 50 50
+./smart_player Z 15 50 50
 A 4
-./random_player A 12 50 50
+./diagonal_player A 12 50 50
 B 4
-./random_player B 14 50 50
+./vertical_player B 13 50 50
 C 4
 ./smart_player C 15 50 50
