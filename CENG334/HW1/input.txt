@@ -1,7 +1,13 @@
-5 5 3 3
-X 4 
-./random_player X 100 5 5
-O 4 
-./horizontal_player O 200 5 5
-Z 4 
-./smart_player Z 150 5 5
+50 50 20 6
+X 4
+./random_player X 10 50 50
+O 4
+./horizontal_player O 20 50 50
+Z 4
+./smart_player Z 16 50 50
+A 4
+./random_player A 12 50 50
+B 4
+./random_player B 14 50 50
+C 4
+./smart_player C 15 50 50

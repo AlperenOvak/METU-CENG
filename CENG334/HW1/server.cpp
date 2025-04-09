@@ -87,6 +87,8 @@ bool check_winner(int x, int y, char symbol) {
 
 
 void run_server_loop(){
+    bool is_win = false;
+    bool is_draw = false;
     int pipes[player_count][2];
     int active_pipes[player_count];
     int active_pipes_count = player_count;
@@ -148,7 +150,28 @@ void run_server_loop(){
                 int byte = read(polls[i].fd, &message, sizeof(message));
 
                 //Draw and win check
-
+                if(is_win){
+                    sm endmsg = {END, 0, 0};
+                    for (int k = 0; k < player_count; ++k) {
+                        if (!active_pipes[k]) continue;
+                        smp elog = {players[k].pid, &endmsg};
+                        print_output(nullptr, &elog, nullptr, 0);
+                        write(players[k].fd_read_write, &endmsg, sizeof(endmsg));
+                    }
+                    printf("Winner: Player%c\n", players[i].symbol);
+                    return;
+                }
+                if(is_draw){
+                    sm endmsg = {END, 0, 0};
+                    for (int k = 0; k < player_count; ++k) {
+                        if (!active_pipes[k]) continue;
+                        smp elog = {players[k].pid, &endmsg};
+                        print_output(nullptr, &elog, nullptr, 0);
+                        write(players[k].fd_read_write, &endmsg, sizeof(endmsg));
+                    }
+                    printf("Draw\n");
+                    return;
+                }
                 
                 if(byte < 0){
                     active_pipes[i] = 0;
@@ -189,31 +212,16 @@ void run_server_loop(){
                         update.character = players[i].symbol;
                         grid_updates.push_back(update);
                     } 
+                    printf("Checking for winner...\n");
                     write(polls[i].fd, &server_result_msg, sizeof(server_result_msg));
 
                     // Check for a winner
                     if (check_winner(x, y, players[i].symbol)) {
-                        sm endmsg = {END, 0, 0};
-                        for (int k = 0; k < player_count; ++k) {
-                            if (!active_pipes[k]) continue;
-                            smp elog = {players[k].pid, &endmsg};
-                            print_output(nullptr, &elog, nullptr, 0);
-                            write(players[k].fd_read_write, &endmsg, sizeof(endmsg));
-                        }
-                        printf("Winner: Player%c\n", players[i].symbol);
-                        return;
+                        is_win = true;
                     }
 
                     if (filled_count == grid_width * grid_height) {
-                        sm endmsg = {END, 0, 0};
-                        for (int k = 0; k < player_count; ++k) {
-                            if (!active_pipes[k]) continue;
-                            smp elog = {players[k].pid, &endmsg};
-                            print_output(nullptr, &elog, nullptr, 0);
-                            write(players[k].fd_read_write, &endmsg, sizeof(endmsg));
-                        }
-                        printf("Draw\n");
-                        return;
+                        is_draw = true;
                     }
                 }
                 smp server_print;
