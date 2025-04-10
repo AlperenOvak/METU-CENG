@@ -102,6 +102,7 @@ void run_server_loop(){
     // Fork each player
     for (int i = 0; i < player_count; ++i) {
         players[i].pid = fork();
+        //std::cout<<i<<" "<<players[i].pid;
         if (players[i].pid == 0) { // Child process
             
             std::cerr << "Executing:  ";
