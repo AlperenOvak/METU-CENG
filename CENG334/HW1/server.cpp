@@ -105,11 +105,11 @@ void run_server_loop(){
         //std::cout<<i<<" "<<players[i].pid;
         if (players[i].pid == 0) { // Child process
             
-            std::cerr << "Executing:  ";
+            /*std::cerr << "Executing:  ";
             for (int j = 0; players[i].argv[j] != nullptr; ++j) {
                 std::cerr << players[i].argv[j] << " ";
             }
-            std::cerr << std::endl;
+            std::cerr << std::endl;*/
             dup2(pipes[i][1], 1); // Redirect stdin to read from the pipe
             dup2(pipes[i][1], 0); // Redirect stdout to write to the pipe
             close(pipes[i][0]); // Close the write end of the pipe
@@ -216,9 +216,9 @@ void run_server_loop(){
                         update.character = players[i].symbol;
                         grid_updates.push_back(update);
                     } 
-                    printf("Player%c marked (%d, %d,%d) \n", players[i].symbol, x, y,server_result_msg.success);
+                    //printf("Player%c marked (%d, %d,%d) \n", players[i].symbol, x, y,server_result_msg.success);
                     //write(polls[i].fd, &server_result_msg, sizeof(server_result_msg));
-                    printf("Server sent result to Player%c\n", players[i].symbol);
+                    //printf("Server sent result to Player%c\n", players[i].symbol);
 
                     // Check for a winner
                     if (check_winner(x, y, players[i].symbol)) {
@@ -236,10 +236,11 @@ void run_server_loop(){
 
                 // Send the server message back to the player
                 write(players[i].fd_read_write, &server_result_msg, sizeof(server_result_msg));
-                printf("Server sent result to Player%c\n. Size of grid_update is equal = %d %d\n", players[i].symbol, grid_updates.size(), server_result_msg.filled_count);
+                //printf("Server sent result to Player%c\n. Size of grid_update is equal = %d %d\n", players[i].symbol, grid_updates.size(), server_result_msg.filled_count);
+                
                 // Send the grid updates to the player
                 write(players[i].fd_read_write, grid_updates.data(), grid_updates.size() * sizeof(grid_update));
-                printf("Server sent grid updates to Player%c, remaining %d\n", players[i].symbol, active_pipes_count-i);
+                //printf("Server sent grid updates to Player%c, remaining %d\n", players[i].symbol, active_pipes_count-i);
             
             }
 
