@@ -14,7 +14,7 @@
 #include "print_output.h"
 #include <sstream> 
 
-#define PIPE(fd) socketpair(AF_UNIX, SOCK_STREAM, 0, fd)
+#define PIPE(fd) socketpair(AF_UNIX, SOCK_STREAM, PF_UNIX fd)
 
 struct PlayerInfo {
     char symbol;
@@ -89,6 +89,7 @@ bool check_winner(int x, int y, char symbol) {
 void run_server_loop(){
     bool is_win = false;
     bool is_draw = false;
+    char winner_symbol;
     int pipes[player_count][2];
     int active_pipes[player_count];
     int active_pipes_count = player_count;
@@ -159,7 +160,7 @@ void run_server_loop(){
                         print_output(nullptr, &elog, nullptr, 0);
                         write(players[k].fd_read_write, &endmsg, sizeof(endmsg));
                     }
-                    printf("Winner: Player%c\n", players[i].symbol);
+                    printf("Winner: Player%c\n", winner_symbol);
                     return;
                 }
                 if(is_draw){
@@ -215,19 +216,16 @@ void run_server_loop(){
                         update.position.y = y;
                         update.character = players[i].symbol;
                         grid_updates.push_back(update);
-                    } 
-                    //printf("Player%c marked (%d, %d,%d) \n", players[i].symbol, x, y,server_result_msg.success);
-                    //write(polls[i].fd, &server_result_msg, sizeof(server_result_msg));
-                    //printf("Server sent result to Player%c\n", players[i].symbol);
 
-                    // Check for a winner
-                    if (check_winner(x, y, players[i].symbol)) {
-                        is_win = true;
-                    }
-
-                    if (filled_count == grid_width * grid_height) {
-                        is_draw = true;
-                    }
+                        if (check_winner(x, y, players[i].symbol)) {
+                            is_win = true;
+                            winner_symbol = players[i].symbol;
+                        }
+    
+                        if (filled_count == grid_width * grid_height) {
+                            is_draw = true;
+                        }
+                    }                     
                 }
                 smp server_print;
                 server_print.process_id = players[i].pid;
