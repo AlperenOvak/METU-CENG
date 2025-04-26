@@ -1,0 +1,192 @@
+Client Message (PID: 200825)
+Type: START
+
+Server Message (PID: 200825)
+Type: RESULT
+Success: 0
+Filled Count: 0
+
+Client Message (PID: 200827)
+Type: START
+
+Server Message (PID: 200827)
+Type: RESULT
+Success: 0
+Filled Count: 0
+
+Client Message (PID: 200825)
+Type: MARK
+Position: (0, 2)
+
+Server Message (PID: 200825)
+Type: RESULT
+Success: 1
+Filled Count: 1
+Grid Updates:
+Position: (0, 2), Character: X
+
+Client Message (PID: 200826)
+Type: START
+
+Server Message (PID: 200826)
+Type: RESULT
+Success: 0
+Filled Count: 1
+Grid Updates:
+Position: (0, 2), Character: X
+
+Client Message (PID: 200826)
+Type: MARK
+Position: (1, 3)
+
+Server Message (PID: 200826)
+Type: RESULT
+Success: 1
+Filled Count: 2
+Grid Updates:
+Position: (0, 2), Character: X
+Position: (1, 3), Character: O
+
+Client Message (PID: 200827)
+Type: MARK
+Position: (2, 1)
+
+Server Message (PID: 200827)
+Type: RESULT
+Success: 1
+Filled Count: 3
+Grid Updates:
+Position: (0, 2), Character: X
+Position: (1, 3), Character: O
+Position: (2, 1), Character: Z
+
+Client Message (PID: 200828)
+Type: START
+
+Server Message (PID: 200828)
+Type: RESULT
+Success: 0
+Filled Count: 3
+Grid Updates:
+Position: (0, 2), Character: X
+Position: (1, 3), Character: O
+Position: (2, 1), Character: Z
+
+Client Message (PID: 200829)
+Type: START
+
+Server Message (PID: 200829)
+Type: RESULT
+Success: 0
+Filled Count: 3
+Grid Updates:
+Position: (0, 2), Character: X
+Position: (1, 3), Character: O
+Position: (2, 1), Character: Z
+
+Client Message (PID: 200830)
+Type: START
+
+Server Message (PID: 200830)
+Type: RESULT
+Success: 0
+Filled Count: 3
+Grid Updates:
+Position: (0, 2), Character: X
+Position: (1, 3), Character: O
+Position: (2, 1), Character: Z
+
+Client Message (PID: 200828)
+Type: MARK
+Position: (3, 2)
+
+Server Message (PID: 200828)
+Type: RESULT
+Success: 1
+Filled Count: 4
+Grid Updates:
+Position: (0, 2), Character: X
+Position: (1, 3), Character: O
+Position: (2, 1), Character: Z
+Position: (3, 2), Character: A
+
+Client Message (PID: 200829)
+Type: MARK
+Position: (3, 0)
+
+Server Message (PID: 200829)
+Type: RESULT
+Success: 1
+Filled Count: 5
+Grid Updates:
+Position: (0, 2), Character: X
+Position: (1, 3), Character: O
+Position: (2, 1), Character: Z
+Position: (3, 2), Character: A
+Position: (3, 0), Character: B
+
+Client Message (PID: 200830)
+Type: MARK
+Position: (3, 2)
+
+Server Message (PID: 200830)
+Type: RESULT
+Success: 0
+Filled Count: 5
+Grid Updates:
+Position: (0, 2), Character: X
+Position: (1, 3), Character: O
+Position: (2, 1), Character: Z
+Position: (3, 2), Character: A
+Position: (3, 0), Character: B
+
+Client Message (PID: 200825)
+Type: MARK
+Position: (3, 2)
+
+Server Message (PID: 200825)
+Type: RESULT
+Success: 0
+Filled Count: 5
+Grid Updates:
+Position: (0, 2), Character: X
+Position: (1, 3), Character: O
+Position: (2, 1), Character: Z
+Position: (3, 2), Character: A
+Position: (3, 0), Character: B
+
+Client Message (PID: 200828)
+Type: MARK
+Position: (4, 2)
+
+Server Message (PID: 200828)
+Type: RESULT
+Success: 1
+Filled Count: 6
+Grid Updates:
+Position: (0, 2), Character: X
+Position: (1, 3), Character: O
+Position: (2, 1), Character: Z
+Position: (3, 2), Character: A
+Position: (3, 0), Character: B
+Position: (4, 2), Character: A
+
+Server Message (PID: 200825)
+Type: END
+
+Server Message (PID: 200826)
+Type: END
+
+Server Message (PID: 200827)
+Type: END
+
+Server Message (PID: 200828)
+Type: END
+
+Server Message (PID: 200829)
+Type: END
+
+Server Message (PID: 200830)
+Type: END
+
+Winner: PlayerB
