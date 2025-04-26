@@ -7865,151 +7865,28 @@ main:
 main_loop:
     btfss pause , 0
     call show_digit
-    call robin
+
     btg PORTD , 0
 
     goto main_loop
 
 robin:
-    movlw 25
+    movlw 5
     movwf counter1
 
     robinn:
  robinnn:
-     call check_input
+     call check_input,
+
      incf counter2
-     bnc robinnn
+     bnc outer
  decfsz counter1
- goto robinn
+ goto outest
     return
 
 check_input:
-    call check_re0
-    call check_re1
-    call check_re2
-    call check_re3
-    call check_re4
-    call check_re5
-    call check_re7
+
     return
-
-    check_re0:
- btfsc PORTE,0
- goto re0_pressed
- btfsc rep0,0
- goto re0_released
- return
- re0_released:
-     incf de0
-     movlw 10
-     CPFSLT de0
-     clrf de0
-     clrf rep0
-     return
- re0_pressed:
-     bsf rep0,0
-     return
-
-    check_re1:
- btfsc PORTE,1
- goto re1_pressed
- btfsc rep1,0
- goto re1_released
- return
- re1_released:
-     incf de1
-     movlw 10
-     CPFSLT de1
-     clrf de1
-     clrf rep1
-     return
- re1_pressed:
-     bsf rep1,0
-     return
-
-    check_re2:
- btfsc PORTE,2
- goto re2_pressed
- btfsc rep2,0
- goto re2_released
- return
- re2_released:
-     incf de2
-     movlw 10
-     CPFSLT de2
-     clrf de2
-     clrf rep2
-     return
- re2_pressed:
-     bsf rep2,0
-     return
-
-    check_re3:
- btfsc PORTE,3
- goto re3_pressed
- btfsc rep3,0
- goto re3_released
- return
- re3_released:
-     incf de3
-     movlw 10
-     CPFSLT de3
-     clrf de3
-     clrf rep3
-     return
- re3_pressed:
-     bsf rep3,0
-     return
-
-    check_re4:
- btfsc PORTE,4
- goto re4_pressed
- btfsc rep4,0
- goto re4_released
- return
- re4_released:
-     incf de4
-     movlw 10
-     CPFSLT de4
-     clrf de4
-     clrf rep4
-     return
- re4_pressed:
-     bsf rep4,0
-     return
-
-    check_re5:
- btfsc PORTE,5
- goto re5_pressed
- btfsc rep5,0
- goto re5_released
- return
- re5_released:
-     incf de5
-     movlw 10
-     CPFSLT de5
-     clrf de5
-     clrf rep5
-     return
- re5_pressed:
-     bsf rep5,0
-     return
-
-    check_re7:
- btfsc PORTE,7
- goto re7_pressed
- btfsc rep7,0
- goto re7_released
- return
- re7_released:
-     clrf rep7
-     btg pause,0
-     return
- re7_pressed:
-     bsf rep7,0
-     return
-
-
 
 show_digit:
     call decide_de

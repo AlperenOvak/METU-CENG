@@ -21,65 +21,68 @@ CONFIG XINST = OFF      ; Extended Instruction Set Enable bit (Instruction set e
 CONFIG DEBUG = OFF      ; Disable In-Circuit Debugger
 
 
-GLOBAL var1
-GLOBAL var2
-GLOBAL var3
-GLOBAL counter
-GLOBAL prev_re7
-GLOBAL prev_re0
-GLOBAL prev_re1
-GLOBAL prev_re2
-GLOBAL prev_re3
-GLOBAL prev_re4
-GLOBAL prev_re5
+GLOBAL counter1
+GLOBAL counter2
+GLOBAL counter3
+GLOBAL rep0
+GLOBAL rep1
+GLOBAL rep2
+GLOBAL rep3
+GLOBAL rep4
+GLOBAL rep5
+GLOBAL rep7    
+GLOBAL de0
+GLOBAL de1
+GLOBAL de2
+GLOBAL de3
+GLOBAL de4
+GLOBAL de5
 GLOBAL pause
-GLOBAL dec0
-GLOBAL dec1
-GLOBAL dec2
-GLOBAL dec3
-GLOBAL dec4
-GLOBAL dec5
+GLOBAL counter
+
 
 ; Define space for the variables in RAM
 PSECT udata_acs
-var1:
+counter1:
     DS 1 ; Allocate 1 byte for var1
-var2:
+counter2:
     DS 1 
-var3:
-    DS 1 
-dec0:
+counter3:
     DS 1
-dec1:
+rep0:
     DS 1
-dec2:
+rep1:
     DS 1
-dec3:
+rep2:
     DS 1
-dec4:
+rep3:
     DS 1
-dec5:
+rep4:
+    DS 1
+rep5:
+    DS 1
+rep7:
+    DS 1
+de0:
+    DS 1
+de1:
+    DS 1
+de2:
+    DS 1
+de3:
+    DS 1
+de4:
+    DS 1
+de5:
+    DS 1
+de7:
+    DS 1
+pause:
     DS 1
 counter:
-    DS 1 
-temp_result:
-    DS 1   
-prev_re7: 
-    DS 1
-prev_re0: 
-    DS 1
-prev_re1: 
-    DS 1
-prev_re2: 
-    DS 1
-prev_re3: 
-    DS 1
-prev_re4: 
-    DS 1
-prev_re5: 
-    DS 1
-pause: 
-    DS 1
+    DS 1    
+    
+
 
 
 PSECT resetVec,class=CODE,reloc=2
@@ -88,82 +91,172 @@ resetVec:
 
 PSECT CODE
 main:
-    clrf var1	; var1 = 0		
-    clrf var2   ; var2 = 0
-    clrf var3   
-    clrf prev_re7 ; prev_rb = 0
-    clrf prev_re0
-    clrf prev_re1
-    clrf prev_re2
-    clrf prev_re3
-    clrf prev_re4
-    clrf prev_re5
-    clrf pause 
-    clrf counter
-    movlw 2
-    movwf dec0
-    movlw 5
-    movwf dec1
-    movlw 8
-    movwf dec2
-    movlw 0
-    movwf dec3
-    movlw 8
-    movwf dec4
-    movlw 0
-    movwf dec5
-    
-    ; PORTC/D as output
-    clrf TRISC
-    clrf TRISD
-    ; PORTB as input
-    setf TRISE
-    
-    setf PORTC
-    setf PORTD
-    clrf PORTE
-    
-    call busy_wait
-    
-    clrf PORTC
-    clrf PORTD
-    
+    call init
     
 main_loop:
-    ; Round robin
-    ;call check_input
-    ;call dec_input
+    btfss pause , 0
+    call show_digit
+    call robin
+    btg PORTD , 0
     
-    btfss pause, 0
-    call count
-    call toggle_D
-    btg PORTD,0
     goto main_loop
     
-toggle_D:
-    movlw 1
-    movwf var3
+robin:
     movlw 25
-    movwf var2
-    toggle_outer_loop:
-	toggle_loop_start:
-	    toggle_inner_start:
-		call check_input
-		call dec_input
-		incf var1
-	        bnc toggle_inner_start
-	    decfsz var2
-	    bra toggle_loop_start
-	decfsz var3
-	bra toggle_outer_loop
+    movwf counter1
+    
+    robinn:
+	robinnn:
+	    call check_input
+	    incf counter2
+	    bnc robinnn
+	decfsz counter1
+	goto robinn	
+    return    
+    
+check_input:
+    call check_re0
+    call check_re1
+    call check_re2
+    call check_re3
+    call check_re4
+    call check_re5
+    call check_re7
     return
     
-count:
-    call update_display
-    call display_port
+    check_re0:
+	btfsc PORTE,0
+	goto re0_pressed
+	btfsc rep0,0
+	goto re0_released
+	return
+	re0_released:
+	    incf de0
+	    movlw 10
+	    CPFSLT de0
+	    clrf de0
+	    clrf rep0
+	    return
+	re0_pressed:
+	    bsf rep0,0
+	    return
+    
+    check_re1:
+	btfsc PORTE,1
+	goto re1_pressed
+	btfsc rep1,0
+	goto re1_released
+	return
+	re1_released:
+	    incf de1
+	    movlw 10
+	    CPFSLT de1
+	    clrf de1
+	    clrf rep1
+	    return
+	re1_pressed:
+	    bsf rep1,0
+	    return
+    
+    check_re2:
+	btfsc PORTE,2
+	goto re2_pressed
+	btfsc rep2,0
+	goto re2_released
+	return
+	re2_released:
+	    incf de2
+	    movlw 10
+	    CPFSLT de2
+	    clrf de2
+	    clrf rep2
+	    return
+	re2_pressed:
+	    bsf rep2,0
+	    return
+    
+    check_re3:
+	btfsc PORTE,3
+	goto re3_pressed
+	btfsc rep3,0
+	goto re3_released
+	return
+	re3_released:
+	    incf de3
+	    movlw 10
+	    CPFSLT de3
+	    clrf de3
+	    clrf rep3
+	    return
+	re3_pressed:
+	    bsf rep3,0
+	    return
+    
+    check_re4:
+	btfsc PORTE,4
+	goto re4_pressed
+	btfsc rep4,0
+	goto re4_released
+	return
+	re4_released:
+	    incf de4
+	    movlw 10
+	    CPFSLT de4
+	    clrf de4
+	    clrf rep4
+	    return
+	re4_pressed:
+	    bsf rep4,0
+	    return
+    
+    check_re5:
+	btfsc PORTE,5
+	goto re5_pressed
+	btfsc rep5,0
+	goto re5_released
+	return
+	re5_released:
+	    incf de5
+	    movlw 10
+	    CPFSLT de5
+	    clrf de5
+	    clrf rep5
+	    return
+	re5_pressed:
+	    bsf rep5,0
+	    return
+    
+    check_re7:
+	btfsc PORTE,7
+	goto re7_pressed
+	btfsc rep7,0
+	goto re7_released
+	return
+	re7_released:
+	    clrf rep7
+	    btg pause,0
+	    return
+	re7_pressed:
+	    bsf rep7,0
+	    return
+    
+	    
+    
+show_digit:
+    call decide_de
+    call show
+    return
+    
+show:
+    movwf PORTC
+    incf counter
+    movlw 6
+    CPFSLT counter
+    clrf counter
     return
 
-update_display:
+
+decide_de:
     movlw 5
     CPFSLT counter
     goto display5
@@ -182,183 +275,77 @@ update_display:
     movlw 0
     CPFSLT counter
     goto display0
+    
     return
     
-display5:
-    movf dec5, W
-    return
-display4:
-    movf dec4, W
-    return
-display3:
-    movf dec3, W
-    return
-display2:
-    movf dec2, W
-    return
-display1:
-    movf dec1, W
-    return
-display0:
-    movf dec0, W
-    return
-    
-display_port:
-    movwf PORTC
-    incf counter
-    movlw 6
-    CPFSEQ counter
-    return
-    clrf counter
-    return
-
-    
-    
+    display5:
+	movf de5 , W
+	return
+    display4:
+	movf de4 , W
+	return
+    display3:
+	movf de3 , W
+	return
+    display2:
+	movf de2, W
+	return
+    display1:
+	movf de1, W
+	return
+    display0:
+	movf de0, W
+	return
+	
 	
 
-dec_input:
-    call check0
-    call check1
-    call check2
-    call check3
-    call check4
-    call check5
-    return
-    
-    check0:
-	btfsc PORTE, 0 
-	goto re0_pressed ; go if RB7 = 1
-	btfsc prev_re0, 0 
-	goto re0_released ; go if prev_RB7 = 1
-	return
-	re0_released:
-	    bcf prev_re0,0
-	    incf dec0
-	    movlw 10
-	    cpfseq dec0
-	    return
-	    clrf dec0
-	    return
-	re0_pressed:
-	    bsf prev_re0,0
-	    return
-    check1:
-	btfsc PORTE, 1 
-	goto re1_pressed ; go if RB1 = 1
-	btfsc prev_re1, 0 
-	goto re1_released ; go if prev_RB1 = 1
-	return
-	re1_released:
-	    bcf prev_re1,0
-	    incf dec1
-	    movlw 10
-	    cpfseq dec1
-	    return
-	    clrf dec1
-	    return
-	re1_pressed:
-	    bsf prev_re1,0
-	    return
-    check2:
-	btfsc PORTE, 2 
-	goto re2_pressed ; go if RB2 = 1
-	btfsc prev_re2, 0 
-	goto re2_released ; go if prev_RB2 = 1
-	return
-	re2_released:
-	    bcf prev_re2,0
-	    incf dec2
-	    movlw 10
-	    cpfseq dec2
-	    return
-	    clrf dec2
-	    return
-	re2_pressed:
-	    bsf prev_re2,0
-	    return
-    check3:
-	btfsc PORTE, 3 
-	goto re3_pressed ; go if RB7 = 1
-	btfsc prev_re3, 0 
-	goto re3_released ; go if prev_RB3 = 1
-	return
-	re3_released:
-	    bcf prev_re3,0
-	    incf dec3
-	    movlw 10
-	    cpfseq dec3
-	    return
-	    clrf dec3
-	    return
-	re3_pressed:
-	    bsf prev_re3,0
-	    return
-    check4:
-	btfsc PORTE, 4 
-	goto re4_pressed ; go if RB4 = 1
-	btfsc prev_re4, 0 
-	goto re4_released ; go if prev_RB4 = 1
-	return
-	re4_released:
-	    bcf prev_re4,0
-	    incf dec4
-	    movlw 10
-	    cpfseq dec4
-	    return
-	    clrf dec4
-	    return
-	re4_pressed:
-	    bsf prev_re4,0
-	    return
-    check5:
-	btfsc PORTE, 5 
-	goto re5_pressed ; go if RB5 = 1
-	btfsc prev_re5, 0 
-	goto re5_released ; go if prev_RB5 = 1
-	return
-	re5_released:
-	    bcf prev_re5,0
-	    incf dec5
-	    movlw 10
-	    cpfseq dec5
-	    return
-	    clrf dec5
-	    return
-	re5_pressed:
-	    bsf prev_re5,0
-	    return
-    
-	
-check_input:
-    btfsc PORTE, 7 
-    goto re7_pressed ; go if RB7 = 1
-    btfsc prev_re7, 0 
-    goto re7_released ; go if prev_RB7 = 1
-    return
-    re7_released:
-	bcf prev_re7,0
-	btg pause,0 ; toggle pause
-	return
-    re7_pressed:
-	bsf prev_re7,0
-	return
 
-	
-    
 busy_wait:
     movlw 5
-    movwf var3
-    movlw 255
-    movwf var2
-    outer_outer_loop:
-	outer_loop_start:
-	    loop_start:
-	        incf var1
-	        bnc loop_start
-	    decfsz var2
-	    bra outer_loop_start
-	decfsz var3
-	bra outer_outer_loop
+    movwf counter1
+    
+    outest:
+	outer:
+	    inner:
+		incf counter3
+		bnc inner
+	    incf counter2
+	    bnc outer
+	decfsz counter1
+	goto outest
+    return	
+    
+init:
+    clrf pause
+    clrf counter
+    
+    movlw 2
+    movwf de0
+    movlw 5
+    movwf de1
+    movlw 8
+    movwf de2
+    movlw 0
+    movwf de3
+    movlw 8
+    movwf de4
+    movlw 0
+    movwf de5
+    
+    clrf TRISC
+    clrf TRISD
+    setf TRISE
+    
+    setf PORTC
+    setf PORTD
+    
+    clrf PORTE
+    
+    call busy_wait 
+    
+    clrf PORTC
+    clrf PORTD
+  
     return
-   
+
 end resetVec
