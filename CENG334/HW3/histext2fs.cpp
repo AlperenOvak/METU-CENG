@@ -19,7 +19,7 @@ static int              img_fd        = -1;        // File descriptor for the ex
 static uint32_t         block_size    = 0;         // Computed block size (bytes)
 static uint16_t         inode_size    = 0;         // Size of each inode (bytes)
 static uint32_t         inodes_per_group = 0;      // From superblock
-static std::vector<ext2_block_group_descriptor> bgdt; // Block‐group descriptor table (we only need group 0 for Phase 1)
+static std::vector<ext2_block_group_descriptor> bgdt; // Block‐group descriptor table 
 
 // Forward declarations:
 void read_superblock_and_bgdt(const char *image_path);
@@ -70,22 +70,25 @@ void read_superblock_and_bgdt(const char * /*unused*/)
 
     // Print computed parameters (for debugging):
     std::fprintf(stderr, "  block_size = %u bytes\n", block_size);
-    /*
-    std::fprintf(stderr, "Computed parameters:\n");
-    std::fprintf(stderr, "  inode_size = %u bytes\n", inode_size);
-    std::fprintf(stderr, "  inodes_per_group = %u\n", inodes_per_group);
-    std::fprintf(stderr, "  first_data_block = %u\n", sb.first_data_block);
-    std::fprintf(stderr, "  total_blocks = %u\n", sb.block_count);
-    std::fprintf(stderr, "  total_inodes = %u\n", sb.inode_count);
-    */
 
     // 2.2 Locate BGDT:
     // If block_size == 1024, BGDT is at byte 2048 (block 2). Otherwise, at block 1.
     off_t bgdt_offset  = (block_size == 1024 ? 2048LL : static_cast<off_t>(block_size));
 
-    // We only need one group descriptor (group 0) for Phase 1:
-    bgdt.resize(1);
-    pread_or_die(img_fd, &bgdt[0], sizeof(ext2_block_group_descriptor), bgdt_offset);
+
+    int bgdt_block_count = (sb.block_count + sb.blocks_per_group - 1) / sb.blocks_per_group; // Total number of block groups
+    std::fprintf(stderr, "Total block groups: %d\n", bgdt_block_count);
+    bgdt.resize(bgdt_block_count); // Resize to number of groups
+    for(int i = 0; i < bgdt_block_count; i++) {
+        //read the group descriptor for each group
+        off_t offset = bgdt_offset + i * sizeof(ext2_block_group_descriptor);
+        if (pread(img_fd, &bgdt[i], sizeof(ext2_block_group_descriptor), offset) != sizeof(ext2_block_group_descriptor)) {
+            std::fprintf(stderr, "Error reading block group descriptor %d\n", i);
+            std::exit(EXIT_FAILURE);    
+        }
+    }
+
+    //pread_or_die(img_fd, &bgdt[0], sizeof(ext2_block_group_descriptor), bgdt_offset);
 
     // Print group descriptor details (for debugging):
     print_group_descriptor(&bgdt[0]);
@@ -111,7 +114,7 @@ void read_inode(uint32_t inode_num, ext2_inode &out_inode)
     }
 
     uint32_t zero_based = inode_num -1;
-    uint32_t group      = zero_based / inodes_per_group;   // for Phase 1, group should always be 0
+    uint32_t group      = zero_based / inodes_per_group;   
     uint32_t index      = zero_based % inodes_per_group;
 
     uint32_t table_block = bgdt[group].inode_table;        // first block of that group’s inode table
@@ -125,6 +128,71 @@ void read_inode(uint32_t inode_num, ext2_inode &out_inode)
     pread_or_die(img_fd, &out_inode, sizeof(ext2_inode), inode_off);
 }
 
+void collect_all_blocks(ext2_inode &inode, std::vector<uint32_t> &blocks)
+{
+    // Collect direct blocks
+    for (int i = 0; i < EXT2_NUM_DIRECT_BLOCKS; i++) {
+        if (inode.direct_blocks[i] != 0) {
+            blocks.push_back(inode.direct_blocks[i]);
+        }
+    }
+
+    std::vector<uint32_t> block_buf(block_size / sizeof(uint32_t)); // Buffer to read indirect blocks
+    // Collect single indirect block
+    if (inode.single_indirect != 0) {
+        off_t single_indirect_off = static_cast<off_t>(inode.single_indirect) * block_size; //offset for single indirect block
+        pread_or_die(img_fd, block_buf.data(), block_size, single_indirect_off);
+        for (uint32_t blk : block_buf) {
+            if (blk != 0) {
+                blocks.push_back(blk);
+            }
+        }
+    }
+
+    if(inode.double_indirect != 0) {
+        // Collect double indirect block
+        off_t double_indirect_off = static_cast<off_t>(inode.double_indirect) * block_size; //offset for double indirect block
+        pread_or_die(img_fd, block_buf.data(), block_size, double_indirect_off);
+        for (uint32_t blk : block_buf) {
+            if (blk != 0) {
+                // Read each single indirect block, same logic as above
+                off_t single_indirect_off = static_cast<off_t>(blk) * block_size;
+                pread_or_die(img_fd, block_buf.data(), block_size, single_indirect_off);
+                for (uint32_t sub_blk : block_buf) {
+                    if (sub_blk != 0) {
+                        blocks.push_back(sub_blk);
+                    }
+                }
+            }
+        }
+    }
+
+    if(inode.triple_indirect != 0) {
+        // Collect triple indirect block
+        off_t triple_indirect_off = static_cast<off_t>(inode.triple_indirect) * block_size; //offset for triple indirect block
+        pread_or_die(img_fd, block_buf.data(), block_size, triple_indirect_off);
+        for (uint32_t blk : block_buf) {
+            if (blk != 0) {
+                // Read each double indirect block, same logic as above
+                off_t double_indirect_off = static_cast<off_t>(blk) * block_size;
+                pread_or_die(img_fd, block_buf.data(), block_size, double_indirect_off);
+                for (uint32_t sub_blk : block_buf) {
+                    if (sub_blk != 0) {
+                        // Read each single indirect block, same logic as above
+                        off_t single_indirect_off = static_cast<off_t>(sub_blk) * block_size;
+                        pread_or_die(img_fd, block_buf.data(), block_size, single_indirect_off);
+                        for (uint32_t sub_sub_blk : block_buf) {
+                            if (sub_sub_blk != 0) {
+                                blocks.push_back(sub_sub_blk);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 /**
  * traverse_directory:
  *   Recursively walks the directory whose inode is inode_num,
@@ -132,7 +200,7 @@ void read_inode(uint32_t inode_num, ext2_inode &out_inode)
  *
  * Algorithm:
  *   1) read this inode → verify it’s a directory (mode & 0xF000 == EXT2_I_DTYPE).
- *   2) gather all data‐block pointers (direct + single‐indirect).  (Phase 1 test cases fit in direct.)
+ *   2) gather all data‐block pointers (direct + single‐indirect). 
  *   3) for each non‐zero block pointer:
  *        • read an entire block into a buffer
  *        • scan ext2_dir_entry entries (offset = 0; while offset < block_size)
@@ -148,6 +216,8 @@ void traverse_directory(uint32_t inode_num, int depth, std::ofstream &out)
     // 1) Read the inode for inode_num
     ext2_inode dir_inode;
     read_inode(inode_num, dir_inode);
+    // Print inode details (for debugging):
+    print_inode(&dir_inode, inode_num);
 
     // 2) Verify it’s actually a directory
     if ((dir_inode.mode & 0xF000) != EXT2_I_DTYPE) {
@@ -157,13 +227,8 @@ void traverse_directory(uint32_t inode_num, int depth, std::ofstream &out)
 
     // 3) Gather only the direct block pointers (skip single/double/triple indirect)
     std::vector<uint32_t> blocks;
-    blocks.reserve(EXT2_NUM_DIRECT_BLOCKS + );
-    for (int i = 0; i < EXT2_NUM_DIRECT_BLOCKS; i++) {
-        uint32_t b = dir_inode.direct_blocks[i];
-        if (b != 0) {
-            blocks.push_back(b);
-        }
-    }
+    blocks.reserve(EXT2_NUM_DIRECT_BLOCKS); // No need
+    collect_all_blocks(dir_inode, blocks); // Collect direct and single/doucle/triple indirect blocks
 
     // 4) For each direct block, read the full block and scan directory entries
     std::vector<char> buffer(block_size);
@@ -219,9 +284,9 @@ void traverse_directory(uint32_t inode_num, int depth, std::ofstream &out)
             out.put('\n');
 
             // If it’s a directory, recurse (depth + 1)
-            if (is_dir) {
+            //if (is_dir) {
                 traverse_directory(d->inode, depth + 1, out);
-            }
+            //}
 
             offset += d->length;
         }
@@ -265,9 +330,9 @@ int main(int argc, char **argv)
 
     // 5) Recursively traverse inode 2 (root), starting at depth 2 (“--”):
     traverse_directory(EXT2_ROOT_INODE, 2, state_out);
-    std::fprintf(stderr, "Finished\n");
     // 6) Clean up:
     state_out.close();
     close(img_fd);
+    std::fprintf(stderr, "Finished\n");
     return EXIT_SUCCESS;
 }
