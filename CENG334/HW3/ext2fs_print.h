@@ -1,6 +1,10 @@
 #ifndef __EXT2_SNAP_JOURNAL__EXT2FS_DEBUG__
 #define __EXT2_SNAP_JOURNAL__EXT2FS_DEBUG__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "ext2fs.h"
 #include <sys/stat.h>
 
@@ -32,5 +36,9 @@ void print_super_block(const struct ext2_super_block* super_block);
 void print_group_descriptor(const struct ext2_block_group_descriptor* group_descriptor);
 void print_dir_entry(const struct ext2_dir_entry* dir, const char* dir_name);
 void print_inode(const struct ext2_inode* inode, const int index);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

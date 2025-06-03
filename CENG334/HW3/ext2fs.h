@@ -6,7 +6,7 @@
 #define EXT2_BOOT_BLOCK_SIZE 1024
 #define EXT2_SUPER_BLOCK_SIZE 1024
 #define EXT2_SUPER_BLOCK_POSITION EXT2_BOOT_BLOCK_SIZE
-#define EXT2_ROOT_INODE 2
+#define EXT2_ROOT_INODE 2 // The root inode is always 2 in ext2fs
 #ifndef EXT2_INODE_SIZE
 #define EXT2_INODE_SIZE 256
 #endif

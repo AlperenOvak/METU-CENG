@@ -1,0 +1,287 @@
+#include <cstdint>
+#include <cstring>
+#include <cstdlib>
+#include <cstdio>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <vector>
+#include <string>
+#include <iostream>
+#include <fstream>
+
+#include "ext2fs_print.h" // Contains print functions for ext2 structures
+#include "ext2fs.h"   // Contains struct ext2_super_block, ext2_block_group_descriptor, ext2_inode, ext2_dir_entry
+
+// Global variables for convenience:
+static int              img_fd        = -1;        // File descriptor for the ext2 image
+static uint32_t         block_size    = 0;         // Computed block size (bytes)
+static uint16_t         inode_size    = 0;         // Size of each inode (bytes)
+static uint32_t         inodes_per_group = 0;      // From superblock
+static std::vector<ext2_block_group_descriptor> bgdt; // Block‐group descriptor table (we only need group 0 for Phase 1)
+
+// Forward declarations:
+void read_superblock_and_bgdt(const char *image_path);
+void read_inode(uint32_t inode_num, ext2_inode &out_inode);
+void traverse_directory(uint32_t inode_num, int depth, std::ofstream &out);
+
+/**
+ * Helper: Read exactly 'sz' bytes from offset 'off' in img_fd into 'buf'.
+ * Exits on any error.
+ */
+static void pread_or_die(int fd, void *buf, size_t sz, off_t off)
+{
+    ssize_t ret = pread(fd, buf, sz, off);
+    if (ret < 0 || static_cast<size_t>(ret) != sz) {
+        perror("pread");
+        std::exit(EXIT_FAILURE);
+    }
+}
+
+/**
+ * read_superblock_and_bgdt:
+ *   • Reads the ext2 superblock at offset 1024.
+ *   • Computes block_size = 1024 << log_block_size.
+ *   • Reads the block‐group descriptor table (we need only group 0 here).
+ */
+void read_superblock_and_bgdt(const char * /*unused*/)
+{
+    // 2.1 Read superblock at byte offset 1024:
+    ext2_super_block sb;
+    constexpr off_t SUPER_OFFSET = 1024;
+    pread_or_die(img_fd, &sb, sizeof(ext2_super_block), SUPER_OFFSET);
+
+    // Validate magic:
+    if (sb.magic != EXT2_SUPER_MAGIC) {
+        std::fprintf(stderr,
+                     "Error: not a valid ext2 image (magic=0x%x)\n",
+                     sb.magic);
+        std::exit(EXIT_FAILURE);
+    }
+
+    // Print superblock details (for debugging):
+    print_super_block(&sb);
+
+    // Compute global parameters:
+    block_size         = static_cast<uint32_t>(1 << sb.log_block_size + 10); 
+    inode_size         = sb.inode_size;
+    inodes_per_group   = sb.inodes_per_group;
+
+    // Print computed parameters (for debugging):
+    /*
+    std::fprintf(stderr, "Computed parameters:\n");
+    std::fprintf(stderr, "  block_size = %u bytes\n", block_size);
+    std::fprintf(stderr, "  inode_size = %u bytes\n", inode_size);
+    std::fprintf(stderr, "  inodes_per_group = %u\n", inodes_per_group);
+    std::fprintf(stderr, "  first_data_block = %u\n", sb.first_data_block);
+    std::fprintf(stderr, "  total_blocks = %u\n", sb.block_count);
+    std::fprintf(stderr, "  total_inodes = %u\n", sb.inode_count);
+    */
+
+    // 2.2 Locate BGDT:
+    // If block_size == 1024, BGDT is at byte 2048 (block 2). Otherwise, at block 1.
+    off_t bgdt_offset  = (block_size == 1024 ? 2048LL : static_cast<off_t>(block_size));
+
+    // We only need one group descriptor (group 0) for Phase 1:
+    bgdt.resize(1);
+    pread_or_die(img_fd, &bgdt[0], sizeof(ext2_block_group_descriptor), bgdt_offset);
+
+    // Print group descriptor details (for debugging):
+    print_group_descriptor(&bgdt[0]);
+}
+
+/**
+ * read_inode:
+ *   Given an inode number (1‐based), compute which block group it belongs to,
+ *   locate the correct entry in that group’s inode table, and read the inode into out_inode.
+ *
+ * Inode numbering:
+ *   group_index = (inode_num - 1) / inodes_per_group
+ *   local_index = (inode_num - 1) % inodes_per_group
+ *
+ * Table block = bgdt[group_index].inode_table
+ * inode_offset = (table_block * block_size) + (local_index * inode_size).
+ */
+void read_inode(uint32_t inode_num, ext2_inode &out_inode)
+{
+    if (inode_num == 0) {
+        std::fprintf(stderr, "Error: attempt to read inode 0\n");
+        std::exit(EXIT_FAILURE);
+    }
+
+    uint32_t zero_based = inode_num - 1;
+    uint32_t group      = zero_based / inodes_per_group;   // for Phase 1, group should always be 0
+    uint32_t index      = zero_based % inodes_per_group;
+
+    uint32_t table_block = bgdt[group].inode_table;        // first block of that group’s inode table
+    off_t    table_off   = static_cast<off_t>(table_block) * block_size;
+    off_t    inode_off   = table_off + static_cast<off_t>(index) * inode_size;
+
+    // Read exactly inode_size bytes:
+    pread_or_die(img_fd, &out_inode, inode_size, inode_off);
+}
+
+/**
+ * traverse_directory:
+ *   Recursively walks the directory whose inode is inode_num,
+ *   printing each child at the given depth to 'out'.  Depth==2 => prefix “-- ”.
+ *
+ * Algorithm:
+ *   1) read this inode → verify it’s a directory (mode & 0xF000 == EXT2_I_DTYPE).
+ *   2) gather all data‐block pointers (direct + single‐indirect).  (Phase 1 test cases fit in direct.)
+ *   3) for each non‐zero block pointer:
+ *        • read an entire block into a buffer
+ *        • scan ext2_dir_entry entries (offset = 0; while offset < block_size)
+ *          – skip if dir->inode == 0
+ *          – read dir->name (length = name_length), null‐terminate
+ *          – skip “.” and “..”
+ *          – determine if entry is directory via dir->file_type (==2) or by reading its inode’s mode
+ *          – print “[depth × '-'] inode:name[/]\n”
+ *          – if directory, recurse with depth+1
+ */
+void traverse_directory(uint32_t inode_num, int depth, std::ofstream &out)
+{
+    ext2_inode dir_inode;
+    read_inode(inode_num, dir_inode);
+
+    // Verify it’s a directory:
+    if ((dir_inode.mode & 0xF000) != EXT2_I_DTYPE) {
+        // Not a directory (should not happen for root), so do nothing.
+        return;
+    }
+
+    // 1) Gather block pointers.  We'll handle:
+    //    – direct_blocks[0..11]
+    //    – single_indirect (skip double/triple for Phase 1).
+    std::vector<uint32_t> blocks;
+    blocks.reserve(EXT2_NUM_DIRECT_BLOCKS + (block_size / 4));
+
+    // (a) Direct blocks:
+    for (int i = 0; i < EXT2_NUM_DIRECT_BLOCKS; i++) {
+        uint32_t b = dir_inode.direct_blocks[i];
+        if (b != 0) {
+            blocks.push_back(b);
+        }
+    }
+
+    // (b) Single‐indirect:
+    if (dir_inode.single_indirect != 0) {
+        uint32_t pointers_per_block = block_size / sizeof(uint32_t);
+        std::vector<uint32_t> indirect_buf(pointers_per_block);
+        off_t            indir_off = static_cast<off_t>(dir_inode.single_indirect) * block_size;
+        pread_or_die(img_fd, indirect_buf.data(),
+                     block_size, indir_off);
+
+        for (uint32_t ptr : indirect_buf) {
+            if (ptr == 0) break;
+            blocks.push_back(ptr);
+        }
+    }
+
+    // 2) For each block in 'blocks', iterate directory entries:
+    std::vector<char> buffer(block_size);
+    for (uint32_t blk : blocks) {
+        if (blk == 0) continue;
+        off_t data_off = static_cast<off_t>(blk) * block_size;
+        pread_or_die(img_fd, buffer.data(), block_size, data_off);
+
+        off_t offset = 0;
+        while (offset < static_cast<off_t>(block_size)) {
+            ext2_dir_entry *d = reinterpret_cast<ext2_dir_entry *>(buffer.data() + offset);
+            if (d->inode == 0) {
+                offset += d->length;
+                continue;
+            }
+
+            // Read the name (flexible array):
+            uint16_t name_len = d->name_length;
+            std::string name;
+            name.reserve(name_len + 1);
+            name.assign(buffer.data() + offset + sizeof(ext2_dir_entry),
+                        buffer.data() + offset + sizeof(ext2_dir_entry) + name_len);
+            name.push_back('\0');
+
+            // Skip "." and "..":
+            if (name == "." || name == "..") {
+                offset += d->length;
+                continue;
+            }
+
+            // Determine if this entry is a directory:
+            bool is_dir = false;
+            if (d->file_type == EXT2_D_DTYPE) {
+                is_dir = true;
+            } else if (d->file_type == EXT2_D_FTYPE || d->file_type == 0) {
+                // If file_type==0 (rev0) or plain file, we must actually read the inode’s mode:
+                ext2_inode child_inode;
+                read_inode(d->inode, child_inode);
+                if ((child_inode.mode & 0xF000) == EXT2_I_DTYPE) {
+                    is_dir = true;
+                }
+            }
+
+            // Print “[depth × '-'] inode:name[/]\n”:
+            for (int i = 0; i < depth; i++) {
+                out.put('-');
+            }
+            out.put(' ');
+            out << d->inode << ':' << name;
+            if (is_dir) {
+                out.put('/');
+            }
+            out.put('\n');
+
+            // If directory, recurse with depth+1:
+            if (is_dir) {
+                traverse_directory(d->inode, depth + 1, out);
+            }
+
+            offset += d->length;
+        }
+    }
+}
+
+
+int main(int argc, char **argv)
+{
+    if (argc != 4) {
+        std::fprintf(stderr, "Usage: %s <image_path> <state_output_path> <history_output_path>\n", argv[0]);
+        return 1; // Exit with error if incorrect number of arguments
+    }
+
+    const char *image_path    = argv[1];
+    const char *state_path    = argv[2];
+    // const char *history_path = argv[3];  // Not used in Phase 1
+
+    // 1) Open the ext2 image file read‐only:
+    img_fd = open(image_path, O_RDONLY);
+    if (img_fd < 0) {
+        perror("open(image)");
+        std::fprintf(stderr, "Error: could not open '%s'\n", image_path);
+        return 1; // Exit with error if image cannot be opened
+    }
+
+    // 2) Read superblock (offset = 1024 bytes) and BGDT for group 0:
+    read_superblock_and_bgdt(image_path);
+
+    // 3) Open the state_output file for writing:
+    /*std::ofstream state_out(state_path, std::ios::out | std::ios::trunc);
+    if (!state_out.is_open()) {
+        std::fprintf(stderr, "Error: could not open '%s' for writing\n", state_path);
+        close(img_fd);
+        return EXIT_FAILURE;
+    }
+
+    // 4) Print the root line at depth 1:
+    //    “- 2:root/”
+    state_out << "- 2:root/\n";
+
+    // 5) Recursively traverse inode 2 (root), starting at depth 2 (“--”):
+    traverse_directory(EXT2_ROOT_INODE, 2, state_out);
+
+    // 6) Clean up:
+    state_out.close();*/
+    close(img_fd);
+    return EXIT_SUCCESS;
+}
