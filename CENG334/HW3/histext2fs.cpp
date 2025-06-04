@@ -31,11 +31,145 @@ struct InodeOccurrence {
 struct InodeInfo {
     uint32_t            inode_num;     // just store the inode number itself
     ext2_inode         inode_data;     // copy of the on‐disk inode (to get timestamps, size, mode, etc.)
+    bool             is_directory;     // true if this inode is a directory 
     std::vector<InodeOccurrence> occurrences; // all parent/name pairs where this inode was found
 };
 
+enum class ActionType {
+    TOUCH,
+    MKDIR,
+    RM,
+    RMDIR,
+    MV,
+    UNKNOWN
+};
+
+struct ActionRecord {
+    // If hasTimestamp == false, print “?” instead of timestamp
+    uint32_t       timestamp;
+    bool           hasTimestamp;
+
+    ActionType     action;            // e.g. TOUCH or MKDIR
+
+    // ARGS: for touch/mkdir/rm/rmdir, this is exactly one path string.
+    // For mv, it should contain exactly two strings: {old_path, new_path}.
+    std::vector<std::string> args;
+
+    // AFFECTED_DIRECTORIES: 
+    //   - For touch/mkdir/rm/rmdir, exactly one parent-inode. 
+    //   - For mv, exactly two: {old_parent, new_parent}.
+    std::vector<uint32_t>    affected_dirs;
+
+    // AFFECTED_INODES: always contains exactly one inode number.
+    std::vector<uint32_t>    affected_inodes;
+};
+
+static std::string actionTypeToString(ActionType a) {
+    switch (a) {
+        case ActionType::TOUCH:  return "touch";
+        case ActionType::MKDIR:  return "mkdir";
+        case ActionType::RM:     return "rm";
+        case ActionType::RMDIR:  return "rmdir";
+        case ActionType::MV:     return "mv";
+        case ActionType::UNKNOWN:return "?";
+    }
+    return "?"; // fallback
+}
+
+static std::string stringifyArgs(const std::vector<std::string> &v) {
+    if (v.empty()) {
+        return "[?]";
+    }
+    std::string out = "[";
+    for (size_t i = 0; i < v.size(); i++) {
+        out += v[i];
+        if (i + 1 < v.size()) {
+            out += " ";
+        }
+    }
+    out += "]";
+    return out;
+}
+
+
+static std::string stringifyU32List(const std::vector<uint32_t> &v) {
+    if (v.empty()) {
+        return "[?]";
+    }
+    std::string out = "[";
+    for (size_t i = 0; i < v.size(); i++) {
+        if( v[i] == -1) {
+            out += "?";
+        } else {
+            out += std::to_string(v[i]);
+        }
+        if (i + 1 < v.size()) {
+            out += " ";
+        }
+    }
+    out += "]";
+    return out;
+}
+
+
+void sortAndPrintHistory(std::vector<ActionRecord> &output_list,
+                         std::ofstream &out)
+{
+    // 1) Stable‐sort by timestamp, pushing all hasTimestamp == false to the end:
+    std::stable_sort(
+        output_list.begin(),
+        output_list.end(),
+        [](auto const &A, auto const &B) {
+            // If both have timestamps, compare them numerically
+            return A.timestamp < B.timestamp; //TODO: fix it later
+            if (A.hasTimestamp && B.hasTimestamp) {
+                return A.timestamp < B.timestamp;
+            }
+            // If A has a timestamp but B does not, A comes first
+            if (A.hasTimestamp && !B.hasTimestamp) {
+                return true;
+            }
+            // If B has a timestamp but A does not, B comes first => return false
+            if (!A.hasTimestamp && B.hasTimestamp) {
+                return false;
+            }
+            // If neither has a timestamp, keep original order (stable_sort will do that)
+            return false;
+        }
+    );
+
+    // 2) Print each record in the required format:
+    //    TIMESTAMP ACTION [ARGS] [AFFECTED_DIRECTORIES] [AFFECTED_INODES]
+    for (auto const &rec : output_list) {
+        // (a) TIMESTAMP or "?"
+        if (rec.hasTimestamp) {
+            out << rec.timestamp;
+        } else {
+            out << "?";
+        }
+        out << " ";
+
+        // (b) ACTION or "?"
+        out << actionTypeToString(rec.action);
+        out << " ";
+
+        // (c) ARGS
+        out << stringifyArgs(rec.args);
+        out << " ";
+
+        // (d) AFFECTED_DIRECTORIES
+        out << stringifyU32List(rec.affected_dirs);
+        out << " ";
+
+        // (e) AFFECTED_INODES
+        out << stringifyU32List(rec.affected_inodes);
+
+        out << "\n";
+    }
+}
 
 static std::unordered_map<uint32_t, InodeInfo> inode_map;
+std::vector<ActionRecord> output_list;
 
 // Forward declarations:
 void read_superblock_and_bgdt(const char *image_path);
@@ -45,6 +179,7 @@ void traverse_directory(uint32_t inode_num, int depth, std::ofstream &out);
 static void record_inode_occurrence(uint32_t inode_num,
                                      const std::string &full_path,
                                      uint32_t parent_inode,
+                                     bool is_direc,
                                      bool isLiveFlag)
 {
     // 3.a) If this inode_num isn’t already in the map, read it once
@@ -54,6 +189,7 @@ static void record_inode_occurrence(uint32_t inode_num,
         InodeInfo info;
         // read_inode fills “info.inode_data” from disk
         info.inode_num = inode_num; // Store the inode number
+        info.is_directory = is_direc; // Default to false, will be set later if needed
         read_inode(inode_num, info.inode_data);
         inode_map.emplace(inode_num, std::move(info));
         it = inode_map.find(inode_num);
@@ -273,6 +409,7 @@ void traverse_directory(uint32_t inode_num, int depth, const std::string &curr_p
                 record_inode_occurrence(d->inode,
                                         child_full_path,
                                         inode_num,
+                                        is_directory(d->file_type, dir_inode.mode),
                                         /*isLiveFlag=*/isLive);
 
                 if(is_directory(d->file_type, dir_inode.mode)) {
@@ -314,6 +451,7 @@ void traverse_directory(uint32_t inode_num, int depth, const std::string &curr_p
                         record_inode_occurrence(ghost_entry->inode,
                                                 ghost_full_path,
                                                 inode_num,
+                                                is_directory(ghost_entry->file_type, child_inode.mode),
                                                 /*isLiveFlag=*/false);
 
                         std::fprintf(stderr, "Ghost entry: %s (inode %u)\n", ghost_name.c_str(), ghost_entry->inode);
@@ -339,7 +477,198 @@ void traverse_directory(uint32_t inode_num, int depth, const std::string &curr_p
     }
 }
 
-#include <iomanip>   // for std::setw / formatting, if desired
+bool detectSimpleCreation(uint32_t inode_no, const InodeInfo &info,
+                          uint32_t access_time, uint32_t change_time,
+                          uint32_t deletion_time, uint32_t modification_time){
+    if(modification_time == access_time &&
+       modification_time == change_time &&
+       deletion_time == 0) {
+        // If all timestamps are equal and deletion time is zero, it’s a simple creation
+        std::fprintf(stderr, "Inode %u is a simple creation.\n", inode_no);
+        ActionRecord record;
+        record.timestamp = access_time;
+        record.hasTimestamp = true;
+        record.action = info.is_directory ? ActionType::MKDIR : ActionType::TOUCH;
+        record.args.push_back(info.occurrences[0].full_path); // Use the first occurrence's path
+        record.affected_dirs.push_back(info.occurrences[0].parent_inode); // Use the first occurrence's parent inode
+        record.affected_inodes.push_back(inode_no); // Add the inode number itself
+        
+        output_list.push_back(record);
+        //std::fprintf(stderr, "Recorded simple creation for inode %u: %s\n", inode_no, info.occurrences[0].full_path.c_str());
+        return true;
+    } 
+    
+    return false; // Otherwise, it’s not a simple creation
+}
+
+bool detectCreation(uint32_t inode_no, const InodeInfo &info, uint32_t access_time,
+                    uint32_t change_time, uint32_t deletion_time,
+                    uint32_t modification_time){
+    // 1) First try the “all‐equal” rule
+        if (detectSimpleCreation(inode_no, info,
+                                 access_time, change_time,
+                                 deletion_time, modification_time))
+        {
+            return true; // move on to next inode_no
+        }
+
+        // 2) Fallback: try to match child.atime == parent.mtime
+        bool foundMatch = false;
+        for (const InodeOccurrence &occ : info.occurrences) {
+
+            // Look up that parent’s modification_time
+            const auto it_parent = inode_map.find(occ.parent_inode);  // TODO: embed the parent inode in InodeOccurrence?
+            if (it_parent == inode_map.end()) {
+                continue;
+            }
+            uint32_t parent_mtime = it_parent->second.inode_data.modification_time;
+
+            // If child’s access_time == parent’s modification_time, 
+            // then that is likely the exact create moment
+            if (access_time != 0 && access_time == parent_mtime) {
+                std::fprintf(stderr,
+                             "Inode %u creation matched parent mtime: %u\n",
+                             inode_no, access_time);
+
+                ActionRecord record;
+                record.timestamp     = access_time;
+                record.hasTimestamp  = true;
+                record.action        = info.is_directory
+                                         ? ActionType::MKDIR
+                                         : ActionType::TOUCH;
+
+                // Use this live occurrence as the creation point
+                record.args.push_back(occ.full_path);
+                record.affected_dirs.push_back(occ.parent_inode);
+                record.affected_inodes.push_back(inode_no);
+
+                output_list.push_back(std::move(record));
+                foundMatch = true;
+                break;
+            }
+        }
+
+        if (foundMatch) {
+            return true; // we already emitted a creation
+        }
+
+        if(info.occurrences.size() == 1){
+            // 3) If we get here and there is exactly one occurrence, assume known timestamp
+            std::fprintf(stderr,
+                         "Inode %u has one occurrence → fallback creation (%u)\n",
+                         inode_no, access_time);
+
+            ActionRecord record;
+            record.timestamp      = access_time;      // known timestamp
+            record.hasTimestamp   = true;
+            record.action         = info.is_directory
+                                      ? ActionType::MKDIR
+                                      : ActionType::TOUCH;
+
+            // Use the single occurrence’s path as “args”
+            record.args.push_back(info.occurrences[0].full_path);
+            record.affected_dirs.push_back(info.occurrences[0].parent_inode);
+            record.affected_inodes.push_back(inode_no);
+
+            output_list.push_back(std::move(record));
+            return true; // move on to next inode_no
+        }
+
+        // 4) If we get here and there are exactly two occurrences, assume known timestamp but we cnat prove”
+        if (info.occurrences.size() == 2) {
+            // Identify which is ghost and which is live
+            const InodeOccurrence *ghost_occ = nullptr;
+            const InodeOccurrence *live_occ  = nullptr;
+            for (const auto &occ : info.occurrences) {
+                if (occ.isLive) {
+                    live_occ = &occ;
+                } else {
+                    ghost_occ = &occ;
+                }
+            }
+            if (live_occ && ghost_occ) {
+                std::fprintf(stderr,
+                             "Inode %u has two occurrences → fallback creation (%u)\n",
+                             inode_no, access_time);
+
+                ActionRecord record;
+                record.timestamp      = access_time;      // unknown
+                record.hasTimestamp   = true;
+                record.action         = info.is_directory
+                                          ? ActionType::MKDIR
+                                          : ActionType::TOUCH;
+
+                // Use the final (live) path as “args”
+                record.args.push_back(ghost_occ->full_path);
+
+                // The “creation parent” is where the ghost entry was
+                record.affected_dirs.push_back(ghost_occ->parent_inode);
+
+                record.affected_inodes.push_back(inode_no);
+
+                output_list.push_back(std::move(record));
+                return true; // move on to next inode_no
+            }
+        }
+
+        // *** NEW: 5) “Parent‐access_time” rule for ghost entries:
+        //
+        // If we haven’t emitted a creation yet, look at every ghost occurrence.
+        // If exactly one ghost_occ has parent.access_time < child.access_time, assume that’s the creation.
+        {
+            std::vector<const InodeOccurrence*> ghost_candidates;
+            for (const auto &occ : info.occurrences) {
+                if (!occ.isLive) {
+                    auto it_par = inode_map.find(occ.parent_inode);
+                    if (it_par != inode_map.end()) {
+                        uint32_t parent_atime = it_par->second.inode_data.access_time;
+                        // parent_atime == parent creation time
+                        if (parent_atime < access_time) {
+                            ghost_candidates.push_back(&occ);
+                        }
+                    }
+                }
+            }
+            if (ghost_candidates.size() == 1) {
+                const InodeOccurrence *chosen = ghost_candidates.front();
+                std::fprintf(stderr,
+                             "Inode %u creation inferred from one ghost with parent atime < child atime\n",
+                             inode_no);
+
+                ActionRecord record;
+                record.timestamp    = access_time;  // use child’s atime as creation
+                record.hasTimestamp = true;
+                record.action       = info.is_directory
+                                        ? ActionType::MKDIR
+                                        : ActionType::TOUCH;
+
+                record.args.push_back(chosen->full_path);
+                record.affected_dirs.push_back(chosen->parent_inode);
+                record.affected_inodes.push_back(inode_no);
+
+                output_list.push_back(std::move(record));
+                return true; // move on to next inode_no
+            }
+        }
+
+        // 6) Otherwise, we cant know where it created, so we just emit a “?” record
+        std::fprintf(stderr,
+                     "Inode %u has no known creation place, emitting fallback record\n",
+                     inode_no); 
+        ActionRecord record;
+        record.timestamp = access_time;
+        record.hasTimestamp = true;
+        record.action = info.is_directory ? ActionType::MKDIR : ActionType::TOUCH;
+        record.args.push_back("?");
+        record.affected_dirs.push_back(-1); // No known parent
+        record.affected_inodes.push_back(inode_no); // Add the inode number itself
+
+        output_list.push_back(std::move(record));
+        return false; // we emitted a fallback record, so we can move on to next inode_no    
+}
+
+
+
 
 //-----------------------------------------------------------------------------
 // Print the contents of inode_map into 'out'.
@@ -351,12 +680,12 @@ static void dump_inode_map(std::ofstream &out) {
         uint32_t inode_no    = pair.first;
         const InodeInfo &info = pair.second;
 
-        // --- 1) Print the inode number and its raw timestamps ---
+        {// --- 1) Print the inode number and its raw timestamps ---
         // (Assuming ext2_inode has fields i_ctime, i_mtime, i_atime as uint32_t.)
         out << "Inode #" << inode_no << ":\n";
         out << "    atime = " << info.inode_data.access_time
             << "    ctime = " << info.inode_data.change_time
-            //<< "    mtime = " << info.inode_data.modification_time // we don't need it
+            << "    mtime = " << info.inode_data.modification_time // we don't need it
             << "    dtime = " << info.inode_data.deletion_time << "\n";
 
         // --- 2) Print how many times we saw it ---
@@ -369,10 +698,24 @@ static void dump_inode_map(std::ofstream &out) {
                 << "    (isLive = " << (occ.isLive ? "true" : "false") << ")\n";
         }
         out << "\n";
+}
+
+
+        uint32_t access_time = info.inode_data.access_time;
+        uint32_t change_time = info.inode_data.change_time;
+        uint32_t deletion_time = info.inode_data.deletion_time;
+        uint32_t modification_time = info.inode_data.modification_time;
+
+        bool is_creation = detectCreation(inode_no, info,
+                                                access_time, change_time,
+                                                deletion_time, modification_time); // Detect the creation of inode
+
+        
     }
 
     out << "====  END: Inode Map Dump  ====\n";
 }
+
 
 
 int main(int argc, char **argv)
@@ -384,7 +727,7 @@ int main(int argc, char **argv)
 
     const char *image_path    = argv[1];
     const char *state_path    = argv[2];
-    const char *history_path = argv[3];  // Not used in Phase 1
+    const char *history_path  = argv[3];  // Not used in Phase 1
 
     img_fd = open(image_path, O_RDONLY);
     if (img_fd < 0) {
@@ -413,7 +756,9 @@ int main(int argc, char **argv)
 
     traverse_directory(EXT2_ROOT_INODE, 2, "", state_out,true);
 
-    dump_inode_map(history_out);
+    dump_inode_map(state_out);
+
+    sortAndPrintHistory(output_list, history_out);
 
     state_out.close();
     close(img_fd);
