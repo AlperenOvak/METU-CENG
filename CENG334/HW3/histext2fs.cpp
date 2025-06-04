@@ -98,7 +98,7 @@ static std::string stringifyU32List(const std::vector<uint32_t> &v) {
     }
     std::string out = "[";
     for (size_t i = 0; i < v.size(); i++) {
-        if( v[i] == -1) {
+        if( v[i] == UINT32_MAX) {
             out += "?";
         } else {
             out += std::to_string(v[i]);
@@ -667,7 +667,119 @@ bool detectCreation(uint32_t inode_no, const InodeInfo &info, uint32_t access_ti
         return false; // we emitted a fallback record, so we can move on to next inode_no    
 }
 
+bool detectDeletion(uint32_t inode_no,
+                    const InodeInfo &info,
+                    uint32_t deletion_time)
+{
+    // 1.a) If no deletion_time, nothing to do
+    if (deletion_time == 0) {
+        return false;
+    }
 
+    if (info.occurrences.size() == 1) {
+        const InodeOccurrence &occ = info.occurrences.front();
+
+        std::fprintf(stderr,
+                     "Inode %u: single occurrence → delete at \"%s\" (time=%u)\n",
+                     inode_no,
+                     occ.full_path.c_str(),
+                     deletion_time);
+
+        ActionRecord record;
+        record.timestamp      = deletion_time;
+        record.hasTimestamp   = true;
+        record.action         = info.is_directory
+                                  ? ActionType::RMDIR
+                                  : ActionType::RM;
+
+        record.args.push_back(occ.full_path);
+        record.affected_dirs.push_back(occ.parent_inode);
+        record.affected_inodes.push_back(inode_no);
+
+        output_list.push_back(std::move(record));
+        return true;
+    }
+
+    // 1.b) Look through all ghost occurrences for a parent whose mtime matches deletion_time
+    std::vector<const InodeOccurrence*> candidates;
+    for (const InodeOccurrence &occ : info.occurrences) {
+        if (occ.isLive) {
+            continue; // shouldn't we see live entries here?
+        }
+
+        auto it_parent = inode_map.find(occ.parent_inode);
+        if (it_parent == inode_map.end()) {
+            continue;
+        }
+        uint32_t parent_mtime = it_parent->second.inode_data.modification_time;
+
+        if (deletion_time == parent_mtime) {
+            // Found the exact directory‐removal moment
+            std::fprintf(stderr,
+                         "Inode %u deletion matched parent mtime: %u\n",
+                         inode_no, deletion_time);
+
+            ActionRecord record;
+            record.timestamp      = deletion_time;
+            record.hasTimestamp   = true;
+            record.action         = info.is_directory
+                                      ? ActionType::RMDIR
+                                      : ActionType::RM;
+
+            record.args.push_back(occ.full_path);
+            record.affected_dirs.push_back(occ.parent_inode);
+            record.affected_inodes.push_back(inode_no);
+
+            output_list.push_back(std::move(record));
+            return true;
+        }
+        if(deletion_time < parent_mtime){
+            candidates.push_back(&occ);
+        }
+    }
+
+    if (candidates.size() == 1) {
+        const InodeOccurrence *chosen = candidates.front();
+        std::fprintf(stderr,
+                     "Inode %u: delete inferred where parent.mtime (%u) > dtime (%u)\n",
+                     inode_no,
+                     inode_map.at(chosen->parent_inode).inode_data.modification_time,
+                     deletion_time);
+
+        ActionRecord record;
+        record.timestamp      = deletion_time;
+        record.hasTimestamp   = true;
+        record.action         = info.is_directory
+                                  ? ActionType::RMDIR
+                                  : ActionType::RM;
+
+        record.args.push_back(chosen->full_path);
+        record.affected_dirs.push_back(chosen->parent_inode);
+        record.affected_inodes.push_back(inode_no);
+
+        output_list.push_back(std::move(record));
+        return true;
+    }
+
+    // 1.c) Fallback: no matching parent mtime → emit unknown‐path delete
+    std::fprintf(stderr,
+                 "Inode %u deletion_time = %u, but no matching parent mtime; emitting “?” delete record\n",
+                 inode_no, deletion_time);
+
+    ActionRecord record;
+    record.timestamp      = deletion_time;
+    record.hasTimestamp   = true;  // you could set false if you prefer
+    record.action         = info.is_directory
+                              ? ActionType::RMDIR
+                              : ActionType::RM;
+
+    record.args.push_back("?");                     // unknown path
+    record.affected_dirs.push_back(UINT32_MAX);     // unknown parent
+    record.affected_inodes.push_back(inode_no);
+
+    output_list.push_back(std::move(record));
+    return true;
+}
 
 
 //-----------------------------------------------------------------------------
@@ -709,6 +821,20 @@ static void dump_inode_map(std::ofstream &out) {
         bool is_creation = detectCreation(inode_no, info,
                                                 access_time, change_time,
                                                 deletion_time, modification_time); // Detect the creation of inode
+
+        if(!is_creation) {
+            // If we did not detect a creation, print a warning
+            std::fprintf(stderr, "Warning: Inode %u has no known creation time.\n", inode_no);
+        } else {
+            // Find the other actions (rm, mv, etc.) based on inode data //TODO
+
+            bool is_deletion = detectDeletion(inode_no, info, deletion_time); // Detect the deletion of inode
+
+            if(info.occurrences.size() > 1){
+                // If there are multiple occurrences, we can assume it was moved
+                // TODO: find the mv action
+            }
+        }
 
         
     }
