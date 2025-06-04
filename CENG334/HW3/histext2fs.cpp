@@ -10,6 +10,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <unordered_map>
 
 #include "ext2fs_print.h" // Contains print functions for ext2 structures
 #include "ext2fs.h"   // Contains struct ext2_super_block, ext2_block_group_descriptor, ext2_inode, ext2_dir_entry
@@ -21,10 +22,52 @@ static uint16_t         inode_size    = 0;         // Size of each inode (bytes)
 static uint32_t         inodes_per_group = 0;      // From superblock
 static std::vector<ext2_block_group_descriptor> bgdt; // Block‐group descriptor table 
 
+struct InodeOccurrence {
+    std::string full_path;     // e.g. "/foo/bar/baz.txt"
+    uint32_t    parent_inode;  // e.g. 12
+    bool        isLive;        // true if from live directory‐entry, false if from ghost
+};
+
+struct InodeInfo {
+    uint32_t            inode_num;     // just store the inode number itself
+    ext2_inode         inode_data;     // copy of the on‐disk inode (to get timestamps, size, mode, etc.)
+    std::vector<InodeOccurrence> occurrences; // all parent/name pairs where this inode was found
+};
+
+
+static std::unordered_map<uint32_t, InodeInfo> inode_map;
+
 // Forward declarations:
 void read_superblock_and_bgdt(const char *image_path);
 void read_inode(uint32_t inode_num, ext2_inode &out_inode);
 void traverse_directory(uint32_t inode_num, int depth, std::ofstream &out);
+
+static void record_inode_occurrence(uint32_t inode_num,
+                                     const std::string &full_path,
+                                     uint32_t parent_inode,
+                                     bool isLiveFlag)
+{
+    // 3.a) If this inode_num isn’t already in the map, read it once
+    auto it = inode_map.find(inode_num);
+    if (it == inode_map.end()) {
+        // First time we’ve seen this inode_num ⇒ populate inode_data
+        InodeInfo info;
+        // read_inode fills “info.inode_data” from disk
+        info.inode_num = inode_num; // Store the inode number
+        read_inode(inode_num, info.inode_data);
+        inode_map.emplace(inode_num, std::move(info));
+        it = inode_map.find(inode_num);
+    }
+
+    // 3.b) Build a new InodeOccurrence and append it
+    InodeOccurrence occ;
+    occ.full_path   = full_path;     // e.g. "/parent/child.txt"
+    occ.parent_inode = parent_inode; // numeric inode of the directory containing this entry
+    occ.isLive      = isLiveFlag;    // true for a normal entry, false for a ghost entry
+
+    it->second.occurrences.push_back(std::move(occ));
+}
+
 
 /**
  * Helper: Read exactly 'sz' bytes from offset 'off' in img_fd into 'buf'.
@@ -171,13 +214,10 @@ void collect_all_blocks(ext2_inode &inode, std::vector<uint32_t> &blocks)
 
 bool is_directory(uint8_t dirent_ft, uint16_t inode_mode)
 {
-    if (dirent_ft == EXT2_D_DTYPE) return true;
-    if (dirent_ft == EXT2_D_FTYPE || dirent_ft == 0)
-        return ((inode_mode & 0xF000) == EXT2_I_DTYPE);
-    return false;
+    return dirent_ft == EXT2_D_DTYPE || (dirent_ft == 0 && (inode_mode & 0x4000));
 }
 
-void traverse_directory(uint32_t inode_num, int depth, std::ofstream &out)
+void traverse_directory(uint32_t inode_num, int depth, const std::string &curr_path, std::ofstream &out,bool isLive = true)
 {
     // 1) Read the inode for inode_num
     ext2_inode dir_inode;
@@ -215,21 +255,29 @@ void traverse_directory(uint32_t inode_num, int depth, std::ofstream &out)
             //name.push_back('\0'); no need to null-terminate, we use std::string
 
             // Skip “.” and “..”
-            if (d->inode != 0 &&!(name == "." || name == "..")) {
+            if ( d->inode != 0 &&!(name == "." || name == "..")) {
                 // Print the entry with the correct number of dashes
-                for (int i = 0; i < depth; i++) {
+                if(isLive){
+                    for (int i = 0; i < depth; i++) {
                     out.put('-');
+                    }
+                    out.put(' ');
+                    out << d->inode << ':' << name;
+                    if (is_directory(d->file_type, dir_inode.mode)) {
+                        out.put('/');
+                    }
+                    out.put('\n');
                 }
-                out.put(' ');
-                out << d->inode << ':' << name;
-                if (is_directory(d->file_type, dir_inode.mode)) {
-                    out.put('/');
-                }
-                out.put('\n');
+                std::string child_full_path = curr_path + "/" + name;
+
+                record_inode_occurrence(d->inode,
+                                        child_full_path,
+                                        inode_num,
+                                        /*isLiveFlag=*/isLive);
 
                 if(is_directory(d->file_type, dir_inode.mode)) {
                     // If it’s a directory, recurse (depth + 1)
-                    traverse_directory(d->inode, depth + 1, out);
+                    traverse_directory(d->inode, depth + 1, child_full_path, out, isLive);
                 }
             }
             // Scan for ghosts in the gap
@@ -250,15 +298,34 @@ void traverse_directory(uint32_t inode_num, int depth, std::ofstream &out)
                     std::string ghost_name(ghost_buf);
 
                     if (ghost_name != "." && ghost_name != "..") {
-                        for (int d = 0; d < depth; ++d) out << "-";
-                        out << " (" << ghost_entry->inode << ":" << ghost_name;
                         ext2_inode child_inode;
                         read_inode(ghost_entry->inode, child_inode);
+                        if(isLive){
+                            for (int d = 0; d < depth; ++d) out << "-";
+                            out << " (" << ghost_entry->inode << ":" << ghost_name;
+                            if (is_directory(ghost_entry->file_type, child_inode.mode)) {
+                                out << "/";
+                            }
+                            out << ")" << std::endl;
+                        }
+
+                        std::string ghost_full_path = curr_path + "/" + ghost_name;
+
+                        record_inode_occurrence(ghost_entry->inode,
+                                                ghost_full_path,
+                                                inode_num,
+                                                /*isLiveFlag=*/false);
+
+                        std::fprintf(stderr, "Ghost entry: %s (inode %u)\n", ghost_name.c_str(), ghost_entry->inode);
 
                         if (is_directory(ghost_entry->file_type, child_inode.mode)) {
-                            out << "/";
+                            std::fprintf(stderr, "Ghost directory: %s\n", ghost_name.c_str());
+                            traverse_directory(ghost_entry->inode,
+                                               depth + 1,
+                                               ghost_full_path,
+                                               out,
+                                               /* isLive = */ false);
                         }
-                        out << ")" << std::endl;
                     }
                 }
 
@@ -272,6 +339,41 @@ void traverse_directory(uint32_t inode_num, int depth, std::ofstream &out)
     }
 }
 
+#include <iomanip>   // for std::setw / formatting, if desired
+
+//-----------------------------------------------------------------------------
+// Print the contents of inode_map into 'out'.
+//-----------------------------------------------------------------------------
+static void dump_inode_map(std::ofstream &out) {
+    out << "==== BEGIN: Inode Map Dump ====\n\n";
+
+    for (const auto &pair : inode_map) {
+        uint32_t inode_no    = pair.first;
+        const InodeInfo &info = pair.second;
+
+        // --- 1) Print the inode number and its raw timestamps ---
+        // (Assuming ext2_inode has fields i_ctime, i_mtime, i_atime as uint32_t.)
+        out << "Inode #" << inode_no << ":\n";
+        out << "    atime = " << info.inode_data.access_time
+            << "    ctime = " << info.inode_data.change_time
+            //<< "    mtime = " << info.inode_data.modification_time // we don't need it
+            << "    dtime = " << info.inode_data.deletion_time << "\n";
+
+        // --- 2) Print how many times we saw it ---
+        out << "    [Occurrences: " << info.occurrences.size() << "]\n";
+
+        // --- 3) List each occurrence on its own line ---
+        for (const auto &occ : info.occurrences) {
+            out << "      - full_path = \"" << occ.full_path << "\"\n";
+            out << "        parent_inode = " << occ.parent_inode
+                << "    (isLive = " << (occ.isLive ? "true" : "false") << ")\n";
+        }
+        out << "\n";
+    }
+
+    out << "====  END: Inode Map Dump  ====\n";
+}
+
 
 int main(int argc, char **argv)
 {
@@ -282,7 +384,7 @@ int main(int argc, char **argv)
 
     const char *image_path    = argv[1];
     const char *state_path    = argv[2];
-    // const char *history_path = argv[3];  // Not used in Phase 1
+    const char *history_path = argv[3];  // Not used in Phase 1
 
     img_fd = open(image_path, O_RDONLY);
     if (img_fd < 0) {
@@ -300,9 +402,18 @@ int main(int argc, char **argv)
         return EXIT_FAILURE;
     }
 
+    std::ofstream history_out(history_path, std::ios::out | std::ios::trunc);
+    if (!history_out.is_open()) {
+        std::fprintf(stderr, "Error: could not open '%s' for writing\n", history_path);
+        close(img_fd);
+        return EXIT_FAILURE;
+    }
+
     state_out << "- 2:root/\n";
 
-    traverse_directory(EXT2_ROOT_INODE, 2, state_out);
+    traverse_directory(EXT2_ROOT_INODE, 2, "", state_out,true);
+
+    dump_inode_map(history_out);
 
     state_out.close();
     close(img_fd);
