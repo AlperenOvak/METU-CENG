@@ -503,12 +503,14 @@ bool detectSimpleCreation(uint32_t inode_no, const InodeInfo &info,
 
 bool detectCreation(uint32_t inode_no, const InodeInfo &info, uint32_t access_time,
                     uint32_t change_time, uint32_t deletion_time,
-                    uint32_t modification_time){
+                    uint32_t modification_time,
+                    InodeOccurrence &found_occurrence){
     // 1) First try the “all‐equal” rule
         if (detectSimpleCreation(inode_no, info,
                                  access_time, change_time,
                                  deletion_time, modification_time))
         {
+            found_occurrence = info.occurrences[0]; // Use the first occurrence
             return true; // move on to next inode_no
         }
 
@@ -544,6 +546,7 @@ bool detectCreation(uint32_t inode_no, const InodeInfo &info, uint32_t access_ti
 
                 output_list.push_back(std::move(record));
                 foundMatch = true;
+                found_occurrence = occ; // Store the found occurrence
                 break;
             }
         }
@@ -571,6 +574,7 @@ bool detectCreation(uint32_t inode_no, const InodeInfo &info, uint32_t access_ti
             record.affected_inodes.push_back(inode_no);
 
             output_list.push_back(std::move(record));
+            found_occurrence = info.occurrences[0]; // Store the found occurrence
             return true; // move on to next inode_no
         }
 
@@ -607,6 +611,7 @@ bool detectCreation(uint32_t inode_no, const InodeInfo &info, uint32_t access_ti
                 record.affected_inodes.push_back(inode_no);
 
                 output_list.push_back(std::move(record));
+                found_occurrence = *ghost_occ; // Store the found occurrence
                 return true; // move on to next inode_no
             }
         }
@@ -647,6 +652,7 @@ bool detectCreation(uint32_t inode_no, const InodeInfo &info, uint32_t access_ti
                 record.affected_inodes.push_back(inode_no);
 
                 output_list.push_back(std::move(record));
+                found_occurrence = *chosen; // Store the found occurrence
                 return true; // move on to next inode_no
             }
         }
@@ -660,7 +666,7 @@ bool detectCreation(uint32_t inode_no, const InodeInfo &info, uint32_t access_ti
         record.hasTimestamp = true;
         record.action = info.is_directory ? ActionType::MKDIR : ActionType::TOUCH;
         record.args.push_back("?");
-        record.affected_dirs.push_back(-1); // No known parent
+        record.affected_dirs.push_back(UINT32_MAX); // No known parent
         record.affected_inodes.push_back(inode_no); // Add the inode number itself
 
         output_list.push_back(std::move(record));
@@ -669,7 +675,9 @@ bool detectCreation(uint32_t inode_no, const InodeInfo &info, uint32_t access_ti
 
 bool detectDeletion(uint32_t inode_no,
                     const InodeInfo &info,
-                    uint32_t deletion_time)
+                    uint32_t deletion_time,
+                    InodeOccurrence &deletion_occurrence
+                )
 {
     // 1.a) If no deletion_time, nothing to do
     if (deletion_time == 0) {
@@ -697,6 +705,7 @@ bool detectDeletion(uint32_t inode_no,
         record.affected_inodes.push_back(inode_no);
 
         output_list.push_back(std::move(record));
+        deletion_occurrence = occ; // Store the occurrence for later use
         return true;
     }
 
@@ -758,6 +767,7 @@ bool detectDeletion(uint32_t inode_no,
         record.affected_inodes.push_back(inode_no);
 
         output_list.push_back(std::move(record));
+        deletion_occurrence = *chosen; // Store the occurrence for later use
         return true;
     }
 
@@ -778,9 +788,264 @@ bool detectDeletion(uint32_t inode_no,
     record.affected_inodes.push_back(inode_no);
 
     output_list.push_back(std::move(record));
-    return true;
+    return false;
 }
 
+bool detectMovement(uint32_t inode_no,
+                    const InodeInfo &info,
+                    InodeOccurrence first_seen,
+                    InodeOccurrence last_seen,
+                    uint32_t change_time
+                )
+{
+    size_t N = info.occurrences.size();
+    if (N <= 1) {
+        // No move possible if there is only one (or zero) occurrences.
+        return false;
+    }
+
+    int pushed_count = 0;  // how many mv records we have pushed so far
+
+    // --- Attempt to fill missing endpoints from occurrences ---
+
+    // If first_seen is empty and last_seen is live, pick any ghost occurrence (if it exists)
+    if (first_seen.full_path.empty() && !last_seen.full_path.empty() && last_seen.isLive) {
+        for (const auto &occ : info.occurrences) {
+            if (!occ.isLive) {
+                first_seen = occ;
+                break;
+            }
+        }
+    }
+
+    // --- A) Try to find exactly one predecessor occurrence whose
+    //         parent.modification_time == change_time ---
+    if (change_time != 0 && !last_seen.full_path.empty()) {
+        const InodeOccurrence *matched_pred = nullptr;
+        for (const auto &occ : info.occurrences) {
+            // Skip last_seen by comparing both full_path & parent_inode
+            if (!last_seen.full_path.empty() &&
+                occ.full_path == last_seen.full_path &&
+                occ.parent_inode == last_seen.parent_inode)
+            {
+                continue;
+            }
+            auto it_par = inode_map.find(occ.parent_inode);
+            if (it_par == inode_map.end()) continue;
+            uint32_t parent_mtime = it_par->second.inode_data.modification_time;
+            /*std::fprintf(stderr,
+                         "Inode %u: checking occurrence with parent mtime=%u, ctime = %u\n",
+                         inode_no, parent_mtime, change_time);*/
+            if (change_time == parent_mtime) {
+                /*std::fprintf(stderr,
+                             "Inode %u: found predecessor occurrence with parent mtime=%u\n",
+                             inode_no, change_time);*/
+                if (matched_pred != nullptr) {
+                    // More than one match → ambiguous, abort A)
+                    matched_pred = nullptr;
+                    break;
+                }
+                matched_pred = &occ;
+            }
+        }
+        if (matched_pred) {
+            // Emit a single real mv: matched_pred → last_seen
+            std::string src_path = matched_pred->full_path.empty() ? "?" : matched_pred->full_path;
+            std::string dst_path = last_seen.full_path.empty()    ? "?" : last_seen.full_path;
+            uint32_t    src_parent = matched_pred->parent_inode;
+            uint32_t    dst_parent = last_seen.parent_inode;
+            if (matched_pred->full_path.empty()) src_parent = UINT32_MAX;
+            if (last_seen.full_path.empty())     dst_parent = UINT32_MAX;
+
+            std::fprintf(stderr,
+                         "Inode %u: movement matched change_time=%u from \"%s\" to \"%s\"\n",
+                         inode_no,
+                         change_time,
+                         src_path.c_str(),
+                         dst_path.c_str());
+
+            ActionRecord rec;
+            rec.timestamp      = change_time;
+            rec.hasTimestamp   = true;
+            rec.action         = ActionType::MV;
+
+            rec.args.push_back(src_path);
+            rec.args.push_back(dst_path);
+
+            rec.affected_dirs.push_back(src_parent);
+            rec.affected_dirs.push_back(dst_parent);
+
+            rec.affected_inodes.push_back(inode_no);
+            output_list.push_back(std::move(rec));
+
+            pushed_count += 1; // one move emitted
+        }
+    }
+
+    // --- B) If no match from A and exactly two occurrences, emit one fallback mv ---
+    if (pushed_count == 0 && N == 2) {
+        if(first_seen.full_path.empty() && last_seen.full_path.empty()) {
+            std::string src_path =  "?" ;
+            std::string dst_path = "?" ;
+        }
+        if(first_seen.full_path.empty()){
+            first_seen = (info.occurrences[0].parent_inode == last_seen.parent_inode) ? info.occurrences[1] : info.occurrences[0];
+        }else if(last_seen.full_path.empty()) {
+            last_seen = (info.occurrences[0].parent_inode == first_seen.parent_inode) ? info.occurrences[1] : info.occurrences[0];
+        }
+        std::string src_path = first_seen.full_path;
+        std::string dst_path = last_seen.full_path;
+        uint32_t    src_parent = first_seen.parent_inode;
+        uint32_t    dst_parent = last_seen.parent_inode;
+        if (first_seen.full_path.empty()) src_parent = UINT32_MAX;
+        if (last_seen.full_path.empty())  dst_parent = UINT32_MAX;
+
+        std::fprintf(stderr,
+                     "Inode %u: exactly two occurrences → fallback mv from \"%s\" to \"%s\" (unknown time)\n",
+                     inode_no,
+                     src_path.c_str(),
+                     dst_path.c_str());
+
+        ActionRecord rec;
+        rec.timestamp      = change_time;
+        rec.hasTimestamp   = true;
+        rec.action         = ActionType::MV;
+
+        rec.args.push_back(src_path);
+        rec.args.push_back(dst_path);
+
+        rec.affected_dirs.push_back(src_parent);
+        rec.affected_dirs.push_back(dst_parent);
+
+        rec.affected_inodes.push_back(inode_no);
+        output_list.push_back(std::move(rec));
+
+        pushed_count += 1;
+    }
+
+    // --- C) If no match from A/B and more than two occurrences, build chain of fallback mv’s ---
+    if (pushed_count == 0 && N > 2) {
+        // Gather all occurrences except last_seen
+        std::vector<const InodeOccurrence*> chain;
+        for (const auto &occ : info.occurrences) {
+            if (!last_seen.full_path.empty() &&
+                occ.full_path == last_seen.full_path &&
+                occ.parent_inode == last_seen.parent_inode)
+            {
+                continue;
+            }
+            chain.push_back(&occ);
+        }
+
+        if (!chain.empty()) {
+            // Sort chain by parent.modification_time ascending
+            std::sort(chain.begin(), chain.end(),
+                      [&](auto a, auto b) {
+                          uint32_t ma = 0, mb = 0;
+                          auto it_par_a = inode_map.find(a->parent_inode);
+                          if (it_par_a != inode_map.end()) {
+                              ma = it_par_a->second.inode_data.modification_time;
+                          }
+                          auto it_par_b = inode_map.find(b->parent_inode);
+                          if (it_par_b != inode_map.end()) {
+                              mb = it_par_b->second.inode_data.modification_time;
+                          }
+                          return ma < mb;
+                      });
+
+            // Emit chain of fallback moves: chain[i] → chain[i+1]
+            for (size_t i = 0; i + 1 < chain.size(); ++i) {
+                const InodeOccurrence *src = chain[i];
+                const InodeOccurrence *dst = chain[i + 1];
+
+                std::string src_path = src->full_path.empty() ? "?" : src->full_path;
+                std::string dst_path = dst->full_path.empty() ? "?" : dst->full_path;
+                uint32_t    src_parent = src->parent_inode;
+                uint32_t    dst_parent = dst->parent_inode;
+                if (src->full_path.empty()) src_parent = UINT32_MAX;
+                if (dst->full_path.empty()) dst_parent = UINT32_MAX;
+
+                std::fprintf(stderr,
+                             "Inode %u: fallback chained mv from \"%s\" to \"%s\" (unknown time)\n",
+                             inode_no,
+                             src_path.c_str(),
+                             dst_path.c_str());
+
+                ActionRecord rec;
+                rec.timestamp      = 0;
+                rec.hasTimestamp   = false;
+                rec.action         = ActionType::MV;
+
+                rec.args.push_back(src_path);
+                rec.args.push_back(dst_path);
+
+                rec.affected_dirs.push_back(src_parent);
+                rec.affected_dirs.push_back(dst_parent);
+
+                rec.affected_inodes.push_back(inode_no);
+                output_list.push_back(std::move(rec));
+                pushed_count++;
+            }
+            // Finally emit chain.back() → last_seen
+            const InodeOccurrence *src = chain.back();
+            const InodeOccurrence *dst = &last_seen;
+
+            std::string src_path = src->full_path.empty() ? "?" : src->full_path;
+            std::string dst_path = dst->full_path.empty() ? "?" : dst->full_path;
+            uint32_t    src_parent = src->parent_inode;
+            uint32_t    dst_parent = dst->parent_inode;
+            if (src->full_path.empty()) src_parent = UINT32_MAX;
+            if (dst->full_path.empty()) dst_parent = UINT32_MAX;
+
+            std::fprintf(stderr,
+                         "Inode %u: fallback final mv from \"%s\" to \"%s\" (unknown time)\n",
+                         inode_no,
+                         src_path.c_str(),
+                         dst_path.c_str());
+
+            ActionRecord rec;
+            rec.timestamp      = 0;
+            rec.hasTimestamp   = false;
+            rec.action         = ActionType::MV;
+
+            rec.args.push_back(src_path);
+            rec.args.push_back(dst_path);
+
+            rec.affected_dirs.push_back(src_parent);
+            rec.affected_dirs.push_back(dst_parent);
+
+            rec.affected_inodes.push_back(inode_no);
+            output_list.push_back(std::move(rec));
+            pushed_count++;
+        }
+    }
+
+    // --- D) Fill any remaining “slots” with placeholder mv’s (“?”) ---
+    size_t needed = N - 1;
+    while (static_cast<size_t>(pushed_count) < needed) {
+        std::fprintf(stderr,
+                     "Inode %u: emitting placeholder mv (unknown source/dest)\n",
+                     inode_no);
+
+        ActionRecord rec;
+        rec.timestamp      = 0;
+        rec.hasTimestamp   = false;
+        rec.action         = ActionType::MV;
+
+        rec.args.push_back("?");
+        rec.args.push_back("?");
+
+        rec.affected_dirs.push_back(UINT32_MAX);
+        rec.affected_dirs.push_back(UINT32_MAX);
+
+        rec.affected_inodes.push_back(inode_no);
+        output_list.push_back(std::move(rec));
+
+        pushed_count++;
+    }
+
+    return (pushed_count > 0);
+}
 
 //-----------------------------------------------------------------------------
 // Print the contents of inode_map into 'out'.
@@ -818,21 +1083,37 @@ static void dump_inode_map(std::ofstream &out) {
         uint32_t deletion_time = info.inode_data.deletion_time;
         uint32_t modification_time = info.inode_data.modification_time;
 
+        InodeOccurrence first_seen; // To store the occurrence if we detect a creation
         bool is_creation = detectCreation(inode_no, info,
                                                 access_time, change_time,
-                                                deletion_time, modification_time); // Detect the creation of inode
+                                                deletion_time, modification_time,
+                                                first_seen
+                                            ); // Detect the creation of inode
+                                            
 
         if(!is_creation) {
             // If we did not detect a creation, print a warning
             std::fprintf(stderr, "Warning: Inode %u has no known creation time.\n", inode_no);
         } else {
             // Find the other actions (rm, mv, etc.) based on inode data //TODO
-
-            bool is_deletion = detectDeletion(inode_no, info, deletion_time); // Detect the deletion of inode
+            InodeOccurrence last_seen;
+            bool is_deletion = detectDeletion(inode_no, info, deletion_time,last_seen); // Detect the deletion of inode
 
             if(info.occurrences.size() > 1){
                 // If there are multiple occurrences, we can assume it was moved
                 // TODO: find the mv action
+                
+                // deletion_occurrence or live_occurrence should be used to find the mv action
+                if (!is_deletion) {
+                    for (const auto &occ : info.occurrences) {
+                        if (occ.isLive) {
+                            last_seen = occ; // Store the live occurrence
+                            break; // We only need one live occurrence  
+                        }
+                    }
+                }
+
+                detectMovement(inode_no, info, first_seen, last_seen, change_time);
             }
         }
 
