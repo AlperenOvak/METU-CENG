@@ -1,0 +1,133 @@
+- 2:root/
+-- 11:lost+found/
+-- 65:folder1/
+--- (72:file9.txt)
+--- 69:file2.txt
+-- 66:folder2/
+--- (72:file9.txt)
+--- 70:file3.txt
+-- 67:folder3/
+--- 68:file1.txt
+--- 71:file4.txt
+--- (72:file9.txt)
+-- 12:folder4/
+--- (72:file9.txt)
+-- 13:folder5/
+--- (72:file9.txt)
+-- 14:folder6/
+--- (72:file9.txt)
+-- 15:folder7/
+--- (72:file9.txt)
+-- 16:folder8/
+--- (72:file9.txt)
+-- 17:folder9/
+--- (72:file9.txt)
+==== BEGIN: Inode Map Dump ====
+
+Inode #17:
+    atime = 1749128096    ctime = 1749129273    mtime = 1749129273    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/folder9"
+        parent_inode = 2    (isLive = true)
+
+Inode #16:
+    atime = 1749128093    ctime = 1749129064    mtime = 1749129064    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/folder8"
+        parent_inode = 2    (isLive = true)
+
+Inode #15:
+    atime = 1749128091    ctime = 1749129056    mtime = 1749129056    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/folder7"
+        parent_inode = 2    (isLive = true)
+
+Inode #14:
+    atime = 1749128088    ctime = 1749129046    mtime = 1749129046    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/folder6"
+        parent_inode = 2    (isLive = true)
+
+Inode #71:
+    atime = 1748446774    ctime = 1748446774    mtime = 1748446774    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/folder3/file4.txt"
+        parent_inode = 67    (isLive = true)
+
+Inode #13:
+    atime = 1749128086    ctime = 1749129038    mtime = 1749129038    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/folder5"
+        parent_inode = 2    (isLive = true)
+
+Inode #68:
+    atime = 1748446666    ctime = 1748446729    mtime = 1748446666    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/folder3/file1.txt"
+        parent_inode = 67    (isLive = true)
+
+Inode #12:
+    atime = 1749128082    ctime = 1749129028    mtime = 1749129028    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/folder4"
+        parent_inode = 2    (isLive = true)
+
+Inode #67:
+    atime = 1748446619    ctime = 1749129019    mtime = 1749129019    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/folder3"
+        parent_inode = 2    (isLive = true)
+
+Inode #70:
+    atime = 1748446757    ctime = 1748446757    mtime = 1748446757    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/folder2/file3.txt"
+        parent_inode = 66    (isLive = true)
+
+Inode #69:
+    atime = 1748446745    ctime = 1748446745    mtime = 1748446745    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/folder1/file2.txt"
+        parent_inode = 65    (isLive = true)
+
+Inode #72:
+    atime = 1749127502    ctime = 1749129273    mtime = 1749127502    dtime = 1749129273
+    [Occurrences: 9]
+      - full_path = "/folder1/file9.txt"
+        parent_inode = 65    (isLive = false)
+      - full_path = "/folder2/file9.txt"
+        parent_inode = 66    (isLive = false)
+      - full_path = "/folder3/file9.txt"
+        parent_inode = 67    (isLive = false)
+      - full_path = "/folder4/file9.txt"
+        parent_inode = 12    (isLive = false)
+      - full_path = "/folder5/file9.txt"
+        parent_inode = 13    (isLive = false)
+      - full_path = "/folder6/file9.txt"
+        parent_inode = 14    (isLive = false)
+      - full_path = "/folder7/file9.txt"
+        parent_inode = 15    (isLive = false)
+      - full_path = "/folder8/file9.txt"
+        parent_inode = 16    (isLive = false)
+      - full_path = "/folder9/file9.txt"
+        parent_inode = 17    (isLive = false)
+
+Inode #65:
+    atime = 1748446615    ctime = 1749127502    mtime = 1749127502    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/folder1"
+        parent_inode = 2    (isLive = true)
+
+Inode #66:
+    atime = 1748446617    ctime = 1749128890    mtime = 1749128890    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/folder2"
+        parent_inode = 2    (isLive = true)
+
+Inode #11:
+    atime = 1748446535    ctime = 1748446535    mtime = 1748446535    dtime = 0
+    [Occurrences: 1]
+      - full_path = "/lost+found"
+        parent_inode = 2    (isLive = true)
+
+====  END: Inode Map Dump  ====
