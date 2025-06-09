@@ -1,0 +1,1228 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "Untitled",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model",
+			"ownedElements": [
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "AAAAAAFF+qBtyKM79qY=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "Main",
+					"defaultDiagram": true
+				},
+				{
+					"_type": "DFDDataFlowModel",
+					"_id": "AAAAAAGVqovOHmDaYGo=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "DataFlowModel1",
+					"ownedElements": [
+						{
+							"_type": "DFDDiagram",
+							"_id": "AAAAAAGVqovOI2DbHnM=",
+							"_parent": {
+								"$ref": "AAAAAAGVqovOHmDaYGo="
+							},
+							"name": "DFDDiagram1",
+							"ownedViews": [
+								{
+									"_type": "DFDProcessView",
+									"_id": "AAAAAAGVqovdFWDh63k=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqovdFWDi40I=",
+											"_parent": {
+												"$ref": "AAAAAAGVqovdFWDh63k="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 538,
+											"top": 385,
+											"width": 116,
+											"height": 26,
+											"text": "Koster Seafloor Observatory (KSO)",
+											"wordWrap": true
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqovdFmDjNkk=",
+											"_parent": {
+												"$ref": "AAAAAAGVqovdFWDh63k="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 538,
+											"top": 357,
+											"width": 116,
+											"height": 13
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 528,
+									"top": 352,
+									"width": 136,
+									"height": 95,
+									"nameLabel": {
+										"$ref": "AAAAAAGVqovdFWDi40I="
+									},
+									"idLabel": {
+										"$ref": "AAAAAAGVqovdFmDjNkk="
+									}
+								},
+								{
+									"_type": "DFDProcessView",
+									"_id": "AAAAAAGVqoze+mD0JL0=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqoze+WDyvP4="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqoze+mD1ZLU=",
+											"_parent": {
+												"$ref": "AAAAAAGVqoze+mD0JL0="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 930,
+											"top": 225,
+											"width": 76,
+											"height": 13,
+											"text": "Database",
+											"wordWrap": true
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqoze+mD2Fvg=",
+											"_parent": {
+												"$ref": "AAAAAAGVqoze+mD0JL0="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 930,
+											"top": 197,
+											"width": 76,
+											"height": 13
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 920,
+									"top": 192,
+									"width": 96,
+									"height": 80,
+									"nameLabel": {
+										"$ref": "AAAAAAGVqoze+mD1ZLU="
+									},
+									"idLabel": {
+										"$ref": "AAAAAAGVqoze+mD2Fvg="
+									}
+								},
+								{
+									"_type": "DFDProcessView",
+									"_id": "AAAAAAGVqo0JZWEDixM=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqo0JZWEBuB8="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqo0JZWEEHFo=",
+											"_parent": {
+												"$ref": "AAAAAAGVqo0JZWEDixM="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 874,
+											"top": 481,
+											"width": 92,
+											"height": 26,
+											"text": "Machine Learning API",
+											"wordWrap": true
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqo0JZWEFu5c=",
+											"_parent": {
+												"$ref": "AAAAAAGVqo0JZWEDixM="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 874,
+											"top": 453,
+											"width": 92,
+											"height": 13
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 864,
+									"top": 448,
+									"width": 112,
+									"height": 82,
+									"nameLabel": {
+										"$ref": "AAAAAAGVqo0JZWEEHFo="
+									},
+									"idLabel": {
+										"$ref": "AAAAAAGVqo0JZWEFu5c="
+									}
+								},
+								{
+									"_type": "DFDProcessView",
+									"_id": "AAAAAAGVqo1GPmESXeA=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqo1GPmEQLOc="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqo1GPmETc6A=",
+											"_parent": {
+												"$ref": "AAAAAAGVqo1GPmESXeA="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 562,
+											"top": 609,
+											"width": 73.6962890625,
+											"height": 13,
+											"text": "Researchers",
+											"wordWrap": true
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqo1GPmEUfig=",
+											"_parent": {
+												"$ref": "AAAAAAGVqo1GPmESXeA="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 562,
+											"top": 581,
+											"width": 73.6962890625,
+											"height": 13
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 552,
+									"top": 576,
+									"width": 93.6962890625,
+									"height": 64,
+									"nameLabel": {
+										"$ref": "AAAAAAGVqo1GPmETc6A="
+									},
+									"idLabel": {
+										"$ref": "AAAAAAGVqo1GPmEUfig="
+									}
+								},
+								{
+									"_type": "DFDProcessView",
+									"_id": "AAAAAAGVqo260WEz7Y4=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqo260GExsBY="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqo260WE0qsY=",
+											"_parent": {
+												"$ref": "AAAAAAGVqo260WEz7Y4="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 282,
+											"top": 449,
+											"width": 76,
+											"height": 26,
+											"text": "Citizen Scientists",
+											"wordWrap": true
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqo260WE1wl8=",
+											"_parent": {
+												"$ref": "AAAAAAGVqo260WEz7Y4="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 282,
+											"top": 421,
+											"width": 76,
+											"height": 13
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 272,
+									"top": 416,
+									"width": 96,
+									"height": 80,
+									"nameLabel": {
+										"$ref": "AAAAAAGVqo260WE0qsY="
+									},
+									"idLabel": {
+										"$ref": "AAAAAAGVqo260WE1wl8="
+									}
+								},
+								{
+									"_type": "DFDProcessView",
+									"_id": "AAAAAAGVqo3qoWE/sjg=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqo3qoWE98AA="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqo3qoWFAGLY=",
+											"_parent": {
+												"$ref": "AAAAAAGVqo3qoWE/sjg="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 242,
+											"top": 233,
+											"width": 76,
+											"height": 13,
+											"text": "Storage",
+											"wordWrap": true
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqo3qoWFBmvY=",
+											"_parent": {
+												"$ref": "AAAAAAGVqo3qoWE/sjg="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 242,
+											"top": 205,
+											"width": 76,
+											"height": 13
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 232,
+									"top": 200,
+									"width": 96,
+									"height": 64,
+									"nameLabel": {
+										"$ref": "AAAAAAGVqo3qoWFAGLY="
+									},
+									"idLabel": {
+										"$ref": "AAAAAAGVqo3qoWFBmvY="
+									}
+								},
+								{
+									"_type": "DFDDataFlowView",
+									"_id": "AAAAAAGVqo6gRmFaQM8=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqo6gRmFYo9Q="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGVqo6gR2Fbqh4=",
+											"_parent": {
+												"$ref": "AAAAAAGVqo6gRmFaQM8="
+											},
+											"model": {
+												"$ref": "AAAAAAGVqo6gRmFYo9Q="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 903,
+											"top": 361,
+											"width": 129.33984375,
+											"height": 13,
+											"alpha": 1.5707963267948966,
+											"distance": 15,
+											"hostEdge": {
+												"$ref": "AAAAAAGVqo6gRmFaQM8="
+											},
+											"edgePosition": 1,
+											"text": "Retrieve Species Data"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "AAAAAAGVqovdFWDh63k="
+									},
+									"tail": {
+										"$ref": "AAAAAAGVqoze+mD0JL0="
+									},
+									"lineStyle": 2,
+									"points": "968:272;968:352;664:352",
+									"nameLabel": {
+										"$ref": "AAAAAAGVqo6gR2Fbqh4="
+									}
+								},
+								{
+									"_type": "DFDDataFlowView",
+									"_id": "AAAAAAGVqo7cWGFkuZo=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqo7cWGFi8UM="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGVqo7cWGFlWKI=",
+											"_parent": {
+												"$ref": "AAAAAAGVqo7cWGFkuZo="
+											},
+											"model": {
+												"$ref": "AAAAAAGVqo7cWGFi8UM="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 760,
+											"top": 279,
+											"width": 114.9052734375,
+											"height": 13,
+											"alpha": -0.09124915639310544,
+											"distance": 153.63918770938616,
+											"hostEdge": {
+												"$ref": "AAAAAAGVqo7cWGFkuZo="
+											},
+											"edgePosition": 1,
+											"text": "Upload Annorarions"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "AAAAAAGVqoze+mD0JL0="
+									},
+									"tail": {
+										"$ref": "AAAAAAGVqovdFWDh63k="
+									},
+									"lineStyle": 2,
+									"points": "664:352;664:272;920:272",
+									"nameLabel": {
+										"$ref": "AAAAAAGVqo7cWGFlWKI="
+									}
+								},
+								{
+									"_type": "DFDDataFlowView",
+									"_id": "AAAAAAGVqo8wr2FvCOA=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqo8wrmFtNro="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGVqo8wr2FwW/I=",
+											"_parent": {
+												"$ref": "AAAAAAGVqo8wr2FvCOA="
+											},
+											"model": {
+												"$ref": "AAAAAAGVqo8wrmFtNro="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 696,
+											"top": 495,
+											"width": 90.54931640625,
+											"height": 13,
+											"alpha": -0.17985347693533826,
+											"distance": 78.26237921249263,
+											"hostEdge": {
+												"$ref": "AAAAAAGVqo8wr2FvCOA="
+											},
+											"edgePosition": 1,
+											"text": "Train AI Models"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "AAAAAAGVqo0JZWEDixM="
+									},
+									"tail": {
+										"$ref": "AAAAAAGVqovdFWDh63k="
+									},
+									"lineStyle": 2,
+									"points": "664:447;664:488;864:488",
+									"nameLabel": {
+										"$ref": "AAAAAAGVqo8wr2FwW/I="
+									}
+								},
+								{
+									"_type": "DFDDataFlowView",
+									"_id": "AAAAAAGVqo+6jWF+Sjw=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqo+6jWF87B4="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGVqo+6jmF/SFM=",
+											"_parent": {
+												"$ref": "AAAAAAGVqo+6jWF+Sjw="
+											},
+											"model": {
+												"$ref": "AAAAAAGVqo+6jWF87B4="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 816,
+											"top": 399,
+											"width": 80.20263671875,
+											"height": 13,
+											"alpha": -0.17670888697239073,
+											"distance": 56.88585061331157,
+											"hostEdge": {
+												"$ref": "AAAAAAGVqo+6jWF+Sjw="
+											},
+											"edgePosition": 1,
+											"text": "AI Predictions"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "AAAAAAGVqovdFWDh63k="
+									},
+									"tail": {
+										"$ref": "AAAAAAGVqo0JZWEDixM="
+									},
+									"lineStyle": 2,
+									"points": "912:448;912:416;664:416",
+									"nameLabel": {
+										"$ref": "AAAAAAGVqo+6jmF/SFM="
+									}
+								},
+								{
+									"_type": "DFDDataFlowView",
+									"_id": "AAAAAAGVqpAsMmGOwaU=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqpAsMmGMge0="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGVqpAsMmGPDUk=",
+											"_parent": {
+												"$ref": "AAAAAAGVqpAsMmGOwaU="
+											},
+											"model": {
+												"$ref": "AAAAAAGVqpAsMmGMge0="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 632,
+											"top": 551,
+											"width": 111.26171875,
+											"height": 13,
+											"alpha": -2.2117526794913083,
+											"distance": 78.60025445251433,
+											"hostEdge": {
+												"$ref": "AAAAAAGVqpAsMmGOwaU="
+											},
+											"edgePosition": 1,
+											"text": "Retrieve AI Results"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "AAAAAAGVqovdFWDh63k="
+									},
+									"tail": {
+										"$ref": "AAAAAAGVqo1GPmESXeA="
+									},
+									"lineStyle": 2,
+									"points": "624:576;624:447",
+									"nameLabel": {
+										"$ref": "AAAAAAGVqpAsMmGPDUk="
+									}
+								},
+								{
+									"_type": "DFDDataFlowView",
+									"_id": "AAAAAAGVqpCLRGGbcVU=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqpCLQ2GZsZg="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGVqpCLRGGc/xM=",
+											"_parent": {
+												"$ref": "AAAAAAGVqpCLRGGbcVU="
+											},
+											"model": {
+												"$ref": "AAAAAAGVqpCLQ2GZsZg="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 375,
+											"top": 551,
+											"width": 219.69873046875,
+											"height": 13,
+											"alpha": -1.1702619329083934,
+											"distance": 120.5404496424333,
+											"hostEdge": {
+												"$ref": "AAAAAAGVqpCLRGGbcVU="
+											},
+											"edgePosition": 1,
+											"text": "Upload Footage & Create Annotations"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "AAAAAAGVqo1GPmESXeA="
+									},
+									"tail": {
+										"$ref": "AAAAAAGVqovdFWDh63k="
+									},
+									"lineStyle": 2,
+									"points": "596:447;596:576",
+									"nameLabel": {
+										"$ref": "AAAAAAGVqpCLRGGc/xM="
+									}
+								},
+								{
+									"_type": "DFDDataFlowView",
+									"_id": "AAAAAAGVqpFvwGGtqE8=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqpFvwGGrxNM="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGVqpFvwGGuwXQ=",
+											"_parent": {
+												"$ref": "AAAAAAGVqpFvwGGtqE8="
+											},
+											"model": {
+												"$ref": "AAAAAAGVqpFvwGGrxNM="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 400,
+											"top": 466,
+											"width": 111.29345703125,
+											"height": 13,
+											"alpha": -4.603234914406472,
+											"distance": 73.43704787094863,
+											"hostEdge": {
+												"$ref": "AAAAAAGVqpFvwGGtqE8="
+											},
+											"edgePosition": 1,
+											"text": "Create Annotations"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "AAAAAAGVqovdFWDh63k="
+									},
+									"tail": {
+										"$ref": "AAAAAAGVqo260WEz7Y4="
+									},
+									"lineStyle": 2,
+									"points": "368:464;528:464;528:447",
+									"nameLabel": {
+										"$ref": "AAAAAAGVqpFvwGGuwXQ="
+									}
+								},
+								{
+									"_type": "DFDDataFlowView",
+									"_id": "AAAAAAGVqpGnH2G4Fdc=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqpGnH2G2yo0="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGVqpGnH2G5hfg=",
+											"_parent": {
+												"$ref": "AAAAAAGVqpGnH2G4Fdc="
+											},
+											"model": {
+												"$ref": "AAAAAAGVqpGnH2G2yo0="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 185,
+											"top": 360,
+											"width": 152.4833984375,
+											"height": 13,
+											"alpha": -4.077361889481124,
+											"distance": 23.600847442411894,
+											"hostEdge": {
+												"$ref": "AAAAAAGVqpGnH2G4Fdc="
+											},
+											"edgePosition": 1,
+											"text": "Store Footage & Metadata"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "AAAAAAGVqo3qoWE/sjg="
+									},
+									"tail": {
+										"$ref": "AAAAAAGVqovdFWDh63k="
+									},
+									"lineStyle": 2,
+									"points": "528:352;280:352;280:264",
+									"nameLabel": {
+										"$ref": "AAAAAAGVqpGnH2G5hfg="
+									}
+								},
+								{
+									"_type": "DFDDataFlowView",
+									"_id": "AAAAAAGVqpIlC2HDRbY=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqpIlC2HBfHY="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGVqpIlC2HEyHw=",
+											"_parent": {
+												"$ref": "AAAAAAGVqpIlC2HDRbY="
+											},
+											"model": {
+												"$ref": "AAAAAAGVqpIlC2HBfHY="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 328,
+											"top": 288,
+											"width": 169.81884765625,
+											"height": 13,
+											"alpha": -2.4227623442335458,
+											"distance": 21.2602916254693,
+											"hostEdge": {
+												"$ref": "AAAAAAGVqpIlC2HDRbY="
+											},
+											"edgePosition": 1,
+											"text": "Retrieve Footage & Metadata"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "AAAAAAGVqovdFWDh63k="
+									},
+									"tail": {
+										"$ref": "AAAAAAGVqo3qoWE/sjg="
+									},
+									"lineStyle": 2,
+									"points": "328:264;328:280;528:280;528:352",
+									"nameLabel": {
+										"$ref": "AAAAAAGVqpIlC2HEyHw="
+									}
+								},
+								{
+									"_type": "DFDProcessView",
+									"_id": "AAAAAAGVqrg65WHi50s=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqrg642Hgh0g="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqrg65WHjfYY=",
+											"_parent": {
+												"$ref": "AAAAAAGVqrg65WHi50s="
+											},
+											"fillColor": "#FFFF00",
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 426,
+											"top": 129,
+											"width": 100,
+											"height": 26,
+											"text": "Environmental Sensors",
+											"wordWrap": true
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqrg65WHkpZw=",
+											"_parent": {
+												"$ref": "AAAAAAGVqrg65WHi50s="
+											},
+											"fillColor": "#FFFF00",
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 426,
+											"top": 101,
+											"width": 100,
+											"height": 13
+										}
+									],
+									"fillColor": "#FFFF00",
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 416,
+									"top": 96,
+									"width": 120,
+									"height": 69,
+									"nameLabel": {
+										"$ref": "AAAAAAGVqrg65WHjfYY="
+									},
+									"idLabel": {
+										"$ref": "AAAAAAGVqrg65WHkpZw="
+									}
+								},
+								{
+									"_type": "DFDDataFlowView",
+									"_id": "AAAAAAGVqro/bGHxbUk=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqro/a2HvExE="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGVqro/bGHyFbQ=",
+											"_parent": {
+												"$ref": "AAAAAAGVqro/bGHxbUk="
+											},
+											"model": {
+												"$ref": "AAAAAAGVqro/a2HvExE="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 488,
+											"top": 208,
+											"width": 85.9853515625,
+											"height": 13,
+											"alpha": -2.601172712142414,
+											"distance": 11.661903789690601,
+											"hostEdge": {
+												"$ref": "AAAAAAGVqro/bGHxbUk="
+											},
+											"edgePosition": 1,
+											"text": "Stream Footge"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "AAAAAAGVqovdFWDh63k="
+									},
+									"tail": {
+										"$ref": "AAAAAAGVqrg65WHi50s="
+									},
+									"lineStyle": 2,
+									"points": "496:165;496:208;584:208;584:352",
+									"nameLabel": {
+										"$ref": "AAAAAAGVqro/bGHyFbQ="
+									}
+								},
+								{
+									"_type": "DFDProcessView",
+									"_id": "AAAAAAGVqr2QEGI61Pk=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqr2QD2I4VzM="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqr2QEGI7Ba0=",
+											"_parent": {
+												"$ref": "AAAAAAGVqr2QEGI61Pk="
+											},
+											"fillColor": "#FFFF00",
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 666,
+											"top": 113,
+											"width": 116,
+											"height": 39,
+											"text": "National Mariene Conservation Authority",
+											"wordWrap": true
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGVqr2QEGI8YIA=",
+											"_parent": {
+												"$ref": "AAAAAAGVqr2QEGI61Pk="
+											},
+											"fillColor": "#FFFF00",
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 666,
+											"top": 85,
+											"width": 116,
+											"height": 13
+										}
+									],
+									"fillColor": "#FFFF00",
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 656,
+									"top": 80,
+									"width": 136,
+									"height": 82,
+									"nameLabel": {
+										"$ref": "AAAAAAGVqr2QEGI7Ba0="
+									},
+									"idLabel": {
+										"$ref": "AAAAAAGVqr2QEGI8YIA="
+									}
+								},
+								{
+									"_type": "DFDDataFlowView",
+									"_id": "AAAAAAGVqsFIPmJmSrQ=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovOI2DbHnM="
+									},
+									"model": {
+										"$ref": "AAAAAAGVqsFIPmJkWC0="
+									},
+									"subViews": [
+										{
+											"_type": "EdgeLabelView",
+											"_id": "AAAAAAGVqsFIPmJnXZI=",
+											"_parent": {
+												"$ref": "AAAAAAGVqsFIPmJmSrQ="
+											},
+											"model": {
+												"$ref": "AAAAAAGVqsFIPmJkWC0="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": false,
+											"left": 640,
+											"top": 215,
+											"width": 185.0087890625,
+											"height": 13,
+											"alpha": -0.24497862111006447,
+											"distance": 57.723478758647246,
+											"hostEdge": {
+												"$ref": "AAAAAAGVqsFIPmJmSrQ="
+											},
+											"edgePosition": 1,
+											"text": "Sent alert for endangered specy"
+										}
+									],
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"head": {
+										"$ref": "AAAAAAGVqr2QEGI61Pk="
+									},
+									"tail": {
+										"$ref": "AAAAAAGVqovdFWDh63k="
+									},
+									"lineStyle": 2,
+									"points": "632:352;632:208;720:208;720:162",
+									"nameLabel": {
+										"$ref": "AAAAAAGVqsFIPmJnXZI="
+									}
+								}
+							]
+						},
+						{
+							"_type": "DFDProcess",
+							"_id": "AAAAAAGVqovdFGDfBtI=",
+							"_parent": {
+								"$ref": "AAAAAAGVqovOHmDaYGo="
+							},
+							"name": "Koster Seafloor Observatory (KSO)",
+							"ownedElements": [
+								{
+									"_type": "DFDDataFlow",
+									"_id": "AAAAAAGVqo7cWGFi8UM=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									},
+									"name": "Upload Annorarions",
+									"source": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									},
+									"target": {
+										"$ref": "AAAAAAGVqoze+WDyvP4="
+									}
+								},
+								{
+									"_type": "DFDDataFlow",
+									"_id": "AAAAAAGVqo8wrmFtNro=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									},
+									"name": "Train AI Models",
+									"source": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									},
+									"target": {
+										"$ref": "AAAAAAGVqo0JZWEBuB8="
+									}
+								},
+								{
+									"_type": "DFDDataFlow",
+									"_id": "AAAAAAGVqpCLQ2GZsZg=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									},
+									"name": "Upload Footage & Create Annotations",
+									"source": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									},
+									"target": {
+										"$ref": "AAAAAAGVqo1GPmEQLOc="
+									}
+								},
+								{
+									"_type": "DFDDataFlow",
+									"_id": "AAAAAAGVqpGnH2G2yo0=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									},
+									"name": "Store Footage & Metadata",
+									"source": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									},
+									"target": {
+										"$ref": "AAAAAAGVqo3qoWE98AA="
+									}
+								},
+								{
+									"_type": "DFDDataFlow",
+									"_id": "AAAAAAGVqsFIPmJkWC0=",
+									"_parent": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									},
+									"name": "Sent alert for endangered specy",
+									"source": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									},
+									"target": {
+										"$ref": "AAAAAAGVqr2QD2I4VzM="
+									}
+								}
+							]
+						},
+						{
+							"_type": "DFDProcess",
+							"_id": "AAAAAAGVqoze+WDyvP4=",
+							"_parent": {
+								"$ref": "AAAAAAGVqovOHmDaYGo="
+							},
+							"name": "Database",
+							"ownedElements": [
+								{
+									"_type": "DFDDataFlow",
+									"_id": "AAAAAAGVqo6gRmFYo9Q=",
+									"_parent": {
+										"$ref": "AAAAAAGVqoze+WDyvP4="
+									},
+									"name": "Retrieve Species Data",
+									"source": {
+										"$ref": "AAAAAAGVqoze+WDyvP4="
+									},
+									"target": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									}
+								}
+							]
+						},
+						{
+							"_type": "DFDProcess",
+							"_id": "AAAAAAGVqo0JZWEBuB8=",
+							"_parent": {
+								"$ref": "AAAAAAGVqovOHmDaYGo="
+							},
+							"name": "Machine Learning API",
+							"ownedElements": [
+								{
+									"_type": "DFDDataFlow",
+									"_id": "AAAAAAGVqo+6jWF87B4=",
+									"_parent": {
+										"$ref": "AAAAAAGVqo0JZWEBuB8="
+									},
+									"name": "AI Predictions",
+									"source": {
+										"$ref": "AAAAAAGVqo0JZWEBuB8="
+									},
+									"target": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									}
+								}
+							]
+						},
+						{
+							"_type": "DFDProcess",
+							"_id": "AAAAAAGVqo1GPmEQLOc=",
+							"_parent": {
+								"$ref": "AAAAAAGVqovOHmDaYGo="
+							},
+							"name": "Researchers",
+							"ownedElements": [
+								{
+									"_type": "DFDDataFlow",
+									"_id": "AAAAAAGVqpAsMmGMge0=",
+									"_parent": {
+										"$ref": "AAAAAAGVqo1GPmEQLOc="
+									},
+									"name": "Retrieve AI Results",
+									"source": {
+										"$ref": "AAAAAAGVqo1GPmEQLOc="
+									},
+									"target": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									}
+								}
+							]
+						},
+						{
+							"_type": "DFDProcess",
+							"_id": "AAAAAAGVqo260GExsBY=",
+							"_parent": {
+								"$ref": "AAAAAAGVqovOHmDaYGo="
+							},
+							"name": "Citizen Scientists",
+							"ownedElements": [
+								{
+									"_type": "DFDDataFlow",
+									"_id": "AAAAAAGVqpFvwGGrxNM=",
+									"_parent": {
+										"$ref": "AAAAAAGVqo260GExsBY="
+									},
+									"name": "Create Annotations",
+									"source": {
+										"$ref": "AAAAAAGVqo260GExsBY="
+									},
+									"target": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									}
+								}
+							]
+						},
+						{
+							"_type": "DFDProcess",
+							"_id": "AAAAAAGVqo3qoWE98AA=",
+							"_parent": {
+								"$ref": "AAAAAAGVqovOHmDaYGo="
+							},
+							"name": "Storage",
+							"ownedElements": [
+								{
+									"_type": "DFDDataFlow",
+									"_id": "AAAAAAGVqpIlC2HBfHY=",
+									"_parent": {
+										"$ref": "AAAAAAGVqo3qoWE98AA="
+									},
+									"name": "Retrieve Footage & Metadata",
+									"source": {
+										"$ref": "AAAAAAGVqo3qoWE98AA="
+									},
+									"target": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									}
+								}
+							]
+						},
+						{
+							"_type": "DFDProcess",
+							"_id": "AAAAAAGVqrg642Hgh0g=",
+							"_parent": {
+								"$ref": "AAAAAAGVqovOHmDaYGo="
+							},
+							"name": "Environmental Sensors",
+							"ownedElements": [
+								{
+									"_type": "DFDDataFlow",
+									"_id": "AAAAAAGVqro/a2HvExE=",
+									"_parent": {
+										"$ref": "AAAAAAGVqrg642Hgh0g="
+									},
+									"name": "Stream Footge",
+									"source": {
+										"$ref": "AAAAAAGVqrg642Hgh0g="
+									},
+									"target": {
+										"$ref": "AAAAAAGVqovdFGDfBtI="
+									}
+								}
+							]
+						},
+						{
+							"_type": "DFDProcess",
+							"_id": "AAAAAAGVqr2QD2I4VzM=",
+							"_parent": {
+								"$ref": "AAAAAAGVqovOHmDaYGo="
+							},
+							"name": "National Mariene Conservation Authority"
+						}
+					]
+				}
+			]
+		}
+	]
+}

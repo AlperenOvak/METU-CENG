@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{iso29148}
+{ISO/IEC/IEEE}, ``{ISO/IEC/IEEE International Standard - Systems and Software
+  Engineering – Life Cycle Processes – Requirements Engineering},'' 2018.
+\newblock ISO/IEC/IEEE 29148:2018(E), pages 1--104.
+
+\bibitem{anton2021kso}
+V.~Anton, J.~Germishuys, P.~Bergström, M.~Lindegarth, and M.~Obst, ``An
+  open-source, citizen science and machine learning approach to analyse subsea
+  movies,'' {\em Biodiversity Data Journal}, vol.~9, p.~e60548, 2021.
+
+\end{thebibliography}

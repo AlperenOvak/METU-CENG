@@ -1,0 +1,50 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{List of Figures}{iii}{chapter*.2}%
+\contentsline {chapter}{List of Tables}{iv}{chapter*.3}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {paragraph}{}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Purpose of the System }{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Scope}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}System Overview}{3}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}System Perspective}{3}{subsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.1.1}System Interfaces}{4}{subsubsection.1.3.1.1}%
+\contentsline {subsubsection}{\numberline {1.3.1.2}User Interfaces}{5}{subsubsection.1.3.1.2}%
+\contentsline {subsubsection}{\numberline {1.3.1.3}Hardware Interfaces}{5}{subsubsection.1.3.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1.4}Software Interfaces}{6}{subsubsection.1.3.1.4}%
+\contentsline {subsubsection}{\numberline {1.3.1.5}Communication Interfaces}{7}{subsubsection.1.3.1.5}%
+\contentsline {subsubsection}{\numberline {1.3.1.6}Memory Constraints}{7}{subsubsection.1.3.1.6}%
+\contentsline {subsubsection}{\numberline {1.3.1.7}Operations}{8}{subsubsection.1.3.1.7}%
+\contentsline {subsection}{\numberline {1.3.2}System Functions}{9}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Stakeholder Characteristics}{10}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Limitations}{10}{subsection.1.3.4}%
+\contentsline {section}{\numberline {1.4}Definitions}{12}{section.1.4}%
+\contentsline {chapter}{\numberline {2}References}{13}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Specific Requirements}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}External Interfaces}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Functions}{17}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Logical Database Requirements }{27}{section.3.3}%
+\contentsline {section}{\numberline {3.4}System Quality Attributes}{28}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Usability Requirements}{28}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Performance Requirements}{29}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Reliability Requirements}{29}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Maintainability Requirements}{30}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Portability Requirements}{30}{subsection.3.4.5}%
+\contentsline {section}{\numberline {3.5}Design Constraints}{30}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Supporting Information}{32}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Suggestions to Improve The Existing System}{33}{chapter.4}%
+\contentsline {section}{\numberline {4.1}System Perspective}{33}{section.4.1}%
+\contentsline {paragraph}{Environmental Sensors (Video Stream for Live Detection):}{34}{figure.4.1}%
+\contentsline {paragraph}{National Marine Conservation Authority (Alerts for Extinct Species):}{34}{figure.4.1}%
+\contentsline {section}{\numberline {4.2}External Interfaces}{35}{section.4.2}%
+\contentsline {paragraph}{}{35}{figure.4.2}%
+\contentsline {section}{\numberline {4.3}Functions}{37}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Logical Database Requirements}{45}{section.4.4}%
+\contentsline {paragraph}{}{46}{figure.4.7}%
+\contentsline {section}{\numberline {4.5}System Quality Attributes}{46}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Suggestions to Improve Usability Requirements}{46}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Suggestions to Improve Performance Requirements}{46}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Suggestions to Improve Reliability Requirements}{47}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}Suggestions to Improve Maintainability Requirements}{47}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.5}Suggestions to Improve Portability Requirements}{47}{subsection.4.5.5}%
+\contentsline {section}{\numberline {4.6}Design Constraints}{48}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Supporting Information}{50}{section.4.7}%

@@ -1,0 +1,19 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces System Context Diagram }}{4}{figure.1.1}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces External Interfaces Diagram }}{15}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Use Case Diagram }}{17}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Sequence Diagram for Annotate Footage }}{20}{figure.3.3}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Activity Diagram of Fine-tuning ML Models}}{22}{figure.3.4}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces State Diagram of Running Predictions}}{24}{figure.3.5}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Logical Database Diagram }}{27}{figure.3.6}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Improved System Context Diagram }}{33}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Improved External Interfaces Diagram }}{35}{figure.4.2}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Improved UseCase Diagram }}{37}{figure.4.3}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Activity Diagram of Detection of Endangered or Possibly Extinct Marine Species }}{39}{figure.4.4}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Sequence Diagram of Real-Time Marine Monitoring via Livestream and Environmental Sensors }}{41}{figure.4.5}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces State Diagram of Model Processing Selection: GPU vs. TPU }}{43}{figure.4.6}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Improved Logical Database Diagram }}{45}{figure.4.7}%

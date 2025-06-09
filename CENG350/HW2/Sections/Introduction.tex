@@ -1,0 +1,81 @@
+\pagenumbering{arabic}
+
+\chapter{Introduction} \label{introduction}
+
+
+This Software Architecture Description (SAD) for the Koster Seafloor Observatory (KSO) is written in accordance with ISO/IEC/IEEE~42010:2011 \cite{iso29148} and adopts viewpoints from Rozanski \& Woods’ \emph{A Viewpoint Catalog} \cite{RW} to structure four principal views—Functional, Information, Development, and Deployment—each addressing specific stakeholder concerns and quality‐attribute trade‐offs.
+
+\section{Purpose and objectives of \gls{kso}}
+
+The KSO system integrates video data management, citizen‐science annotation, and machine‐learning inference to accelerate marine‐biodiversity research. Its primary objectives are to:
+\begin{itemize}
+  \item Ingest and archive ROV/AUV subsea movies in a scalable hot/cold storage architecture.
+  \item Enable citizen scientists to classify clips and draw bounding‐box annotations via an intuitive web interface, aggregating results through consensus algorithms.
+  \item Train and serve deep‐learning models (e.g., \gls{yolov3}) for automated object detection, exposing them through a \gls{restapi} and interactive dashboard. \cite{anton2021kso}
+  \item Visualize and export ecological metrics—species counts, distributions, and trends—to standard formats for downstream analysis.
+  \item Maintain openness and extensibility, providing modular code, clear documentation, and integration points for new workflows or models.
+\end{itemize}
+
+\section{Scope}
+
+\paragraph{In scope}
+\begin{itemize}
+  \item \textbf{Data Management Module}: Video segmentation, metadata extraction (Darwin Core–compliant), SQLite/PostgreSQL storage, backup and archival pipelines.
+  \item \textbf{Citizen‐Science Module}: Two Zooniverse workflows (clip classification, frame annotation), tutorial management, aggregation thresholds, and export utilities.
+  \item \textbf{Machine‐Learning Module}: Preprocessing (background correction, augmentation), model training/validation on \gls{gpu} cluster, hyperparameter tuning, RESTful inference service, and Streamlit‐based visualization.
+  \item \textbf{User Interfaces}: Web portal for annotation, dashboard for model performance metrics and data exports.
+\end{itemize}
+\paragraph{Out of scope}
+\begin{itemize}
+  \item \gls{rov}/\gls{auv} mission planning or vehicle control.
+  \item Expert taxonomic curation beyond automated \gls{qc} thresholds.
+  \item Non-video oceanographic data types (e.g., acoustic, chemical).
+  \item Third‐party archival systems beyond the KSO server infrastructure.
+\end{itemize}
+
+\section{Stakeholders and their concerns}
+\begin{table}[ht]
+    \small
+    \centering
+    \begin{tabular}{p{0.25\textwidth} p{0.70\textwidth}}
+      \toprule
+      \textbf{Stakeholder} & \textbf{Concerns \& Usage of \gls{sad} Views} \\
+      \midrule
+      Marine Ecologists &
+        \begin{itemize}[nosep,leftmargin=*]
+          \item Verify data accuracy and species coverage (Information view)
+          \item Explore spatial/temporal visualizations (Functional \& Deployment views)
+        \end{itemize} \\
+      \addlinespace
+      Citizen Scientists &
+        \begin{itemize}[nosep,leftmargin=*]
+          \item Understand annotation workflow and UI components (Functional view)
+          \item Track progress and consensus rules (Information view)
+        \end{itemize} \\
+      \addlinespace
+      \gls{ml} Engineers \& Developers &
+        \begin{itemize}[nosep,leftmargin=*]
+          \item Inspect component interactions and dataflows for preprocessing, training, and inference (Functional \& Information views)
+          \item Manage code modules and dependencies (Development view)
+        \end{itemize} \\
+      \addlinespace
+      System Administrators &
+        \begin{itemize}[nosep,leftmargin=*]
+          \item Plan deployment topology, storage allocation, and service‐to‐hardware mapping (Deployment view)
+          \item Automate backups and scaling workflows (Development view)
+        \end{itemize} \\
+      \addlinespace
+      Sponsors \& Funders &
+        \begin{itemize}[nosep,leftmargin=*]
+          \item Evaluate architectural extensibility and open‐source licensing (Development view)
+          \item Assess risk‐reduction measures and trade‐off decisions (all views)
+        \end{itemize} \\
+      \bottomrule
+    \end{tabular}
+    \caption{Stakeholders and their primary concerns, mapped to SAD views.}
+    \label{tab:stakeholders-concerns}
+  \end{table}
+
+
+
+

@@ -1,0 +1,799 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.10.16)  4 MAY 2025 14:24
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/Users/OVAK/Desktop/c/CENG350/HW1/main.tex
+(c:/Users/OVAK/Desktop/c/CENG350/HW1/main.tex
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-10-10>
+(C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
+Document Class: report 2023/05/17 v1.4n Standard LaTeX document class
+(C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@chapter=\count186
+\c@section=\count187
+\c@subsection=\count188
+\c@subsubsection=\count189
+\c@paragraph=\count190
+\c@subparagraph=\count191
+\c@figure=\count192
+\c@table=\count193
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (PackagesAndSettings.tex (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count194
+\Gm@cntv=\count195
+\c@Gm@tempcnt=\count196
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
+\Gm@dimlist=\toks18
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/tocbibind\tocbibind.sty
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 50.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+\f@nch@headwidth=\skip50
+\f@nch@O@elh=\skip51
+\f@nch@O@erh=\skip52
+\f@nch@O@olh=\skip53
+\f@nch@O@orh=\skip54
+\f@nch@O@elf=\skip55
+\f@nch@O@erf=\skip56
+\f@nch@O@olf=\skip57
+\f@nch@O@orf=\skip58
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen149
+\ar@mcellbox=\box51
+\extrarowheight=\dimen150
+\NC@list=\toks19
+\extratabsurround=\skip59
+\backup@length=\skip60
+\ar@cellbox=\box52
+)
+\TX@col@width=\dimen151
+\TX@old@table=\dimen152
+\TX@old@col=\dimen153
+\TX@target=\dimen154
+\TX@delta=\dimen155
+\TX@cols=\count197
+\TX@ftn=\toks20
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/tools\xr.sty
+Package: xr 2020-05-10 v5.06 eXternal References (DPC)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2023/09/29 v3.95 The Babel package
+\babel@savecnt=\count198
+\U@D=\dimen156
+\l@unhyphenated=\language79
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count199
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 108.
+)) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\babel-english.tex
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 11.
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks21
+\inpenc@posthook=\toks22
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen157
+\Gin@req@width=\dimen158
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/titling\titling.sty
+Package: titling 2009/09/04 v2.1d maketitle typesetting
+\thanksmarkwidth=\skip61
+\thanksmargin=\skip62
+\droptitle=\skip63
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/datetime\datetime.sty
+Package: datetime 2015/03/20 v2.60 Date Time Package
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count266
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fmtcount.sty
+Package: fmtcount 2025/02/09 v3.10 Displaying the values of LaTeX counters (NT,VB,NE)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+\XKV@toks=\toks23
+\XKV@tempa@toks=\toks24
+)
+\XKV@depth=\count267
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fcprefix.sty
+Package: fcprefix 2012/09/28
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fcnumparser.sty
+Package: fcnumparser 2017/06/15
+\fc@digit@counter=\count268
+)) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks25
+\ex@=\dimen159
+)
+\c@padzeroesN=\count269
+\fc@tmpcatcode=\count270
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fc-english.def
+File: fc-english.def 2016/01/12
+)
+\@DT@modctr=\count271
+\@ordinalctr=\count272
+\@orgargctr=\count273
+\@strctr=\count274
+\@tmpstrctr=\count275
+\@DT@loopN=\count276
+\@DT@X=\count277
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/datetime\datetime-defaults.sty
+Package: datetime-defaults 2013/09/10
+)
+\@day=\count278
+\@month=\count279
+\@year=\count280
+\c@HOUR=\count281
+\c@HOURXII=\count282
+\c@MINUTE=\count283
+\c@TOHOUR=\count284
+\c@TOMINUTE=\count285
+\c@SECOND=\count286
+\currenthour=\count287
+\currentminute=\count288
+\currentsecond=\count289
+Package datetime Info: No datetime.cfg file found, using default settings on input line 308.
+\@dtctr=\count290
+\dayofyear=\count291
+\dayofweek=\count292
+LaTeX Info: Redefining \today on input line 736.
+\dt@a=\toks26
+\dt@b=\toks27
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2023-07-08 v7.01b Hypertext links for LaTeX
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2023-08-07 v2.53 Cross-referencing by name of section
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count293
+)
+\@linkdim=\dimen160
+\Hy@linkcounter=\count294
+\Hy@pagecounter=\count295
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2023-07-08 v7.01b Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count296
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2023-07-08 v7.01b Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4167.
+Package hyperref Info: Link nesting OFF on input line 4172.
+Package hyperref Info: Hyper index ON on input line 4175.
+Package hyperref Info: Plain pages OFF on input line 4182.
+Package hyperref Info: Backreferencing OFF on input line 4187.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4434.
+\c@Hy@tempcnt=\count297
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4772.
+\XeTeXLinkMargin=\dimen161
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count298
+\Field@Width=\dimen162
+\Fld@charsize=\dimen163
+Package hyperref Info: Hyper figures OFF on input line 6051.
+Package hyperref Info: Link nesting OFF on input line 6056.
+Package hyperref Info: Hyper index ON on input line 6059.
+Package hyperref Info: backreferencing OFF on input line 6066.
+Package hyperref Info: Link coloring OFF on input line 6071.
+Package hyperref Info: Link coloring with OCG OFF on input line 6076.
+Package hyperref Info: PDF/A mode OFF on input line 6081.
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count299
+\c@Item=\count300
+\c@Hfootnote=\count301
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2023-07-08 v7.01b Hyperref driver for pdfTeX
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count302
+\c@bookmark@seq@number=\count303
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip64
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 39.
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2023/10/27 v2.16 Sectioning titles
+\ttl@box=\box53
+\beforetitleunit=\skip65
+\aftertitleunit=\skip66
+\ttl@plus=\dimen164
+\ttl@minus=\dimen165
+\ttl@toksa=\toks28
+\titlewidth=\dimen166
+\titlewidthlast=\dimen167
+\titlewidthfirst=\dimen168
+)) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count304
+\float@exts=\toks29
+\float@box=\box54
+\@float@everytoks=\toks30
+\@floatcapt=\box55
+)
+
+Package array Warning: Redefining primitive column b on input line 4.
+
+(C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-10-10 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count305
+\l__pdf_internal_box=\box56
+) (main.aux (Sections/TitlePage.aux) (Sections/Revision.aux) (Sections/Introduction.aux) (Sections/SpecificRequirements.aux
+
+LaTeX Warning: Label `Tab:UseCase2' multiply defined.
+
+
+LaTeX Warning: Label `Tab:UseCase3' multiply defined.
+
+
+LaTeX Warning: Label `Tab:UseCase3' multiply defined.
+
+) (Sections/Suggestions.aux
+
+LaTeX Warning: Label `Fig:Improved System Context Diagram' multiply defined.
+
+
+LaTeX Warning: Label `Tab:UseCase3' multiply defined.
+
+
+LaTeX Warning: Label `Fig:Improved System Context Diagram' multiply defined.
+
+))
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 443.57848pt, 99.58464pt)
+* v-part:(T,H,B)=(56.9055pt, 642.66711pt, 95.39737pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=443.57848pt
+* \textheight=642.66711pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-52.36449pt
+* \headheight=27.05003pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count306
+\scratchdimen=\dimen169
+\scratchbox=\box57
+\nofMPsegments=\count307
+\nofMParguments=\count308
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count309
+\MPscratchDim=\dimen170
+\MPnumerator=\count310
+\makeMPintoPDFobject=\count311
+\everyMPtoPDFconversion=\toks32
+) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)) (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+ (C:\Users\OVAK\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+Package hyperref Info: Link coloring ON on input line 7.
+ (main.out) (main.out)
+\@outlinefile=\write3
+\openout3 = `main.out'.
+
+\openout2 = `Sections/TitlePage.aux'.
+
+ (Sections/TitlePage.tex
+<Figures/metu_logo.png, id=179, 280.8894pt x 170.7981pt>
+File: Figures/metu_logo.png Graphic file (type png)
+<use Figures/metu_logo.png>
+Package pdftex.def Info: Figures/metu_logo.png  used on input line 4.
+(pdftex.def)             Requested size: 354.86412pt x 215.7879pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 27.
+ [1
+
+
+{C:/Users/OVAK/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Figures/metu_logo.png>]) (main.toc
+pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.24 ...umberline {3.2}Functions}{17}{section.3.2}
+                                                  % [1
+
+
+
+])
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+ [2] (main.lof)
+\tf@lof=\write5
+\openout5 = `main.lof'.
+
+ [3
+
+] (main.lot)
+\tf@lot=\write6
+\openout6 = `main.lot'.
+
+ [4
+
+]
+\openout2 = `Sections/Revision.aux'.
+
+ (Sections/Revision.tex) [5
+
+
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.0.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.16 \include{Sections/Revision}
+                                ]
+\openout2 = `Sections/Introduction.aux'.
+
+ (Sections/Introduction.tex
+Chapter 1.
+[1
+
+
+
+
+] [2]
+<Figures/System Context Diagram.png, id=328, 613.54219pt x 420.82219pt>
+File: Figures/System Context Diagram.png Graphic file (type png)
+<use Figures/System Context Diagram.png>
+Package pdftex.def Info: Figures/System Context Diagram.png  used on input line 51.
+(pdftex.def)             Requested size: 399.21791pt x 273.82013pt.
+ [3] [4
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.70     \item \textbf
+                      {Machine Learning API (FastAPI)} – Provides AI-power... <./Figures/System Context Diagram.png>] [5] [6] [7]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 168.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 168.
+ [8] [9
+pdfTeX warning (ext4): destination with the same identifier (name{table.1.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.206     \item \textbf
+                       {Researchers} are marine ecologists and other scienti...] [10] [11]) [12] (main.bbl
+Chapter 2.
+) [13
+
+
+
+]
+\openout2 = `Sections/SpecificRequirements.aux'.
+
+ (Sections/SpecificRequirements.tex
+Chapter 3.
+<Figures/ExternalInterfaces.png, id=381, 774.895pt x 736.7525pt>
+File: Figures/ExternalInterfaces.png Graphic file (type png)
+<use Figures/ExternalInterfaces.png>
+Package pdftex.def Info: Figures/ExternalInterfaces.png  used on input line 7.
+(pdftex.def)             Requested size: 443.57848pt x 421.752pt.
+[14
+
+
+]
+Overfull \vbox (52.30168pt too high) has occurred while \output is active []
+
+ [15
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.10 
+      <./Figures/ExternalInterfaces.png>]
+<Figures/UseCase Diagram.png, id=391, 651.18282pt x 569.87906pt>
+File: Figures/UseCase Diagram.png Graphic file (type png)
+<use Figures/UseCase Diagram.png>
+Package pdftex.def Info: Figures/UseCase Diagram.png  used on input line 28.
+(pdftex.def)             Requested size: 443.57848pt x 388.20828pt.
+ [16]
+Underfull \hbox (badness 6842) in paragraph at lines 80--80
+\OT1/cmr/m/n/10.95 2. Re-searcher se-lects ``Up-load Footage'' and pro-vides
+ []
+
+
+Underfull \hbox (badness 1590) in paragraph at lines 80--80
+[]|\OT1/cmr/m/n/10.95 - \OT1/cmr/bx/n/10.95 File Val-i-da-tion Er-ror: \OT1/cmr/m/n/10.95 The sys-tem re-jects in-com-pat-i-
+ []
+
+[17
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.83 
+      <./Figures/UseCase Diagram.png>]
+Overfull \vbox (9.61621pt too high) has occurred while \output is active []
+
+ [18
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.83 
+     ]
+<Figures/Sequence Diagram.png, id=405, 733.23938pt x 660.96938pt>
+File: Figures/Sequence Diagram.png Graphic file (type png)
+<use Figures/Sequence Diagram.png>
+Package pdftex.def Info: Figures/Sequence Diagram.png  used on input line 142.
+(pdftex.def)             Requested size: 443.57848pt x 399.86249pt.
+
+Overfull \vbox (9.61621pt too high) has occurred while \output is active []
+
+ [19
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.144             \end{figure}
+                              ]
+<Figures/Activity Diagram.png, id=411, 672.26157pt x 650.43pt>
+File: Figures/Activity Diagram.png Graphic file (type png)
+<use Figures/Activity Diagram.png>
+Package pdftex.def Info: Figures/Activity Diagram.png  used on input line 195.
+(pdftex.def)             Requested size: 443.57848pt x 429.17595pt.
+ [20
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.197                 \end{figure}
+                                   <./Figures/Sequence Diagram.png>]
+Overfull \vbox (9.61612pt too high) has occurred while \output is active []
+
+ [21
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.197                 \end{figure}
+                                  ] [22
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.255 
+       <./Figures/Activity Diagram.png>]
+Overfull \vbox (30.01622pt too high) has occurred while \output is active []
+
+ [23
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.255 
+      ]
+<Figures/State Diagram.png, id=430, 666.23906pt x 562.35094pt>
+File: Figures/State Diagram.png Graphic file (type png)
+<use Figures/State Diagram.png>
+Package pdftex.def Info: Figures/State Diagram.png  used on input line 259.
+(pdftex.def)             Requested size: 443.57848pt x 374.41345pt.
+ [24
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.363                         \end{table}
+                                          <./Figures/State Diagram.png>] [25
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.364 
+      ]
+<Figures/LogicalDatabase.png, id=441, 584.1825pt x 588.69937pt>
+File: Figures/LogicalDatabase.png Graphic file (type png)
+<use Figures/LogicalDatabase.png>
+Package pdftex.def Info: Figures/LogicalDatabase.png  used on input line 369.
+(pdftex.def)             Requested size: 443.57848pt x 447.02092pt.
+ [26
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.372 
+      ] [27
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.374 
+       <./Figures/LogicalDatabase.png>] [28] [29] [30] [31]) [32]
+\openout2 = `Sections/Suggestions.aux'.
+
+ (Sections/Suggestions.tex
+Chapter 4.
+<Figures/ImpSystem Context Diagram.png, id=474, 647.41875pt x 456.95718pt>
+File: Figures/ImpSystem Context Diagram.png Graphic file (type png)
+<use Figures/ImpSystem Context Diagram.png>
+Package pdftex.def Info: Figures/ImpSystem Context Diagram.png  used on input line 7.
+(pdftex.def)             Requested size: 443.57848pt x 313.0835pt.
+[33
+
+
+
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.13 
+      <./Figures/ImpSystem Context Diagram.png>]
+<Figures/ImpExternalInterfaces.png, id=480, 780.9175pt x 719.68875pt>
+File: Figures/ImpExternalInterfaces.png Graphic file (type png)
+<use Figures/ImpExternalInterfaces.png>
+Package pdftex.def Info: Figures/ImpExternalInterfaces.png  used on input line 21.
+(pdftex.def)             Requested size: 434.705pt x 400.618pt.
+ [34] [35
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.29 
+      <./Figures/ImpExternalInterfaces.png>]
+<Figures/ImpUseCase Diagram.png, id=490, 669.50125pt x 680.5425pt>
+File: Figures/ImpUseCase Diagram.png Graphic file (type png)
+<use Figures/ImpUseCase Diagram.png>
+Package pdftex.def Info: Figures/ImpUseCase Diagram.png  used on input line 39.
+(pdftex.def)             Requested size: 443.57848pt x 450.91437pt.
+ [36] [37
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.97 
+      <./Figures/ImpUseCase Diagram.png>]
+<Figures/ImpActivity Diagram.png, id=501, 685.05937pt x 590.205pt>
+File: Figures/ImpActivity Diagram.png Graphic file (type png)
+<use Figures/ImpActivity Diagram.png>
+Package pdftex.def Info: Figures/ImpActivity Diagram.png  used on input line 100.
+(pdftex.def)             Requested size: 487.93903pt x 420.39034pt.
+
+Overfull \hbox (44.36055pt too wide) in paragraph at lines 100--101
+ [][] 
+ []
+
+[38
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.103 
+      ] [39
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.159 
+       <./Figures/ImpActivity Diagram.png>]
+Overfull \vbox (11.0328pt too high) has occurred while \output is active []
+
+ [40
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.159 
+      ]
+<Figures/ImpSequence Diagram.png, id=515, 959.08313pt x 1063.72406pt>
+File: Figures/ImpSequence Diagram.png Graphic file (type png)
+<use Figures/ImpSequence Diagram.png>
+Package pdftex.def Info: Figures/ImpSequence Diagram.png  used on input line 162.
+(pdftex.def)             Requested size: 443.57848pt x 491.98091pt.
+ [41
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.224 
+       <./Figures/ImpSequence Diagram.png>]
+<Figures/GpuTpuStateDiagram.png, id=521, 815.045pt x 579.16376pt>
+File: Figures/GpuTpuStateDiagram.png Graphic file (type png)
+<use Figures/GpuTpuStateDiagram.png>
+Package pdftex.def Info: Figures/GpuTpuStateDiagram.png  used on input line 227.
+(pdftex.def)             Requested size: 443.57848pt x 315.20055pt.
+ [42
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.230 
+      ] [43
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.289 
+       <./Figures/GpuTpuStateDiagram.png>]
+Overfull \vbox (50.41623pt too high) has occurred while \output is active []
+
+ [44
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.289 
+      ]
+<Figures/ImpLogicalDatabase.png, id=536, 584.93532pt x 639.89063pt>
+File: Figures/ImpLogicalDatabase.png Graphic file (type png)
+<use Figures/ImpLogicalDatabase.png>
+Package pdftex.def Info: Figures/ImpLogicalDatabase.png  used on input line 294.
+(pdftex.def)             Requested size: 443.57848pt x 485.26741pt.
+ [45
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.314 
+       <./Figures/ImpLogicalDatabase.png>] [46] [47] [48]) [49] [50] (main.aux (Sections/TitlePage.aux) (Sections/Revision.aux) (Sections/Introduction.aux) (Sections/SpecificRequirements.aux) (Sections/Suggestions.aux))
+ ***********
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-10-10>
+ ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 0CCF178EA0F3D602ED394281DB39DF5D;7674.
+ ) 
+Here is how much of TeX's memory you used:
+ 12374 strings out of 474823
+ 203259 string characters out of 5751427
+ 1935043 words of memory out of 5000000
+ 33952 multiletter control sequences out of 15000+600000
+ 565922 words of font info for 62 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 80i,11n,82p,1050b,674s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\OVAK\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/OVAK/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (56 pages, 1756120 bytes).
+PDF statistics:
+ 639 PDF objects out of 1000 (max. 8388607)
+ 138 named destinations out of 1000 (max. 500000)
+ 428 words of extra memory for PDF output out of 10000 (max. 10000000)
+
