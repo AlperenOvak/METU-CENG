@@ -1,0 +1,1405 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$/tmp/xcyMfTayL.o
+idloc IDLOC 5 200000 200000 8 1
+init CODE 0 E E 4 1
+reset_vec CODE 0 0 0 4 1
+config CONFIG 4 300000 300000 E 1
+$dist/UploadToBoard/production/THE3-Starter.X.production.o
+cinit CODE 0 2A2E 2A2E 8E 1
+idloc IDLOC 5 200000 200000 8 1
+intcode_body CODE 0 2052 2052 19E 1
+text0 CODE 0 1AD8 1AD8 1EC 1
+text1 CODE 0 2CAA 2CAA 6E 1
+text2 CODE 0 1416 1416 264 1
+text3 CODE 0 232C 232C 108 1
+text4 CODE 0 2D18 2D18 68 1
+text5 CODE 0 316E 316E 18 1
+text6 CODE 0 1CC4 1CC4 1EA 1
+text7 CODE 0 2C38 2C38 72 1
+text8 CODE 0 3010 3010 3E 1
+text9 CODE 0 167A 167A 256 1
+text10 CODE 0 2ABC 2ABC 86 1
+text11 CODE 0 2EA0 2EA0 52 1
+text12 CODE 0 2D80 2D80 66 1
+text13 CODE 0 1038 1038 3DE 1
+text14 CODE 0 18D0 18D0 208 1
+text15 CODE 0 27D0 27D0 CA 1
+text16 CODE 0 30F8 30F8 36 1
+text17 CODE 0 2F8C 2F8C 44 1
+text18 CODE 0 2700 2700 D0 1
+text19 CODE 0 253C 253C F0 1
+text20 CODE 0 262C 262C D4 1
+text21 CODE 0 289A 289A CA 1
+text22 CODE 0 31AC 31AC 2 1
+text23 CODE 0 1EAE 1EAE 1A4 1
+text24 CODE 0 2EF2 2EF2 52 1
+text25 CODE 0 3088 3088 38 1
+text26 CODE 0 312E 312E 26 1
+text27 CODE 0 2434 2434 108 1
+text28 CODE 0 30C0 30C0 38 1
+text29 CODE 0 2F44 2F44 48 1
+text30 CODE 0 31A0 31A0 6 1
+text31 CODE 0 31A6 31A6 6 1
+text32 CODE 0 2964 2964 CA 1
+text33 CODE 0 304E 304E 3A 1
+text34 CODE 0 3154 3154 1A 1
+text36 CODE 0 2B42 2B42 82 1
+text37 CODE 0 2E4A 2E4A 56 1
+text38 CODE 0 21F0 21F0 13C 1
+text39 CODE 0 2FD0 2FD0 40 1
+text40 CODE 0 2DE6 2DE6 64 1
+text41 CODE 0 2BC4 2BC4 74 1
+cstackCOMRAM COMRAM 1 1 1 30 1
+cstackBANK0 BANK0 1 60 60 83 1
+cstackBANK2 BANK2 1 2D0 2D0 16 1
+temp COMRAM 1 48 48 1 1
+bssBANK0 BANK0 1 E3 E3 15 1
+bssBANK1 BANK1 1 100 100 EC 1
+bssBANK2 BANK2 1 200 200 D0 1
+intcode CODE 0 8 8 6 1
+smallconst SMALLCONST 0 1000 1000 38 1
+idataBANK0 CODE 0 3198 3198 8 1
+idataBANK1 CODE 0 3186 3186 12 1
+dataBANK0 BANK0 1 F8 F8 8 1
+dataBANK1 BANK1 1 1EC 1EC 12 1
+bssBIGRAM BIGRAM 1 2E6 2E6 400 1
+bssCOMRAM COMRAM 1 31 31 17 1
+config CONFIG 4 300000 300000 E 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 1FE-1FF 1
+RAM 6E6-F5F 1
+SFR F60-FFF 1
+BANK1 1FE-1FF 1
+BANK6 6E6-6FF 1
+BANK7 700-7FF 1
+BANK8 800-8FF 1
+BANK9 900-9FF 1
+CONST 4-7 1
+CONST 12-FFF 1
+CONST 31AE-1FFFF 1
+STACK 6E6-F5F 1
+SMALLCONST 31AE-1FFFF 1
+CODE 4-7 1
+CODE 12-FFF 1
+CODE 31AE-1FFFF 1
+BANK10 A00-AFF 1
+BANK11 B00-BFF 1
+BANK12 C00-CFF 1
+BANK13 D00-DFF 1
+BANK14 E00-EFF 1
+BANK15 F00-F5F 1
+BIGRAM 49-5F 1
+BIGRAM 1FE-1FF 1
+BIGRAM 6E6-F5F 1
+COMRAM 49-5F 1
+EEDATA F00000-F003FF 1
+MEDIUMCONST 31AE-FFFF 1
+MEDIUMCONST 11000-1FFFF 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/UploadToBoard/production/THE3-Starter.X.production.o
+8 intcode CODE >8848:/tmp/xcPfhEkHd.s
+8 intcode CODE >137:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2BC4 text41 CODE >7:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2BC4 text41 CODE >13:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2BCC text41 CODE >14:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2BDE text41 CODE >15:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2BE2 text41 CODE >16:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2BE6 text41 CODE >17:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2BEC text41 CODE >18:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2BEE text41 CODE >16:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2BFC text41 CODE >21:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2C02 text41 CODE >22:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2C18 text41 CODE >23:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2C20 text41 CODE >24:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2C22 text41 CODE >26:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2C28 text41 CODE >27:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2C2E text41 CODE >28:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2C2E text41 CODE >29:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2C36 text41 CODE >30:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwdiv.c
+2DE6 text40 CODE >7:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2DE6 text40 CODE >12:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2DF8 text40 CODE >13:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2DFC text40 CODE >14:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2E00 text40 CODE >15:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2E06 text40 CODE >16:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2E08 text40 CODE >14:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2E16 text40 CODE >19:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2E2C text40 CODE >20:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2E34 text40 CODE >21:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2E3A text40 CODE >22:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2E40 text40 CODE >23:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2E40 text40 CODE >24:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2E48 text40 CODE >25:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+2FD0 text39 CODE >81:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+21F0 text38 CODE >102:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+21F2 text38 CODE >104:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2208 text38 CODE >105:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2214 text38 CODE >107:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2256 text38 CODE >108:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+229E text38 CODE >109:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+22CC text38 CODE >110:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+22E2 text38 CODE >111:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2322 text38 CODE >112:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+232A text38 CODE >114:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2E4A text37 CODE >92:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2E4C text37 CODE >93:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2E5C text37 CODE >94:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2E60 text37 CODE >95:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2E7C text37 CODE >96:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2E9C text37 CODE >97:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2E9E text37 CODE >98:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2B42 text36 CODE >125:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2B42 text36 CODE >126:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2B52 text36 CODE >127:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2B56 text36 CODE >128:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2B5A text36 CODE >129:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2B9C text36 CODE >130:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2BAE text36 CODE >131:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2BB6 text36 CODE >132:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2BBA text36 CODE >133:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2BC2 text36 CODE >135:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2052 intcode_body CODE >137:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+206C intcode_body CODE >138:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+207A intcode_body CODE >139:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+207C intcode_body CODE >140:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2080 intcode_body CODE >141:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+209C intcode_body CODE >142:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+209E intcode_body CODE >143:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+20A0 intcode_body CODE >144:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+20A2 intcode_body CODE >145:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+20A4 intcode_body CODE >146:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+20A8 intcode_body CODE >148:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+20B2 intcode_body CODE >152:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+20C0 intcode_body CODE >153:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+20D2 intcode_body CODE >154:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+20E4 intcode_body CODE >155:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+20E8 intcode_body CODE >156:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+20F6 intcode_body CODE >157:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+20F8 intcode_body CODE >158:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+20FC intcode_body CODE >159:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+20FC intcode_body CODE >160:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2100 intcode_body CODE >163:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2100 intcode_body CODE >165:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+210E intcode_body CODE >166:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2110 intcode_body CODE >167:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2114 intcode_body CODE >168:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2118 intcode_body CODE >169:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+211C intcode_body CODE >170:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+211E intcode_body CODE >171:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2120 intcode_body CODE >173:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2124 intcode_body CODE >174:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+216C intcode_body CODE >175:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+218A intcode_body CODE >176:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2190 intcode_body CODE >179:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+219E intcode_body CODE >181:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+21A2 intcode_body CODE >186:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+21AA intcode_body CODE >188:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+21CA intcode_body CODE >190:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+21CE intcode_body CODE >192:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+21D2 intcode_body CODE >195:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+21D4 intcode_body CODE >197:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3154 text34 CODE >233:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3154 text34 CODE >235:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3158 text34 CODE >237:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+315C text34 CODE >238:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3160 text34 CODE >239:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3164 text34 CODE >240:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3168 text34 CODE >241:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+316C text34 CODE >242:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+304E text33 CODE >200:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+304E text33 CODE >202:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3050 text33 CODE >203:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3052 text33 CODE >206:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3056 text33 CODE >208:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+305A text33 CODE >210:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+305C text33 CODE >211:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3060 text33 CODE >212:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3064 text33 CODE >215:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3068 text33 CODE >216:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+306C text33 CODE >217:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+306E text33 CODE >218:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3070 text33 CODE >219:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3072 text33 CODE >220:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3074 text33 CODE >223:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3076 text33 CODE >224:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3078 text33 CODE >225:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+307C text33 CODE >227:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3080 text33 CODE >228:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3082 text33 CODE >229:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3084 text33 CODE >230:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3086 text33 CODE >231:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2964 text32 CODE >244:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2964 text32 CODE >245:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2968 text32 CODE >246:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+296C text32 CODE >247:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+29A0 text32 CODE >248:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+29D4 text32 CODE >249:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2A08 text32 CODE >250:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2A1A text32 CODE >251:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2A2C text32 CODE >252:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+31A6 text31 CODE >76:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+31A0 text30 CODE >77:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2F44 text29 CODE >449:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2F44 text29 CODE >451:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2F48 text29 CODE >452:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2F4C text29 CODE >453:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2F70 text29 CODE >454:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2F74 text29 CODE >451:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2F8A text29 CODE >456:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+30C0 text28 CODE >377:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+30C0 text28 CODE >378:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+30C4 text28 CODE >379:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+30C6 text28 CODE >381:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+30CA text28 CODE >382:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+30CE text28 CODE >383:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+30DC text28 CODE >384:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+30E0 text28 CODE >381:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+30E0 text28 CODE >385:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+30F6 text28 CODE >388:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2434 text27 CODE >83:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2434 text27 CODE >84:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2470 text27 CODE >85:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+24B8 text27 CODE >86:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+24E0 text27 CODE >87:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+24F6 text27 CODE >88:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+253A text27 CODE >89:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+253A text27 CODE >90:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+312E text26 CODE >15:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/Umul16.c
+312E text26 CODE >37:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/Umul16.c
+313A text26 CODE >38:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/Umul16.c
+3142 text26 CODE >39:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/Umul16.c
+314A text26 CODE >52:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/Umul16.c
+3152 text26 CODE >53:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/Umul16.c
+3088 text25 CODE >5:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/isdigit.c
+3088 text25 CODE >7:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/isdigit.c
+30BE text25 CODE >8:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/isdigit.c
+2EF2 text24 CODE >5:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/isspace.c
+2EF2 text24 CODE >7:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/isspace.c
+2F42 text24 CODE >8:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/isspace.c
+1EAE text23 CODE >4:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/atoi.c
+1EAE text23 CODE >6:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/atoi.c
+1EBE text23 CODE >7:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/atoi.c
+1F44 text23 CODE >9:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/atoi.c
+1F4C text23 CODE >10:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/atoi.c
+1F50 text23 CODE >11:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/atoi.c
+1F8C text23 CODE >14:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/atoi.c
+1FC6 text23 CODE >13:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/atoi.c
+201A text23 CODE >15:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/atoi.c
+2050 text23 CODE >16:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/atoi.c
+31AC text22 CODE >7:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/putch.c
+31AC text22 CODE >9:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/putch.c
+289A text21 CODE >8:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+289A text21 CODE >12:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+28BE text21 CODE >13:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+28C4 text21 CODE >14:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+28C8 text21 CODE >15:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+291C text21 CODE >18:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+2950 text21 CODE >20:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+2962 text21 CODE >24:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+262C text20 CODE >259:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+262C text20 CODE >264:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2656 text20 CODE >267:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2664 text20 CODE >268:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2676 text20 CODE >271:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2690 text20 CODE >272:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2698 text20 CODE >273:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+269C text20 CODE >274:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+26B0 text20 CODE >275:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+26B4 text20 CODE >273:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+26D2 text20 CODE >278:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+26E0 text20 CODE >279:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+26F2 text20 CODE >282:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+26FE text20 CODE >283:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+253C text19 CODE >9:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+253C text19 CODE >15:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+2548 text19 CODE >16:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+2566 text19 CODE >17:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+256A text19 CODE >18:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+256E text19 CODE >19:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+2580 text19 CODE >20:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+2582 text19 CODE >18:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+2590 text19 CODE >23:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+25A2 text19 CODE >24:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+25D0 text19 CODE >25:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+25F0 text19 CODE >26:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+25F2 text19 CODE >28:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+2604 text19 CODE >29:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+260A text19 CODE >30:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+260A text19 CODE >31:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+262A text19 CODE >32:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lodiv.c
+2700 text18 CODE >9:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+2700 text18 CODE >14:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+271E text18 CODE >15:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+2722 text18 CODE >16:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+2726 text18 CODE >17:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+2738 text18 CODE >18:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+273A text18 CODE >16:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+2748 text18 CODE >21:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+2776 text18 CODE >22:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+2796 text18 CODE >23:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+27A8 text18 CODE >24:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+27AE text18 CODE >25:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+27AE text18 CODE >26:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+27CE text18 CODE >27:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/lomod.c
+2F8C text17 CODE >8:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputs.c
+2F8C text17 CODE >13:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputs.c
+2F94 text17 CODE >14:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputs.c
+2F98 text17 CODE >15:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputs.c
+2FAA text17 CODE >16:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputs.c
+2FAE text17 CODE >14:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputs.c
+2FCE text17 CODE >19:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputs.c
+30F8 text16 CODE >5:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/strlen.c
+30F8 text16 CODE >7:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/strlen.c
+3100 text16 CODE >8:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/strlen.c
+3104 text16 CODE >9:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/strlen.c
+3108 text16 CODE >8:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/strlen.c
+3120 text16 CODE >11:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/strlen.c
+312C text16 CODE >12:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/strlen.c
+27D0 text15 CODE >72:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+27D0 text15 CODE >77:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+27DE text15 CODE >78:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+27F2 text15 CODE >82:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2816 text15 CODE >83:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2820 text15 CODE >84:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2824 text15 CODE >85:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2838 text15 CODE >86:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+283E text15 CODE >84:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+285C text15 CODE >90:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+286A text15 CODE >91:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+287E text15 CODE >94:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2898 text15 CODE >95:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+18D0 text14 CODE >615:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+18D0 text14 CODE >621:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+18DE text14 CODE >622:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+18E0 text14 CODE >624:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1910 text14 CODE >625:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1918 text14 CODE >628:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1938 text14 CODE >629:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1942 text14 CODE >630:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1948 text14 CODE >631:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+194C text14 CODE >632:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1952 text14 CODE >633:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+19CA text14 CODE >634:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+19D0 text14 CODE >635:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+19D6 text14 CODE >636:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1A3A text14 CODE >631:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1AAE text14 CODE >640:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1AD6 text14 CODE >641:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1038 text13 CODE >692:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1038 text13 CODE >702:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1060 text13 CODE >703:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+106E text13 CODE >705:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+107E text13 CODE >706:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1082 text13 CODE >710:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+108C text13 CODE >711:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1090 text13 CODE >714:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1092 text13 CODE >715:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+10A0 text13 CODE >716:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+10A4 text13 CODE >718:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+10AA text13 CODE >722:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+10B0 text13 CODE >726:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+10B6 text13 CODE >730:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+10BC text13 CODE >734:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+10C4 text13 CODE >735:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+10C8 text13 CODE >736:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1120 text13 CODE >711:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1132 text13 CODE >738:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1140 text13 CODE >739:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1142 text13 CODE >745:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+116A text13 CODE >746:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1178 text13 CODE >747:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+11A0 text13 CODE >748:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+11AE text13 CODE >749:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+11B0 text13 CODE >750:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+11BC text13 CODE >753:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+11D8 text13 CODE >754:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+11DC text13 CODE >755:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+11EA text13 CODE >754:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1248 text13 CODE >814:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1270 text13 CODE >815:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+127E text13 CODE >816:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+12A2 text13 CODE >817:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+12BE text13 CODE >1204:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+12E6 text13 CODE >1206:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+12F4 text13 CODE >1207:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1330 text13 CODE >1209:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1368 text13 CODE >1372:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1390 text13 CODE >1373:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+139E text13 CODE >1374:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+13B2 text13 CODE >1375:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+13C0 text13 CODE >1379:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+13CE text13 CODE >1380:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+13DA text13 CODE >1384:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1402 text13 CODE >1385:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1414 text13 CODE >1387:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2D80 text12 CODE >1390:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2D80 text12 CODE >1395:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2D88 text12 CODE >1396:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2D92 text12 CODE >1397:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2D96 text12 CODE >1398:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2DBC text12 CODE >1397:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2DDC text12 CODE >1400:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2DE4 text12 CODE >1404:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+2EA0 text11 CODE >9:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_sprintf.c
+2EA0 text11 CODE >15:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_sprintf.c
+2EAA text11 CODE >16:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_sprintf.c
+2EB2 text11 CODE >17:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_sprintf.c
+2EBA text11 CODE >18:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_sprintf.c
+2EC2 text11 CODE >19:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_sprintf.c
+2EDE text11 CODE >20:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_sprintf.c
+2EF0 text11 CODE >23:/Applications/microchip/xc8/v2.30/pic/sources/c99/common/nf_sprintf.c
+2ABC text10 CODE >254:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2AC0 text10 CODE >256:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2AF6 text10 CODE >258:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2AFC text10 CODE >259:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2B00 text10 CODE >260:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2B28 text10 CODE >261:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2B2C text10 CODE >262:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2B40 text10 CODE >263:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+167A text9 CODE >286:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+167A text9 CODE >287:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+168A text9 CODE >289:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1690 text9 CODE >290:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1694 text9 CODE >291:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1718 text9 CODE >292:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+174C text9 CODE >293:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1752 text9 CODE >294:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1764 text9 CODE >295:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+176A text9 CODE >299:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+17EA text9 CODE >300:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+17F0 text9 CODE >301:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+17F6 text9 CODE >303:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1808 text9 CODE >305:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+181A text9 CODE >306:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+182E text9 CODE >307:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1834 text9 CODE >308:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1846 text9 CODE >309:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1886 text9 CODE >310:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+18C6 text9 CODE >311:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+18CC text9 CODE >313:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+18CE text9 CODE >315:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3010 text8 CODE >318:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3010 text8 CODE >319:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+302C text8 CODE >320:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3030 text8 CODE >321:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3048 text8 CODE >322:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+304C text8 CODE >325:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2C38 text7 CODE >265:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2C38 text7 CODE >267:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2C5E text7 CODE >269:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2C64 text7 CODE >270:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2C68 text7 CODE >271:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2C90 text7 CODE >272:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2C94 text7 CODE >273:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2CA8 text7 CODE >274:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1CC4 text6 CODE >327:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1CC4 text6 CODE >328:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1CCE text6 CODE >329:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1CD2 text6 CODE >330:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1CD6 text6 CODE >331:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1D1C text6 CODE >332:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1D54 text6 CODE >333:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1D9C text6 CODE >334:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1DE6 text6 CODE >335:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1DE6 text6 CODE >336:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1E1E text6 CODE >337:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1E28 text6 CODE >338:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1E2E text6 CODE >340:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1E42 text6 CODE >341:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1E58 text6 CODE >342:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1E5C text6 CODE >343:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1E72 text6 CODE >344:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1E76 text6 CODE >345:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1E86 text6 CODE >349:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1E9A text6 CODE >350:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1EAC text6 CODE >353:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+316E text5 CODE >367:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+316E text5 CODE >368:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3170 text5 CODE >369:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3174 text5 CODE >370:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3178 text5 CODE >372:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+317C text5 CODE >373:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3180 text5 CODE >374:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+3184 text5 CODE >375:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2D18 text4 CODE >276:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2D18 text4 CODE >278:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2D3E text4 CODE >280:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2D44 text4 CODE >281:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2D6A text4 CODE >282:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2D7E text4 CODE >283:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+232C text3 CODE >355:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+232C text3 CODE >356:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2336 text3 CODE >357:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+23CE text3 CODE >358:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+23D6 text3 CODE >359:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2416 text3 CODE >361:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+241E text3 CODE >362:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2432 text3 CODE >365:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1416 text2 CODE >392:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1416 text2 CODE >393:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1416 text2 CODE >398:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+144E text2 CODE >399:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1452 text2 CODE >402:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1478 text2 CODE >403:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+147C text2 CODE >405:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+14B6 text2 CODE >409:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+14BA text2 CODE >411:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+14F4 text2 CODE >416:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+152C text2 CODE >419:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1538 text2 CODE >421:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1572 text2 CODE >426:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+15AA text2 CODE >429:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+15B6 text2 CODE >431:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+15F0 text2 CODE >436:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1628 text2 CODE >441:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1632 text2 CODE >443:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+165C text2 CODE >444:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1678 text2 CODE >446:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2CAA text1 CODE >116:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2CAA text1 CODE >118:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2CC8 text1 CODE >120:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2CCC text1 CODE >121:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2CF8 text1 CODE >120:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2D16 text1 CODE >123:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1AD8 text0 CODE >458:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1AD8 text0 CODE >459:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1ADC text0 CODE >460:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1AE0 text0 CODE >461:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1AE4 text0 CODE >463:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1AF8 text0 CODE >464:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1AFC text0 CODE >465:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B02 text0 CODE >466:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B06 text0 CODE >467:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B0C text0 CODE >468:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B1C text0 CODE >469:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B2E text0 CODE >470:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B38 text0 CODE >472:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B4A text0 CODE >473:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B4E text0 CODE >474:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B56 text0 CODE >475:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B6C text0 CODE >476:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B70 text0 CODE >478:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B72 text0 CODE >479:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B78 text0 CODE >481:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B8A text0 CODE >482:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B90 text0 CODE >483:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1B94 text0 CODE >484:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1BD4 text0 CODE >485:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1C06 text0 CODE >487:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1C18 text0 CODE >488:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1C2A text0 CODE >489:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1C30 text0 CODE >491:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1C42 text0 CODE >493:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1C44 text0 CODE >494:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1C52 text0 CODE >495:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1C66 text0 CODE >496:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1C7E text0 CODE >497:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1C98 text0 CODE >498:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1CB2 text0 CODE >499:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+1CB6 text0 CODE >500:/Users/mcantimurcan/Desktop/ceng-3rd-year/ceng336/the3/THE3-Starter.X/main.c
+2A2E cinit CODE >844:/tmp/xcPfhEkHd.s
+2A2E cinit CODE >846:/tmp/xcPfhEkHd.s
+2A2E cinit CODE >849:/tmp/xcPfhEkHd.s
+2A2E cinit CODE >1007:/tmp/xcPfhEkHd.s
+2A30 cinit CODE >1008:/tmp/xcPfhEkHd.s
+2A32 cinit CODE >1009:/tmp/xcPfhEkHd.s
+2A34 cinit CODE >1010:/tmp/xcPfhEkHd.s
+2A36 cinit CODE >1011:/tmp/xcPfhEkHd.s
+2A38 cinit CODE >1012:/tmp/xcPfhEkHd.s
+2A3A cinit CODE >1013:/tmp/xcPfhEkHd.s
+2A3E cinit CODE >1014:/tmp/xcPfhEkHd.s
+2A42 cinit CODE >1015:/tmp/xcPfhEkHd.s
+2A42 cinit CODE >1016:/tmp/xcPfhEkHd.s
+2A44 cinit CODE >1017:/tmp/xcPfhEkHd.s
+2A48 cinit CODE >1018:/tmp/xcPfhEkHd.s
+2A4A cinit CODE >1019:/tmp/xcPfhEkHd.s
+2A4C cinit CODE >1020:/tmp/xcPfhEkHd.s
+2A4E cinit CODE >1024:/tmp/xcPfhEkHd.s
+2A50 cinit CODE >1025:/tmp/xcPfhEkHd.s
+2A52 cinit CODE >1026:/tmp/xcPfhEkHd.s
+2A54 cinit CODE >1027:/tmp/xcPfhEkHd.s
+2A56 cinit CODE >1028:/tmp/xcPfhEkHd.s
+2A58 cinit CODE >1029:/tmp/xcPfhEkHd.s
+2A5A cinit CODE >1030:/tmp/xcPfhEkHd.s
+2A5E cinit CODE >1031:/tmp/xcPfhEkHd.s
+2A62 cinit CODE >1032:/tmp/xcPfhEkHd.s
+2A62 cinit CODE >1033:/tmp/xcPfhEkHd.s
+2A64 cinit CODE >1034:/tmp/xcPfhEkHd.s
+2A68 cinit CODE >1035:/tmp/xcPfhEkHd.s
+2A6A cinit CODE >1036:/tmp/xcPfhEkHd.s
+2A6C cinit CODE >1037:/tmp/xcPfhEkHd.s
+2A6E cinit CODE >1041:/tmp/xcPfhEkHd.s
+2A72 cinit CODE >1042:/tmp/xcPfhEkHd.s
+2A76 cinit CODE >1043:/tmp/xcPfhEkHd.s
+2A76 cinit CODE >1044:/tmp/xcPfhEkHd.s
+2A78 cinit CODE >1045:/tmp/xcPfhEkHd.s
+2A7A cinit CODE >1046:/tmp/xcPfhEkHd.s
+2A7C cinit CODE >1047:/tmp/xcPfhEkHd.s
+2A7E cinit CODE >1048:/tmp/xcPfhEkHd.s
+2A80 cinit CODE >1049:/tmp/xcPfhEkHd.s
+2A82 cinit CODE >1052:/tmp/xcPfhEkHd.s
+2A86 cinit CODE >1053:/tmp/xcPfhEkHd.s
+2A88 cinit CODE >1054:/tmp/xcPfhEkHd.s
+2A88 cinit CODE >1055:/tmp/xcPfhEkHd.s
+2A8A cinit CODE >1056:/tmp/xcPfhEkHd.s
+2A8C cinit CODE >1057:/tmp/xcPfhEkHd.s
+2A8E cinit CODE >1060:/tmp/xcPfhEkHd.s
+2A92 cinit CODE >1061:/tmp/xcPfhEkHd.s
+2A94 cinit CODE >1062:/tmp/xcPfhEkHd.s
+2A94 cinit CODE >1063:/tmp/xcPfhEkHd.s
+2A96 cinit CODE >1064:/tmp/xcPfhEkHd.s
+2A98 cinit CODE >1065:/tmp/xcPfhEkHd.s
+2A9A cinit CODE >1068:/tmp/xcPfhEkHd.s
+2A9E cinit CODE >1069:/tmp/xcPfhEkHd.s
+2AA0 cinit CODE >1070:/tmp/xcPfhEkHd.s
+2AA0 cinit CODE >1071:/tmp/xcPfhEkHd.s
+2AA2 cinit CODE >1072:/tmp/xcPfhEkHd.s
+2AA4 cinit CODE >1073:/tmp/xcPfhEkHd.s
+2AA6 cinit CODE >1076:/tmp/xcPfhEkHd.s
+2AAA cinit CODE >1077:/tmp/xcPfhEkHd.s
+2AAC cinit CODE >1078:/tmp/xcPfhEkHd.s
+2AAC cinit CODE >1079:/tmp/xcPfhEkHd.s
+2AAE cinit CODE >1080:/tmp/xcPfhEkHd.s
+2AB0 cinit CODE >1081:/tmp/xcPfhEkHd.s
+2AB2 cinit CODE >1087:/tmp/xcPfhEkHd.s
+2AB2 cinit CODE >1089:/tmp/xcPfhEkHd.s
+2AB4 cinit CODE >1090:/tmp/xcPfhEkHd.s
+2AB6 cinit CODE >1091:/tmp/xcPfhEkHd.s
+2AB8 cinit CODE >1092:/tmp/xcPfhEkHd.s
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+_c 43 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_v 44 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lwmod@counter C 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_park_fee_rsp@response_buf BC 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__LdataBANK0 0 0 ABS 0 dataBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__LdataBANK1 0 0 ABS 0 dataBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hspace_0 31AE 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hspace_1 6E6 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hspace_2 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hspace_4 60000E 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+handle_exit@exit_fee 2D2 0 BANK2 1 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HidataBANK0 0 0 ABS 0 idataBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HidataBANK1 0 0 ABS 0 idataBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_init_adc 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_init_int 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hibigdata 0 0 CODE 0 ibigdata dist/UploadToBoard/production/THE3-Starter.X.production.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/xcyMfTayL.o
+__Heeprom_data 0 0 EEDATA 0 eeprom_data dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_packet_task 2F8C 0 CODE 0 text29 dist/UploadToBoard/production/THE3-Starter.X.production.o
+?_pad 28 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+main@i 2E3 0 BANK2 1 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+main@j 2E5 0 BANK2 1 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+?_vfprintf 9B 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lsmallconst 1000 0 SMALLCONST 0 smallconst dist/UploadToBoard/production/THE3-Starter.X.production.o
+_PIR1 F9E 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+___sp 0 0 STACK 2 stack /tmp/xcyMfTayL.o
+_atoi 1EAE 0 CODE 0 text23 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_ctoa 262C 0 CODE 0 text20 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_dbuf 1CC 0 BANK1 1 bssBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_head 31 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_main 1AD8 0 CODE 0 text0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_nout E9 0 BANK0 1 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_prec 39 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_tail E3 0 BANK0 1 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_utoa 18D0 0 CODE 0 text14 dist/UploadToBoard/production/THE3-Starter.X.production.o
+btemp 48 0 COMRAM 1 temp dist/UploadToBoard/production/THE3-Starter.X.production.o
+pad@i 60 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+pad@p 2C 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+pad@w 62 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+start E 0 CODE 0 init /tmp/xcyMfTayL.o
+__size_of_atoi 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_ctoa 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_main 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_utoa 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_park_fee_counter 280 0 BANK2 1 bssBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of___lodiv 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of___lomod 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of___lwdiv 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of___lwmod 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_digit_map 1EC 0 BANK1 1 dataBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+pad@fp 28 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+buf_pop@v B 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+?___wmul 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__LidataBANK0 0 0 ABS 0 idataBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__LidataBANK1 0 0 ABS 0 idataBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_seven_seg_value FC 0 BANK0 1 dataBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hpowerup E 0 CODE 0 powerup dist/UploadToBoard/production/THE3-Starter.X.production.o
+parse_sim_messages@spot 2D6 0 BANK2 1 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_sub_rsp@fee B9 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_vfpfcnvrt 1416 0 CODE 0 text13 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_T0CONbits FD5 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+ttemp5 49 0 COMRAM 1 temp dist/UploadToBoard/production/THE3-Starter.X.production.o
+ttemp6 4C 0 COMRAM 1 temp dist/UploadToBoard/production/THE3-Starter.X.production.o
+ttemp7 50 0 COMRAM 1 temp dist/UploadToBoard/production/THE3-Starter.X.production.o
+_timer_adc F3 0 BANK0 1 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_vfpfcnvrt 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__LbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lodiv@divisor 20 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+utoa@d 66 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+utoa@i 82 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+utoa@n 7A 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+utoa@p 76 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+utoa@w 78 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__accesstop 60 0 ABS 0 - /tmp/xcyMfTayL.o
+intlevel0 0 0 CODE 0 text /tmp/xcyMfTayL.o
+intlevel1 0 0 CODE 0 text /tmp/xcyMfTayL.o
+intlevel2 0 0 CODE 0 text /tmp/xcyMfTayL.o
+intlevel3 0 0 CODE 0 text /tmp/xcyMfTayL.o
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_init_adc 3154 0 CODE 0 text34 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_init_int 304E 0 CODE 0 text33 dist/UploadToBoard/production/THE3-Starter.X.production.o
+handle_subscr@car_id C8 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_empty_space FE 0 BANK0 1 dataBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_buf_isempty 2FD0 0 CODE 0 text39 dist/UploadToBoard/production/THE3-Starter.X.production.o
+wtemp8 49 0 COMRAM 1 temp dist/UploadToBoard/production/THE3-Starter.X.production.o
+_push_park_fee_rsp 2C38 0 CODE 0 text7 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hifardata 0 0 CODE 0 ifardata dist/UploadToBoard/production/THE3-Starter.X.production.o
+highPriorityISR@rb4 17 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_reserved_slots 12C 0 BANK1 1 bssBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_update_display 2B42 0 CODE 0 text36 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hclrtext 0 0 ABS 0 clrtext dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_init_adc 316E 0 CODE 0 text34 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_init_int 3088 0 CODE 0 text33 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_buf_pop 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_vfpfcnvrt 1038 0 CODE 0 text13 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___wmul@multiplicand 1A 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_tens_power 1F6 0 BANK1 1 dataBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_ADCON0 FC2 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_ADCON1 FC1 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_ADCON2 FC0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_ADRESH FC4 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_ADRESL FC3 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+try_park@i D5 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+try_park@j D6 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_pkt_state 47 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_pkt_valid 45 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+___inthi_sp 0 0 STACK 2 stack /tmp/xcyMfTayL.o
+___intlo_sp 0 0 STACK 2 stack /tmp/xcyMfTayL.o
+__Hintcode_body 0 0 ABS 0 intcode_body dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of___wmul 3154 0 CODE 0 text26 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_handle_end 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_park_rsp@level C7 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_sprintf 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_TXSTA1bits FAC 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/UploadToBoard/production/THE3-Starter.X.production.o
+_atoi$1279 27 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_atoi$1280 2B 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_atoi$1281 29 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hintcodelo E 0 CODE 0 intcodelo dist/UploadToBoard/production/THE3-Starter.X.production.o
+_GODONE 7E11 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lwmod@divisor A 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of___lodiv 262C 0 CODE 0 text19 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of___lomod 27D0 0 CODE 0 text18 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of___lwdiv 2C38 0 CODE 0 text41 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of___lwmod 2E4A 0 CODE 0 text40 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_isdigit 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_isspace 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_enable_rxtx 31A6 0 CODE 0 text30 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lodiv@dividend 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_INTCON FF2 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+?_strlen 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+utoa@fp 64 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_update_display 2BC4 0 CODE 0 text36 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lwdiv@quotient 5 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_fputc 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_fputs 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_parse_sim_messages 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+update_display@empty_count 7 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_putch 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_msg_last_char F6 0 BANK0 1 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+buf_push@size 1B 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+update_display@j 8 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_INTCON2bits FF1 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_packet_task 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lwmod@dividend 8 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lintcodelo E 0 CODE 0 intcodelo dist/UploadToBoard/production/THE3-Starter.X.production.o
+_timer_reach_flag F5 0 BANK0 1 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+start_initialization 2A2E 0 CODE 0 cinit dist/UploadToBoard/production/THE3-Starter.X.production.o
+try_park@car_id C9 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_park_rsp@i C8 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_TRISCbits F94 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_park_rsp@response_buf BB 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___rparam_used 1 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_RCREG1 FAE 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_RCSTA1 FAB 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_buf_pop 232C 0 CODE 0 text38 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_SPBRG1 FAF 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pcstackBANK2 2D0 0 BANK2 1 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_total_money 3D 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_TXREG1 FAD 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_TXSTA1 FAC 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_handle_exit 1EAE 0 CODE 0 text6 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_handle_park 304E 0 CODE 0 text8 dist/UploadToBoard/production/THE3-Starter.X.production.o
+fputc@fp 1A 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+fputs@fp 23 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+handle_exit@ready_car_id 2D0 0 BANK2 1 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+vfpfcnvrt@done 97 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank0 0 0 ABS 0 bank0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank1 0 0 ABS 0 bank1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank2 0 0 ABS 0 bank2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank3 0 0 ABS 0 bank3 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank4 0 0 ABS 0 bank4 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank5 0 0 ABS 0 bank5 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank6 0 0 ABS 0 bank6 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank7 0 0 ABS 0 bank7 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank8 0 0 ABS 0 bank8 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank9 0 0 ABS 0 bank9 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hcinit 0 0 ABS 0 cinit dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hconst 0 0 CONST 0 const dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_strlen 312E 0 CODE 0 text16 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hidata 0 0 CODE 0 idata dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hidloc 200008 0 IDLOC 5 idloc dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hnvbit 0 0 COMRAM 1 nvbit dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hparam 0 0 COMRAM 1 rparam dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hrdata 0 0 COMRAM 1 rdata dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hstack 0 0 STACK 2 stack dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext0 0 0 ABS 0 text0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext1 0 0 ABS 0 text1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext2 0 0 ABS 0 text2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext3 0 0 ABS 0 text3 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext4 0 0 ABS 0 text4 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext5 0 0 ABS 0 text5 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext6 0 0 ABS 0 text6 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext7 0 0 ABS 0 text7 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext8 0 0 ABS 0 text8 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext9 0 0 ABS 0 text9 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lwdiv@counter 7 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank10 0 0 ABS 0 bank10 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank11 0 0 ABS 0 bank11 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank12 0 0 ABS 0 bank12 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank13 0 0 ABS 0 bank13 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank14 0 0 ABS 0 bank14 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbank15 0 0 ABS 0 bank15 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbigram 0 0 ABS 0 bigram dist/UploadToBoard/production/THE3-Starter.X.production.o
+__smallconst 1000 0 SMALLCONST 0 smallconst /tmp/xcyMfTayL.o
+__end_of_sprintf 2EF2 0 CODE 0 text11 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hcomram 0 0 ABS 0 comram dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hconfig 30000E 0 CONFIG 4 config dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank0 0 0 ABS 0 bank0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank1 0 0 ABS 0 bank1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank2 0 0 ABS 0 bank2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank3 0 0 ABS 0 bank3 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank4 0 0 ABS 0 bank4 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank5 0 0 ABS 0 bank5 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank6 0 0 ABS 0 bank6 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank7 0 0 ABS 0 bank7 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank8 0 0 ABS 0 bank8 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank9 0 0 ABS 0 bank9 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_isdigit 30C0 0 CODE 0 text25 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lcinit 0 0 ABS 0 cinit dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lconst 0 0 CONST 0 const dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lidata 0 0 CODE 0 idata dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lidloc 0 0 IDLOC 5 idloc dist/UploadToBoard/production/THE3-Starter.X.production.o
+_buf_push_inbuf 2E4A 0 CODE 0 text37 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lnvbit 0 0 COMRAM 1 nvbit dist/UploadToBoard/production/THE3-Starter.X.production.o
+_display_mode 41 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lparam 0 0 COMRAM 1 rparam dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_isspace 2F44 0 CODE 0 text24 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lrdata 0 0 COMRAM 1 rdata dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lstack 0 0 STACK 2 stack dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext0 0 0 ABS 0 text0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext1 0 0 ABS 0 text1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext2 0 0 ABS 0 text2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext3 0 0 ABS 0 text3 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext4 0 0 ABS 0 text4 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext5 0 0 ABS 0 text5 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext6 0 0 ABS 0 text6 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext7 0 0 ABS 0 text7 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext8 0 0 ABS 0 text8 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext9 0 0 ABS 0 text9 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_push_emp_rsp 2CAA 0 CODE 0 text1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hfarbss 0 0 FARRAM 0 farbss dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_park_fee_rsp@fee B9 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lintcode_body 0 0 ABS 0 intcode_body dist/UploadToBoard/production/THE3-Starter.X.production.o
+_INTCONbits FF2 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Habs1 0 0 ABS 0 abs1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hdata 0 0 ABS 0 data dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hinit 12 0 CODE 0 init dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hrbit 0 0 COMRAM 1 rbit dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hrbss 0 0 COMRAM 1 rbss dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htemp 49 0 COMRAM 1 temp dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext 0 0 ABS 0 text dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Labs1 0 0 ABS 0 abs1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ldata 0 0 ABS 0 data dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Linit E 0 CODE 0 init dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lrbit 0 0 COMRAM 1 rbit dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lrbss 0 0 COMRAM 1 rbss dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltemp 48 0 COMRAM 1 temp dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext 0 0 ABS 0 text dist/UploadToBoard/production/THE3-Starter.X.production.o
+___wmul 312E 0 CODE 0 text26 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lomod@counter 28 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__LcstackBANK2 0 0 ABS 0 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+int$flags 48 0 COMRAM 1 temp dist/UploadToBoard/production/THE3-Starter.X.production.o
+try_park@spot D1 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+isspace@c 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hintret 0 0 ABS 0 intret dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hirdata 0 0 CODE 0 irdata dist/UploadToBoard/production/THE3-Starter.X.production.o
+__S0 31AE 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__S1 6E6 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__S2 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__S4 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__S5 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_pad 27D0 0 CODE 0 text15 dist/UploadToBoard/production/THE3-Starter.X.production.o
+buf_push@buf 1A 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_pic_msg_count F7 0 BANK0 1 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_push_park_rsp 2ABC 0 CODE 0 text10 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_handle_go 3186 0 CODE 0 text5 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_try_park 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_disable_rxtx 31A6 0 CODE 0 text31 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_response_msg_flag ED 0 BANK0 1 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_handle_go 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hnvrram 0 0 COMRAM 1 nvrram dist/UploadToBoard/production/THE3-Starter.X.production.o
+sprintf@fmt A5 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_enable_rxtx 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_vfpfcnvrt$1260 99 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_pad 289A 0 CODE 0 text15 dist/UploadToBoard/production/THE3-Starter.X.production.o
+handle_subscr@spot CC 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_buf_isempty 3010 0 CODE 0 text39 dist/UploadToBoard/production/THE3-Starter.X.production.o
+int_func 2052 0 CODE 0 intcode_body dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_push_emp_rsp 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lintentry 0 0 ABS 0 intentry dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_emp_rsp@emp_response_buf B8 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hramtop 1000 0 RAM 0 ramtop dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_buf_push_inbuf 2EA0 0 CODE 0 text37 dist/UploadToBoard/production/THE3-Starter.X.production.o
+strlen@a 1A 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+strlen@s 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hrparam 0 0 COMRAM 1 rparam dist/UploadToBoard/production/THE3-Starter.X.production.o
+_handle_go 316E 0 CODE 0 text5 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_highPriorityISR 21F0 0 CODE 0 intcode_body dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pdataBANK0 F8 0 BANK0 1 dataBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pdataBANK1 1EC 0 BANK1 1 dataBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__activetblptr 3 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hstruct 0 0 COMRAM 1 struct dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of___wmul 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__LbssBANK1 0 0 ABS 0 bssBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__LbssBANK2 0 0 ABS 0 bssBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext10 0 0 ABS 0 text10 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext11 0 0 ABS 0 text11 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext12 0 0 ABS 0 text12 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext13 0 0 ABS 0 text13 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext14 0 0 ABS 0 text14 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext15 0 0 ABS 0 text15 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext16 0 0 ABS 0 text16 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext17 0 0 ABS 0 text17 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext18 0 0 ABS 0 text18 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext19 0 0 ABS 0 text19 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext20 0 0 ABS 0 text20 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext21 0 0 ABS 0 text21 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext22 0 0 ABS 0 text22 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext23 0 0 ABS 0 text23 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext24 0 0 ABS 0 text24 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext25 0 0 ABS 0 text25 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext26 0 0 ABS 0 text26 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext27 0 0 ABS 0 text27 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext28 0 0 ABS 0 text28 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext29 0 0 ABS 0 text29 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext30 0 0 ABS 0 text30 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext31 0 0 ABS 0 text31 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext32 0 0 ABS 0 text32 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext33 0 0 ABS 0 text33 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext34 0 0 ABS 0 text34 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext36 0 0 ABS 0 text36 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext37 0 0 ABS 0 text37 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext38 0 0 ABS 0 text38 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext39 0 0 ABS 0 text39 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext40 0 0 ABS 0 text40 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Htext41 0 0 ABS 0 text41 dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_sub_rsp@i C7 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+vfpfcnvrt@fmt 86 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+vfpfcnvrt@llu 8E 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_park_slots 17C 0 BANK1 1 bssBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_emp_res_count EF 0 BANK0 1 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_PIE1bits F9D 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_init_vars 2A2E 0 CODE 0 text32 dist/UploadToBoard/production/THE3-Starter.X.production.o
+pad@buf 2A 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+parse_sim_messages@level 2D8 0 BANK2 1 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_sim_count F1 0 BANK0 1 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext10 2ABC 0 CODE 0 text10 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext11 2EA0 0 CODE 0 text11 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext12 2D80 0 CODE 0 text12 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext13 1038 0 CODE 0 text13 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext14 18D0 0 CODE 0 text14 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext15 27D0 0 CODE 0 text15 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext16 30F8 0 CODE 0 text16 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext17 2F8C 0 CODE 0 text17 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext18 2700 0 CODE 0 text18 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext19 253C 0 CODE 0 text19 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext20 262C 0 CODE 0 text20 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext21 289A 0 CODE 0 text21 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext22 31AC 0 CODE 0 text22 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext23 1EAE 0 CODE 0 text23 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext24 2EF2 0 CODE 0 text24 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext25 3088 0 CODE 0 text25 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext26 312E 0 CODE 0 text26 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext27 2434 0 CODE 0 text27 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext28 30C0 0 CODE 0 text28 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext29 2F44 0 CODE 0 text29 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext30 31A0 0 CODE 0 text30 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext31 31A6 0 CODE 0 text31 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext32 2964 0 CODE 0 text32 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext33 304E 0 CODE 0 text33 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext34 3154 0 CODE 0 text34 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext36 2B42 0 CODE 0 text36 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext37 2E4A 0 CODE 0 text37 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext38 21F0 0 CODE 0 text38 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext39 2FD0 0 CODE 0 text39 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext40 2DE6 0 CODE 0 text40 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext41 2BC4 0 CODE 0 text41 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_push_emp_rsp 2D18 0 CODE 0 text1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_init_vars 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_disable_rxtx 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pintcode_body 2052 0 CODE 0 intcode_body dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lodiv 253C 0 CODE 0 text19 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lomod 2700 0 CODE 0 text18 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lwdiv 2BC4 0 CODE 0 text41 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lwmod 2DE6 0 CODE 0 text40 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank10 0 0 ABS 0 bank10 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank11 0 0 ABS 0 bank11 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank12 0 0 ABS 0 bank12 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank13 0 0 ABS 0 bank13 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank14 0 0 ABS 0 bank14 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbank15 0 0 ABS 0 bank15 dist/UploadToBoard/production/THE3-Starter.X.production.o
+highPriorityISR@current 16 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbigram 0 0 ABS 0 bigram dist/UploadToBoard/production/THE3-Starter.X.production.o
+_outbuf 2E6 0 BIGRAM 1 bssBIGRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+buf_pop@buf D 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_buf_push 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+?_atoi 1F 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+?_ctoa 21 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+?_utoa 64 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lcomram 0 0 ABS 0 comram dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lconfig 0 0 CONFIG 4 config dist/UploadToBoard/production/THE3-Starter.X.production.o
+_try_park 167A 0 CODE 0 text9 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_packet_task 2F44 0 CODE 0 text29 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___wmul@multiplier 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_sim_msg_array 120 0 BANK1 1 bssBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_park_fee_rsp@car_id B7 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+buf_pop@size 6 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_handle_exit 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_handle_park 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_RCSTA1bits FAB 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lfarbss 0 0 FARRAM 0 farbss dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lwdiv@divisor 3 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+main@i_724 2E4 0 BANK2 1 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_init_vars 2964 0 CODE 0 text32 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_strlen 30F8 0 CODE 0 text16 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lfardata 0 0 FARRAM 0 fardata dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_try_park 18D0 0 CODE 0 text9 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_timer_previous F4 0 BANK0 1 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_vfprintf 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_disable_rxtx 31AC 0 CODE 0 text31 dist/UploadToBoard/production/THE3-Starter.X.production.o
+stackhi F5F 0 ABS 0 - /tmp/xcyMfTayL.o
+stacklo 6E6 0 ABS 0 - /tmp/xcyMfTayL.o
+__Lintcode 8 0 CODE 0 intcode dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lintret 0 0 ABS 0 intret dist/UploadToBoard/production/THE3-Starter.X.production.o
+_highPriorityISR 8 0 CODE 0 intcode dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lirdata 0 0 CODE 0 irdata dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_sub_rsp@car_id B7 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pbssBIGRAM 2E6 0 BIGRAM 1 bssBIGRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+?_vfpfcnvrt 84 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lspace_0 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lspace_1 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lspace_2 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lspace_4 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pbssCOMRAM 31 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_push_park_rsp 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HcstackBANK2 0 0 ABS 0 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_handle_subscr 232C 0 CODE 0 text3 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_PIR1bits F9E 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_update_display 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_buf_pop 21F0 0 CODE 0 text38 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lomod@divisor 20 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+handle_subscr@sub_fee D2 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+end_of_initialization 2AB2 0 CODE 0 cinit dist/UploadToBoard/production/THE3-Starter.X.production.o
+_push_sub_rsp 2D18 0 CODE 0 text4 dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_sub_rsp@response_buf BC 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lnvrram 0 0 COMRAM 1 nvrram dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hintentry 0 0 ABS 0 intentry dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_push_park_fee_rsp 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+fputc@c 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+fputs@c 25 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+fputs@i 26 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+fputs@s 21 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lwdiv@dividend 1 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+buf_push@v 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+?___lodiv 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+?___lomod 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+?___lwdiv 1 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+?___lwmod 8 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+vfprintf@fmt 9D 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_buf_push 2434 0 CODE 0 text27 dist/UploadToBoard/production/THE3-Starter.X.production.o
+handle_exit@car_id D9 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hreset_vec 4 0 CODE 0 reset_vec dist/UploadToBoard/production/THE3-Starter.X.production.o
+try_park@F4992 F8 0 BANK0 1 dataBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HbssBANK1 0 0 ABS 0 bssBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HbssBANK2 0 0 ABS 0 bssBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lramtop 1000 0 RAM 0 ramtop dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_strlen 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_prev_rb4 42 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lrparam 0 0 COMRAM 1 rparam dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pcinit 2A2E 0 CODE 0 cinit dist/UploadToBoard/production/THE3-Starter.X.production.o
+vfpfcnvrt@ap 88 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+vfpfcnvrt@fp 84 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext0 1AD8 0 CODE 0 text0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext1 2CAA 0 CODE 0 text1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext2 1416 0 CODE 0 text2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext3 232C 0 CODE 0 text3 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext4 2D18 0 CODE 0 text4 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext5 316E 0 CODE 0 text5 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext6 1CC4 0 CODE 0 text6 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext7 2C38 0 CODE 0 text7 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext8 3010 0 CODE 0 text8 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ptext9 167A 0 CODE 0 text9 dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_park_rsp@car_id B8 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lstruct 0 0 COMRAM 1 struct dist/UploadToBoard/production/THE3-Starter.X.production.o
+vfprintf@ap 9F 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+vfprintf@fp 9B 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_buf_push 253C 0 CODE 0 text27 dist/UploadToBoard/production/THE3-Starter.X.production.o
+vfprintf@cfmt A1 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext10 0 0 ABS 0 text10 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext11 0 0 ABS 0 text11 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext12 0 0 ABS 0 text12 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext13 0 0 ABS 0 text13 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext14 0 0 ABS 0 text14 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext15 0 0 ABS 0 text15 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext16 0 0 ABS 0 text16 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext17 0 0 ABS 0 text17 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext18 0 0 ABS 0 text18 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext19 0 0 ABS 0 text19 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext20 0 0 ABS 0 text20 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext21 0 0 ABS 0 text21 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext22 0 0 ABS 0 text22 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext23 0 0 ABS 0 text23 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext24 0 0 ABS 0 text24 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext25 0 0 ABS 0 text25 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext26 0 0 ABS 0 text26 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext27 0 0 ABS 0 text27 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext28 0 0 ABS 0 text28 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext29 0 0 ABS 0 text29 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext30 0 0 ABS 0 text30 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext31 0 0 ABS 0 text31 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext32 0 0 ABS 0 text32 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext33 0 0 ABS 0 text33 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext34 0 0 ABS 0 text34 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext36 0 0 ABS 0 text36 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext37 0 0 ABS 0 text37 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext38 0 0 ABS 0 text38 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext39 0 0 ABS 0 text39 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext40 0 0 ABS 0 text40 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Ltext41 0 0 ABS 0 text41 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_push_park_rsp 2B42 0 CODE 0 text10 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_handle_end 30C0 0 CODE 0 text28 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__ramtop 1000 0 RAM 0 ramtop /tmp/xcyMfTayL.o
+_sprintf 2EA0 0 CODE 0 text11 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_pkt_body 200 0 BANK2 1 bssBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_vfprintf 2D80 0 CODE 0 text12 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lpowerup E 0 CODE 0 powerup dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Leeprom_data 0 0 EEDATA 0 eeprom_data dist/UploadToBoard/production/THE3-Starter.X.production.o
+sprintf@ap AF 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_isdigit 3088 0 CODE 0 text25 dist/UploadToBoard/production/THE3-Starter.X.production.o
+buf_isempty@buf 5 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_isspace 2EF2 0 CODE 0 text24 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lodiv@quotient 28 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__psmallconst 1000 0 SMALLCONST 0 smallconst dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_buf_isempty 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lreset_vec 0 0 CODE 0 reset_vec dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_vfprintf 2DE6 0 CODE 0 text12 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lomod@dividend 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_push_sub_rsp 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_park_fee_rsp@i C8 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___param_bank 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of__initialization 2AB2 0 CODE 0 cinit dist/UploadToBoard/production/THE3-Starter.X.production.o
+main@result 2E1 0 BANK2 1 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_parse_sim_messages 167A 0 CODE 0 text2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Libigdata 0 0 CODE 0 ibigdata dist/UploadToBoard/production/THE3-Starter.X.production.o
+?_buf_pop 6 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pidataBANK0 3198 0 CODE 0 idataBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pidataBANK1 3186 0 CODE 0 idataBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+init_vars@i 1C 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+init_vars@j 1D 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+push_park_rsp@spot B7 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_pkt_bodysize 46 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lclrtext 0 0 ABS 0 clrtext dist/UploadToBoard/production/THE3-Starter.X.production.o
+_SPBRGH1 F7F 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_isspace$1297 1E 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_enable_rxtx 31A0 0 CODE 0 text30 dist/UploadToBoard/production/THE3-Starter.X.production.o
+ctoa@fp 21 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_highPriorityISR 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+buf_push_inbuf@v 1 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+___lodiv@counter 30 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_push_sub_rsp 2D80 0 CODE 0 text4 dist/UploadToBoard/production/THE3-Starter.X.production.o
+vfpfcnvrt@c 96 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+sprintf@f B1 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+sprintf@s A3 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_atoi 2052 0 CODE 0 text23 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_ctoa 2700 0 CODE 0 text20 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_main 1CC4 0 CODE 0 text0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_utoa 1AD8 0 CODE 0 text14 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pintcode 8 0 CODE 0 intcode dist/UploadToBoard/production/THE3-Starter.X.production.o
+_selected_level 40 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_handle_subscr 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+isdigit@c 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+handle_park@car_id D7 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+handle_subscr@level CA 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_fputc 2964 0 CODE 0 text21 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_fputs 2FD0 0 CODE 0 text17 dist/UploadToBoard/production/THE3-Starter.X.production.o
+?_sprintf A3 0 BANK0 1 cstackBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_PORTB F81 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_PORTH F87 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_PORTJ F88 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_T0CON FD5 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_TMR0H FD7 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_TMR0L FD6 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_TRISB F93 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_TRISH F99 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+_TRISJ F9A 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_putch 31AE 0 CODE 0 text22 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_handle_end 30F8 0 CODE 0 text28 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HRAM 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hbss 0 0 RAM 1 bss dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hram 0 0 ABS 0 ram dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hsfr 0 0 ABS 0 sfr dist/UploadToBoard/production/THE3-Starter.X.production.o
+__LRAM 1 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lbss 0 0 RAM 1 bss dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lram 0 0 ABS 0 ram dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lsfr 0 0 ABS 0 sfr dist/UploadToBoard/production/THE3-Starter.X.production.o
+atoi@neg 25 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_digit 3F 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_dummy EB 0 BANK0 1 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_flags 3B 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_fputc 289A 0 CODE 0 text21 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_fputs 2F8C 0 CODE 0 text17 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_inbuf 4E6 0 BIGRAM 1 bssBIGRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_putch 31AC 0 CODE 0 text22 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_queue 100 0 BANK1 1 bssBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_width 37 0 COMRAM 1 bssCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+_parse_sim_messages 1416 0 CODE 0 text2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+___extmem_base 20000 0 ABS 0 - /tmp/xcyMfTayL.o
+?_isdigit 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+?_isspace 18 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_pad 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HdataBANK0 0 0 ABS 0 dataBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__HdataBANK1 0 0 ABS 0 dataBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+atoi@n 2C 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+atoi@s 1F 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__initialization 2A2E 0 CODE 0 cinit dist/UploadToBoard/production/THE3-Starter.X.production.o
+_BAUDCON1bits F7E 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pbssBANK0 E3 0 BANK0 1 bssBANK0 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pbssBANK1 100 0 BANK1 1 bssBANK1 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__pbssBANK2 200 0 BANK2 1 bssBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_push_park_fee_rsp 2CAA 0 CODE 0 text7 dist/UploadToBoard/production/THE3-Starter.X.production.o
+ctoa@c 23 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+ctoa@l 25 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+ctoa@w 27 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hfardata 0 0 FARRAM 0 fardata dist/UploadToBoard/production/THE3-Starter.X.production.o
+___wmul@product 1C 0 COMRAM 1 cstackCOMRAM dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hsmallconst 1038 0 SMALLCONST 0 smallconst dist/UploadToBoard/production/THE3-Starter.X.production.o
+handle_exit@i 2D4 0 BANK2 1 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+handle_exit@j 2D5 0 BANK2 1 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Lifardata 0 0 CODE 0 ifardata dist/UploadToBoard/production/THE3-Starter.X.production.o
+parse_sim_messages@car_id 2D9 0 BANK2 1 cstackBANK2 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_handle_exit 1CC4 0 CODE 0 text6 dist/UploadToBoard/production/THE3-Starter.X.production.o
+_handle_park 3010 0 CODE 0 text8 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__end_of_handle_subscr 2434 0 CODE 0 text3 dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/UploadToBoard/production/THE3-Starter.X.production.o
+__Hintcode E 0 CODE 0 intcode dist/UploadToBoard/production/THE3-Starter.X.production.o
+__size_of_buf_push_inbuf 0 0 ABS 0 - dist/UploadToBoard/production/THE3-Starter.X.production.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+text13 0 1038 1038 2176 1
+cstackCOMRAM 1 1 1 48 1
+cstackBANK0 1 60 60 A0 1
+reset_vec 0 0 0 4 1
+bssBANK1 1 100 100 FE 1
+bssBANK2 1 200 200 E6 1
+intcode 0 8 8 A 1
+smallconst 0 1000 1000 38 1
+bssBIGRAM 1 2E6 2E6 400 1
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

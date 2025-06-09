@@ -1,0 +1,476 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$/tmp/xcXAkjPhi.o
+idloc IDLOC 5 200000 200000 8 1
+init CODE 0 E E 4 1
+reset_vec CODE 0 0 0 4 1
+config CONFIG 4 300000 300000 E 1
+$dist/Simulator/production/THE3-Starter.X.production.o
+cinit CODE 0 12BC 12BC 1E 1
+idloc IDLOC 5 200000 200000 8 1
+intcode_body CODE 0 1190 1190 80 1
+text0 CODE 0 12DA 12DA C 1
+text1 CODE 0 126E 126E 28 1
+text3 CODE 0 1296 1296 26 1
+text4 CODE 0 1210 1210 5E 1
+text5 CODE 0 1010 1010 EA 1
+text6 CODE 0 10FA 10FA 96 1
+text7 CODE 0 12E6 12E6 2 1
+cstackCOMRAM COMRAM 1 29 29 25 1
+temp COMRAM 1 4E 4E 1 1
+intcode CODE 0 8 8 6 1
+smallconst SMALLCONST 0 1000 1000 10 1
+bssCOMRAM COMRAM 1 1 1 28 1
+config CONFIG 4 300000 300000 E 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 60-F5F 1
+SFR F60-FFF 1
+BANK0 60-FF 1
+BANK1 100-1FF 1
+BANK2 200-2FF 1
+BANK3 300-3FF 1
+BANK4 400-4FF 1
+BANK5 500-5FF 1
+BANK6 600-6FF 1
+BANK7 700-7FF 1
+BANK8 800-8FF 1
+BANK9 900-9FF 1
+CONST 4-7 1
+CONST 12-FFF 1
+CONST 12E8-1FFFF 1
+STACK 60-F5F 1
+SMALLCONST 12E8-1FFFF 1
+CODE 4-7 1
+CODE 12-FFF 1
+CODE 12E8-1FFFF 1
+BANK10 A00-AFF 1
+BANK11 B00-BFF 1
+BANK12 C00-CFF 1
+BANK13 D00-DFF 1
+BANK14 E00-EFF 1
+BANK15 F00-F5F 1
+BIGRAM 4F-F5F 1
+COMRAM 4F-5F 1
+EEDATA F00000-F003FF 1
+MEDIUMCONST 12E8-FFFF 1
+MEDIUMCONST 11000-1FFFF 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/Simulator/production/THE3-Starter.X.production.o
+8 intcode CODE >1266:/tmp/xcXEoelgN.s
+8 intcode CODE >35:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+12E6 text7 CODE >7:/opt/microchip/xc8/v2.30/pic/sources/c99/common/putch.c
+12E6 text7 CODE >9:/opt/microchip/xc8/v2.30/pic/sources/c99/common/putch.c
+10FA text6 CODE >8:/opt/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+10FA text6 CODE >12:/opt/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+111E text6 CODE >13:/opt/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+1124 text6 CODE >14:/opt/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+1128 text6 CODE >15:/opt/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+117C text6 CODE >20:/opt/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+118E text6 CODE >24:/opt/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
+1010 text5 CODE >692:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1010 text5 CODE >702:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1034 text5 CODE >703:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1042 text5 CODE >705:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1052 text5 CODE >706:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1056 text5 CODE >1372:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+107A text5 CODE >1373:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1088 text5 CODE >1374:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+109C text5 CODE >1375:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+10A8 text5 CODE >1379:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+10B6 text5 CODE >1380:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+10C2 text5 CODE >1384:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+10E6 text5 CODE >1385:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+10F8 text5 CODE >1387:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1210 text4 CODE >1390:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1210 text4 CODE >1395:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1218 text4 CODE >1396:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1220 text4 CODE >1397:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1224 text4 CODE >1398:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1248 text4 CODE >1397:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1264 text4 CODE >1400:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+126C text4 CODE >1404:/opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
+1296 text3 CODE >5:/opt/microchip/xc8/v2.30/pic/sources/c99/common/printf.c
+1296 text3 CODE >9:/opt/microchip/xc8/v2.30/pic/sources/c99/common/printf.c
+129E text3 CODE >10:/opt/microchip/xc8/v2.30/pic/sources/c99/common/printf.c
+12BA text3 CODE >13:/opt/microchip/xc8/v2.30/pic/sources/c99/common/printf.c
+1190 intcode_body CODE >35:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+11B2 intcode_body CODE >36:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+11C0 intcode_body CODE >37:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+11CC intcode_body CODE >38:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+11CE intcode_body CODE >39:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+11D2 intcode_body CODE >41:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+11E0 intcode_body CODE >42:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+11EC intcode_body CODE >45:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+126E text1 CODE >47:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+126E text1 CODE >49:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+1270 text1 CODE >50:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+1272 text1 CODE >53:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+1276 text1 CODE >55:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+127A text1 CODE >58:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+127C text1 CODE >59:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+1280 text1 CODE >60:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+1284 text1 CODE >63:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+1288 text1 CODE >64:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+128A text1 CODE >65:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+128C text1 CODE >66:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+1290 text1 CODE >68:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+1292 text1 CODE >69:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+1294 text1 CODE >70:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+12DA text0 CODE >83:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+12DA text0 CODE >85:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+12DE text0 CODE >86:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+12DE text0 CODE >97:/home/bs2022/e2581064/Desktop/the3/THE3-Starter.X/main.c
+12BC cinit CODE >635:/tmp/xcXEoelgN.s
+12BC cinit CODE >637:/tmp/xcXEoelgN.s
+12BC cinit CODE >640:/tmp/xcXEoelgN.s
+12BC cinit CODE >659:/tmp/xcXEoelgN.s
+12C0 cinit CODE >660:/tmp/xcXEoelgN.s
+12C2 cinit CODE >661:/tmp/xcXEoelgN.s
+12C2 cinit CODE >662:/tmp/xcXEoelgN.s
+12C4 cinit CODE >663:/tmp/xcXEoelgN.s
+12C6 cinit CODE >664:/tmp/xcXEoelgN.s
+12C8 cinit CODE >670:/tmp/xcXEoelgN.s
+12C8 cinit CODE >672:/tmp/xcXEoelgN.s
+12CA cinit CODE >673:/tmp/xcXEoelgN.s
+12CC cinit CODE >675:/tmp/xcXEoelgN.s
+12CE cinit CODE >676:/tmp/xcXEoelgN.s
+12D0 cinit CODE >677:/tmp/xcXEoelgN.s
+12D2 cinit CODE >678:/tmp/xcXEoelgN.s
+12D4 cinit CODE >679:/tmp/xcXEoelgN.s
+12D6 cinit CODE >680:/tmp/xcXEoelgN.s
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/Simulator/production/THE3-Starter.X.production.o
+__Hspace_0 12E8 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Hspace_1 4F 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Hspace_2 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Hspace_4 60000E 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__size_of_init_int 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Hibigdata 0 0 CODE 0 ibigdata dist/Simulator/production/THE3-Starter.X.production.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/xcXAkjPhi.o
+__Heeprom_data 0 0 EEDATA 0 eeprom_data dist/Simulator/production/THE3-Starter.X.production.o
+?_vfprintf 38 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+__Lsmallconst 1000 0 SMALLCONST 0 smallconst dist/Simulator/production/THE3-Starter.X.production.o
+_PIR1 F9E 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+___sp 0 0 STACK 2 stack /tmp/xcXAkjPhi.o
+_main 12DA 0 CODE 0 text0 dist/Simulator/production/THE3-Starter.X.production.o
+_nout 21 0 COMRAM 1 bssCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+_prec 25 0 COMRAM 1 bssCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+btemp 4E 0 COMRAM 1 temp dist/Simulator/production/THE3-Starter.X.production.o
+start E 0 CODE 0 init /tmp/xcXAkjPhi.o
+__size_of_main 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+__Hpowerup E 0 CODE 0 powerup dist/Simulator/production/THE3-Starter.X.production.o
+__end_of_vfpfcnvrt 10FA 0 CODE 0 text5 dist/Simulator/production/THE3-Starter.X.production.o
+ttemp5 4F 0 COMRAM 1 temp dist/Simulator/production/THE3-Starter.X.production.o
+ttemp6 52 0 COMRAM 1 temp dist/Simulator/production/THE3-Starter.X.production.o
+ttemp7 56 0 COMRAM 1 temp dist/Simulator/production/THE3-Starter.X.production.o
+__size_of_vfpfcnvrt 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__accesstop 60 0 ABS 0 - /tmp/xcXAkjPhi.o
+intlevel0 0 0 CODE 0 text /tmp/xcXAkjPhi.o
+intlevel1 0 0 CODE 0 text /tmp/xcXAkjPhi.o
+intlevel2 0 0 CODE 0 text /tmp/xcXAkjPhi.o
+intlevel3 0 0 CODE 0 text /tmp/xcXAkjPhi.o
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+_init_int 126E 0 CODE 0 text1 dist/Simulator/production/THE3-Starter.X.production.o
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/Simulator/production/THE3-Starter.X.production.o
+wtemp8 4F 0 COMRAM 1 temp dist/Simulator/production/THE3-Starter.X.production.o
+__Hifardata 0 0 CODE 0 ifardata dist/Simulator/production/THE3-Starter.X.production.o
+__Hclrtext 0 0 ABS 0 clrtext dist/Simulator/production/THE3-Starter.X.production.o
+__end_of_init_int 1296 0 CODE 0 text1 dist/Simulator/production/THE3-Starter.X.production.o
+_vfpfcnvrt 1010 0 CODE 0 text5 dist/Simulator/production/THE3-Starter.X.production.o
+_ADCON0 FC2 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+_ADCON1 FC1 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+_ADCON2 FC0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+_ADRESH FC4 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+_ADRESL FC3 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+___inthi_sp 0 0 STACK 2 stack /tmp/xcXAkjPhi.o
+___intlo_sp 0 0 STACK 2 stack /tmp/xcXAkjPhi.o
+__Hintcode_body 0 0 ABS 0 intcode_body dist/Simulator/production/THE3-Starter.X.production.o
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/Simulator/production/THE3-Starter.X.production.o
+__Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/Simulator/production/THE3-Starter.X.production.o
+?_printf 40 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+__Hintcodelo E 0 CODE 0 intcodelo dist/Simulator/production/THE3-Starter.X.production.o
+_INTCON FF2 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__size_of_fputc 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__size_of_putch 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Lintcodelo E 0 CODE 0 intcodelo dist/Simulator/production/THE3-Starter.X.production.o
+start_initialization 12BC 0 CODE 0 cinit dist/Simulator/production/THE3-Starter.X.production.o
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/Simulator/production/THE3-Starter.X.production.o
+_TRISCbits F94 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+___rparam_used 1 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+_RCSTA1 FAB 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+_SPBRG1 FAF 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__pcstackBANK0 0 0 BANK0 1 cstackBANK0 dist/Simulator/production/THE3-Starter.X.production.o
+_TXSTA1 FAC 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__end_of_printf 12BC 0 CODE 0 text3 dist/Simulator/production/THE3-Starter.X.production.o
+fputc@fp 2B 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank0 0 0 ABS 0 bank0 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank1 0 0 ABS 0 bank1 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank2 0 0 ABS 0 bank2 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank3 0 0 ABS 0 bank3 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank4 0 0 ABS 0 bank4 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank5 0 0 ABS 0 bank5 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank6 0 0 ABS 0 bank6 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank7 0 0 ABS 0 bank7 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank8 0 0 ABS 0 bank8 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank9 0 0 ABS 0 bank9 dist/Simulator/production/THE3-Starter.X.production.o
+__Hcinit 0 0 ABS 0 cinit dist/Simulator/production/THE3-Starter.X.production.o
+__Hconst 0 0 CONST 0 const dist/Simulator/production/THE3-Starter.X.production.o
+__Hidata 0 0 CODE 0 idata dist/Simulator/production/THE3-Starter.X.production.o
+__Hidloc 200008 0 IDLOC 5 idloc dist/Simulator/production/THE3-Starter.X.production.o
+__Hnvbit 0 0 COMRAM 1 nvbit dist/Simulator/production/THE3-Starter.X.production.o
+__Hparam 0 0 COMRAM 1 rparam dist/Simulator/production/THE3-Starter.X.production.o
+__Hrdata 0 0 COMRAM 1 rdata dist/Simulator/production/THE3-Starter.X.production.o
+__Hstack 0 0 STACK 2 stack dist/Simulator/production/THE3-Starter.X.production.o
+__Htext0 0 0 ABS 0 text0 dist/Simulator/production/THE3-Starter.X.production.o
+__Htext1 0 0 ABS 0 text1 dist/Simulator/production/THE3-Starter.X.production.o
+__Htext3 0 0 ABS 0 text3 dist/Simulator/production/THE3-Starter.X.production.o
+__Htext4 0 0 ABS 0 text4 dist/Simulator/production/THE3-Starter.X.production.o
+__Htext5 0 0 ABS 0 text5 dist/Simulator/production/THE3-Starter.X.production.o
+__Htext6 0 0 ABS 0 text6 dist/Simulator/production/THE3-Starter.X.production.o
+__Htext7 0 0 ABS 0 text7 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank10 0 0 ABS 0 bank10 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank11 0 0 ABS 0 bank11 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank12 0 0 ABS 0 bank12 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank13 0 0 ABS 0 bank13 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank14 0 0 ABS 0 bank14 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbank15 0 0 ABS 0 bank15 dist/Simulator/production/THE3-Starter.X.production.o
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/Simulator/production/THE3-Starter.X.production.o
+__Hbigram 0 0 ABS 0 bigram dist/Simulator/production/THE3-Starter.X.production.o
+__smallconst 1000 0 SMALLCONST 0 smallconst /tmp/xcXAkjPhi.o
+__Hcomram 0 0 ABS 0 comram dist/Simulator/production/THE3-Starter.X.production.o
+__Hconfig 30000E 0 CONFIG 4 config dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank0 0 0 ABS 0 bank0 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank1 0 0 ABS 0 bank1 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank2 0 0 ABS 0 bank2 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank3 0 0 ABS 0 bank3 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank4 0 0 ABS 0 bank4 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank5 0 0 ABS 0 bank5 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank6 0 0 ABS 0 bank6 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank7 0 0 ABS 0 bank7 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank8 0 0 ABS 0 bank8 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank9 0 0 ABS 0 bank9 dist/Simulator/production/THE3-Starter.X.production.o
+__Lcinit 0 0 ABS 0 cinit dist/Simulator/production/THE3-Starter.X.production.o
+__Lconst 0 0 CONST 0 const dist/Simulator/production/THE3-Starter.X.production.o
+__Lidata 0 0 CODE 0 idata dist/Simulator/production/THE3-Starter.X.production.o
+__Lidloc 0 0 IDLOC 5 idloc dist/Simulator/production/THE3-Starter.X.production.o
+__Lnvbit 0 0 COMRAM 1 nvbit dist/Simulator/production/THE3-Starter.X.production.o
+__Lparam 0 0 COMRAM 1 rparam dist/Simulator/production/THE3-Starter.X.production.o
+__Lrdata 0 0 COMRAM 1 rdata dist/Simulator/production/THE3-Starter.X.production.o
+__Lstack 0 0 STACK 2 stack dist/Simulator/production/THE3-Starter.X.production.o
+__Ltext0 0 0 ABS 0 text0 dist/Simulator/production/THE3-Starter.X.production.o
+__Ltext1 0 0 ABS 0 text1 dist/Simulator/production/THE3-Starter.X.production.o
+__Ltext3 0 0 ABS 0 text3 dist/Simulator/production/THE3-Starter.X.production.o
+__Ltext4 0 0 ABS 0 text4 dist/Simulator/production/THE3-Starter.X.production.o
+__Ltext5 0 0 ABS 0 text5 dist/Simulator/production/THE3-Starter.X.production.o
+__Ltext6 0 0 ABS 0 text6 dist/Simulator/production/THE3-Starter.X.production.o
+__Ltext7 0 0 ABS 0 text7 dist/Simulator/production/THE3-Starter.X.production.o
+__Hfarbss 0 0 FARRAM 0 farbss dist/Simulator/production/THE3-Starter.X.production.o
+__Lintcode_body 0 0 ABS 0 intcode_body dist/Simulator/production/THE3-Starter.X.production.o
+_INTCONbits FF2 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Habs1 0 0 ABS 0 abs1 dist/Simulator/production/THE3-Starter.X.production.o
+__Hdata 0 0 ABS 0 data dist/Simulator/production/THE3-Starter.X.production.o
+__Hinit 12 0 CODE 0 init dist/Simulator/production/THE3-Starter.X.production.o
+__Hrbit 0 0 COMRAM 1 rbit dist/Simulator/production/THE3-Starter.X.production.o
+__Hrbss 0 0 COMRAM 1 rbss dist/Simulator/production/THE3-Starter.X.production.o
+__Htemp 4F 0 COMRAM 1 temp dist/Simulator/production/THE3-Starter.X.production.o
+__Htext 0 0 ABS 0 text dist/Simulator/production/THE3-Starter.X.production.o
+__Labs1 0 0 ABS 0 abs1 dist/Simulator/production/THE3-Starter.X.production.o
+__Ldata 0 0 ABS 0 data dist/Simulator/production/THE3-Starter.X.production.o
+__Linit E 0 CODE 0 init dist/Simulator/production/THE3-Starter.X.production.o
+__Lrbit 0 0 COMRAM 1 rbit dist/Simulator/production/THE3-Starter.X.production.o
+__Lrbss 0 0 COMRAM 1 rbss dist/Simulator/production/THE3-Starter.X.production.o
+__Ltemp 4E 0 COMRAM 1 temp dist/Simulator/production/THE3-Starter.X.production.o
+__Ltext 0 0 ABS 0 text dist/Simulator/production/THE3-Starter.X.production.o
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/Simulator/production/THE3-Starter.X.production.o
+int$flags 4E 0 COMRAM 1 temp dist/Simulator/production/THE3-Starter.X.production.o
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+__Hintret 0 0 ABS 0 intret dist/Simulator/production/THE3-Starter.X.production.o
+__Hirdata 0 0 CODE 0 irdata dist/Simulator/production/THE3-Starter.X.production.o
+__S0 12E8 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__S1 4F 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__S2 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__S4 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__S5 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/Simulator/production/THE3-Starter.X.production.o
+__Hnvrram 0 0 COMRAM 1 nvrram dist/Simulator/production/THE3-Starter.X.production.o
+int_func 1190 0 CODE 0 intcode_body dist/Simulator/production/THE3-Starter.X.production.o
+__Lintentry 0 0 ABS 0 intentry dist/Simulator/production/THE3-Starter.X.production.o
+__Hramtop 1000 0 RAM 0 ramtop dist/Simulator/production/THE3-Starter.X.production.o
+__Hrparam 0 0 COMRAM 1 rparam dist/Simulator/production/THE3-Starter.X.production.o
+__end_of_highPriorityISR 1210 0 CODE 0 intcode_body dist/Simulator/production/THE3-Starter.X.production.o
+__activetblptr 1 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Hstruct 0 0 COMRAM 1 struct dist/Simulator/production/THE3-Starter.X.production.o
+vfpfcnvrt@fmt 34 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+_PIE1bits F9D 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__pintcode_body 1190 0 CODE 0 intcode_body dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank10 0 0 ABS 0 bank10 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank11 0 0 ABS 0 bank11 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank12 0 0 ABS 0 bank12 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank13 0 0 ABS 0 bank13 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank14 0 0 ABS 0 bank14 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbank15 0 0 ABS 0 bank15 dist/Simulator/production/THE3-Starter.X.production.o
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/Simulator/production/THE3-Starter.X.production.o
+__Lbigram 0 0 ABS 0 bigram dist/Simulator/production/THE3-Starter.X.production.o
+__Lcomram 0 0 ABS 0 comram dist/Simulator/production/THE3-Starter.X.production.o
+__Lconfig 0 0 CONFIG 4 config dist/Simulator/production/THE3-Starter.X.production.o
+_printf 1296 0 CODE 0 text3 dist/Simulator/production/THE3-Starter.X.production.o
+__Lfarbss 0 0 FARRAM 0 farbss dist/Simulator/production/THE3-Starter.X.production.o
+__Lfardata 0 0 FARRAM 0 fardata dist/Simulator/production/THE3-Starter.X.production.o
+__size_of_vfprintf 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+stackhi F5F 0 ABS 0 - /tmp/xcXAkjPhi.o
+stacklo 60 0 ABS 0 - /tmp/xcXAkjPhi.o
+__Lintcode 8 0 CODE 0 intcode dist/Simulator/production/THE3-Starter.X.production.o
+__Lintret 0 0 ABS 0 intret dist/Simulator/production/THE3-Starter.X.production.o
+_highPriorityISR 8 0 CODE 0 intcode dist/Simulator/production/THE3-Starter.X.production.o
+__Lirdata 0 0 CODE 0 irdata dist/Simulator/production/THE3-Starter.X.production.o
+?_vfpfcnvrt 32 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+__Lspace_0 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Lspace_1 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Lspace_2 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Lspace_4 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__pbssCOMRAM 1 0 COMRAM 1 bssCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/Simulator/production/THE3-Starter.X.production.o
+_PIR1bits F9E 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+printf@ap 44 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+end_of_initialization 12C8 0 CODE 0 cinit dist/Simulator/production/THE3-Starter.X.production.o
+__Lnvrram 0 0 COMRAM 1 nvrram dist/Simulator/production/THE3-Starter.X.production.o
+__Hintentry 0 0 ABS 0 intentry dist/Simulator/production/THE3-Starter.X.production.o
+__size_of_printf 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+fputc@c 29 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+vfprintf@fmt 3A 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+__Hreset_vec 4 0 CODE 0 reset_vec dist/Simulator/production/THE3-Starter.X.production.o
+__Lramtop 1000 0 RAM 0 ramtop dist/Simulator/production/THE3-Starter.X.production.o
+__Lrparam 0 0 COMRAM 1 rparam dist/Simulator/production/THE3-Starter.X.production.o
+__pcinit 12BC 0 CODE 0 cinit dist/Simulator/production/THE3-Starter.X.production.o
+vfpfcnvrt@ap 36 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+vfpfcnvrt@fp 32 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+__ptext0 12DA 0 CODE 0 text0 dist/Simulator/production/THE3-Starter.X.production.o
+__ptext1 126E 0 CODE 0 text1 dist/Simulator/production/THE3-Starter.X.production.o
+__ptext3 1296 0 CODE 0 text3 dist/Simulator/production/THE3-Starter.X.production.o
+__ptext4 1210 0 CODE 0 text4 dist/Simulator/production/THE3-Starter.X.production.o
+__ptext5 1010 0 CODE 0 text5 dist/Simulator/production/THE3-Starter.X.production.o
+__ptext6 10FA 0 CODE 0 text6 dist/Simulator/production/THE3-Starter.X.production.o
+__ptext7 12E6 0 CODE 0 text7 dist/Simulator/production/THE3-Starter.X.production.o
+__Lstruct 0 0 COMRAM 1 struct dist/Simulator/production/THE3-Starter.X.production.o
+vfprintf@ap 3C 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+vfprintf@fp 38 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+vfprintf@cfmt 3E 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+__ramtop 1000 0 RAM 0 ramtop /tmp/xcXAkjPhi.o
+_vfprintf 1210 0 CODE 0 text4 dist/Simulator/production/THE3-Starter.X.production.o
+__Lpowerup E 0 CODE 0 powerup dist/Simulator/production/THE3-Starter.X.production.o
+__Leeprom_data 0 0 EEDATA 0 eeprom_data dist/Simulator/production/THE3-Starter.X.production.o
+__psmallconst 1000 0 SMALLCONST 0 smallconst dist/Simulator/production/THE3-Starter.X.production.o
+__Lreset_vec 0 0 CODE 0 reset_vec dist/Simulator/production/THE3-Starter.X.production.o
+__end_of_vfprintf 126E 0 CODE 0 text4 dist/Simulator/production/THE3-Starter.X.production.o
+___param_bank 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/Simulator/production/THE3-Starter.X.production.o
+__end_of__initialization 12C8 0 CODE 0 cinit dist/Simulator/production/THE3-Starter.X.production.o
+__Libigdata 0 0 CODE 0 ibigdata dist/Simulator/production/THE3-Starter.X.production.o
+__Lclrtext 0 0 ABS 0 clrtext dist/Simulator/production/THE3-Starter.X.production.o
+_SPBRGH1 F7F 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__size_of_highPriorityISR 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__pcstackCOMRAM 29 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+__end_of_main 12E6 0 CODE 0 text0 dist/Simulator/production/THE3-Starter.X.production.o
+__pintcode 8 0 CODE 0 intcode dist/Simulator/production/THE3-Starter.X.production.o
+printf@fmt 40 0 COMRAM 1 cstackCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+__end_of_fputc 1190 0 CODE 0 text6 dist/Simulator/production/THE3-Starter.X.production.o
+_TRISH F99 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__end_of_putch 12E8 0 CODE 0 text7 dist/Simulator/production/THE3-Starter.X.production.o
+__HRAM 0 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Hbss 0 0 RAM 1 bss dist/Simulator/production/THE3-Starter.X.production.o
+__Hram 0 0 ABS 0 ram dist/Simulator/production/THE3-Starter.X.production.o
+__Hsfr 0 0 ABS 0 sfr dist/Simulator/production/THE3-Starter.X.production.o
+__LRAM 1 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Lbss 0 0 RAM 1 bss dist/Simulator/production/THE3-Starter.X.production.o
+__Lram 0 0 ABS 0 ram dist/Simulator/production/THE3-Starter.X.production.o
+__Lsfr 0 0 ABS 0 sfr dist/Simulator/production/THE3-Starter.X.production.o
+_flags 27 0 COMRAM 1 bssCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+_fputc 10FA 0 CODE 0 text6 dist/Simulator/production/THE3-Starter.X.production.o
+_putch 12E6 0 CODE 0 text7 dist/Simulator/production/THE3-Starter.X.production.o
+_width 23 0 COMRAM 1 bssCOMRAM dist/Simulator/production/THE3-Starter.X.production.o
+___extmem_base 20000 0 ABS 0 - /tmp/xcXAkjPhi.o
+__initialization 12BC 0 CODE 0 cinit dist/Simulator/production/THE3-Starter.X.production.o
+_BAUDCON1bits F7E 0 ABS 0 - dist/Simulator/production/THE3-Starter.X.production.o
+__Hfardata 0 0 FARRAM 0 fardata dist/Simulator/production/THE3-Starter.X.production.o
+__Hsmallconst 1010 0 SMALLCONST 0 smallconst dist/Simulator/production/THE3-Starter.X.production.o
+__Lifardata 0 0 CODE 0 ifardata dist/Simulator/production/THE3-Starter.X.production.o
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/Simulator/production/THE3-Starter.X.production.o
+__Hintcode E 0 CODE 0 intcode dist/Simulator/production/THE3-Starter.X.production.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+text5 0 1010 1010 2D8 1
+reset_vec 0 0 0 4 1
+intcode 0 8 8 A 1
+smallconst 0 1000 1000 10 1
+bssCOMRAM 1 1 1 4E 1
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES
