@@ -1,0 +1,39 @@
+# .gitignore for METU-CENG root
+# Purpose: prevent committing nested repo settings and common editor/build artifacts
+
+# Ignore nested Git repositories (so a repo cloned inside this repo won't add its .git metadata)
+**/.git
+
+# macOS
+.DS_Store
+
+# IDEs/editors
+.vscode/
+.idea/
+*.iml
+
+# Build / compiled files
+*.o
+*.obj
+*.exe
+*.out
+*.class
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+env/
+ENV/
+
+# Thumbs and system files
+Thumbs.db
+
+# Misc
+*.swp
+
+# If you intentionally want to track a nested repo's files, remove or narrow the **/.git rule.
