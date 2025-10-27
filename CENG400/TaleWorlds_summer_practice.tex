@@ -1,0 +1,117 @@
+% !TeX root = main.tex
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{bold-extra}
+\usepackage{caption}
+\usepackage{copyrightbox}
+\usepackage{dirtree}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[edges]{forest}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage[newfloat]{minted}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+
+\geometry{
+  a4paper
+}
+
+\newcommand{\titleItem}[2]{
+  \large{
+    \textbf{#1}
+  } \\
+  \large{
+    #2
+  } \\
+  \vspace{8pt}
+}
+
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+%%%%% Directory Tree Settings %%%%%
+\definecolor{folderbg}{RGB}{124,166,198}
+\definecolor{folderborder}{RGB}{110,144,169}
+
+\newlength\Size
+\setlength\Size{4pt}
+
+\tikzset{%
+  folder/.pic={%
+    \filldraw [draw=folderborder, top color=folderbg!50, bottom color=folderbg] (-1.05*\Size,0.2\Size+5pt) rectangle ++(.75*\Size,-0.2\Size-5pt);
+    \filldraw [draw=folderborder, top color=folderbg!50, bottom color=folderbg] (-1.15*\Size,-\Size) rectangle (1.15*\Size,\Size);
+  },
+  file/.pic={%
+    \filldraw [draw=folderborder, top color=folderbg!5, bottom color=folderbg!10] (-\Size,.4*\Size+5pt) coordinate (a) |- (\Size,-1.2*\Size) coordinate (b) -- ++(0,1.6*\Size) coordinate (c) -- ++(-5pt,5pt) coordinate (d) -- cycle (d) |- (c) ;
+  },
+}
+
+\forestset{%
+  declare autowrapped toks={pic me}{},
+  pic dir tree/.style={%
+    for tree={%
+      folder,
+      font=\ttfamily,
+      grow'=0,
+    },
+    before typesetting nodes={%
+      for tree={%
+        edge label+/.option={pic me},
+      },
+    },
+  },
+  pic me set/.code n args=2{%
+    \forestset{%
+      #1/.style={%
+        inner xsep=2\Size,
+        pic me={pic {#2}},
+      }
+    }
+  },
+  pic me set={directory}{folder},
+  pic me set={file}{file},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Cover page
+\input{files/title.tex}
+
+% Content Table
+\tableofcontents
+\newpage
+
+\onehalfspacing
+
+% Introduction, Information About Company and Orientation
+%\input{files/introduction.tex}
+%\input{files/company.tex}
+%\input{files/orientation.tex}
+
+% Core Java
+
+% Conclusion
+%\input{files/conclusion.tex}
+
+% Appendicies
+%\input{files/appendicies.tex}
+
+\end{document}

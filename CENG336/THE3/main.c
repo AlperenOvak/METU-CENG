@@ -193,7 +193,7 @@ void __interrupt (high_priority) highPriorityISR (void) {
 
 void init_int() {
     /* configure I/O ports */
-    TRISCbits.RC7 = 1; // TX1 and RX1 pin configuration
+    TRISCbits.RC7 = 1; // TX1 and RX1 pin configuration 
     TRISCbits.RC6 = 0;
     
 	/* configure USART transmitter/receiver */
