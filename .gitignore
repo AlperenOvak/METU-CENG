@@ -29,6 +29,8 @@ __pycache__/
 venv/
 env/
 ENV/
+# Ignore .venv in CENG463/PA1/student_pack
+CENG463/PA1/student_pack/.venv/
 
 # Thumbs and system files
 Thumbs.db
