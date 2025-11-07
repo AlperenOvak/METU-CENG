@@ -140,9 +140,9 @@ public class Common {
             double centerX = randInt(0, windowWidth - 2 * entityRadius);
             double centerY = randInt(0, windowHeight - 2 * entityRadius);
             int shoppingListLength = randInt(minimumShoppingListLength, maximumShoppingListLength);
-            ProductType[] shoppingList = new ProductType[shoppingListLength];
+            List<ProductType> shoppingList = new ArrayList<ProductType>();
             for(int j=0; j<shoppingListLength; j++){
-                shoppingList[j] = ProductType.values()[randInt(0, 2)];
+                shoppingList.add(ProductType.values()[randInt(0, 2)]);
             }
             Customer newCustomer;
             switch (randInt(0,2)) {
@@ -164,4 +164,11 @@ public class Common {
     }
 
     public static List<Customer> customers = createCustomers();
+
+
+    public static double calculateDistance(Position p1, Position p2){
+        double a = p1.getX() - p2.getX();
+        double b = p1.getY() - p2.getY();
+        return  Math.sqrt(a*a + b*b); 
+    }
 }
