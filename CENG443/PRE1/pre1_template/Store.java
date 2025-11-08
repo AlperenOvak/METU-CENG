@@ -4,7 +4,10 @@ import java.awt.Graphics2D;
 public class Store extends Entity {
     final Common.ProductType productType; 
     final  Integer prize;
+    final Integer stock_limit;
     Integer stock;
+    private int iteration = 0;
+    final int stockReplenishmentFrequency;
 
     public Integer getPrize() {
         return prize;
@@ -30,11 +33,13 @@ public class Store extends Entity {
 
     public Store(double x, double y, 
                 Common.ProductType productType, 
-                Integer prize, Integer stock) {
+                Integer prize, Integer stock, int stockReplenishmentFrequency) {
         super(x, y);
         this.productType = productType;
         this.prize = prize;
         this.stock = stock;
+        this.stock_limit = stock;
+        this.stockReplenishmentFrequency = stockReplenishmentFrequency;
     }
 
     @Override
@@ -46,8 +51,11 @@ public class Store extends Entity {
 
     @Override
     public void step() {
-        // TODO Auto-generated method stub
-        //throw new UnsupportedOperationException("Unimplemented method 'step'");
+        iteration++;
+        if(stockReplenishmentFrequency == iteration){
+            iteration = 0;
+            stock = stock_limit;
+        }
     }
     
 }

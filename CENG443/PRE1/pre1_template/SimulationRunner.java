@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class SimulationRunner {
@@ -15,8 +16,15 @@ public class SimulationRunner {
         // stores in here.
 
         ////
-        for(Customer customer: Common.customers){
+        for(Customer customer : new ArrayList<>(Common.customers)){
             customer.step();
+            if(customer.finished){
+                Common.customers.remove(customer);
+                Common.customers.add(Common.createRandomCustomer());
+            }
+        }
+        for(Store store: Common.stores){
+            store.step();
         }
     }
 

@@ -4,7 +4,9 @@ import java.util.List;
 
 public abstract class Customer extends Entity {
     Store targetStore;
-    static int movementSpeed = Common.getCustomerMovementSpeed();
+    static double movementSpeed = Common.getCustomerMovementSpeed();
+    private double dx,dy, ratio = 1;
+    public Boolean finished = false;
 
     List<Common.ProductType> shoppingList;
     final Common.buyStrategy strategy;
@@ -20,7 +22,14 @@ public abstract class Customer extends Entity {
     protected abstract void handleOutOfStock();
 
     private void goOut(){
-        
+        this.position = new Position(
+            this.position.getX() + dx * ratio,
+            this.position.getY() + dy * ratio
+        );  
+        if(position.getX()<0 || position.getX() > Common.getWindowWidth() ||
+            position.getY()<0 || position.getY() > Common.getWindowHeight()){
+                finished = true;
+        }
     }
 
     private void buyProduct(){
@@ -33,12 +42,12 @@ public abstract class Customer extends Entity {
         // TODO Auto-generated method stub
         //throw new UnsupportedOperationException("Unimplemented method 'step'");
         if(shoppingList.isEmpty()){
-                // Finished shopping
+            goOut();
             return;
         }
         if(targetStore == null){
             findNextStore();
-        }else if(targetStore.getPosition() == position){
+        }else if(Common.calculateDistance(targetStore.getPosition(), position) <= Common.getEntityRadius()){
             try {
                 buyProduct();
             } catch (Exception e) {  //handle different type of exceptions !!!
@@ -52,15 +61,16 @@ public abstract class Customer extends Entity {
             findNextStore();
         }else{
             // Move towards target store
-            double dx = targetStore.getPosition().getX() - this.position.getX();
-            double dy = targetStore.getPosition().getY() - this.position.getY();
+            double r = Common.getEntityRadius();
+            dx = targetStore.getPosition().getX() - this.position.getX() - 2*r;
+            dy = targetStore.getPosition().getY() - this.position.getY() - 2*r;
             double distance = Math.sqrt(dx * dx + dy * dy);
             if (distance <= movementSpeed) {
                 // Arrive at the store
                 this.position = targetStore.getPosition();
             } else {
                 // Move towards the store
-                double ratio = movementSpeed / distance;
+                ratio = movementSpeed / distance;
                 this.position = new Position(
                     this.position.getX() + dx * ratio,
                     this.position.getY() + dy * ratio

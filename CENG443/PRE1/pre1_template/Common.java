@@ -5,10 +5,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Common {
     private static final String title = "Economics 101";
-    private static final int windowWidth = 825;
-    private static final int windowHeight = 500;
+    private static final int windowWidth = 1650;
+    private static final int windowHeight = 1000;
 
-    private static final int entityRadius = 7; // radius of drawn entity (customer or store)
+    private static final int entityRadius = 20; // radius of drawn entity (customer or store)
 
     private static final int storeNo = 10; // number of stores in the simulation
     private static final int customerNo = 10; // number of customers
@@ -29,7 +29,7 @@ public class Common {
     private static final int stockStorageMin = 15; // minimum size of storage available for a store
     private static final int stockStorageMax = 25; // maximum number of storage available for a store
 
-    private static final int customerMovementSpeed = 2;
+    private static final double customerMovementSpeed = 0.5;
     private static final Font font = new Font("Verdana", Font.BOLD, 10);
 
     public static String getTitle() {
@@ -52,7 +52,7 @@ public class Common {
         return font;
     }
 
-    public static int getCustomerMovementSpeed() {
+    public static double getCustomerMovementSpeed() {
         return customerMovementSpeed;
     }
 
@@ -125,7 +125,7 @@ public class Common {
         for(int i=0; i<count; i++){
             double centerX = randInt(0, windowWidth - 2 * entityRadius);
             double centerY = randInt(0, windowHeight - 2 * entityRadius);
-            Store newStore = new Store(centerX, centerY, productType, randInt(bottomPrice, ceilingPrice), randInt(stockStorageMin, stockStorageMax));
+            Store newStore = new Store(centerX, centerY, productType, randInt(bottomPrice, ceilingPrice), randInt(stockStorageMin, stockStorageMax), stockReplenishmentFrequency);
             newStores.add(newStore);
         }
         System.out.println("********************Created " + count + " stores for " + productType);
@@ -137,30 +137,35 @@ public class Common {
     private static List<Customer> createCustomers(){
         List<Customer> newCustomers = new ArrayList<>();
         for(int i=0; i<customerNo; i++){
-            double centerX = randInt(0, windowWidth - 2 * entityRadius);
-            double centerY = randInt(0, windowHeight - 2 * entityRadius);
-            int shoppingListLength = randInt(minimumShoppingListLength, maximumShoppingListLength);
-            List<ProductType> shoppingList = new ArrayList<ProductType>();
-            for(int j=0; j<shoppingListLength; j++){
-                shoppingList.add(ProductType.values()[randInt(0, 2)]);
-            }
-            Customer newCustomer;
-            switch (randInt(0,2)) {
-                case 0:
-                    newCustomer = new ChCustomer(centerX, centerY, shoppingList);
-                    break;
-                case 1:
-                    newCustomer = new ClCustomer(centerX, centerY, shoppingList);
-                    break;
-                case 2:
-                    newCustomer = new TrCustomer(centerX, centerY, shoppingList);
-                    break;
-                default:
-                    throw new IllegalStateException("Unexpected value: " + randInt(0,2));
-            };
+            Customer newCustomer = createRandomCustomer();
             newCustomers.add(newCustomer);
         }
         return newCustomers;
+    }
+
+    public  static Customer createRandomCustomer(){
+        double centerX = randInt(0, windowWidth - 2 * entityRadius);
+        double centerY = randInt(0, windowHeight - 2 * entityRadius);
+        int shoppingListLength = randInt(minimumShoppingListLength, maximumShoppingListLength);
+        List<ProductType> shoppingList = new ArrayList<ProductType>();
+        for(int j=0; j<shoppingListLength; j++){
+            shoppingList.add(ProductType.values()[randInt(0, 2)]);
+        }
+        Customer newCustomer;
+        switch (randInt(0,2)) {
+            case 0:
+                newCustomer = new ChCustomer(centerX, centerY, shoppingList);
+                break;
+            case 1:
+                newCustomer = new ClCustomer(centerX, centerY, shoppingList);
+                break;
+            case 2:
+                newCustomer = new TrCustomer(centerX, centerY, shoppingList);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + randInt(0,2));
+        };
+        return newCustomer;
     }
 
     public static List<Customer> customers = createCustomers();
