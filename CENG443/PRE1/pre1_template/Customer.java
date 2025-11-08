@@ -25,7 +25,7 @@ public abstract class Customer extends Entity {
 
     private void buyProduct(){
         targetStore.sellProduct();
-        shoppingList.remove(0);
+        shoppingList.remove(targetStore.productType);
     }
 
     @Override
