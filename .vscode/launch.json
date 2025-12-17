@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Facility",
+            "request": "launch",
+            "mainClass": "Facility",
+            "projectName": "METU-CENG_80628396"
+        },
+        {
+            "type": "java",
             "name": "SimulationRunner",
             "request": "launch",
             "mainClass": "SimulationRunner",
