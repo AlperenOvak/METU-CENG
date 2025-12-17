@@ -1,3 +1,17 @@
+// AI ALERT
+// AI ALERT
+// AI ALERT
+// AI ALERT
+// AI ALERT
+// AI ALERT
+
+
+// I again implement produce and consume functions 
+// inside of this controller to see both functions to understand what happens for both
+// after development finished, I move it to thread classes accordingly with thanks to AI.
+// Again my inner goal for this is obeying the OOP principles -> Single Responsibility Principle (SRP)
+
+
 import java.util.List;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -21,101 +35,46 @@ public class MultiLockFacility {
             this.isFull = new int[totalProducers+1];
         }
 
-        public void produce(Tank tank) throws InterruptedException {
-            // Wait at barrier until phase is PRODUCING
-            barrierLock.lock();
-            try {
-                while (!producingPhase || isFull[tank.getId()] == 1) {
-                    producersCond.await();
-                    Actions.start_element_generator(tank.getId());
-                }
-            } finally {
-                barrierLock.unlock();
-            }
-
-            // Produce into tank
-            tank.getLock().lock();
-            try {
-                if (tank.getStock() >= tank.getCapacity()){
-                    
-                    // increase full Tank count at barrier
-                    barrierLock.lock();
-                    isFull[tank.getId()] = 1;
-                    try {
-                        fullTanks++;
-                        if (fullTanks == totalProducers) {
-                            producingPhase = false;
-                            consumerCond.signal();
-                        }
-                    } finally {
-                        barrierLock.unlock();
-                    }
-                    // return and wait for next phase
-                    Actions.stop_element_generator(tank.getId());
-                    tank.getLock().unlock();
-                    return;
-                }
-
-                tank.setStock(tank.getStock() + 1);
-                //System.out.println("Tank " + tank.getId() + " stock: " + tank.getStock());
-                Actions.generate_element(tank.getId());
-
-            } finally {}
-            tank.getLock().unlock();
+        // Getters and setters for SRP
+        public ReentrantLock getBarrierLock() {
+            return barrierLock;
         }
 
-
-        public void consumeBatch() throws InterruptedException {
-            barrierLock.lock();
-            try {
-                while (producingPhase) {
-                    consumerCond.await();
-                    Actions.start_compound_generator();
-                }
-            } finally {
-                barrierLock.unlock();
-            }
-
-            for (Tank t : tanks) t.getLock().lock();
-
-            try {
-                while (hasEnough()){
-                    //System.out.print("Consuming batch: ");
-                    for (Tank t : tanks) {
-                        t.setStock(t.getStock() - t.getBatch());
-                        //System.out.print(t.getStock() + " ");
-                    }
-                    //System.out.println();
-                    Actions.generate_compound();
-                }
-            } finally {
-                for (Tank t : tanks) {
-                    t.getLock().unlock();
-                }
-                switchToProducing();
-                Actions.stop_compound_generator();
-            }
+        public Condition getProducersCond() {
+            return producersCond;
         }
 
-        private boolean hasEnough() {
-            for (Tank t : tanks)
-                if (t.getStock() < t.getBatch())
-                    return false;
-            return true;
+        public Condition getConsumerCond() {
+            return consumerCond;
         }
 
-        private void switchToProducing() {
-            barrierLock.lock();
-            try {
-                fullTanks = 0;
-                producingPhase = true;
-                for (int i = 1; i <= totalProducers; i++) {
-                    isFull[i] = 0;
-                }
-                producersCond.signalAll();
-            } finally {
-                barrierLock.unlock();
-            }
+        public boolean isProducingPhase() {
+            return producingPhase;
         }
+
+        public void setProducingPhase(boolean producingPhase) {
+            this.producingPhase = producingPhase;
+        }
+
+        public int[] getIsFull() {
+            return isFull;
+        }
+
+        public int getFullTanks() {
+            return fullTanks;
+        }
+
+        public void setFullTanks(int fullTanks) {
+            this.fullTanks = fullTanks;
+        }
+
+        public int getTotalProducers() {
+            return totalProducers;
+        }
+
+        public List<Tank> getTanks() {
+            return tanks;
+        }
+        
     }
 }

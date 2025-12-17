@@ -7,7 +7,7 @@
 
 //I implement this class previously inside of MultiLockFacility
 //and its fields were public and there was no getter or setter.
-//Thankfully I change it and move it to here with AI to obey the OOP principles.
+//Thankfully I change it and move it to here with AI to obey the OOP principles -> Encapsulation.
 
 
 
