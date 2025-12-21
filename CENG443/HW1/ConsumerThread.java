@@ -63,8 +63,8 @@ public class ConsumerThread extends Thread {
                 for (Tank t : controller.getTanks()) {
                     t.getLock().unlock();
                 }
-                switchToProducing();
                 Actions.stop_compound_generator();
+                switchToProducing();
             }
         }
     }

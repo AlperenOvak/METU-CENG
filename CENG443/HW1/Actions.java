@@ -1,6 +1,5 @@
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicLong;
-import java.lang.Thread;
 
 public class Actions {
     private static AtomicLong counter = new AtomicLong(0);
@@ -31,15 +30,15 @@ public class Actions {
     }
 
     static void generate_element(int element_no) {
-        action(10, 20, "Generated E" + element_no);
+        action(10, 40, "Generated E" + element_no);
     }
 
     static void stop_element_generator(int element_no) {
-        action(10, 20, "Stopped E" + element_no + " Generator");
+        action(50, 60, "Stopped E" + element_no + " Generator");
     }
 
     static void start_compound_generator() {
-        action(10, 20, "Started Compound Generator");
+        action(1, 2, "Started Compound Generator");
     }
 
     static void generate_compound() {

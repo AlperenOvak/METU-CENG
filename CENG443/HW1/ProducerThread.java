@@ -34,34 +34,42 @@ public class ProducerThread extends Thread {
             }
 
             // Produce into tank
-            tank.getLock().lock();
             try {
+                tank.getLock().lock();
                 if (tank.getStock() >= tank.getCapacity()){
                     
                     // increase full Tank count at barrier
                     controller.getBarrierLock().lock();
                     controller.getIsFull()[tank.getId()] = 1;
+                    boolean allFull = false;
                     try {
                         controller.setFullTanks(controller.getFullTanks() + 1);
                         if (controller.getFullTanks() == controller.getTotalProducers()) {
                             controller.setProducingPhase(false);
+                            allFull = true;
+                        }
+                        Actions.stop_element_generator(tank.getId());
+                        // Signal consumer after action
+                        if (allFull) {
                             controller.getConsumerCond().signal();
                         }
                     } finally {
                         controller.getBarrierLock().unlock();
                     }
+                    
+                    
                     // return and wait for next phase
-                    Actions.stop_element_generator(tank.getId());
-                    tank.getLock().unlock();
+                    //tank.getLock().unlock();
                     continue; // instead of return, since in loop
                 }
 
+                Actions.generate_element(tank.getId());
                 tank.setStock(tank.getStock() + 1);
                 //System.out.println("Tank " + tank.getId() + " stock: " + tank.getStock());
-                Actions.generate_element(tank.getId());
 
-            } finally {}
-            tank.getLock().unlock();
+            } finally {
+                tank.getLock().unlock();
+            }
         }
     }
 }
