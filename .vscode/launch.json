@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Lab3",
+            "request": "launch",
+            "mainClass": "CENG443.PRE2.Lab3",
+            "projectName": "METU-CENG_80628396"
+        },
+        {
+            "type": "java",
             "name": "Facility",
             "request": "launch",
             "mainClass": "Facility",
