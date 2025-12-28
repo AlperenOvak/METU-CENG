@@ -1,19 +1,20 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Lab3 {
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Hello, World!");
-        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File("pre_data.csv"))));
+        
         Function<String, Purchase> mapToPurhchase = (line) -> {
             String[] p = line.split(",", -1);
             //System.out.println(p.length);
@@ -29,7 +30,13 @@ public class Lab3 {
         };
         
 
-        List<Purchase> purchases = br.lines().skip(1).map(mapToPurhchase).collect(Collectors.toList());
+        List<Purchase> purchases = new ArrayList<Purchase>();
+        try {
+            Stream<String> lines = Files.lines(Paths.get(args[0]));
+            purchases = lines.skip(1).map(mapToPurhchase).collect(Collectors.toList());
+        } catch (IOException ex) {
+            System.getLogger(Lab3.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
 
 
         // Query 0: test
@@ -67,13 +74,159 @@ public class Lab3 {
         System.out.println("Query 4");
         // q4 : What was the most popular product before 2000, in terms of 
         // total number of purchases whose include that item?
-        System.out.println(
-            purchases.stream().map(p->findSumPrice(p)).max(Comparator.comparing(m -> m.getKey())).get().getValue()
+        
+        
+        Long eggCount = purchases.stream().filter(p-> p.date.getYear() < 2000).filter(p -> p.eggQty != null).count();
+        Long breadCount = purchases.stream().filter(p-> p.date.getYear() < 2000).filter(p -> p.breadQty != null).count();
+        Long milkCount = purchases.stream().filter(p-> p.date.getYear() < 2000).filter(p -> p.milkQty != null).count();
+        Long potatoCount = purchases.stream().filter(p-> p.date.getYear() < 2000).filter(p -> p.potatoQty != null).count();
+        Long tomatoCount = purchases.stream().filter(p-> p.date.getYear() < 2000).filter(p -> p.tomatoQty != null).count();
+
+        Map<String, Long> productCount = Map.of(
+            "Eggs", eggCount,
+            "Breads", breadCount,
+            "Milks", milkCount,
+            "potatoes", potatoCount,
+            "tomatoes", tomatoCount
         );
+        String popularProduct = productCount.entrySet().stream()
+            .max(Comparator.comparing(Map.Entry::getValue))
+            .get()
+            .getKey();
+
+        System.out.println(popularProduct);
 
         System.out.println("--------");
+
+
+        System.out.println("Query 5");
+        // q4 : What was the least popular product after and including 2000, in terms of total number of items purchased?
+        
+        
+        eggCount = purchases.stream().filter(p-> p.date.getYear() >= 2000).filter(p -> p.eggQty != null).count();
+        breadCount = purchases.stream().filter(p-> p.date.getYear() >= 2000).filter(p -> p.breadQty != null).count();
+        milkCount = purchases.stream().filter(p-> p.date.getYear() >= 2000).filter(p -> p.milkQty != null).count();
+        potatoCount = purchases.stream().filter(p-> p.date.getYear() >= 2000).filter(p -> p.potatoQty != null).count();
+        tomatoCount = purchases.stream().filter(p-> p.date.getYear() >= 2000).filter(p -> p.tomatoQty != null).count();
+
+        Map<String, Long> productCountt = Map.of(
+            "Eggs", eggCount,
+            "Breads", breadCount,
+            "Milks", milkCount,
+            "potatoes", potatoCount,
+            "tomatoes", tomatoCount
+        );
+        String nonpopularProduct = productCountt.entrySet().stream()
+            .min(Comparator.comparing(Map.Entry::getValue))
+            .get()
+            .getKey();
+
+        System.out.println(nonpopularProduct);
+
+        System.out.println("--------");
+
+
+        System.out.println("Query 6");
+        // q6 :   What was the most popular product among teens considering number of purchases 
+        // including that item? (Hint: find the product with the smallest average customer age)
+
+        Double eggAvg = purchases.stream().filter(p -> p.eggQty != null).mapToInt(p -> p.age).average().orElse(0);
+        Double breadAvg = purchases.stream().filter(p -> p.breadQty != null).mapToInt(p -> p.age).average().orElse(0);
+        Double milkAvg = purchases.stream().filter(p -> p.milkQty != null).mapToInt(p -> p.age).average().orElse(0);
+        Double tomatoAvg = purchases.stream().filter(p -> p.tomatoQty != null).mapToInt(p -> p.age).average().orElse(0);
+        Double potatoAvg = purchases.stream().filter(p -> p.potatoQty != null).mapToInt(p -> p.age).average().orElse(0);
+
+        Map<String, Double> avgAges = Map.of(
+            "eggs" , eggAvg,
+            "breads", breadAvg,
+            "milk", milkAvg,
+            "tomato", tomatoAvg,
+            "potato", potatoAvg
+        );
+
+        String youngPopular = avgAges.entrySet().stream()
+            .min(Comparator.comparing(Map.Entry::getValue)).get().getKey();
+        System.out.println(
+            youngPopular
+        );
+    
+        System.out.println("--------");
+
+        question7(purchases);
+
     
     }
+
+    private static void question7(List<Purchase> purchases) {
+        // What was the most inflated product on the data? When calculating only consider the 
+        // oldest and the newest purchase and not the purchases between. As an exercise try to solve 
+        // this question by reading the stream only once.
+        ProductTracker tracker = purchases.stream()
+                                .reduce(new ProductTracker(), 
+                                        (acc, p) -> { acc.update(p); return acc; }
+                                        );
+
+        Map<String, Double> inflation = Map.of(
+        "BREAD", tracker.newestBread.breadPrice - tracker.oldestBread.breadPrice,
+        "MILK", tracker.newestMilk.milkPrice - tracker.oldestMilk.milkPrice,
+        "EGG", tracker.newestEgg.eggPrice - tracker.oldestEgg.eggPrice,
+        "TOMATO", tracker.newestTomato.tomatoPrice - tracker.oldestTomato.tomatoPrice,
+        "POTATO", tracker.newestPotato.potatoPrice - tracker.oldestPotato.potatoPrice
+        );
+
+        String mostInflated = inflation.entrySet().stream()
+                               .max(Comparator.comparing(Map.Entry::getValue))
+                               .get()
+                               .getKey();
+
+        System.out.println("Most inflated product: " + mostInflated);
+    }
+
+    static class ProductTracker {
+        Purchase oldestBread, newestBread;
+        Purchase oldestMilk, newestMilk;
+        Purchase oldestEgg, newestEgg;
+        Purchase oldestTomato, newestTomato;
+        Purchase oldestPotato, newestPotato;
+
+        // helper to update prices for a new purchase
+        void update(Purchase p) {
+            if (p.breadPrice != null) {
+                if (oldestBread == null || p.date.isBefore(oldestBread.date)) oldestBread = p;
+                if (newestBread == null || p.date.isAfter(newestBread.date)) newestBread = p;
+            }
+            if (p.milkPrice != null) {
+                if (oldestMilk == null || p.date.isBefore(oldestMilk.date)) oldestMilk = p;
+                if (newestMilk == null || p.date.isAfter(newestMilk.date)) newestMilk = p;
+            }
+            if (p.eggPrice != null) {
+                if (oldestEgg == null || p.date.isBefore(oldestEgg.date)) oldestEgg = p;
+                if (newestEgg == null || p.date.isAfter(newestEgg.date)) newestEgg = p;
+            }
+            if (p.tomatoPrice != null) {
+                if (oldestTomato == null || p.date.isBefore(oldestTomato.date)) oldestTomato = p;
+                if (newestTomato == null || p.date.isAfter(newestTomato.date)) newestTomato = p;
+            }
+            if (p.potatoPrice != null) {
+                if (oldestPotato == null || p.date.isBefore(oldestPotato.date)) oldestPotato = p;
+                if (newestPotato == null || p.date.isAfter(newestPotato.date)) newestPotato = p;
+            }
+        }
+
+        void update(ProductTracker p){
+            this.update(p.oldestBread);
+            this.update(p.newestBread);
+            this.update(p.oldestMilk);
+            this.update(p.newestMilk);
+            this.update(p.oldestEgg);
+            this.update(p.newestEgg);
+            this.update(p.oldestTomato);
+            this.update(p.newestTomato);
+            this.update(p.oldestPotato);
+            this.update(p.newestPotato);
+        }
+    }
+
 
 
     private static Double findMaxPrice(Purchase p){

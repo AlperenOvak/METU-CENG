@@ -25,8 +25,8 @@ public class Purchase {
 
     public Purchase(String name, Integer age, LocalDate date, 
         Double breadPrice, Integer breadQty, 
-        Double eggPrice, Integer eggQty, 
         Double milkPrice, Integer milkQty, 
+        Double eggPrice, Integer eggQty, 
         Double potatoPrice, Integer potatoQty,
         Double tomatoPrice, Integer tomatoQty
     ){
