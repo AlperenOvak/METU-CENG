@@ -4,3 +4,6 @@
 [submodule "CENG477"]
 	path = CENG477
 	url = https://github.com/mcantimurcan/ceng477.git
+[submodule "CENG435"]
+	path = CENG435
+	url = https://github.com/AlperenOvak/CENG435.git
