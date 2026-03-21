@@ -7,3 +7,6 @@
 [submodule "CENG435"]
 	path = CENG435
 	url = https://github.com/AlperenOvak/CENG435.git
+[submodule "CENG790"]
+	path = CENG790
+	url = https://github.com/AlperenOvak/CENG790-Big-Data.git
