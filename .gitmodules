@@ -1,0 +1,3 @@
+[submodule "CENG350-repo"]
+	path = CENG350-repo
+	url = https://github.com/AlperenOvak/CENG350.git
