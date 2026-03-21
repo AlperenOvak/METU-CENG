@@ -1,3 +1,6 @@
 [submodule "CENG350-repo"]
 	path = CENG350-repo
 	url = https://github.com/AlperenOvak/CENG350.git
+[submodule "CENG477"]
+	path = CENG477
+	url = https://github.com/mcantimurcan/ceng477.git
