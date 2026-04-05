@@ -1,0 +1,1 @@
+# Standard symmetric cross-entropy

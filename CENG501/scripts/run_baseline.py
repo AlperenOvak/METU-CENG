@@ -1,0 +1,1 @@
+# Run baseline CLIP evaluation

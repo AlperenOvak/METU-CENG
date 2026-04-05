@@ -1,0 +1,70 @@
+# C-CLIP Default Configuration
+
+model:
+  name: "openai/clip-vit-base-patch16"
+  image_size: 224
+  max_text_len: 77
+  feature_dim: 512
+
+training:
+  batch_size: 1024
+  epochs: 40
+  warmup_epochs: 5
+  random_seed: 42
+  num_workers: 4
+
+lora:
+  rank: 16
+  alpha: 32
+  dropout: 0.1
+  merge_alpha: 0.5
+
+optimizer:
+  weight_decay: 0.2
+  beta1: 0.9
+  beta2: 0.99
+
+learning_rates:
+  flickr30k:
+    image_encoder: 1.0e-5
+    text_encoder: 1.0e-4
+  coco:
+    image_encoder: 5.0e-7
+    text_encoder: 4.0e-5
+  pets:
+    image_encoder: 3.0e-5
+    text_encoder: 3.0e-4
+  lexica:
+    image_encoder: 3.0e-5
+    text_encoder: 3.0e-4
+  simpsons:
+    image_encoder: 3.0e-5
+    text_encoder: 3.0e-4
+  wikiart:
+    image_encoder: 3.0e-5
+    text_encoder: 3.0e-4
+  kream:
+    image_encoder: 3.0e-5
+    text_encoder: 3.0e-4
+  sketch:
+    image_encoder: 3.0e-5
+    text_encoder: 3.0e-4
+
+task_order:
+  - flickr30k
+  - coco
+  - pets
+  - lexica
+  - simpsons
+  - wikiart
+  - kream
+  - sketch
+
+paths:
+  data_dir: "./data"
+  checkpoint_dir: "./checkpoints"
+  log_dir: "./logs"
+
+projector:
+  hidden_dim: 512
+  output_dim: 512
